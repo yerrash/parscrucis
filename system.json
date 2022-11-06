@@ -1,0 +1,27 @@
+{
+  "id": "parscrucis",
+  "title": "Pars Crucis",
+  "description": "Homebrew RPG",
+  "version": "0",
+  "compatibility": {
+    "minimum": "10",
+    "verified": "10.287",
+    "maximum": "10"
+  },
+  "authors": [
+    {
+      "name": "Ismael Augusto Avila Correia"
+    }
+  ],
+  "scripts": [],
+  "esmodules": [],
+  "styles": [],
+  "packs": [],
+  "gridDistance": 1,
+  "gridUnits": "cs",
+  "primaryTokenAttribute": "resources.pv",
+  "secondaryTokenAttribute": "resources.pe",
+  "url": "https://github.com/yerrash/parscrucis",
+  "manifest": "",
+  "download": ""
+}
