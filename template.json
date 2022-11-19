@@ -5,39 +5,29 @@
       "common": {
         "attributes": {
           "fis": {
-            "value": 0,
-            "modifiers": {
-              "bonus": 0,
-              "temporary": 0
-            }
+            "value": 5,
+            "modifier": 0
           },
           "agi": {
-            "value": 0,
-            "modifiers": {
-              "bonus": 0,
-              "temporary": 0
-            }
+            "value": 4,
+            "modifier": 2
           },
           "alm": {
-            "value": 0,
-            "modifiers": {
-              "bonus": 0,
-              "temporary": 0
-            }
+            "value": 3,
+            "modifier": 0
           },
           "cog": {
-            "value": 0,
-            "modifiers": {
-              "bonus": 0,
-              "temporary": 0
-            }
+            "value": 2,
+            "modifier": 5
           },
           "esp": {
-            "value": 0,
-            "modifiers": {
-              "bonus": 0,
-              "temporary": 0
-            }
+            "value": 1,
+            "modifier": 0
+          },
+          "movement": {
+            "value": 3,
+            "modifiers": 0,
+            "units": "cs"
           }
         },
         "resources": {
@@ -49,58 +39,40 @@
           }
         },
         "subatributos": {
-          "movimento": {
-            "mover": 3,
-            "corrida": 5,
-            "units": "cs"
-          },
-          "esquiva": {
-            "value": 0,
-            "modifiers": {
-              "bonus": 0,
-              "temporary": 0
-            }
-          },
           "saude": {
-            "value": 0,
-            "modifiers": {
-              "bonus": 0,
-              "temporary": 0
-            }
+            "base": "",
+            "value": 1,
+            "modificador": 3
           },
           "esperteza": {
-            "value": 0,
-            "modifiers": {
-              "bonus": 0,
-              "temporary": 0
-            }
+            "base": "",
+            "value": 2,
+            "modificador": 2
           },
           "vontade": {
-            "value": 0,
-            "modifiers": {
-              "bonus": 0,
-              "temporary": 0
-            }
+            "base": "",
+            "value": 3,
+            "modificador": 1
           }
         },
-        "mitigacao": {
-          "ar": {
+        "mitigation": {
+          "armor": {
             "value": 0,
             "bonus": 0
           },
-          "robustez": {
+          "toughness": {
             "value": 0,
             "bonus": 0
           },
-          "blindagem": {
+          "blindage": {
             "value": 0,
             "bonus": 0
           },
-          "isolante": {
+          "insulation": {
             "value": 0,
             "bonus": 0
           },
-          "abascanto": {
+          "abascanth": {
             "value": 0,
             "bonus": 0
           }
@@ -110,14 +82,14 @@
           "appearance": ""
         },
         "currency": {
-          "moeda1": 0,
-          "moeda1type": "",
-          "moeda2": 0,
-          "moeda2type": "",
-          "moeda3": 0,
-          "moeda3type": "",
-          "moeda4": 0,
-          "moeda4type": ""
+          "coin1": 0,
+          "coin1type": "",
+          "coin2": 0,
+          "coin2type": "",
+          "coin3": 0,
+          "coin3type": "",
+          "coin4": 0,
+          "coin4type": ""
         }
       },
       "creature": {
@@ -137,8 +109,8 @@
             "max": 2
           }
         },
-        "pericias": {
-          "atl": {
+        "skill": {
+          "atlet": {
             "value": 0,
             "attribute": "fis",
             "growth": 1,
@@ -149,7 +121,7 @@
               "temporary": 0
             }
           },
-          "bri": {
+          "briga": {
             "value": 0,
             "attribute": "agi",
             "growth": 1,
@@ -160,7 +132,7 @@
               "temporary": 0
             }
           },
-          "con": {
+          "condu": {
             "value": 0,
             "attribute": "fis",
             "growth": 1,
@@ -171,18 +143,7 @@
               "temporary": 0
             }
           },
-          "esg": {
-            "value": 0,
-            "attribute": "agi",
-            "growth": 2,
-            "difficulty": "",
-            "favored": false,
-            "modifiers": {
-              "bonus": 0,
-              "temporary": 0
-            }
-          },
-          "has": {
+          "esgri": {
             "value": 0,
             "attribute": "agi",
             "growth": 2,
@@ -193,7 +154,18 @@
               "temporary": 0
             }
           },
-          "mal": {
+          "hasta": {
+            "value": 0,
+            "attribute": "agi",
+            "growth": 2,
+            "difficulty": "",
+            "favored": false,
+            "modifiers": {
+              "bonus": 0,
+              "temporary": 0
+            }
+          },
+          "malha": {
             "value": 0,
             "attribute": "fis",
             "growth": 1,
@@ -204,7 +176,7 @@
               "temporary": 0
             }
           },
-          "nat": {
+          "natac": {
             "value": 0,
             "attribute": "fis",
             "growth": 1,
@@ -215,7 +187,7 @@
               "temporary": 0
             }
           },
-          "res": {
+          "resis": {
             "value": 0,
             "attribute": "fis",
             "growth": 2,
@@ -234,7 +206,7 @@
       "templates": ["common", "creature"],
       "details": {
         "race": "",
-        "culture": "",
+        "cultura": "",
         "persona": "",
         "birth": "",
         "age": "",
@@ -263,10 +235,8 @@
   "Item": {
     "types": ["passive", "technique", "power", "weapon"],
     "templates": {
-      "description": {
-        "value": "",
-        "chat": "",
-        "unindentified": ""
+      "itemDescription": {
+        "description": ""
       },
       "evaluation": {
         "quantity": 1,
@@ -276,13 +246,13 @@
         "identified": true
       },
       "action": {
-        "pericia": null,
-        "tipo": null,
-        "difficulty": null,
-        "modifier": 0,
-        "chatFlavor": "",
-        "damage": [],
-        "formula": ""
+        "actionSkill": null,
+        "actionType": null,
+        "actionDiff": null,
+        "actionModifier": 0,
+        "actionFlavor": "",
+        "actionDamage": [],
+        "actionFormula": ""
       }
     },
     "htmlFields": [
@@ -291,22 +261,23 @@
       "description.unidentified"
     ],
     "passive": {
-      "templates": ["description"],
+      "templates": ["itemDescription"],
       "identifier": ""
     },
     "technique": {
-      "templates": ["description", "action"],
+      "templates": ["itemDescription", "action"],
       "effort": 0,
       "pre-requisites": ""
     },
     "power": {
-      "templates": ["description", "action"],
+      "templates": ["itemDescription", "action"],
       "powerSchool": "",
       "effort": 0,
       "pre-requisites": ""
     },
     "weapon": {
-      "templates": ["description", "evaluation", "action"],
+      "templates": ["itemDescription", "evaluation", "action"],
+      "weaponSkill": "",
       "weaponType": "",
       "properties": {},
       "requirements": ""

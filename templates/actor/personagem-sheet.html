@@ -1,0 +1,85 @@
+<form class="{{cssClass}}" autocomplete="off">
+  <header class="superior">
+    <img src="{{actor.img}}" data-edit="img" title="{{actor.name}}" />
+    <div>
+      <h2 class="charName">
+        <input
+          name="name"
+          type="text"
+          value="{{actor.name}}"
+          placeholder="Nome"
+        />
+      </h2>
+      <div class="racial">
+        <select name="system.details.race">
+          {{selectOptions config.race selected=actor.system.details.race}}
+        </select>
+        <select name="system.details.cultura">
+          {{selectOptions config.cultura selected=actor.system.details.cultura}}
+        </select>
+        <select name="system.details.persona">
+          {{selectOptions config.persona selected=actor.system.details.persona}}
+        </select>
+      </div>
+      <div class="att-window">
+        <div class="att-partial">
+          {{> systems/parscrucis/templates/actor/char-att-block.html}}
+        </div>
+        <div class="mitigation">
+          <p>Mitigação</p>
+          <div class="armor">
+            <h4>AR</h4>
+            <span>0</span>
+          </div>
+          <div class="armor minor-armor">
+            <h4>Robustez</h4>
+            <span>0</span>
+          </div>
+          <div class="armor minor-armor">
+            <h4>Blindagem</h4>
+            <span>0</span>
+          </div>
+          <div class="armor minor-armor">
+            <h4>Isolante</h4>
+            <span>0</span>
+          </div>
+          <div class="armor">
+            <h4>AB</h4>
+            <span>0</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Aba de navegação -->
+  <nav class="navigation" data-group="primary">
+    <a class="item" data-tab="pericias">Perícias</a>
+    <a class="item" data-tab="inventario">Inventário</a>
+    <a class="item" data-tab="habilidades">Habilidades</a>
+    <a class="item" data-tab="efeitos">Efeitos</a>
+    <a class="item" data-tab="info">Biografia</a>
+    <a class="item" data-tab="registros">Registros</a>
+  </nav>
+
+  <div class="tab-content">
+    <div class="tab" data-tab="pericias">
+      {{> systems/parscrucis/templates/actor/perks-tab.html}}
+    </div>
+    <div class="tab" data-tab="inventario">
+      {{> systems/parscrucis/templates/actor/inventory-tab.html}}
+    </div>
+    <div class="tab" data-tab="habilidades">
+      {{> systems/parscrucis/templates/actor/abilities-tab.html}}
+    </div>
+    <div class="tab" data-tab="efeitos">
+      {{> systems/parscrucis/templates/actor/effects-tab.html}}
+    </div>
+    <div class="tab" data-tab="info">
+      {{> systems/parscrucis/templates/actor/info-tab.html}}
+    </div>
+    <div class="tab" data-tab="registros">
+      {{> systems/parscrucis/templates/actor/notes-tab.html}}
+    </div>
+  </div>
+</form>

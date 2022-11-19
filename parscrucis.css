@@ -1,0 +1,94 @@
+.sheet form {
+  display: flex;
+  flex-direction: column;
+}
+.sheet .sheet-content {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.sheet h2 {
+  margin: 0;
+}
+.sheet h3 {
+  margin: 0;
+}
+.sheet .superior {
+  display: flex;
+  flex-direction: row;
+}
+.sheet .superior img {
+  height: 130px;
+  width: 130px;
+}
+.sheet .superior .racial select {
+  width: 33%;
+}
+.sheet .superior .att-window {
+  display: flex;
+  flex-direction: row;
+}
+.sheet .superior .att-window .att-partial .attributes {
+  display: flex;
+  flex-direction: row;
+}
+.sheet .superior .att-window .att-partial .attributes .stat-name {
+  text-align: center;
+}
+.sheet .superior .att-window .att-partial .attributes .stat-value {
+  display: flex;
+  flex-direction: row;
+}
+.sheet .superior .att-window .att-partial .attributes .stat-value .stat-modifier {
+  width: 50px;
+}
+.sheet .superior .att-window .att-partial .subatributos {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.sheet .superior .att-window .att-partial .subatributos .stat-name {
+  text-align: center;
+}
+.sheet .superior .att-window .att-partial .subatributos .stat-value {
+  display: flex;
+  flex-direction: row;
+}
+.sheet .superior .att-window .att-partial .subatributos .stat-value .stat-modifier {
+  width: 50px;
+}
+.sheet .superior .att-window .mitigation {
+  width: 35%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.sheet .superior .att-window .mitigation p {
+  margin: 0;
+  text-align: center;
+  font-weight: 700;
+}
+.sheet .superior .att-window .mitigation .armor {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.sheet .superior .att-window .mitigation .armor h4 {
+  margin: 0;
+}
+.sheet .superior .att-window .mitigation .minor-armor h4 {
+  font-size: 0.8rem;
+}
+.sheet .navigation {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+.sheet .tab-content .aba-pericias {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.sheet .tab-content .aba-pericias .agrupamento {
+  width: 30%;
+}

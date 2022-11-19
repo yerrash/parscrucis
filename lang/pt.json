@@ -1,0 +1,33 @@
+{
+  "PC.Archery": "Arqueria",
+  "PC.Projectile": "Projétil",
+  "parcrucis": {
+    "actionType": {
+      "none": "",
+      "melee": "CaC",
+      "Throw": "Arremesso",
+      "projectile": "Projétil",
+      "jet": "Jato",
+      "affliction": "Aflição",
+      "social": "Social",
+      "cognitive": "Cognitiva",
+      "debilitating": "Debilidade",
+      "area": "Área"
+    }
+  },
+  "PARSCRUCIS.WeaponSkills": "Perícia",
+  "PARSCRUCIS.WeaponType": "Tipo",
+
+  "PARSCRUCIS.Humano": "Humano",
+
+  "PARSCRUCIS.FIS": "FIS",
+  "PARSCRUCIS.AGI": "AGI",
+  "PARSCRUCIS.ALM": "ALM",
+  "PARSCRUCIS.COG": "COG",
+  "PARSCRUCIS.ESP": "ESP",
+  "PARSCRUCIS.Saude": "Saúde",
+  "PARSCRUCIS.Esperteza": "Esperteza",
+  "PARSCRUCIS.Vontade": "Vontade",
+
+  "PARSCRUCIS.Archery": "Arqueria"
+}

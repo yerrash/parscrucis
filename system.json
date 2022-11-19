@@ -1,8 +1,8 @@
 {
   "id": "parscrucis",
   "title": "Pars Crucis",
-  "description": "Homebrew RPG",
-  "version": "0",
+  "description": "Adaptação do sistema Pars Crucis para o Foundry Virtual Tabletop",
+  "version": "0.1",
   "compatibility": {
     "minimum": "10",
     "verified": "10.287",
@@ -14,13 +14,21 @@
     }
   ],
   "scripts": [],
-  "esmodules": [],
-  "styles": [],
+  "esmodules": ["parscrucis.js"],
+  "styles": ["parscrucis.css"],
   "packs": [],
+  "languages": [
+    {
+      "lang": "pt",
+      "name": "Português",
+      "path": "lang/pt.json"
+    }
+  ],
   "gridDistance": 1,
   "gridUnits": "cs",
   "primaryTokenAttribute": "resources.pv",
   "secondaryTokenAttribute": "resources.pe",
+  "initiative": "",
   "url": "https://github.com/yerrash/parscrucis",
   "manifest": "",
   "download": ""
