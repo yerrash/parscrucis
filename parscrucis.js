@@ -5,8 +5,8 @@ import ParsCrucisPersonagem from "./module/actor/personagem.js";
 
 async function preloadHandlebarsTemplates() {
   const templatePaths = [
-    "systems/parscrucis/templates/actor/char-att-block.html",
-    "systems/parscrucis/templates/actor/perks-tab.html",
+    "systems/parscrucis/templates/actor/char-att-block.hbs",
+    "systems/parscrucis/templates/actor/perks-tab.hbs",
     "systems/parscrucis/templates/actor/inventory-tab.html",
     "systems/parscrucis/templates/actor/abilities-tab.html",
     "systems/parscrucis/templates/actor/effects-tab.html",

@@ -55,17 +55,31 @@ PC.persona = {
   sabio: "Sábio",
 };
 
-PC.attSaude = {
+PC.attributes = {
+  fis: "FIS",
+  agi: "AGI",
+  alm: "ALM",
+  cog: "COG",
+  esp: "ESP",
+};
+
+PC.subatributos = {
+  saude: "Saúde",
+  esperteza: "Esperteza",
+  vontade: "Vontade",
+};
+
+PC.saude = {
   fisico: "FIS",
   alma: "ALM",
 };
 
-PC.attEsperteza = {
+PC.esperteza = {
   agilidade: "AGI",
   cognicao: "COG",
 };
 
-PC.attVontade = {
+PC.vontade = {
   alma: "ALM",
   espirito: "ESP",
 };

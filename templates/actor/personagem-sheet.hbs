@@ -1,29 +1,39 @@
 <form class="{{cssClass}}" autocomplete="off">
   <header class="superior">
     <img src="{{actor.img}}" data-edit="img" title="{{actor.name}}" />
-    <div>
-      <h2 class="charName">
-        <input
-          name="name"
-          type="text"
-          value="{{actor.name}}"
-          placeholder="Nome"
-        />
-      </h2>
-      <div class="racial">
-        <select name="system.details.race">
-          {{selectOptions config.race selected=actor.system.details.race}}
-        </select>
-        <select name="system.details.cultura">
-          {{selectOptions config.cultura selected=actor.system.details.cultura}}
-        </select>
-        <select name="system.details.persona">
-          {{selectOptions config.persona selected=actor.system.details.persona}}
-        </select>
+    <div class="superior-right">
+      <div class="name-exp">
+        <h2 class="charName">
+          <input
+            name="name"
+            type="text"
+            value="{{actor.name}}"
+            placeholder="Nome"
+          />
+        </h2>
+        <div class="exp-bar">
+          <span class="exp-ava">11</span>
+          <span class="exp-ttl">110</span>
+          <span class="exp-res">2</span>
+          <span class="exp">XP</span>
+        </div>
       </div>
-      <div class="att-window">
-        <div class="att-partial">
-          {{> systems/parscrucis/templates/actor/char-att-block.html}}
+      <div class="info-window">
+        <div class="left-window">
+          <div class="racial">
+            <select name="system.details.race">
+              {{selectOptions config.race selected=actor.system.details.race}}
+            </select>
+            <select name="system.details.cultura">
+              {{selectOptions config.cultura selected=actor.system.details.cultura}}
+            </select>
+            <select name="system.details.persona">
+              {{selectOptions config.persona selected=actor.system.details.persona}}
+            </select>
+          </div>
+          <div class="att-partial">
+            {{> systems/parscrucis/templates/actor/char-att-block.hbs}}
+          </div>
         </div>
         <div class="mitigation">
           <p>Mitigação</p>
@@ -64,7 +74,7 @@
 
   <div class="tab-content">
     <div class="tab" data-tab="pericias">
-      {{> systems/parscrucis/templates/actor/perks-tab.html}}
+      {{> systems/parscrucis/templates/actor/perks-tab.hbs}}
     </div>
     <div class="tab" data-tab="inventario">
       {{> systems/parscrucis/templates/actor/inventory-tab.html}}

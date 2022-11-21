@@ -1,59 +1,180 @@
 .sheet {
-  h2 {
-    margin: 0;
-  }
-  h3 {
+  h2,
+  h3,
+  h4 {
     margin: 0;
   }
   .superior {
     display: flex;
     flex-direction: row;
+    margin-bottom: 7px;
+
     img {
-      height: 130px;
-      width: 130px;
+      height: 145px;
+      width: 145px;
+      margin-right: -10px;
+      margin-bottom: -5px;
+      border: none;
     }
-    .racial select {
-      width: 33%;
+
+    .superior-right {
+      height: 140px;
     }
-    .att-window {
+
+    .name-exp {
       display: flex;
       flex-direction: row;
-      .att-partial {
-        .attributes {
+      .charName {
+        width: 80%;
+        margin-right: 3px;
+        font-size: 22px;
+        height: 23px;
+        input {
+          width: 100%;
+          padding: 0;
+          border: none;
+          background: none;
+        }
+      }
+      .exp-bar {
+        width: 20%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        border: 1px solid rgba(128, 128, 128, 0.432);
+        border-radius: 5px;
+        padding-left: 3px;
+
+        height: 20px;
+        :last-child {
+          border-width: 0;
+        }
+        span {
+          width: 25%;
+          font-size: 18px;
+          text-align: center;
+          border-color: #ec002770;
+          border-style: solid;
+          border-width: 0 1px 0 0;
+        }
+        .exp-ava {
+        }
+        .exp-ttl {
+          width: 35%;
+        }
+        .exp-res {
+          width: 15%;
+        }
+        .exp {
+          font-size: 18px;
+          height: 20px;
+          font-weight: 700;
+        }
+      }
+    }
+
+    .info-window {
+      display: flex;
+      flex-direction: row;
+      height: 117px;
+      .left-window {
+        display: flex;
+        flex-direction: column;
+        margin-right: 3px;
+        border: solid rgba(128, 128, 128, 0.432);
+        border-width: 0 1px 1px 0;
+        border-radius: 5px;
+        width: 80%;
+        .racial {
           display: flex;
           flex-direction: row;
-          .stat-name {
-            text-align: center;
-          }
-          .stat-value {
-            display: flex;
-            flex-direction: row;
-            .stat-modifier {
-              width: 50px;
-            }
+          width: 100%;
+          select {
+            height: 17px;
+            font-size: 12.5px;
+            flex-grow: 1;
+            border: 0;
+            border-radius: 3px;
+            padding: 0;
+            margin: 1px 2px;
           }
         }
-        .subatributos {
-          display: flex;
-          flex-direction: row;
-          justify-content: space-between;
-          .stat-name {
+        .att-partial {
+          input {
+            border: 0;
+            border-radius: 3px;
+            padding: 0;
+            margin: 1px 2px;
             text-align: center;
           }
-          .stat-value {
+          .attributes {
             display: flex;
             flex-direction: row;
-            .stat-modifier {
-              width: 50px;
+            margin-bottom: 3px;
+            width: 100%;
+            .attribute {
+              margin-right: 3px;
+              width: 25%;
+            }
+            .stat-name {
+              height: 20px;
+              text-align: center;
+            }
+            .stat-value {
+              font-size: 24px;
+              display: flex;
+              flex-direction: row;
+              input {
+                height: 30px;
+              }
+              .stat-modifier {
+                font-size: 16px;
+                width: 25px;
+              }
+              span {
+                font-size: 12px;
+              }
+            }
+          }
+          .subatributos {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            .subatributo {
+              margin-right: 3px;
+            }
+            .sub-name {
+              height: 18px;
+              font-size: 16px;
+              text-align: center;
+            }
+            .sub-num {
+              display: flex;
+              flex-direction: row;
+              align-items: center;
+              input {
+                height: 21px;
+              }
+              .sub-value {
+                font-size: 18px;
+              }
+              .sub-modifier {
+                width: 25px;
+                font-size: 16px;
+              }
             }
           }
         }
       }
       .mitigation {
-        width: 35%;
+        width: 20%;
         display: flex;
         flex-direction: column;
         justify-content: center;
+        padding: 0 2px;
+        border: 1px solid rgba(128, 128, 128, 0.432);
+        border-radius: 5px;
         p {
           margin: 0;
           text-align: center;
@@ -80,6 +201,19 @@
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+    border-color: #341ac9;
+    border-style: solid;
+    border-width: 1px 0 1px 0;
+    .item {
+      width: 12%;
+      text-align: center;
+    }
+    .active {
+      font-weight: 700;
+    }
+    a {
+      font-size: 16px;
+    }
   }
   .tab-content {
     .aba-pericias {
@@ -87,7 +221,84 @@
       flex-direction: row;
       justify-content: space-between;
       .agrupamento {
-        width: 30%;
+        width: 32.5%;
+        .grupo-pericias {
+          padding: 0;
+          list-style-type: none;
+          padding: 4px 2px 0;
+          border: 1px solid rgba(128, 128, 128, 0.432);
+          border-radius: 5px;
+          .titulo-grupo-per {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            width: 100%;
+            height: 16px;
+            margin-bottom: 2px;
+            .nome-grupo {
+              width: 80%;
+              font-size: 16px;
+            }
+            .nivel-grupo {
+              width: 10%;
+              padding-right: 2px;
+              font-size: 16px;
+              text-align: right;
+            }
+            .mod-grupo {
+              width: 10%;
+              font-size: 16px;
+              text-align: right;
+            }
+          }
+          .pericia {
+            height: 21px;
+            font-size: 0.95rem;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            width: 100%;
+            .nome-pericia {
+              width: 50%;
+            }
+            .apr-pericia {
+              width: 15%;
+              font-size: 10.5px;
+              text-align: center;
+            }
+            .att-pericia {
+              width: 15%;
+              font-size: 12.5px;
+              text-align: center;
+            }
+            input {
+              border: 0;
+              border-radius: 3px;
+              padding: 0 3px 0 0;
+              margin: 0 0 0 3px;
+              height: 18px;
+              text-align: right;
+            }
+            .val-pericia {
+              width: 10%;
+              font-weight: 600;
+              :focus {
+              }
+            }
+            .mod-pericia {
+              width: 10%;
+              padding: 0 1px 0 0;
+            }
+          }
+        }
+      }
+    }
+    .lists {
+      padding: 3px;
+      border: 1px solid rgba(128, 128, 128, 0.432);
+      border-radius: 5px;
+      p {
+        margin: 0;
       }
     }
   }

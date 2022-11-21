@@ -1,0 +1,89 @@
+<section class="attributes">
+  {{#each config.attributes as |attribute obj|}}
+    {{#with (lookup @root.actor.system.attributes obj) as |att|}}
+      <div class="attribute">
+        <label>
+          <h3 class="stat-name">{{attribute}}</h3>
+        </label>
+        <div class="stat-value">
+          <input
+            name="system.attributes.{{@key}}.value"
+            type="Number"
+            value="{{att.value}}"
+            data-dtype="Number"
+          />
+          <input
+            class="stat-modifier"
+            name="system.attributes.{{@key}}.modifier"
+            type="Number"
+            value="{{att.modifier}}"
+            data-dtype="Number"
+          />
+        </div>
+      </div>
+    {{/with}}
+  {{/each}}
+  <div>
+    <label>
+      <h3 class="stat-name">MV</h3>
+    </label>
+    <div class="stat-value">
+      <input
+        name="system.attributes.movement.value"
+        type="text"
+        value="{{data.system.attributes.movement.value}}"
+        data-dtype="Number"
+      />
+      <input
+        class="stat-modifier"
+        name="system.attributes.movement.modifier"
+        type="text"
+        value="{{data.system.attributes.movement.modifier}}"
+        data-dtype="Number"
+      />
+    </div>
+  </div>
+</section>
+<section class="subatributos">
+  {{#each config.subatributos as |subatributo obj|}}
+    {{log subatributo}}
+    {{#with (lookup @root.actor.system.subatributos obj) as |subatt|}}
+      <div class="subatributo">
+        <label>
+          <h3 class="sub-name">{{subatributo}}</h3>
+        </label>
+        <div class="sub-num">
+          <span>ATT</span>
+          <input
+            class="sub-value"
+            name="system.subatributos.{{@key}}.value"
+            type="Number"
+            value="{{subatt.value}}"
+            data-dtype="Number"
+          />
+          <input
+            class="sub-modifier"
+            name="system.subatributos.{{@key}}.modifier"
+            type="Number"
+            value="{{subatt.modifier}}"
+            data-dtype="Number"
+          />
+        </div>
+      </div>
+    {{/with}}
+  {{/each}}
+  <div>
+    <label>
+      <h3 class="sub-name">Sorte</h3>
+    </label>
+    <div class="sub-num">
+      <input
+        class="sub-value"
+        name="system.resources.sorte.value"
+        type="text"
+        value="{{data.system.resources.sorte.value}}"
+        data-dtype="Number"
+      />
+    </div>
+  </div>
+</section>

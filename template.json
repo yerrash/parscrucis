@@ -109,94 +109,395 @@
             "max": 2
           }
         },
-        "skill": {
+        "skills": {
           "atlet": {
             "value": 0,
-            "attribute": "fis",
+            "attribute": "FIS",
             "growth": 1,
-            "difficulty": "",
-            "favored": false,
-            "modifiers": {
-              "bonus": 0,
-              "temporary": 0
-            }
+            "aprendizado": "",
+            "favor": false,
+            "modifiers": 0
           },
           "briga": {
             "value": 0,
-            "attribute": "agi",
+            "attribute": "AGI",
             "growth": 1,
-            "difficulty": "",
-            "favored": false,
-            "modifiers": {
-              "bonus": 0,
-              "temporary": 0
-            }
+            "aprendizado": "",
+            "favor": false,
+            "modifiers": 0
           },
           "condu": {
             "value": 0,
-            "attribute": "fis",
+            "attribute": "FIS",
             "growth": 1,
-            "difficulty": "",
-            "favored": false,
-            "modifiers": {
-              "bonus": 0,
-              "temporary": 0
-            }
+            "aprendizado": "",
+            "favor": false,
+            "modifiers": 0
           },
           "esgri": {
             "value": 0,
-            "attribute": "agi",
+            "attribute": "AGI",
             "growth": 2,
-            "difficulty": "",
-            "favored": false,
-            "modifiers": {
-              "bonus": 0,
-              "temporary": 0
-            }
+            "aprendizado": "",
+            "favor": false,
+            "modifiers": 0
           },
           "hasta": {
             "value": 0,
-            "attribute": "agi",
+            "attribute": "AGI",
             "growth": 2,
-            "difficulty": "",
-            "favored": false,
-            "modifiers": {
-              "bonus": 0,
-              "temporary": 0
-            }
+            "aprendizado": "",
+            "favor": false,
+            "modifiers": 0
           },
           "malha": {
             "value": 0,
-            "attribute": "fis",
+            "attribute": "FIS",
             "growth": 1,
-            "difficulty": "",
-            "favored": false,
-            "modifiers": {
-              "bonus": 0,
-              "temporary": 0
-            }
+            "aprendizado": "",
+            "favor": false,
+            "modifiers": 0
           },
           "natac": {
             "value": 0,
-            "attribute": "fis",
+            "attribute": "FIS",
             "growth": 1,
-            "difficulty": "",
-            "favored": false,
-            "modifiers": {
-              "bonus": 0,
-              "temporary": 0
-            }
+            "aprendizado": "",
+            "favor": false,
+            "modifiers": 0
           },
           "resis": {
             "value": 0,
-            "attribute": "fis",
+            "attribute": "FIS",
             "growth": 2,
-            "difficulty": "Difícil",
-            "favored": false,
-            "modifiers": {
-              "bonus": 0,
-              "temporary": 0
-            }
+            "aprendizado": "Difícil",
+            "favor": false,
+            "modifiers": 0
+          },
+
+          "arque": {
+            "value": 0,
+            "attribute": "AGI",
+            "growth": 1,
+            "aprendizado": "",
+            "favor": false,
+            "modifiers": 0
+          },
+          "balis": {
+            "value": 0,
+            "attribute": "AGI",
+            "growth": 1,
+            "aprendizado": "",
+            "favor": false,
+            "modifiers": 0
+          },
+          "furti": {
+            "value": 0,
+            "attribute": "AGI",
+            "growth": 1,
+            "aprendizado": "",
+            "favor": false,
+            "modifiers": 0
+          },
+          "intui": {
+            "value": 0,
+            "attribute": "ALM",
+            "growth": 1,
+            "aprendizado": "",
+            "favor": false,
+            "modifiers": 0
+          },
+          "inves": {
+            "value": 0,
+            "attribute": "COG",
+            "growth": 1,
+            "aprendizado": "",
+            "favor": false,
+            "modifiers": 0
+          },
+          "ladin": {
+            "value": 0,
+            "attribute": "AGI",
+            "growth": 1,
+            "aprendizado": "",
+            "favor": false,
+            "modifiers": 0
+          },
+          "nauti": {
+            "value": 0,
+            "attribute": "AGI",
+            "growth": 2,
+            "aprendizado": "",
+            "favor": false,
+            "modifiers": 0
+          },
+          "sobre": {
+            "value": 0,
+            "attribute": "COG",
+            "growth": 2,
+            "aprendizado": "",
+            "favor": false,
+            "modifiers": 0
+          },
+
+          "cienc": {
+            "value": 0,
+            "attribute": "COG",
+            "growth": 1,
+            "aprendizado": "",
+            "favor": false,
+            "modifiers": 0
+          },
+          "erudi": {
+            "value": 0,
+            "attribute": "COG",
+            "growth": 1,
+            "aprendizado": "",
+            "favor": false,
+            "modifiers": 0
+          },
+          "engen": {
+            "value": 0,
+            "attribute": "COG",
+            "growth": 1,
+            "aprendizado": "",
+            "favor": false,
+            "modifiers": 0
+          },
+          "guerr": {
+            "value": 0,
+            "attribute": "COG",
+            "growth": 2,
+            "aprendizado": "",
+            "favor": false,
+            "modifiers": 0
+          },
+          "medic": {
+            "value": 0,
+            "attribute": "COG",
+            "growth": 1,
+            "aprendizado": "",
+            "favor": false,
+            "modifiers": 0
+          },
+          "ontol": {
+            "value": 0,
+            "attribute": "ESP",
+            "growth": 2,
+            "aprendizado": "",
+            "favor": false,
+            "modifiers": 0
+          },
+          "orien": {
+            "value": 0,
+            "attribute": "COG",
+            "growth": 1,
+            "aprendizado": "",
+            "favor": false,
+            "modifiers": 0
+          },
+          "profi": {
+            "value": 0,
+            "attribute": "COG",
+            "growth": 2,
+            "aprendizado": "",
+            "favor": false,
+            "modifiers": 0
+          },
+
+          "alqui": {
+            "value": 0,
+            "attribute": "COG",
+            "growth": 1,
+            "aprendizado": "Difícil",
+            "favor": false,
+            "modifiers": 0
+          },
+          "artif": {
+            "value": 0,
+            "attribute": "COG",
+            "growth": 1,
+            "aprendizado": "Difícil",
+            "favor": false,
+            "modifiers": 0
+          },
+          "carpi": {
+            "value": 0,
+            "attribute": "COG",
+            "growth": 1,
+            "aprendizado": "",
+            "favor": false,
+            "modifiers": 0
+          },
+          "costu": {
+            "value": 0,
+            "attribute": "AGI",
+            "growth": 2,
+            "aprendizado": "",
+            "favor": false,
+            "modifiers": 0
+          },
+          "ferre": {
+            "value": 0,
+            "attribute": "FIS",
+            "growth": 1,
+            "aprendizado": "Difícil",
+            "favor": false,
+            "modifiers": 0
+          },
+          "garim": {
+            "value": 0,
+            "attribute": "FIS",
+            "growth": 1,
+            "aprendizado": "",
+            "favor": false,
+            "modifiers": 0
+          },
+          "herba": {
+            "value": 0,
+            "attribute": "COG",
+            "growth": 1,
+            "aprendizado": "",
+            "favor": false,
+            "modifiers": 0
+          },
+          "venef": {
+            "value": 0,
+            "attribute": "COG",
+            "growth": 1,
+            "aprendizado": "Difícil",
+            "favor": false,
+            "modifiers": 0
+          },
+
+          "artim": {
+            "value": 0,
+            "attribute": "ALM",
+            "growth": 1,
+            "aprendizado": "",
+            "favor": false,
+            "modifiers": 0
+          },
+          "cultu": {
+            "value": 0,
+            "attribute": "ALM",
+            "growth": 1,
+            "aprendizado": "",
+            "favor": false,
+            "modifiers": 0
+          },
+          "domar": {
+            "value": 0,
+            "attribute": "ALM",
+            "growth": 1,
+            "aprendizado": "",
+            "favor": false,
+            "modifiers": 0
+          },
+          "expre": {
+            "value": 0,
+            "attribute": "ALM",
+            "growth": 2,
+            "aprendizado": "",
+            "favor": false,
+            "modifiers": 0
+          },
+          "idiom": {
+            "value": 0,
+            "attribute": "ALM",
+            "growth": 2,
+            "aprendizado": "",
+            "favor": false,
+            "modifiers": 0
+          },
+          "impos": {
+            "value": 0,
+            "attribute": "ALM",
+            "growth": 1,
+            "aprendizado": "",
+            "favor": false,
+            "modifiers": 0
+          },
+          "negoc": {
+            "value": 0,
+            "attribute": "ALM",
+            "growth": 1,
+            "aprendizado": "",
+            "favor": false,
+            "modifiers": 0
+          },
+          "seduc": {
+            "value": 0,
+            "attribute": "ALM",
+            "growth": 1,
+            "aprendizado": "",
+            "favor": false,
+            "modifiers": 0
+          },
+
+          "amago": {
+            "value": 0,
+            "attribute": "ESP",
+            "growth": 1,
+            "aprendizado": "Difícil",
+            "favor": false,
+            "modifiers": 0
+          },
+          "aoism": {
+            "value": 0,
+            "attribute": "ESP",
+            "growth": 1,
+            "aprendizado": "Difícil",
+            "favor": false,
+            "modifiers": 0
+          },
+          "arcan": {
+            "value": 0,
+            "attribute": "COG",
+            "growth": 2,
+            "aprendizado": "Difícil",
+            "favor": false,
+            "modifiers": 0
+          },
+          "bardi": {
+            "value": 0,
+            "attribute": "ALM",
+            "growth": 1,
+            "aprendizado": "Difícil",
+            "favor": false,
+            "modifiers": 0
+          },
+          "crono": {
+            "value": 0,
+            "attribute": "COG",
+            "growth": 1,
+            "aprendizado": "Difícil",
+            "favor": false,
+            "modifiers": 0
+          },
+          "druid": {
+            "value": 0,
+            "attribute": "ESP",
+            "growth": 1,
+            "aprendizado": "Difícil",
+            "favor": false,
+            "modifiers": 0
+          },
+          "eleme": {
+            "value": 0,
+            "attribute": "ESP",
+            "growth": 1,
+            "aprendizado": "Difícil",
+            "favor": false,
+            "modifiers": 0
+          },
+          "sabak": {
+            "value": 0,
+            "attribute": "ESP",
+            "growth": 1,
+            "aprendizado": "Difícil",
+            "favor": false,
+            "modifiers": 0
           }
         }
       }

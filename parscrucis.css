@@ -7,82 +7,209 @@
   display: flex;
   flex-direction: column;
 }
-.sheet h2 {
-  margin: 0;
-}
-.sheet h3 {
+.sheet h2,
+.sheet h3,
+.sheet h4 {
   margin: 0;
 }
 .sheet .superior {
   display: flex;
   flex-direction: row;
+  margin-bottom: 7px;
 }
 .sheet .superior img {
-  height: 130px;
-  width: 130px;
+  height: 145px;
+  width: 145px;
+  margin-right: -10px;
+  margin-bottom: -5px;
+  border: none;
 }
-.sheet .superior .racial select {
-  width: 33%;
+.sheet .superior .superior-right {
+  height: 140px;
 }
-.sheet .superior .att-window {
+.sheet .superior .name-exp {
   display: flex;
   flex-direction: row;
 }
-.sheet .superior .att-window .att-partial .attributes {
+.sheet .superior .name-exp .charName {
+  width: 80%;
+  margin-right: 3px;
+  font-size: 22px;
+  height: 23px;
+}
+.sheet .superior .name-exp .charName input {
+  width: 100%;
+  padding: 0;
+  border: none;
+  background: none;
+}
+.sheet .superior .name-exp .exp-bar {
+  width: 20%;
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid rgba(128, 128, 128, 0.432);
+  border-radius: 5px;
+  padding-left: 3px;
+  height: 20px;
 }
-.sheet .superior .att-window .att-partial .attributes .stat-name {
+.sheet .superior .name-exp .exp-bar :last-child {
+  border-width: 0;
+}
+.sheet .superior .name-exp .exp-bar span {
+  width: 25%;
+  font-size: 18px;
+  text-align: center;
+  border-color: #ec002770;
+  border-style: solid;
+  border-width: 0 1px 0 0;
+}
+.sheet .superior .name-exp .exp-bar .exp-ttl {
+  width: 35%;
+}
+.sheet .superior .name-exp .exp-bar .exp-res {
+  width: 15%;
+}
+.sheet .superior .name-exp .exp-bar .exp {
+  font-size: 18px;
+  height: 20px;
+  font-weight: 700;
+}
+.sheet .superior .info-window {
+  display: flex;
+  flex-direction: row;
+  height: 117px;
+}
+.sheet .superior .info-window .left-window {
+  display: flex;
+  flex-direction: column;
+  margin-right: 3px;
+  border: solid rgba(128, 128, 128, 0.432);
+  border-width: 0 1px 1px 0;
+  border-radius: 5px;
+  width: 80%;
+}
+.sheet .superior .info-window .left-window .racial {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+.sheet .superior .info-window .left-window .racial select {
+  height: 17px;
+  font-size: 12.5px;
+  flex-grow: 1;
+  border: 0;
+  border-radius: 3px;
+  padding: 0;
+  margin: 1px 2px;
+}
+.sheet .superior .info-window .left-window .att-partial input {
+  border: 0;
+  border-radius: 3px;
+  padding: 0;
+  margin: 1px 2px;
   text-align: center;
 }
-.sheet .superior .att-window .att-partial .attributes .stat-value {
+.sheet .superior .info-window .left-window .att-partial .attributes {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 3px;
+  width: 100%;
+}
+.sheet .superior .info-window .left-window .att-partial .attributes .attribute {
+  margin-right: 3px;
+  width: 25%;
+}
+.sheet .superior .info-window .left-window .att-partial .attributes .stat-name {
+  height: 20px;
+  text-align: center;
+}
+.sheet .superior .info-window .left-window .att-partial .attributes .stat-value {
+  font-size: 24px;
   display: flex;
   flex-direction: row;
 }
-.sheet .superior .att-window .att-partial .attributes .stat-value .stat-modifier {
-  width: 50px;
+.sheet .superior .info-window .left-window .att-partial .attributes .stat-value input {
+  height: 30px;
 }
-.sheet .superior .att-window .att-partial .subatributos {
+.sheet .superior .info-window .left-window .att-partial .attributes .stat-value .stat-modifier {
+  font-size: 16px;
+  width: 25px;
+}
+.sheet .superior .info-window .left-window .att-partial .attributes .stat-value span {
+  font-size: 12px;
+}
+.sheet .superior .info-window .left-window .att-partial .subatributos {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 }
-.sheet .superior .att-window .att-partial .subatributos .stat-name {
+.sheet .superior .info-window .left-window .att-partial .subatributos .subatributo {
+  margin-right: 3px;
+}
+.sheet .superior .info-window .left-window .att-partial .subatributos .sub-name {
+  height: 18px;
+  font-size: 16px;
   text-align: center;
 }
-.sheet .superior .att-window .att-partial .subatributos .stat-value {
+.sheet .superior .info-window .left-window .att-partial .subatributos .sub-num {
   display: flex;
   flex-direction: row;
+  align-items: center;
 }
-.sheet .superior .att-window .att-partial .subatributos .stat-value .stat-modifier {
-  width: 50px;
+.sheet .superior .info-window .left-window .att-partial .subatributos .sub-num input {
+  height: 21px;
 }
-.sheet .superior .att-window .mitigation {
-  width: 35%;
+.sheet .superior .info-window .left-window .att-partial .subatributos .sub-num .sub-value {
+  font-size: 18px;
+}
+.sheet .superior .info-window .left-window .att-partial .subatributos .sub-num .sub-modifier {
+  width: 25px;
+  font-size: 16px;
+}
+.sheet .superior .info-window .mitigation {
+  width: 20%;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  padding: 0 2px;
+  border: 1px solid rgba(128, 128, 128, 0.432);
+  border-radius: 5px;
 }
-.sheet .superior .att-window .mitigation p {
+.sheet .superior .info-window .mitigation p {
   margin: 0;
   text-align: center;
   font-weight: 700;
 }
-.sheet .superior .att-window .mitigation .armor {
+.sheet .superior .info-window .mitigation .armor {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 }
-.sheet .superior .att-window .mitigation .armor h4 {
+.sheet .superior .info-window .mitigation .armor h4 {
   margin: 0;
 }
-.sheet .superior .att-window .mitigation .minor-armor h4 {
+.sheet .superior .info-window .mitigation .minor-armor h4 {
   font-size: 0.8rem;
 }
 .sheet .navigation {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+  border-color: #341ac9;
+  border-style: solid;
+  border-width: 1px 0 1px 0;
+}
+.sheet .navigation .item {
+  width: 12%;
+  text-align: center;
+}
+.sheet .navigation .active {
+  font-weight: 700;
+}
+.sheet .navigation a {
+  font-size: 16px;
 }
 .sheet .tab-content .aba-pericias {
   display: flex;
@@ -90,5 +217,80 @@
   justify-content: space-between;
 }
 .sheet .tab-content .aba-pericias .agrupamento {
-  width: 30%;
+  width: 32.5%;
+}
+.sheet .tab-content .aba-pericias .agrupamento .grupo-pericias {
+  padding: 0;
+  list-style-type: none;
+  padding: 4px 2px 0;
+  border: 1px solid rgba(128, 128, 128, 0.432);
+  border-radius: 5px;
+}
+.sheet .tab-content .aba-pericias .agrupamento .grupo-pericias .titulo-grupo-per {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  height: 16px;
+  margin-bottom: 2px;
+}
+.sheet .tab-content .aba-pericias .agrupamento .grupo-pericias .titulo-grupo-per .nome-grupo {
+  width: 80%;
+  font-size: 16px;
+}
+.sheet .tab-content .aba-pericias .agrupamento .grupo-pericias .titulo-grupo-per .nivel-grupo {
+  width: 10%;
+  padding-right: 2px;
+  font-size: 16px;
+  text-align: right;
+}
+.sheet .tab-content .aba-pericias .agrupamento .grupo-pericias .titulo-grupo-per .mod-grupo {
+  width: 10%;
+  font-size: 16px;
+  text-align: right;
+}
+.sheet .tab-content .aba-pericias .agrupamento .grupo-pericias .pericia {
+  height: 21px;
+  font-size: 0.95rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+}
+.sheet .tab-content .aba-pericias .agrupamento .grupo-pericias .pericia .nome-pericia {
+  width: 50%;
+}
+.sheet .tab-content .aba-pericias .agrupamento .grupo-pericias .pericia .apr-pericia {
+  width: 15%;
+  font-size: 10.5px;
+  text-align: center;
+}
+.sheet .tab-content .aba-pericias .agrupamento .grupo-pericias .pericia .att-pericia {
+  width: 15%;
+  font-size: 12.5px;
+  text-align: center;
+}
+.sheet .tab-content .aba-pericias .agrupamento .grupo-pericias .pericia input {
+  border: 0;
+  border-radius: 3px;
+  padding: 0 3px 0 0;
+  margin: 0 0 0 3px;
+  height: 18px;
+  text-align: right;
+}
+.sheet .tab-content .aba-pericias .agrupamento .grupo-pericias .pericia .val-pericia {
+  width: 10%;
+  font-weight: 600;
+}
+.sheet .tab-content .aba-pericias .agrupamento .grupo-pericias .pericia .mod-pericia {
+  width: 10%;
+  padding: 0 1px 0 0;
+}
+.sheet .tab-content .lists {
+  padding: 3px;
+  border: 1px solid rgba(128, 128, 128, 0.432);
+  border-radius: 5px;
+}
+.sheet .tab-content .lists p {
+  margin: 0;
 }
