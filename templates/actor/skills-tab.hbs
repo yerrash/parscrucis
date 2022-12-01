@@ -1,0 +1,50 @@
+<section class="skills-tab">
+  {{#each config.categories as |cat objs|}}
+    <div class="grouping">
+      <ul class="skill-group {{objs}}">
+        <h3 class="group-title subtitle">
+          <span class="group-name">{{cat}}</span>
+          <span class="tag-lvl">N</span>
+          <span class="tag-mod">M</span>
+        </h3>
+        {{#each (lookup @root.config objs) as |p obj|}}
+          {{#with (lookup @root.actor.system.skills obj) as |per|}}
+            <li class="skill">
+              <h4 class="skill-title">
+                <a
+                  class="rollable-skill"
+                  data-label="{{p}}"
+                  data-skill-key="{{@key}}"
+                >{{p}}</a>
+              </h4>
+              <span class="skill-rate">{{per.aprendizado}}</span>
+              <span class="skill-att">
+                {{per.attribute}}{{#if
+                  (gte per.growth 2)
+                }}/{{per.growth}}{{/if}}
+              </span>
+              <input
+                class="val-pericia"
+                name="system.skills.{{@key}}.value"
+                type="Number"
+                value="{{per.value}}"
+                data-dtype="Number"
+              />
+              <input
+                class="mod-pericia"
+                name="system.skills.{{@key}}.modifiers"
+                type="Number"
+                value="{{per.modifiers}}"
+                data-dtype="Number"
+              />
+            </li>
+          {{/with}}
+        {{/each}}
+      </ul>
+    </div>
+  {{/each}}
+</section>
+<section class="lists">
+  <p>Lista de profissões</p>
+  <p>Lista de idiomas</p>
+</section>

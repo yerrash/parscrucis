@@ -1,6 +1,7 @@
 <form class="{{cssClass}}" autocomplete="off">
+  <!-- Sheet header -->
   <header class="superior">
-    <img src="{{actor.img}}" data-edit="img" title="{{actor.name}}" />
+    <img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" />
     <div class="superior-right">
       <div class="name-exp">
         <h2 class="charName">
@@ -13,19 +14,31 @@
         </h2>
         <div class="exp-bar">
           <span class="exp-ava">11</span>
-          <span class="exp-ttl">110</span>
-          <span class="exp-res">2</span>
+          <input
+            class="exp-ttl"
+            name="system.details.exp"
+            type="text"
+            value="{{systemData.details.exp}}"
+            data-dtype="Number"
+          />
+          <input
+            class="exp-res"
+            name="system.details.expReserve"
+            type="text"
+            value="{{systemData.details.expReserve}}"
+            data-dtype="Number"
+          />
           <span class="exp">XP</span>
         </div>
       </div>
-      <div class="info-window">
+      <div class="stats-window">
         <div class="left-window">
           <div class="racial">
             <select name="system.details.race">
               {{selectOptions config.race selected=actor.system.details.race}}
             </select>
-            <select name="system.details.cultura">
-              {{selectOptions config.cultura selected=actor.system.details.cultura}}
+            <select name="system.details.culture">
+              {{selectOptions config.culture selected=actor.system.details.culture}}
             </select>
             <select name="system.details.persona">
               {{selectOptions config.persona selected=actor.system.details.persona}}
@@ -35,34 +48,18 @@
             {{> systems/parscrucis/templates/actor/char-att-block.hbs}}
           </div>
         </div>
-        <div class="mitigation">
-          <p>Mitigação</p>
-          <div class="armor">
-            <h4>AR</h4>
-            <span>0</span>
-          </div>
-          <div class="armor minor-armor">
-            <h4>Robustez</h4>
-            <span>0</span>
-          </div>
-          <div class="armor minor-armor">
-            <h4>Blindagem</h4>
-            <span>0</span>
-          </div>
-          <div class="armor minor-armor">
-            <h4>Isolante</h4>
-            <span>0</span>
-          </div>
-          <div class="armor">
-            <h4>AB</h4>
-            <span>0</span>
-          </div>
+        <div class="right-window">
+          {{> systems/parscrucis/templates/actor/mit-minors.hbs}}
         </div>
       </div>
     </div>
   </header>
 
-  <!-- Aba de navegação -->
+  <section class="resources">
+
+  </section>
+
+  <!-- Navigation tab -->
   <nav class="navigation" data-group="primary">
     <a class="item" data-tab="pericias">Perícias</a>
     <a class="item" data-tab="inventario">Inventário</a>
@@ -72,24 +69,25 @@
     <a class="item" data-tab="registros">Registros</a>
   </nav>
 
+  <!-- Body -->
   <div class="tab-content">
     <div class="tab" data-tab="pericias">
-      {{> systems/parscrucis/templates/actor/perks-tab.hbs}}
+      {{> systems/parscrucis/templates/actor/skills-tab.hbs}}
     </div>
     <div class="tab" data-tab="inventario">
-      {{> systems/parscrucis/templates/actor/inventory-tab.html}}
+      {{> systems/parscrucis/templates/actor/inventory-tab.hbs}}
     </div>
     <div class="tab" data-tab="habilidades">
-      {{> systems/parscrucis/templates/actor/abilities-tab.html}}
+      {{> systems/parscrucis/templates/actor/abilities-tab.hbs}}
     </div>
     <div class="tab" data-tab="efeitos">
-      {{> systems/parscrucis/templates/actor/effects-tab.html}}
+      {{> systems/parscrucis/templates/actor/effects-tab.hbs}}
     </div>
     <div class="tab" data-tab="info">
-      {{> systems/parscrucis/templates/actor/info-tab.html}}
+      {{> systems/parscrucis/templates/actor/info-tab.hbs}}
     </div>
     <div class="tab" data-tab="registros">
-      {{> systems/parscrucis/templates/actor/notes-tab.html}}
+      {{> systems/parscrucis/templates/actor/notes-tab.hbs}}
     </div>
   </div>
 </form>

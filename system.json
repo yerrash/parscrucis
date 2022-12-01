@@ -14,7 +14,7 @@
     }
   ],
   "scripts": [],
-  "esmodules": ["parscrucis.js"],
+  "esmodules": ["parscrucis.mjs"],
   "styles": ["parscrucis.css"],
   "packs": [],
   "languages": [
@@ -22,13 +22,17 @@
       "lang": "pt",
       "name": "Português",
       "path": "lang/pt.json"
+    },
+    {
+      "lang": "en",
+      "name": "English",
+      "path": "lang/en.json"
     }
   ],
   "gridDistance": 1,
   "gridUnits": "cs",
   "primaryTokenAttribute": "resources.pv",
   "secondaryTokenAttribute": "resources.pe",
-  "initiative": "",
   "url": "https://github.com/yerrash/parscrucis",
   "manifest": "",
   "download": ""

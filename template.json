@@ -5,81 +5,82 @@
       "common": {
         "attributes": {
           "fis": {
-            "value": 5,
-            "modifier": 0
+            "value": 0,
+            "modifiers": 0
           },
           "agi": {
-            "value": 4,
-            "modifier": 2
+            "value": 0,
+            "modifiers": 0
           },
-          "alm": {
-            "value": 3,
-            "modifier": 0
+          "ego": {
+            "value": 0,
+            "modifiers": 0
           },
-          "cog": {
-            "value": 2,
-            "modifier": 5
+          "int": {
+            "value": 0,
+            "modifiers": 0
           },
           "esp": {
-            "value": 1,
-            "modifier": 0
+            "value": 0,
+            "modifiers": 0
           },
           "movement": {
             "value": 3,
             "modifiers": 0,
+            "sprint": 5,
             "units": "cs"
           }
         },
         "resources": {
           "pv": {
             "value": 15,
-            "min": 0,
             "max": 15,
-            "pain": 0
+            "pain": 0,
+            "temp": 0
           }
         },
-        "subatributos": {
+        "minors": {
           "saude": {
-            "base": "",
-            "value": 1,
-            "modificador": 3
+            "base": "att",
+            "value": 0,
+            "modifiers": 0
           },
           "esperteza": {
-            "base": "",
-            "value": 2,
-            "modificador": 2
+            "base": "att",
+            "value": 0,
+            "modifiers": 0
           },
           "vontade": {
-            "base": "",
-            "value": 3,
-            "modificador": 1
+            "base": "att",
+            "value": 0,
+            "modifiers": 0
           }
         },
         "mitigation": {
           "armor": {
             "value": 0,
-            "bonus": 0
+            "modifiers": 0
           },
           "toughness": {
             "value": 0,
-            "bonus": 0
+            "modifiers": 0
           },
           "blindage": {
             "value": 0,
-            "bonus": 0
+            "modifiers": 0
           },
           "insulation": {
             "value": 0,
-            "bonus": 0
+            "modifiers": 0
           },
           "abascanth": {
             "value": 0,
-            "bonus": 0
+            "modifiers": 0
           }
         },
         "details": {
-          "biography": "",
-          "appearance": ""
+          "bio": "",
+          "looks": ""
         },
         "currency": {
           "coin1": 0,
@@ -96,9 +97,9 @@
         "resources": {
           "pe": {
             "value": 15,
-            "min": 0,
             "max": 15,
-            "held": 0
+            "held": 0,
+            "temp": 0
           },
           "limiar": {
             "value": 5
@@ -113,6 +114,7 @@
           "atlet": {
             "value": 0,
             "attribute": "FIS",
+            "group": "physical",
             "growth": 1,
             "aprendizado": "",
             "favor": false,
@@ -121,6 +123,7 @@
           "briga": {
             "value": 0,
             "attribute": "AGI",
+            "group": "physical",
             "growth": 1,
             "aprendizado": "",
             "favor": false,
@@ -129,6 +132,7 @@
           "condu": {
             "value": 0,
             "attribute": "FIS",
+            "group": "physical",
             "growth": 1,
             "aprendizado": "",
             "favor": false,
@@ -137,6 +141,7 @@
           "esgri": {
             "value": 0,
             "attribute": "AGI",
+            "group": "physical",
             "growth": 2,
             "aprendizado": "",
             "favor": false,
@@ -145,6 +150,7 @@
           "hasta": {
             "value": 0,
             "attribute": "AGI",
+            "group": "physical",
             "growth": 2,
             "aprendizado": "",
             "favor": false,
@@ -153,6 +159,7 @@
           "malha": {
             "value": 0,
             "attribute": "FIS",
+            "group": "physical",
             "growth": 1,
             "aprendizado": "",
             "favor": false,
@@ -161,6 +168,7 @@
           "natac": {
             "value": 0,
             "attribute": "FIS",
+            "group": "physical",
             "growth": 1,
             "aprendizado": "",
             "favor": false,
@@ -169,6 +177,7 @@
           "resis": {
             "value": 0,
             "attribute": "FIS",
+            "group": "physical",
             "growth": 2,
             "aprendizado": "Difícil",
             "favor": false,
@@ -178,6 +187,7 @@
           "arque": {
             "value": 0,
             "attribute": "AGI",
+            "group": "subterfuge",
             "growth": 1,
             "aprendizado": "",
             "favor": false,
@@ -186,6 +196,7 @@
           "balis": {
             "value": 0,
             "attribute": "AGI",
+            "group": "subterfuge",
             "growth": 1,
             "aprendizado": "",
             "favor": false,
@@ -194,6 +205,7 @@
           "furti": {
             "value": 0,
             "attribute": "AGI",
+            "group": "subterfuge",
             "growth": 1,
             "aprendizado": "",
             "favor": false,
@@ -201,7 +213,8 @@
           },
           "intui": {
             "value": 0,
-            "attribute": "ALM",
+            "attribute": "EGO",
+            "group": "subterfuge",
             "growth": 1,
             "aprendizado": "",
             "favor": false,
@@ -209,7 +222,8 @@
           },
           "inves": {
             "value": 0,
-            "attribute": "COG",
+            "attribute": "INT",
+            "group": "subterfuge",
             "growth": 1,
             "aprendizado": "",
             "favor": false,
@@ -218,6 +232,7 @@
           "ladin": {
             "value": 0,
             "attribute": "AGI",
+            "group": "subterfuge",
             "growth": 1,
             "aprendizado": "",
             "favor": false,
@@ -226,6 +241,7 @@
           "nauti": {
             "value": 0,
             "attribute": "AGI",
+            "group": "subterfuge",
             "growth": 2,
             "aprendizado": "",
             "favor": false,
@@ -233,7 +249,8 @@
           },
           "sobre": {
             "value": 0,
-            "attribute": "COG",
+            "attribute": "INT",
+            "group": "subterfuge",
             "growth": 2,
             "aprendizado": "",
             "favor": false,
@@ -242,7 +259,8 @@
 
           "cienc": {
             "value": 0,
-            "attribute": "COG",
+            "attribute": "INT",
+            "group": "knowledge",
             "growth": 1,
             "aprendizado": "",
             "favor": false,
@@ -250,7 +268,8 @@
           },
           "erudi": {
             "value": 0,
-            "attribute": "COG",
+            "attribute": "INT",
+            "group": "knowledge",
             "growth": 1,
             "aprendizado": "",
             "favor": false,
@@ -258,7 +277,8 @@
           },
           "engen": {
             "value": 0,
-            "attribute": "COG",
+            "attribute": "INT",
+            "group": "knowledge",
             "growth": 1,
             "aprendizado": "",
             "favor": false,
@@ -266,7 +286,8 @@
           },
           "guerr": {
             "value": 0,
-            "attribute": "COG",
+            "attribute": "INT",
+            "group": "knowledge",
             "growth": 2,
             "aprendizado": "",
             "favor": false,
@@ -274,7 +295,8 @@
           },
           "medic": {
             "value": 0,
-            "attribute": "COG",
+            "attribute": "INT",
+            "group": "knowledge",
             "growth": 1,
             "aprendizado": "",
             "favor": false,
@@ -283,6 +305,7 @@
           "ontol": {
             "value": 0,
             "attribute": "ESP",
+            "group": "knowledge",
             "growth": 2,
             "aprendizado": "",
             "favor": false,
@@ -290,7 +313,8 @@
           },
           "orien": {
             "value": 0,
-            "attribute": "COG",
+            "attribute": "INT",
+            "group": "knowledge",
             "growth": 1,
             "aprendizado": "",
             "favor": false,
@@ -298,7 +322,8 @@
           },
           "profi": {
             "value": 0,
-            "attribute": "COG",
+            "attribute": "INT",
+            "group": "knowledge",
             "growth": 2,
             "aprendizado": "",
             "favor": false,
@@ -307,7 +332,8 @@
 
           "alqui": {
             "value": 0,
-            "attribute": "COG",
+            "attribute": "INT",
+            "group": "craft",
             "growth": 1,
             "aprendizado": "Difícil",
             "favor": false,
@@ -315,7 +341,8 @@
           },
           "artif": {
             "value": 0,
-            "attribute": "COG",
+            "attribute": "INT",
+            "group": "craft",
             "growth": 1,
             "aprendizado": "Difícil",
             "favor": false,
@@ -323,7 +350,8 @@
           },
           "carpi": {
             "value": 0,
-            "attribute": "COG",
+            "attribute": "INT",
+            "group": "craft",
             "growth": 1,
             "aprendizado": "",
             "favor": false,
@@ -332,6 +360,7 @@
           "costu": {
             "value": 0,
             "attribute": "AGI",
+            "group": "craft",
             "growth": 2,
             "aprendizado": "",
             "favor": false,
@@ -340,6 +369,7 @@
           "ferre": {
             "value": 0,
             "attribute": "FIS",
+            "group": "craft",
             "growth": 1,
             "aprendizado": "Difícil",
             "favor": false,
@@ -348,6 +378,7 @@
           "garim": {
             "value": 0,
             "attribute": "FIS",
+            "group": "craft",
             "growth": 1,
             "aprendizado": "",
             "favor": false,
@@ -355,7 +386,8 @@
           },
           "herba": {
             "value": 0,
-            "attribute": "COG",
+            "attribute": "INT",
+            "group": "craft",
             "growth": 1,
             "aprendizado": "",
             "favor": false,
@@ -363,7 +395,8 @@
           },
           "venef": {
             "value": 0,
-            "attribute": "COG",
+            "attribute": "INT",
+            "group": "craft",
             "growth": 1,
             "aprendizado": "Difícil",
             "favor": false,
@@ -372,7 +405,8 @@
 
           "artim": {
             "value": 0,
-            "attribute": "ALM",
+            "attribute": "EGO",
+            "group": "social",
             "growth": 1,
             "aprendizado": "",
             "favor": false,
@@ -380,7 +414,8 @@
           },
           "cultu": {
             "value": 0,
-            "attribute": "ALM",
+            "attribute": "EGO",
+            "group": "social",
             "growth": 1,
             "aprendizado": "",
             "favor": false,
@@ -388,7 +423,8 @@
           },
           "domar": {
             "value": 0,
-            "attribute": "ALM",
+            "attribute": "EGO",
+            "group": "social",
             "growth": 1,
             "aprendizado": "",
             "favor": false,
@@ -396,7 +432,8 @@
           },
           "expre": {
             "value": 0,
-            "attribute": "ALM",
+            "attribute": "EGO",
+            "group": "social",
             "growth": 2,
             "aprendizado": "",
             "favor": false,
@@ -404,7 +441,8 @@
           },
           "idiom": {
             "value": 0,
-            "attribute": "ALM",
+            "attribute": "EGO",
+            "group": "social",
             "growth": 2,
             "aprendizado": "",
             "favor": false,
@@ -412,7 +450,8 @@
           },
           "impos": {
             "value": 0,
-            "attribute": "ALM",
+            "attribute": "EGO",
+            "group": "social",
             "growth": 1,
             "aprendizado": "",
             "favor": false,
@@ -420,7 +459,8 @@
           },
           "negoc": {
             "value": 0,
-            "attribute": "ALM",
+            "attribute": "EGO",
+            "group": "social",
             "growth": 1,
             "aprendizado": "",
             "favor": false,
@@ -428,7 +468,8 @@
           },
           "seduc": {
             "value": 0,
-            "attribute": "ALM",
+            "attribute": "EGO",
+            "group": "social",
             "growth": 1,
             "aprendizado": "",
             "favor": false,
@@ -438,7 +479,8 @@
           "amago": {
             "value": 0,
             "attribute": "ESP",
-            "growth": 1,
+            "group": "supernatural",
+            "growth": 2,
             "aprendizado": "Difícil",
             "favor": false,
             "modifiers": 0
@@ -446,6 +488,7 @@
           "aoism": {
             "value": 0,
             "attribute": "ESP",
+            "group": "supernatural",
             "growth": 1,
             "aprendizado": "Difícil",
             "favor": false,
@@ -453,15 +496,17 @@
           },
           "arcan": {
             "value": 0,
-            "attribute": "COG",
-            "growth": 2,
+            "attribute": "INT",
+            "group": "supernatural",
+            "growth": 1,
             "aprendizado": "Difícil",
             "favor": false,
             "modifiers": 0
           },
           "bardi": {
             "value": 0,
-            "attribute": "ALM",
+            "attribute": "EGO",
+            "group": "supernatural",
             "growth": 1,
             "aprendizado": "Difícil",
             "favor": false,
@@ -469,7 +514,8 @@
           },
           "crono": {
             "value": 0,
-            "attribute": "COG",
+            "attribute": "INT",
+            "group": "supernatural",
             "growth": 1,
             "aprendizado": "Difícil",
             "favor": false,
@@ -478,6 +524,7 @@
           "druid": {
             "value": 0,
             "attribute": "ESP",
+            "group": "supernatural",
             "growth": 1,
             "aprendizado": "Difícil",
             "favor": false,
@@ -486,6 +533,7 @@
           "eleme": {
             "value": 0,
             "attribute": "ESP",
+            "group": "supernatural",
             "growth": 1,
             "aprendizado": "Difícil",
             "favor": false,
@@ -494,6 +542,7 @@
           "sabak": {
             "value": 0,
             "attribute": "ESP",
+            "group": "supernatural",
             "growth": 1,
             "aprendizado": "Difícil",
             "favor": false,
@@ -502,19 +551,21 @@
         }
       }
     },
-    "htmlFields": ["details.biography", "details.apprearence"],
+    "htmlFields": ["details.bio", "details.appearance"],
     "personagem": {
       "templates": ["common", "creature"],
       "details": {
         "race": "",
-        "cultura": "",
+        "culture": "",
         "persona": "",
-        "birth": "",
+        "birth": "XΔ",
+        "exp": 50,
+        "expReserve": 0,
         "age": "",
         "height": "",
         "weight": "",
-        "behavior": "",
-        "goal": ""
+        "quirks": "",
+        "goals": ""
       }
     },
     "pdm": {
@@ -523,13 +574,12 @@
         "race": "",
         "culture": "",
         "persona": "",
-        "birth": "",
+        "birth": "XΔ",
         "age": "",
         "height": "",
         "weight": "",
-        "behavior": "",
-        "goal": "",
-        "allegiance": ""
+        "quirks": "",
+        "goals": ""
       }
     }
   },

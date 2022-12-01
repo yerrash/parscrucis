@@ -1,0 +1,93 @@
+<section class="mitigation">
+  <div class="armor-group">
+    {{#each config.armor as |armor obj|}}
+      {{#with (lookup @root.actor.system.mitigation obj) as |mit|}}
+        <div class="armor">
+          <h3>
+            <div>{{armor}}</div>
+          </h3>
+          <input
+            class="mit-value"
+            name="system.mitigation.{{@key}}.value"
+            type="Number"
+            value="{{mit.value}}"
+            data-dtype="Number"
+          />
+          <input
+            class="mit-modifiers"
+            name="system.mitigation.{{@key}}.modifiers"
+            type="Number"
+            value="{{mit.modifiers}}"
+            data-dtype="Number"
+          />
+        </div>
+      {{/with}}
+    {{/each}}
+  </div>
+  <div class="protections">
+    {{#each config.protections as |protec obj|}}
+      {{#with (lookup @root.actor.system.mitigation obj) as |mit|}}
+        <div class="protection">
+          <h3>
+            <div>{{protec}}</div>
+          </h3>
+          <input
+            class="mit-modifiers"
+            name="system.mitigation.{{@key}}.modifiers"
+            type="Number"
+            value="{{mit.modifiers}}"
+            data-dtype="Number"
+          />
+        </div>
+      {{/with}}
+    {{/each}}
+  </div>
+</section>
+<section class="minors">
+  <div class="luck">
+    <label>
+      <h3 class="luck-name">
+        <div>Sorte</div>
+      </h3>
+    </label>
+    <div class="luck-num">
+      <input
+        class="luck-value"
+        name="system.resources.sorte.value"
+        type="Number"
+        value="{{data.system.resources.sorte.value}}"
+        data-dtype="Number"
+      />
+    </div>
+  </div>
+  {{#each config.minors as |minor obj|}}
+    {{#with (lookup @root.actor.system.minors obj) as |minatt|}}
+      <div class="minor">
+        <label>
+          <h3 class="minor-name">
+            <a data-minor-key="{{@key}}">{{minor}}</a>
+          </h3>
+        </label>
+        <div class="minor-num">
+          <select name="system.minors.{{@key}}.base">
+            {{selectOptions (lookup @root.config obj) selected=minatt.base}}
+          </select>
+          <input
+            class="minor-value"
+            name="system.minors.{{@key}}.value"
+            type="Number"
+            value="{{minatt.value}}"
+            data-dtype="Number"
+          />
+          <input
+            class="minor-modifier"
+            name="system.minors.{{@key}}.modifiers"
+            type="Number"
+            value="{{minatt.modifiers}}"
+            data-dtype="Number"
+          />
+        </div>
+      </div>
+    {{/with}}
+  {{/each}}
+</section>

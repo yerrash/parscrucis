@@ -1,3 +1,43 @@
+.editor {
+  height: 100%;
+}
+.editor .tox:not(.tox-tinymce-inline) .tox-editor-header {
+  height: 36px;
+  padding: 5px 0 3px 0;
+  top: -20px;
+}
+.editor button.tox-tbtn,
+.editor .tox-tbtn--select {
+  margin: 1px 1px 4px 0;
+  height: 24px;
+  width: auto;
+}
+.editor .tox-toolbar__primary .tox-toolbar__group {
+  padding: 0 5px 0 6px;
+}
+.editor p {
+  margin: 1px 0 2px;
+}
+@font-face {
+  font-family: "RubikGlitch";
+  src: url("fonts/RubikGlitch-Regular.ttf");
+}
+@font-face {
+  font-family: "IMFellEnglishSC";
+  src: url("fonts/IMFellEnglishSC-Regular.ttf");
+}
+@font-face {
+  font-family: "IMFellDWPica";
+  src: url("fonts/IMFellDWPica-Regular.ttf");
+}
+@font-face {
+  font-family: "IMFellDWPicaSC";
+  src: url("fonts/IMFellDWPicaSC-Regular.ttf");
+}
+@font-face {
+  font-family: "Acme";
+  src: url("fonts/Acme-Regular.ttf");
+}
 .sheet form {
   display: flex;
   flex-direction: column;
@@ -12,29 +52,51 @@
 .sheet h4 {
   margin: 0;
 }
+.sheet h3 {
+  font-size: 18px;
+}
+.sheet .subtitle {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  height: 16px;
+  margin-bottom: 2px;
+  font-size: 17px;
+}
 .sheet .superior {
+  font-family: "Acme";
   display: flex;
   flex-direction: row;
   margin-bottom: 7px;
 }
+.sheet .superior input {
+  border: 0;
+  border-radius: 3px;
+  padding: 0;
+}
+.sheet .superior select {
+  border: 0;
+  border-radius: 3px;
+  padding: 0;
+}
 .sheet .superior img {
-  height: 145px;
-  width: 145px;
-  margin-right: -10px;
+  height: 155px;
+  width: 155px;
+  margin-right: -5px;
   margin-bottom: -5px;
   border: none;
 }
 .sheet .superior .superior-right {
-  height: 140px;
+  height: 152px;
 }
 .sheet .superior .name-exp {
   display: flex;
   flex-direction: row;
 }
 .sheet .superior .name-exp .charName {
-  width: 80%;
+  width: calc(100% - 160px);
   margin-right: 3px;
-  font-size: 22px;
   height: 23px;
 }
 .sheet .superior .name-exp .charName input {
@@ -42,9 +104,12 @@
   padding: 0;
   border: none;
   background: none;
+  font-family: "IMFellDWPica";
+  font-size: 26px;
+  padding-left: 3px;
 }
 .sheet .superior .name-exp .exp-bar {
-  width: 20%;
+  width: 160px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -57,13 +122,20 @@
 .sheet .superior .name-exp .exp-bar :last-child {
   border-width: 0;
 }
-.sheet .superior .name-exp .exp-bar span {
+.sheet .superior .name-exp .exp-bar span,
+.sheet .superior .name-exp .exp-bar .exp-ttl,
+.sheet .superior .name-exp .exp-bar .exp-res {
   width: 25%;
-  font-size: 18px;
+  height: 24px;
+  line-height: 24px;
+  font-size: 22px;
   text-align: center;
   border-color: #ec002770;
   border-style: solid;
   border-width: 0 1px 0 0;
+  border-radius: 0;
+  background-color: transparent;
+  margin: 0;
 }
 .sheet .superior .name-exp .exp-bar .exp-ttl {
   width: 35%;
@@ -72,134 +144,302 @@
   width: 15%;
 }
 .sheet .superior .name-exp .exp-bar .exp {
-  font-size: 18px;
+  font-size: 20px;
+  line-height: 22px;
   height: 20px;
   font-weight: 700;
 }
-.sheet .superior .info-window {
+.sheet .superior .stats-window {
   display: flex;
   flex-direction: row;
-  height: 117px;
+  height: 129px;
 }
-.sheet .superior .info-window .left-window {
+.sheet .superior .stats-window .left-window {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   margin-right: 3px;
   border: solid rgba(128, 128, 128, 0.432);
   border-width: 0 1px 1px 0;
-  border-radius: 5px;
-  width: 80%;
+  border-radius: 0 0 5px 0;
+  width: calc(100% - 160px);
+  padding: 1px 0;
 }
-.sheet .superior .info-window .left-window .racial {
+.sheet .superior .stats-window .left-window .racial {
   display: flex;
   flex-direction: row;
   width: 100%;
 }
-.sheet .superior .info-window .left-window .racial select {
+.sheet .superior .stats-window .left-window .racial select {
   height: 17px;
-  font-size: 12.5px;
+  font-size: 14px;
   flex-grow: 1;
-  border: 0;
-  border-radius: 3px;
-  padding: 0;
   margin: 1px 2px;
 }
-.sheet .superior .info-window .left-window .att-partial input {
-  border: 0;
-  border-radius: 3px;
+.sheet .superior .stats-window .left-window .att-partial input {
   padding: 0;
   margin: 1px 2px;
   text-align: center;
 }
-.sheet .superior .info-window .left-window .att-partial .attributes {
-  display: flex;
-  flex-direction: row;
-  margin-bottom: 3px;
-  width: 100%;
-}
-.sheet .superior .info-window .left-window .att-partial .attributes .attribute {
-  margin-right: 3px;
-  width: 25%;
-}
-.sheet .superior .info-window .left-window .att-partial .attributes .stat-name {
-  height: 20px;
-  text-align: center;
-}
-.sheet .superior .info-window .left-window .att-partial .attributes .stat-value {
-  font-size: 24px;
-  display: flex;
-  flex-direction: row;
-}
-.sheet .superior .info-window .left-window .att-partial .attributes .stat-value input {
-  height: 30px;
-}
-.sheet .superior .info-window .left-window .att-partial .attributes .stat-value .stat-modifier {
-  font-size: 16px;
-  width: 25px;
-}
-.sheet .superior .info-window .left-window .att-partial .attributes .stat-value span {
-  font-size: 12px;
-}
-.sheet .superior .info-window .left-window .att-partial .subatributos {
+.sheet .superior .stats-window .left-window .att-partial .attributes {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  margin-bottom: 3px;
+  width: 100%;
 }
-.sheet .superior .info-window .left-window .att-partial .subatributos .subatributo {
+.sheet .superior .stats-window .left-window .att-partial .attributes .attribute {
   margin-right: 3px;
+  width: 15%;
 }
-.sheet .superior .info-window .left-window .att-partial .subatributos .sub-name {
-  height: 18px;
-  font-size: 16px;
+.sheet .superior .stats-window .left-window .att-partial .attributes .stat-name {
   text-align: center;
+  font-family: "IMFellEnglishSC";
+  font-weight: 700;
+  height: 19px;
 }
-.sheet .superior .info-window .left-window .att-partial .subatributos .sub-num {
+.sheet .superior .stats-window .left-window .att-partial .attributes .stat-name a,
+.sheet .superior .stats-window .left-window .att-partial .attributes .stat-name div {
+  height: 18px;
+}
+.sheet .superior .stats-window .left-window .att-partial .attributes .stat {
+  font-size: 28px;
   display: flex;
   flex-direction: row;
   align-items: center;
 }
-.sheet .superior .info-window .left-window .att-partial .subatributos .sub-num input {
-  height: 21px;
+.sheet .superior .stats-window .left-window .att-partial .attributes .stat input {
+  height: 30px;
 }
-.sheet .superior .info-window .left-window .att-partial .subatributos .sub-num .sub-value {
-  font-size: 18px;
+.sheet .superior .stats-window .left-window .att-partial .attributes .stat .stat-value {
+  width: 60%;
 }
-.sheet .superior .info-window .left-window .att-partial .subatributos .sub-num .sub-modifier {
-  width: 25px;
+.sheet .superior .stats-window .left-window .att-partial .attributes .stat .stat-modifier {
+  width: 40%;
+  font-size: 16px;
+  border-radius: 0 0 10px 0;
+}
+.sheet .superior .stats-window .left-window .att-partial .attributes .stat span {
+  font-size: 12px;
+}
+.sheet .superior .stats-window .left-window .att-partial .attributes .movement {
+  width: 25%;
+  margin-right: 3px;
+}
+.sheet .superior .stats-window .left-window .att-partial .attributes .movement .mov-value,
+.sheet .superior .stats-window .left-window .att-partial .attributes .movement .sprint {
+  width: 50%;
+  font-size: 20px;
+}
+.sheet .superior .stats-window .left-window .att-partial .attributes .movement .sprint {
+  width: 40%;
+}
+.sheet .superior .stats-window .left-window .att-partial .resources {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+}
+.sheet .superior .stats-window .left-window .att-partial .resources .resource {
+  margin-right: 3px;
+  width: 140px;
+}
+.sheet .superior .stats-window .left-window .att-partial .resources .resource label {
+  height: 16px;
+  text-align: center;
+}
+.sheet .superior .stats-window .left-window .att-partial .resources .resource label h3 {
+  font-family: "IMFellEnglishSC";
+  font-weight: 700;
+  height: 17px;
   font-size: 16px;
 }
-.sheet .superior .info-window .mitigation {
-  width: 20%;
+.sheet .superior .stats-window .left-window .att-partial .resources .resource label h3 div {
+  height: 16px;
+}
+.sheet .superior .stats-window .left-window .att-partial .resources .resource .resource-info {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.sheet .superior .stats-window .left-window .att-partial .resources .resource .resource-info .stat-value {
+  font-size: 24px;
+}
+.sheet .superior .stats-window .left-window .att-partial .resources .resource .resource-info span {
+  height: 28px;
+}
+.sheet .superior .stats-window .left-window .att-partial .resources .limiar {
+  width: 60px;
+}
+.sheet .superior .stats-window .left-window .att-partial .resources .pain {
+  width: 55px;
+}
+.sheet .superior .stats-window .left-window .att-partial .resources .pain label {
+  height: 18px;
+}
+.sheet .superior .stats-window .right-window {
+  width: 160px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  padding: 0 2px;
-  border: 1px solid rgba(128, 128, 128, 0.432);
+  justify-content: space-between;
+  padding: 0 2px 2px;
+  border: 1px solid #8080806e;
   border-radius: 5px;
 }
-.sheet .superior .info-window .mitigation p {
+.sheet .superior .stats-window .right-window p {
   margin: 0;
   text-align: center;
   font-weight: 700;
 }
-.sheet .superior .info-window .mitigation .armor {
+.sheet .superior .stats-window .right-window .mitigation {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  padding-bottom: 2px;
+  border: 0;
+  border-bottom: 1px;
+  border-style: solid;
+  border-color: #341ac9;
+  margin-top: 2px;
 }
-.sheet .superior .info-window .mitigation .armor h4 {
-  margin: 0;
+.sheet .superior .stats-window .right-window .mitigation .armor-group {
+  margin-right: 2px;
 }
-.sheet .superior .info-window .mitigation .minor-armor h4 {
-  font-size: 0.8rem;
+.sheet .superior .stats-window .right-window .mitigation .armor-group,
+.sheet .superior .stats-window .right-window .mitigation .protections {
+  width: 75px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.sheet .superior .stats-window .right-window .mitigation .armor-group .armor,
+.sheet .superior .stats-window .right-window .mitigation .protections .armor {
+  height: 21px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.sheet .superior .stats-window .right-window .mitigation .armor-group .armor h3,
+.sheet .superior .stats-window .right-window .mitigation .protections .armor h3 {
+  border: 0;
+  line-height: 20px;
+  font-family: "IMFellEnglighSC";
+}
+.sheet .superior .stats-window .right-window .mitigation .armor-group .armor h3 div,
+.sheet .superior .stats-window .right-window .mitigation .protections .armor h3 div {
+  font-weight: 700;
+  font-size: 18px;
+}
+.sheet .superior .stats-window .right-window .mitigation .armor-group .armor input,
+.sheet .superior .stats-window .right-window .mitigation .protections .armor input {
+  text-align: center;
+  font-size: 20px;
+  height: 21px;
+  width: 26px;
+}
+.sheet .superior .stats-window .right-window .mitigation .armor-group .armor .mit-modifiers,
+.sheet .superior .stats-window .right-window .mitigation .protections .armor .mit-modifiers {
+  width: 18px;
+  font-size: 17px;
+}
+.sheet .superior .stats-window .right-window .mitigation .armor-group .armor:last-child,
+.sheet .superior .stats-window .right-window .mitigation .protections .armor:last-child {
+  margin-top: 2px;
+}
+.sheet .superior .stats-window .right-window .mitigation .armor-group .protection,
+.sheet .superior .stats-window .right-window .mitigation .protections .protection {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  align-items: center;
+}
+.sheet .superior .stats-window .right-window .mitigation .armor-group .protection h3,
+.sheet .superior .stats-window .right-window .mitigation .protections .protection h3 {
+  font-size: 10.5px;
+  border: 0;
+}
+.sheet .superior .stats-window .right-window .mitigation .armor-group .protection input,
+.sheet .superior .stats-window .right-window .mitigation .protections .protection input {
+  padding-right: 2px;
+  text-align: right;
+  height: 14px;
+  line-height: 14px;
+  width: 14px;
+  font-size: 14px;
+}
+.sheet .superior .stats-window .right-window .minors {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  width: 100%;
+}
+.sheet .superior .stats-window .right-window .minors .minor,
+.sheet .superior .stats-window .right-window .minors .luck {
+  width: 75px;
+}
+.sheet .superior .stats-window .right-window .minors .minor-name,
+.sheet .superior .stats-window .right-window .minors .luck-name {
+  font-size: 15px;
+  text-align: center;
+  height: 16px;
+}
+.sheet .superior .stats-window .right-window .minors .minor-name a,
+.sheet .superior .stats-window .right-window .minors .luck-name a,
+.sheet .superior .stats-window .right-window .minors .minor-name div,
+.sheet .superior .stats-window .right-window .minors .luck-name div {
+  margin-bottom: -1px;
+  font-family: "IMFellEnglishSC";
+  font-weight: 700;
+}
+.sheet .superior .stats-window .right-window .minors .minor-num {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+.sheet .superior .stats-window .right-window .minors .minor-num select {
+  text-align: center;
+  padding: 0 0 0 1px;
+  height: 21px;
+  width: 27px;
+  appearance: none;
+}
+.sheet .superior .stats-window .right-window .minors .minor-num input {
+  text-align: center;
+  height: 21px;
+}
+.sheet .superior .stats-window .right-window .minors .minor-num .minor-value {
+  width: 26px;
+  font-size: 20px;
+}
+.sheet .superior .stats-window .right-window .minors .minor-num .minor-modifier {
+  width: 20px;
+  font-size: 17px;
+}
+.sheet .superior .stats-window .right-window .minors .luck-num {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 100%;
+  height: 21px;
+}
+.sheet .superior .stats-window .right-window .minors .luck-num input {
+  text-align: center;
+  height: 21px;
 }
 .sheet .navigation {
+  font-family: "Acme";
   display: flex;
   flex-direction: row;
   justify-content: space-around;
   border-color: #341ac9;
   border-style: solid;
   border-width: 1px 0 1px 0;
+  height: 22px;
+  margin-bottom: 7px;
 }
 .sheet .navigation .item {
   width: 12%;
@@ -209,80 +449,96 @@
   font-weight: 700;
 }
 .sheet .navigation a {
-  font-size: 16px;
+  font-size: 17px;
 }
-.sheet .tab-content .aba-pericias {
+.sheet .tab-content {
+  font-family: "Acme";
+  height: 100%;
+}
+.sheet .tab-content .tab {
+  height: 100%;
+}
+.sheet .tab-content input {
+  border: 0;
+  border-radius: 3px;
+  padding: 0;
+}
+.sheet .tab-content select {
+  border: 0;
+  border-radius: 3px;
+  padding: 0;
+}
+.sheet .tab-content .skills-tab {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  flex-wrap: wrap;
 }
-.sheet .tab-content .aba-pericias .agrupamento {
+.sheet .tab-content .skills-tab .grouping {
   width: 32.5%;
 }
-.sheet .tab-content .aba-pericias .agrupamento .grupo-pericias {
+.sheet .tab-content .skills-tab .grouping .skill-group {
   padding: 0;
   list-style-type: none;
   padding: 4px 2px 0;
   border: 1px solid rgba(128, 128, 128, 0.432);
   border-radius: 5px;
+  margin: 0 0 7px 0;
 }
-.sheet .tab-content .aba-pericias .agrupamento .grupo-pericias .titulo-grupo-per {
+.sheet .tab-content .skills-tab .grouping .skill-group .group-title {
   display: flex;
   flex-direction: row;
   align-items: center;
-  width: 100%;
-  height: 16px;
-  margin-bottom: 2px;
 }
-.sheet .tab-content .aba-pericias .agrupamento .grupo-pericias .titulo-grupo-per .nome-grupo {
+.sheet .tab-content .skills-tab .grouping .skill-group .group-title .group-name {
   width: 80%;
-  font-size: 16px;
 }
-.sheet .tab-content .aba-pericias .agrupamento .grupo-pericias .titulo-grupo-per .nivel-grupo {
+.sheet .tab-content .skills-tab .grouping .skill-group .group-title .tag-lvl {
   width: 10%;
-  padding-right: 2px;
+  padding-right: 3px;
   font-size: 16px;
   text-align: right;
 }
-.sheet .tab-content .aba-pericias .agrupamento .grupo-pericias .titulo-grupo-per .mod-grupo {
+.sheet .tab-content .skills-tab .grouping .skill-group .group-title .tag-mod {
   width: 10%;
+  padding-right: 1px;
   font-size: 16px;
   text-align: right;
 }
-.sheet .tab-content .aba-pericias .agrupamento .grupo-pericias .pericia {
+.sheet .tab-content .skills-tab .grouping .skill-group .skill {
   height: 21px;
-  font-size: 0.95rem;
+  font-size: 15px;
   display: flex;
   flex-direction: row;
   align-items: center;
   width: 100%;
 }
-.sheet .tab-content .aba-pericias .agrupamento .grupo-pericias .pericia .nome-pericia {
-  width: 50%;
+.sheet .tab-content .skills-tab .grouping .skill-group .skill .skill-title {
+  width: calc(50% + 7px);
 }
-.sheet .tab-content .aba-pericias .agrupamento .grupo-pericias .pericia .apr-pericia {
-  width: 15%;
+.sheet .tab-content .skills-tab .grouping .skill-group .skill .skill-rate {
+  width: 25px;
   font-size: 10.5px;
   text-align: center;
 }
-.sheet .tab-content .aba-pericias .agrupamento .grupo-pericias .pericia .att-pericia {
+.sheet .tab-content .skills-tab .grouping .skill-group .skill .skill-att {
   width: 15%;
   font-size: 12.5px;
   text-align: center;
 }
-.sheet .tab-content .aba-pericias .agrupamento .grupo-pericias .pericia input {
-  border: 0;
+.sheet .tab-content .skills-tab .grouping .skill-group .skill input {
   border-radius: 3px;
   padding: 0 3px 0 0;
   margin: 0 0 0 3px;
   height: 18px;
   text-align: right;
 }
-.sheet .tab-content .aba-pericias .agrupamento .grupo-pericias .pericia .val-pericia {
+.sheet .tab-content .skills-tab .grouping .skill-group .skill .val-pericia {
   width: 10%;
-  font-weight: 600;
+  font-weight: 700;
+  font-size: 17px;
 }
-.sheet .tab-content .aba-pericias .agrupamento .grupo-pericias .pericia .mod-pericia {
+.sheet .tab-content .skills-tab .grouping .skill-group .skill .mod-pericia {
   width: 10%;
   padding: 0 1px 0 0;
 }
@@ -293,4 +549,80 @@
 }
 .sheet .tab-content .lists p {
   margin: 0;
+}
+.sheet .tab-content .info-tab {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+.sheet .tab-content .info-tab .basic-info {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 3px 2px 2px;
+}
+.sheet .tab-content .info-tab .basic-info .minor-info {
+  width: calc(50% - 1px);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+.sheet .tab-content .info-tab .basic-info .minor-info .minor-title {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 21px;
+  font-size: 15px;
+}
+.sheet .tab-content .info-tab .basic-info .minor-info .age-input {
+  width: auto;
+  font-size: 15px;
+  margin-left: 2px;
+  height: 17px;
+  margin: 2px 1px;
+  padding-left: 2px;
+}
+.sheet .tab-content .info-tab .info-windows {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  height: 100%;
+}
+.sheet .tab-content .info-tab .info-windows .info-window {
+  display: flex;
+  flex-direction: column;
+  width: calc(50% - 4px);
+  height: 100%;
+}
+.sheet .tab-content .info-tab .info-windows .info-left .looks-window {
+  height: calc(50%);
+  max-height: 192px;
+}
+.sheet .tab-content .info-tab .info-windows .info-left .quirks-window {
+  height: calc(50%);
+  max-height: 191px;
+}
+.sheet .tab-content .info-tab .info-windows .info-right .goal-window {
+  height: calc(35% - 7px);
+  max-height: 149px;
+}
+.sheet .tab-content .info-tab .info-windows .info-right .bio-window {
+  height: 65%;
+  max-height: 290px;
+}
+.sheet .tab-content .info-tab .info-windows .last-window {
+  margin-bottom: 0;
+}
+.sheet .tab-content .window {
+  padding: 4px 2px 0;
+  border: 1px solid rgba(128, 128, 128, 0.432);
+  border-radius: 5px;
+  margin: 0 0 7px 0;
+}
+.sheet .tab-content .window .bio {
+  min-height: 100px;
+  height: calc(100% - 16px);
 }

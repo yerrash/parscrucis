@@ -1,0 +1,44 @@
+{
+  "PC.Projectile": "Projétil",
+  "parcrucis": {
+    "actionType": {
+      "none": "",
+      "melee": "CaC",
+      "Throw": "Arremesso",
+      "projectile": "Projétil",
+      "jet": "Jato",
+      "affliction": "Aflição",
+      "social": "Social",
+      "cognitive": "Cognitiva",
+      "debilitating": "Debilidade",
+      "area": "Área"
+    }
+  },
+  "PC.WeaponSkills": "Perícia",
+  "PC.WeaponType": "Tipo",
+
+  "PC.Humano": "Humano",
+  "PC.Carneador": "Carneador",
+  "PC.Capriaco": "Capríaco",
+  "PC.Ligno": "Ligno",
+  "PC.Orcino": "Orcino",
+  "PC.Quezal": "Quezal",
+  "PC.Vulpino": "Vulpino",
+
+  "PC.FIS": "FIS",
+  "PC.AGI": "AGI",
+  "PC.EGO": "EGO",
+  "PC.INT": "INT",
+  "PC.ESP": "ESP",
+  "PV.MV": "MV",
+  "PC.Saude": "Saúde",
+  "PC.Esperteza": "Esperteza",
+  "PC.Vontade": "Vontade",
+  "PC.PV": "Pontos de Vida",
+  "PC.PE": "Pontos de Essência",
+  "PC.LIM": "Lim",
+  "PC.Pain": "Dor",
+  "PC.Ret": "Ret",
+
+  "PC.Archery": "Arqueria"
+}

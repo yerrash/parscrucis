@@ -10,7 +10,17 @@ PC.race = {
   vulpino: "Vulpino",
 };
 
-PC.cultura = {
+// PC.race = {
+//   humano: "PC.Humano",
+//   carneador: "PC.Carneador",
+//   capriaco: "PC.Capriaco",
+//   ligno: "PC.Ligno",
+//   orcino: "PC.Orcino",
+//   quezal: "PC.Quezal",
+//   vulpino: "PC.Vulpino",
+// };
+
+PC.culture = {
   advena: "Ádvena",
   artesao: "Artesão",
   bandeiro: "Bandeiro",
@@ -56,14 +66,14 @@ PC.persona = {
 };
 
 PC.attributes = {
-  fis: "FIS",
-  agi: "AGI",
-  alm: "ALM",
-  cog: "COG",
-  esp: "ESP",
+  fis: "PC.FIS",
+  agi: "PC.AGI",
+  ego: "PC.EGO",
+  int: "PC.INT",
+  esp: "PC.ESP",
 };
 
-PC.subatributos = {
+PC.minors = {
   saude: "Saúde",
   esperteza: "Esperteza",
   vontade: "Vontade",
@@ -71,20 +81,40 @@ PC.subatributos = {
 
 PC.saude = {
   fisico: "FIS",
-  alma: "ALM",
+  ego: "EGO",
 };
 
 PC.esperteza = {
   agilidade: "AGI",
-  cognicao: "COG",
+  intellect: "INT",
 };
 
 PC.vontade = {
-  alma: "ALM",
+  ego: "EGO",
   espirito: "ESP",
 };
 
-PC.corporais = {
+PC.armor = {
+  armor: "AR",
+  abascanth: "AB",
+};
+
+PC.protections = {
+  toughness: "Robustez",
+  blindage: "Blindagem",
+  insulation: "Isolante",
+};
+
+PC.categories = {
+  physical: "Físicas",
+  knowledge: "Conhecimentos",
+  socials: "Sociais",
+  subterfuge: "Suterfúgios",
+  crafts: "Ofícios",
+  supernatural: "Sobrenaturais",
+};
+
+PC.physical = {
   atlet: "Atletismo",
   briga: "Briga",
   condu: "Condução",
@@ -95,7 +125,7 @@ PC.corporais = {
   resis: "Resistência",
 };
 
-PC.subterfugios = {
+PC.subterfuge = {
   arque: "Arqueria",
   balis: "Balística",
   furti: "Furtividade",
@@ -106,7 +136,7 @@ PC.subterfugios = {
   sobre: "Sobrevivência",
 };
 
-PC.conhecimentos = {
+PC.knowledge = {
   cienc: "Ciência",
   erudi: "Erudição",
   engen: "Engenharia",
@@ -117,7 +147,7 @@ PC.conhecimentos = {
   profi: "Profissão",
 };
 
-PC.oficios = {
+PC.crafts = {
   alqui: "Alquimia",
   artif: "Artífice",
   carpi: "Carpintaria",
@@ -128,7 +158,7 @@ PC.oficios = {
   venef: "Venefício",
 };
 
-PC.sociais = {
+PC.socials = {
   artim: "Artimanha",
   cultu: "Cultura",
   domar: "Domar",
@@ -139,7 +169,7 @@ PC.sociais = {
   seduc: "Sedução",
 };
 
-PC.sobrenaturais = {
+PC.supernatural = {
   amago: "Âmago",
   aoism: "Aoismo",
   arcan: "Arcanismo",

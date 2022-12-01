@@ -3,10 +3,13 @@
     {{#with (lookup @root.actor.system.attributes obj) as |att|}}
       <div class="attribute">
         <label>
-          <h3 class="stat-name">{{attribute}}</h3>
+          <h3 class="stat-name">
+            <a data-att-key="{{@key}}">{{label}}</a>
+          </h3>
         </label>
-        <div class="stat-value">
+        <div class="stat">
           <input
+            class="stat-value"
             name="system.attributes.{{@key}}.value"
             type="Number"
             value="{{att.value}}"
@@ -14,74 +17,109 @@
           />
           <input
             class="stat-modifier"
-            name="system.attributes.{{@key}}.modifier"
+            name="system.attributes.{{@key}}.modifiers"
             type="Number"
-            value="{{att.modifier}}"
+            value="{{att.modifiers}}"
             data-dtype="Number"
           />
         </div>
       </div>
     {{/with}}
   {{/each}}
-  <div>
+  <div class="attribute movement">
     <label>
-      <h3 class="stat-name">MV</h3>
+      <h3 class="stat-name">
+        <div>{{localize "PC.MV"}}</div>
+      </h3>
     </label>
-    <div class="stat-value">
+    <div class="stat">
       <input
+        class="mov-value"
         name="system.attributes.movement.value"
-        type="text"
+        type="Number"
         value="{{data.system.attributes.movement.value}}"
         data-dtype="Number"
       />
+      <span>>></span>
       <input
-        class="stat-modifier"
-        name="system.attributes.movement.modifier"
-        type="text"
-        value="{{data.system.attributes.movement.modifier}}"
+        class="stat-modifier sprint"
+        name="system.attributes.movement.sprint"
+        type="Number"
+        value="{{data.system.attributes.movement.sprint}}"
         data-dtype="Number"
       />
     </div>
   </div>
 </section>
-<section class="subatributos">
-  {{#each config.subatributos as |subatributo obj|}}
-    {{log subatributo}}
-    {{#with (lookup @root.actor.system.subatributos obj) as |subatt|}}
-      <div class="subatributo">
-        <label>
-          <h3 class="sub-name">{{subatributo}}</h3>
-        </label>
-        <div class="sub-num">
-          <span>ATT</span>
-          <input
-            class="sub-value"
-            name="system.subatributos.{{@key}}.value"
-            type="Number"
-            value="{{subatt.value}}"
-            data-dtype="Number"
-          />
-          <input
-            class="sub-modifier"
-            name="system.subatributos.{{@key}}.modifier"
-            type="Number"
-            value="{{subatt.modifier}}"
-            data-dtype="Number"
-          />
-        </div>
-      </div>
-    {{/with}}
-  {{/each}}
-  <div>
+<section class="resources">
+  <div class="resource">
     <label>
-      <h3 class="sub-name">Sorte</h3>
+      <h3 class="resource-name"><div>{{localize "PC.PV"}}</div></h3>
     </label>
-    <div class="sub-num">
+    <div class="resource-info">
       <input
-        class="sub-value"
-        name="system.resources.sorte.value"
-        type="text"
-        value="{{data.system.resources.sorte.value}}"
+        class="stat-value"
+        name="system.resources.pv.value"
+        type="Number"
+        value="{{actor.system.resources.pv.value}}"
+        data-dtype="Number"
+      />
+      <span class="stat-value">15</span>
+    </div>
+  </div>
+  <div class="resource pain">
+    <label>
+      <h3 class="resource-name"><div>{{localize "PC.Pain"}}</div></h3>
+    </label>
+    <div class="resource-info">
+      <input
+        class="stat-value"
+        name="system.resources.pv.pain"
+        type="Number"
+        value="{{actor.system.resources.pv.pain}}"
+        data-dtype="Number"
+      />
+    </div>
+  </div>
+  <div class="resource limiar">
+    <label>
+      <h3 class="resource-name"><div>{{localize "PC.LIM"}}</div></h3>
+    </label>
+    <div class="resource-info resource-limiar">
+      <input
+        class="stat-value limiar-value"
+        name="system.resources.limiar.value"
+        type="Number"
+        value="{{actor.system.resources.limiar.value}}"
+        data-dtype="Number"
+      />
+    </div>
+  </div>
+  <div class="resource">
+    <label>
+      <h3 class="resource-name"><div>{{localize "PC.PE"}}</div></h3>
+    </label>
+    <div class="resource-info">
+      <input
+        class="stat-value"
+        name="system.resources.pe.value"
+        type="Number"
+        value="{{actor.system.resources.pe.value}}"
+        data-dtype="Number"
+      />
+      <span class="stat-value">15</span>
+    </div>
+  </div>
+  <div class="resource pain">
+    <label>
+      <h3 class="resource-name"><div>{{localize "PC.Ret"}}</div></h3>
+    </label>
+    <div class="resource-info">
+      <input
+        class="stat-value"
+        name="system.resources.pv.temp"
+        type="Number"
+        value="{{actor.system.resources.pv.temp}}"
         data-dtype="Number"
       />
     </div>

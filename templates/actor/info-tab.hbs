@@ -1,0 +1,98 @@
+<section class="info-tab">
+  <div class="info-windows">
+    <div class="info-window info-left">
+      <div class="basic-info window">
+        <div class="minor-info">
+          <h4 class="minor-title">{{localize "PC.age"}}: </h4>
+          <input
+            class="age-input"
+            name="system.details.age"
+            type="text"
+            value="{{systemData.details.age}}"
+            data-dtype="String"
+          />
+        </div>
+        <div class="minor-info">
+          <h4 class="minor-title">{{localize "PC.birth"}}: </h4>
+          <input
+            class="age-input"
+            name="system.details.birth"
+            type="text"
+            value="{{systemData.details.birth}}"
+            data-dtype="String"
+          />
+        </div>
+        <div class="minor-info">
+          <h4 class="minor-title">{{localize "PC.height"}}: </h4>
+          <input
+            class="age-input"
+            name="system.details.height"
+            type="text"
+            value="{{systemData.details.height}}"
+            data-dtype="String"
+          />
+        </div>
+        <div class="minor-info">
+          <h4 class="minor-title">{{localize "PC.weight"}}: </h4>
+          <input
+            class="age-input"
+            name="system.details.weight"
+            type="text"
+            value="{{actor.system.details.weight}}"
+            data-dtype="String"
+          />
+        </div>
+      </div>
+      <div class="window looks-window">
+        <h3 class="subtitle"><span>{{localize "PC.looks"}}</span></h3>
+        <div class="bio">
+          {{editor
+            actor.system.details.looks
+            target="system.details.looks"
+            button=true
+            owner=owner
+            editable=editable
+          }}
+        </div>
+      </div>
+      <div class="window quirks-window last-window">
+        <h3 class="subtitle"><span>{{localize "PC.quirks"}}</span></h3>
+        <div class="bio">
+          {{editor
+            actor.system.details.quirks
+            target="system.details.quirks"
+            button=true
+            owner=owner
+            editable=editable
+          }}
+        </div>
+      </div>
+    </div>
+    <div class="info-window info-right">
+      <div class="window goal-window">
+        <h3 class="subtitle"><span>{{localize "PC.goals"}}</span></h3>
+        <div class="bio">
+          {{editor
+            actor.system.details.goal
+            target="system.details.goal"
+            button=true
+            owner=owner
+            editable=editable
+          }}
+        </div>
+      </div>
+      <div class="window bio-window last-window">
+        <h3 class="subtitle"><span>{{localize "PC.bio"}}</span></h3>
+        <div class="bio">
+          {{editor
+            actor.system.details.bio
+            target="system.details.bio"
+            button=true
+            owner=owner
+            editable=editable
+          }}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

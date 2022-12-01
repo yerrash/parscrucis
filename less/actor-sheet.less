@@ -1,0 +1,593 @@
+.sheet {
+  h2,
+  h3,
+  h4 {
+    margin: 0;
+  }
+  h3 {
+    font-size: 18px;
+  }
+  .subtitle {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    height: 16px;
+    margin-bottom: 2px;
+    font-size: 17px;
+  }
+  .superior {
+    font-family: "Acme";
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 7px;
+    input {
+      border: 0;
+      border-radius: 3px;
+      padding: 0;
+    }
+    select {
+      border: 0;
+      border-radius: 3px;
+      padding: 0;
+    }
+    img {
+      height: 155px;
+      width: 155px;
+      margin-right: -5px;
+      margin-bottom: -5px;
+      border: none;
+    }
+
+    .superior-right {
+      height: 152px;
+    }
+
+    .name-exp {
+      display: flex;
+      flex-direction: row;
+      .charName {
+        width: calc(100% - 160px);
+        margin-right: 3px;
+        height: 23px;
+        input {
+          width: 100%;
+          padding: 0;
+          border: none;
+          background: none;
+          font-family: "IMFellDWPica";
+          font-size: 26px;
+          padding-left: 3px;
+        }
+      }
+      .exp-bar {
+        width: 160px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        border: 1px solid rgba(128, 128, 128, 0.432);
+        border-radius: 5px;
+        padding-left: 3px;
+        height: 20px;
+        :last-child {
+          border-width: 0;
+        }
+        span,
+        .exp-ttl,
+        .exp-res {
+          width: 25%;
+          height: 24px;
+          line-height: 24px;
+          font-size: 22px;
+          text-align: center;
+          border-color: #ec002770;
+          border-style: solid;
+          border-width: 0 1px 0 0;
+          border-radius: 0;
+          background-color: transparent;
+          margin: 0;
+        }
+        .exp-ava {
+        }
+        .exp-ttl {
+          width: 35%;
+        }
+        .exp-res {
+          width: 15%;
+        }
+        .exp {
+          font-size: 20px;
+          line-height: 22px;
+          height: 20px;
+          font-weight: 700;
+        }
+      }
+    }
+
+    .stats-window {
+      display: flex;
+      flex-direction: row;
+      height: 129px;
+      .left-window {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        margin-right: 3px;
+        border: solid rgba(128, 128, 128, 0.432);
+        border-width: 0 1px 1px 0;
+        border-radius: 0 0 5px 0;
+        width: calc(100% - 160px);
+        padding: 1px 0;
+        .racial {
+          display: flex;
+          flex-direction: row;
+          width: 100%;
+          select {
+            height: 17px;
+            font-size: 14px;
+            flex-grow: 1;
+            margin: 1px 2px;
+          }
+        }
+        .att-partial {
+          input {
+            padding: 0;
+            margin: 1px 2px;
+            text-align: center;
+          }
+          .attributes {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            margin-bottom: 3px;
+            width: 100%;
+            .attribute {
+              margin-right: 3px;
+              width: 15%;
+            }
+            .stat-name {
+              text-align: center;
+              font-family: "IMFellEnglishSC";
+              font-weight: 700;
+              height: 19px;
+              a,
+              div {
+                height: 18px;
+              }
+            }
+            .stat {
+              font-size: 28px;
+              display: flex;
+              flex-direction: row;
+              align-items: center;
+              input {
+                height: 30px;
+              }
+              .stat-value {
+                width: 60%;
+              }
+              .stat-modifier {
+                width: 40%;
+                font-size: 16px;
+                border-radius: 0 0 10px 0;
+              }
+              span {
+                font-size: 12px;
+              }
+            }
+
+            .movement {
+              width: 25%;
+              margin-right: 3px;
+              .mov-value,
+              .sprint {
+                width: 50%;
+                font-size: 20px;
+              }
+              .sprint {
+                width: 40%;
+              }
+            }
+          }
+
+          .resources {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            width: 100%;
+            .resource {
+              margin-right: 3px;
+              width: 140px;
+              label {
+                height: 16px;
+                text-align: center;
+                h3 {
+                  font-family: "IMFellEnglishSC";
+                  font-weight: 700;
+                  height: 17px;
+                  font-size: 16px;
+                  div {
+                    height: 16px;
+                  }
+                }
+              }
+              .resource-info {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                .stat-value {
+                  font-size: 24px;
+                }
+                span {
+                  height: 28px;
+                }
+              }
+            }
+            .limiar {
+              width: 60px;
+            }
+            .pain {
+              width: 55px;
+              label {
+                height: 18px;
+                h3 {
+                }
+              }
+            }
+          }
+        }
+      }
+      .right-window {
+        width: 160px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 0 2px 2px;
+        border: 1px solid #8080806e;
+        border-radius: 5px;
+        p {
+          margin: 0;
+          text-align: center;
+          font-weight: 700;
+        }
+        .mitigation {
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+          padding-bottom: 2px;
+          border: 0;
+          border-bottom: 1px;
+          border-style: solid;
+          border-color: #341ac9;
+          margin-top: 2px;
+          .armor-group {
+            margin-right: 2px;
+          }
+          .armor-group,
+          .protections {
+            width: 75px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            .armor {
+              height: 21px;
+              display: flex;
+              flex-direction: row;
+              justify-content: space-between;
+              align-items: center;
+              h3 {
+                border: 0;
+                line-height: 20px;
+                font-family: "IMFellEnglighSC";
+                div {
+                  font-weight: 700;
+                  font-size: 18px;
+                }
+              }
+              input {
+                text-align: center;
+                font-size: 20px;
+                height: 21px;
+                width: 26px;
+              }
+              .mit-modifiers {
+                width: 18px;
+                font-size: 17px;
+              }
+            }
+            .armor:last-child {
+              margin-top: 2px;
+            }
+            .protection {
+              display: flex;
+              flex-direction: row-reverse;
+              justify-content: space-between;
+              align-items: center;
+              h3 {
+                font-size: 10.5px;
+                border: 0;
+              }
+              input {
+                padding-right: 2px;
+                text-align: right;
+                height: 14px;
+                line-height: 14px;
+                width: 14px;
+                font-size: 14px;
+              }
+            }
+          }
+        }
+
+        .minors {
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+          flex-wrap: wrap;
+          width: 100%;
+          .minor,
+          .luck {
+            width: 75px;
+          }
+          .minor-name,
+          .luck-name {
+            font-size: 15px;
+            text-align: center;
+            height: 16px;
+            a,
+            div {
+              margin-bottom: -1px;
+              font-family: "IMFellEnglishSC";
+              font-weight: 700;
+            }
+          }
+          .minor-num {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+            select {
+              text-align: center;
+              padding: 0 0 0 1px;
+              height: 21px;
+              width: 27px;
+              appearance: none;
+            }
+            input {
+              text-align: center;
+              height: 21px;
+            }
+            .minor-value {
+              width: 26px;
+              font-size: 20px;
+            }
+            .minor-modifier {
+              width: 20px;
+              font-size: 17px;
+            }
+          }
+          .luck-num {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-evenly;
+            width: 100%;
+            height: 21px;
+            input {
+              text-align: center;
+              height: 21px;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .navigation {
+    font-family: "Acme";
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    border-color: #341ac9; // Nice blue-purple
+    // border-color: #313131;
+    border-style: solid;
+    border-width: 1px 0 1px 0;
+    height: 22px;
+    margin-bottom: 7px;
+    .item {
+      width: 12%;
+      text-align: center;
+    }
+    .active {
+      font-weight: 700;
+    }
+    a {
+      font-size: 17px;
+    }
+  }
+
+  .tab-content {
+    font-family: "Acme";
+    height: 100%;
+    .tab {
+      height: 100%;
+    }
+    input {
+      border: 0;
+      border-radius: 3px;
+      padding: 0;
+    }
+    select {
+      border: 0;
+      border-radius: 3px;
+      padding: 0;
+    }
+    .skills-tab {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      .grouping {
+        width: 32.5%;
+        .skill-group {
+          padding: 0;
+          list-style-type: none;
+          padding: 4px 2px 0;
+          border: 1px solid rgba(128, 128, 128, 0.432);
+          border-radius: 5px;
+          margin: 0 0 7px 0;
+          .group-title {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            .group-name {
+              width: 80%;
+            }
+            .tag-lvl {
+              width: 10%;
+              padding-right: 3px;
+              font-size: 16px;
+              text-align: right;
+            }
+            .tag-mod {
+              width: 10%;
+              padding-right: 1px;
+              font-size: 16px;
+              text-align: right;
+            }
+          }
+          .skill {
+            height: 21px;
+            font-size: 15px;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            width: 100%;
+            .skill-title {
+              width: calc(50% + 7px);
+            }
+            .skill-rate {
+              width: 25px;
+              font-size: 10.5px;
+              text-align: center;
+            }
+            .skill-att {
+              width: 15%;
+              font-size: 12.5px;
+              text-align: center;
+            }
+            input {
+              border-radius: 3px;
+              padding: 0 3px 0 0;
+              margin: 0 0 0 3px;
+              height: 18px;
+              text-align: right;
+            }
+            .val-pericia {
+              width: 10%;
+              font-weight: 700;
+              font-size: 17px;
+              :focus {
+              }
+            }
+            .mod-pericia {
+              width: 10%;
+              padding: 0 1px 0 0;
+            }
+          }
+        }
+      }
+    }
+    .lists {
+      padding: 3px;
+      border: 1px solid rgba(128, 128, 128, 0.432);
+      border-radius: 5px;
+      p {
+        margin: 0;
+      }
+    }
+
+    .info-tab {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      .basic-info {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        padding: 3px 2px 2px;
+        .minor-info {
+          width: calc(50% - 1px);
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          justify-content: space-between;
+          .minor-title {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            height: 21px;
+            font-size: 15px;
+          }
+          .age-input {
+            width: auto;
+            font-size: 15px;
+            margin-left: 2px;
+            height: 17px;
+            margin: 2px 1px;
+            padding-left: 2px;
+          }
+        }
+      }
+      .info-windows {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        height: 100%;
+        .info-window {
+          display: flex;
+          flex-direction: column;
+          width: calc(50% - 4px);
+          height: 100%;
+        }
+        .info-left {
+          .looks-window {
+            height: calc(50%);
+            max-height: 192px;
+          }
+          .quirks-window {
+            height: calc(50%);
+
+            max-height: 191px;
+          }
+        }
+        .info-right {
+          .goal-window {
+            height: calc(35% - 7px);
+            max-height: 149px;
+          }
+          .bio-window {
+            height: 65%;
+            max-height: 290px;
+          }
+        }
+        .last-window {
+          margin-bottom: 0;
+        }
+      }
+    }
+    .window {
+      padding: 4px 2px 0;
+      border: 1px solid rgba(128, 128, 128, 0.432);
+      border-radius: 5px;
+      margin: 0 0 7px 0;
+      .bio {
+        min-height: 100px;
+        height: calc(100% - 16px);
+      }
+    }
+  }
+}
