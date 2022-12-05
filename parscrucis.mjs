@@ -9,12 +9,12 @@ async function preloadHandlebarsTemplates() {
   const templatePaths = [
     "systems/parscrucis/templates/actor/char-att-block.hbs",
     "systems/parscrucis/templates/actor/mit-minors.hbs",
-    "systems/parscrucis/templates/actor/skills-tab.hbs",
-    "systems/parscrucis/templates/actor/inventory-tab.hbs",
-    "systems/parscrucis/templates/actor/abilities-tab.hbs",
-    "systems/parscrucis/templates/actor/effects-tab.hbs",
-    "systems/parscrucis/templates/actor/info-tab.hbs",
-    "systems/parscrucis/templates/actor/notes-tab.hbs",
+    "systems/parscrucis/templates/actor/tabs/skills-tab.hbs",
+    "systems/parscrucis/templates/actor/tabs/inventory-tab.hbs",
+    "systems/parscrucis/templates/actor/tabs/abilities-tab.hbs",
+    "systems/parscrucis/templates/actor/tabs/effects-tab.hbs",
+    "systems/parscrucis/templates/actor/tabs/info-tab.hbs",
+    "systems/parscrucis/templates/actor/tabs/notes-tab.hbs",
   ];
 
   return loadTemplates(templatePaths);

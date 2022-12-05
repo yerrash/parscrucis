@@ -1,4 +1,5 @@
 import { PC } from "../config.mjs";
+import { RACIALS } from "../base-data.mjs";
 
 export default class ParsCrucisActorSheet extends ActorSheet {
   static get defaultOptions() {
@@ -16,11 +17,6 @@ export default class ParsCrucisActorSheet extends ActorSheet {
       ],
     });
   }
-
-  // /** @override */
-  // get template() {
-  //   return `systems/boilerplate/templates/actor/actor-${this.actor.type}-sheet.html`;
-  // }
 
   getData() {
     const context = super.getData();
@@ -92,12 +88,83 @@ export default class ParsCrucisActorSheet extends ActorSheet {
    * @return {undefined}
    */
   _prepareCharacterData(context) {
-    // Handle attribute scores.
-    for (let [key, att] of Object.entries(context.systemData.attributes)) {
+    const systemData = context.systemData;
+    const attributesData = systemData.attributes;
+    const skillsData = systemData.skills;
+    const minorsData = systemData.minors;
+    const detailsData = systemData.details;
+    const race = detailsData.race;
+    const skillsExpSpent = [];
+
+    // Handle skills.
+    for (let [_, skill] of Object.entries(skillsData)) {
+      skill.attLabel =
+        game.i18n.localize(PC.attributes[skill.attribute]) ??
+        PC.attributes[skill.attribute];
+
+      // Skill value cannot be null or lower than 0;
+      skill.value
+        ? skill.value >= 0
+          ? skill.value
+          : (skill.value = 0)
+        : (skill.value = 0);
+
+      // Update skill attribute base value.
+      skill.attBaseValue = Math.ceil(skill.value / skill.growth);
+
+      // Update skill experience spent.
+      skill.expSpent = 0;
+      const startingCost = skill.aprendizado === "PC.Hard" ? 2 : 1;
+      for (let e = startingCost; e < skill.value + startingCost; e++) {
+        if (skill.favor) {
+          skill.expSpent += e - 1;
+        } else {
+          skill.expSpent += e;
+        }
+      }
+      skillsExpSpent.push(skill.expSpent);
+    }
+
+    // Handle attributes.
+    for (let [key, att] of Object.entries(attributesData)) {
       if (key !== "movement") {
-        att.label = game.i18n.localize(PC.attributes[key]) ?? key;
+        att.shortLabel = game.i18n.localize(PC.attributes[key]) ?? key;
+        att.label = game.i18n.localize(PC.attributeNames[key]) ?? key;
+
+        // Update attribute values based on parameters.
+        const attArray = [];
+        for (let [_, skill] of Object.entries(skillsData)) {
+          if (skill.attribute == key) {
+            attArray.push(skill.attBaseValue);
+          }
+        }
+        const attRaceValue = RACIALS[race].attributes[key];
+        const attBaseValue = Math.max(...attArray);
+        att.autoValue = attRaceValue + attBaseValue;
+      }
+      if (key === "movement") {
+        att.autoValue = RACIALS[race].attributes[key].move;
+        att.autoSprint = RACIALS[race].attributes[key].sprint;
       }
     }
+
+    // Handle minors.
+    for (let [key, minor] of Object.entries(minorsData)) {
+      minor.label = game.i18n.localize(PC.minors[key]) ?? key;
+
+      const baseAtt = minor.base;
+      const minorBaseValue =
+        attributesData[baseAtt].value || attributesData[baseAtt].autoValue;
+      minor.autoValue = minorBaseValue;
+    }
+
+    // Calculate available experience.
+    const skillsExpSum = skillsExpSpent.reduce((a, b) => a + b, 0);
+    detailsData.expAvailable =
+      detailsData.exp - detailsData.expReserve - skillsExpSum;
+
+    // Prints target actor DATA.
+    console.log("atualiza ->", systemData);
   }
 
   activateListeners(html) {
@@ -126,7 +193,6 @@ export default class ParsCrucisActorSheet extends ActorSheet {
     });
 
     html.find("[data-att-key]").click(this._onAttClick.bind(this));
-    html.find("[data-minor-key]").click(this._onMinorClick.bind(this));
     html.find("[data-skill-key]").click(this._onSkillClick.bind(this));
   }
 
@@ -155,62 +221,54 @@ export default class ParsCrucisActorSheet extends ActorSheet {
     return await Item.create(itemData, { parent: this.actor });
   }
 
+  /**
+   * Handle clickable attribute rolls.
+   * @param {Event} event The originating click event
+   * @private
+   */
   async _onAttClick(event) {
     event.preventDefault();
 
     const element = event.currentTarget;
-    const key = element.dataset.attKey;
-    const att = this.actor.system.attributes[key];
+    const dataset = element.dataset;
+    const attKey = dataset.attKey;
+    const attType = dataset.attType;
+    const attData = this.actor.system[attType][attKey];
+    const attValue = attData.value || attData.autoValue;
+    const label = attData.label;
+    const flavor = `Teste de ${label}`;
 
-    return this.actor.rollAtt(att);
-  }
+    const roll = await Roll.create(
+      `2d10+${attValue}+${attData.modifiers}`
+    ).evaluate({ async: true });
 
-  async _onMinorClick(event) {
-    event.preventDefault();
+    roll.toMessage({
+      speaker: ChatMessage.getSpeaker({ actor: this.actor }),
+      flavor: flavor,
+      rollMode: game.settings.get("core", "rollMode"),
+    });
 
-    const element = event.currentTarget;
-    const key = element.dataset.minorKey;
-    const minor = this.actor.system.minors[key];
-
-    return this.actor.rollMinor(minor);
+    return roll;
   }
 
   async _onSkillClick(event) {
     event.preventDefault();
+
     const element = event.currentTarget;
     const dataset = element.dataset;
     const key = dataset.skillKey;
-    const skill = this.actor.system.skills[key];
+    const skillData = this.actor.system.skills[key];
+    const label = `Teste de ${dataset.label}`;
+    const roll = await Roll.create(
+      `2d10+${skillData.value}+${skillData.modifiers}`
+    ).evaluate({ async: true });
 
-    console.log("-> DATASET", dataset);
+    roll.toMessage({
+      speaker: ChatMessage.getSpeaker({ actor: this.actor }),
+      flavor: label,
+      rollMode: game.settings.get("core", "rollMode"),
+    });
 
-    // if (dataset.roll) {
-    //   const roll = new Roll(dataset.roll, this.actor.system).evaluate({
-    //     async: true,
-    //   });
-
-    //   const label = dataset.label ? `Rolling ${dataset.label}` : "";
-    //   roll().toMessage({
-    //     speaker: ChatMessage.getSpeaker({ actor: this.actor }),
-    //     flavor: label,
-    //     // rollMode: game.settings.get("core", "rollMode"),
-    //   });
-    //   return roll;
-    // }
-
-    return this.actor.rollSkill(skill);
-
-    // const skipDialog = event.ctrlKey; // false
-
-    // console.log("->", key, skill);
-
-    // return this.actor.rollSkill(skill, { event: event });
-
-    // return this.actor.rollSkill(skill, { skipDialog });
-
-    // let { rollResults, cardData } = await this.actor.rollSkill(skill, {
-    //   skipDialog,
-    // });
-    // DegenesisChat.renderRollCard(rollResults, cardData);
+    return roll;
   }
 }

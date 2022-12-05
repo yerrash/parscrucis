@@ -19,8 +19,8 @@
   margin: 1px 0 2px;
 }
 @font-face {
-  font-family: "RubikGlitch";
-  src: url("fonts/RubikGlitch-Regular.ttf");
+  font-family: "Acme";
+  src: url("fonts/Acme-Regular.ttf");
 }
 @font-face {
   font-family: "IMFellEnglishSC";
@@ -35,8 +35,20 @@
   src: url("fonts/IMFellDWPicaSC-Regular.ttf");
 }
 @font-face {
-  font-family: "Acme";
-  src: url("fonts/Acme-Regular.ttf");
+  font-family: "JMHArkham";
+  src: url("fonts/JmharkhamRegular.otf");
+}
+@font-face {
+  font-family: "ModestoCondBold";
+  src: url("fonts/Modesto Condensed Bold.ttf");
+}
+@font-face {
+  font-family: "RubikGlitch";
+  src: url("fonts/RubikGlitch-Regular.ttf");
+}
+@font-face {
+  font-family: "SR";
+  src: url("fonts/Sundayromanticdemo.otf");
 }
 .sheet form {
   display: flex;
@@ -63,6 +75,15 @@
   height: 16px;
   margin-bottom: 2px;
   font-size: 17px;
+}
+.sheet .space {
+  margin: auto;
+  height: 20px;
+  margin-right: 2px;
+  border-width: 0px;
+  border-right: 1px;
+  border-style: solid;
+  border-color: #37373a7e;
 }
 .sheet .superior {
   font-family: "Acme";
@@ -125,7 +146,6 @@
 .sheet .superior .name-exp .exp-bar span,
 .sheet .superior .name-exp .exp-bar .exp-ttl,
 .sheet .superior .name-exp .exp-bar .exp-res {
-  width: 25%;
   height: 24px;
   line-height: 24px;
   font-size: 22px;
@@ -137,13 +157,17 @@
   background-color: transparent;
   margin: 0;
 }
+.sheet .superior .name-exp .exp-bar .exp-ava {
+  width: 25%;
+}
 .sheet .superior .name-exp .exp-bar .exp-ttl {
   width: 35%;
 }
 .sheet .superior .name-exp .exp-bar .exp-res {
-  width: 15%;
+  width: 20%;
 }
 .sheet .superior .name-exp .exp-bar .exp {
+  width: 20%;
   font-size: 20px;
   line-height: 22px;
   height: 20px;
@@ -186,11 +210,16 @@
   flex-direction: row;
   justify-content: space-between;
   margin-bottom: 3px;
+  padding-left: 4px;
   width: 100%;
 }
 .sheet .superior .stats-window .left-window .att-partial .attributes .attribute {
-  margin-right: 3px;
+  margin-right: 2px;
   width: 15%;
+  border-width: 0px;
+}
+.sheet .superior .stats-window .left-window .att-partial .attributes .space {
+  height: 40px;
 }
 .sheet .superior .stats-window .left-window .att-partial .attributes .stat-name {
   text-align: center;
@@ -209,15 +238,20 @@
   align-items: center;
 }
 .sheet .superior .stats-window .left-window .att-partial .attributes .stat input {
-  height: 30px;
+  height: 36px;
 }
 .sheet .superior .stats-window .left-window .att-partial .attributes .stat .stat-value {
-  width: 60%;
+  width: 58%;
+  font-family: "SR";
+  font-size: 36px;
+  padding-top: 3px;
 }
 .sheet .superior .stats-window .left-window .att-partial .attributes .stat .stat-modifier {
-  width: 40%;
-  font-size: 16px;
+  width: 42%;
+  font-family: "SR";
+  font-size: 24px;
   border-radius: 0 0 10px 0;
+  padding-bottom: 2px;
 }
 .sheet .superior .stats-window .left-window .att-partial .attributes .stat span {
   font-size: 12px;
@@ -228,17 +262,33 @@
 }
 .sheet .superior .stats-window .left-window .att-partial .attributes .movement .mov-value,
 .sheet .superior .stats-window .left-window .att-partial .attributes .movement .sprint {
-  width: 50%;
-  font-size: 20px;
+  font-family: "SR";
+  font-size: 36px;
+  padding-top: 3px;
+}
+.sheet .superior .stats-window .left-window .att-partial .attributes .movement .mov-value {
+  width: calc(37% - 7px);
+}
+.sheet .superior .stats-window .left-window .att-partial .attributes .movement .mov-modifier {
+  width: calc(26% - 7px);
+}
+.sheet .superior .stats-window .left-window .att-partial .attributes .movement .mov-arrow {
+  font-family: "SR";
+  font-size: 26px;
+  font-weight: bold;
+  width: 7px;
 }
 .sheet .superior .stats-window .left-window .att-partial .attributes .movement .sprint {
-  width: 40%;
+  width: calc(37% - 7px);
 }
 .sheet .superior .stats-window .left-window .att-partial .resources {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   width: 100%;
+}
+.sheet .superior .stats-window .left-window .att-partial .resources .space {
+  height: 30px;
 }
 .sheet .superior .stats-window .left-window .att-partial .resources .resource {
   margin-right: 3px;
@@ -261,18 +311,24 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-}
-.sheet .superior .stats-window .left-window .att-partial .resources .resource .resource-info .stat-value {
   font-size: 24px;
+}
+.sheet .superior .stats-window .left-window .att-partial .resources .resource .resource-info .stat-current {
+  text-align: right;
+}
+.sheet .superior .stats-window .left-window .att-partial .resources .resource .resource-info .stat-max {
+  text-align: left;
 }
 .sheet .superior .stats-window .left-window .att-partial .resources .resource .resource-info span {
   height: 28px;
 }
 .sheet .superior .stats-window .left-window .att-partial .resources .limiar {
   width: 60px;
+  margin-right: 2px;
 }
 .sheet .superior .stats-window .left-window .att-partial .resources .pain {
   width: 55px;
+  margin-right: 2px;
 }
 .sheet .superior .stats-window .left-window .att-partial .resources .pain label {
   height: 18px;
@@ -328,13 +384,14 @@
 }
 .sheet .superior .stats-window .right-window .mitigation .armor-group .armor h3 div,
 .sheet .superior .stats-window .right-window .mitigation .protections .armor h3 div {
-  font-weight: 700;
-  font-size: 18px;
+  font-size: 24px;
+  padding-top: 2px;
+  font-family: "SR";
 }
 .sheet .superior .stats-window .right-window .mitigation .armor-group .armor input,
 .sheet .superior .stats-window .right-window .mitigation .protections .armor input {
   text-align: center;
-  font-size: 20px;
+  font-size: 24px;
   height: 21px;
   width: 26px;
 }
@@ -412,7 +469,7 @@
 }
 .sheet .superior .stats-window .right-window .minors .minor-num .minor-value {
   width: 26px;
-  font-size: 20px;
+  font-size: 23px;
 }
 .sheet .superior .stats-window .right-window .minors .minor-num .minor-modifier {
   width: 20px;
@@ -442,7 +499,7 @@
   margin-bottom: 7px;
 }
 .sheet .navigation .item {
-  width: 12%;
+  width: 16%;
   text-align: center;
 }
 .sheet .navigation .active {
@@ -450,6 +507,10 @@
 }
 .sheet .navigation a {
   font-size: 17px;
+}
+.sheet .navigation .space {
+  margin: auto 0;
+  height: 14px;
 }
 .sheet .tab-content {
   font-family: "Acme";
@@ -491,6 +552,7 @@
   align-items: center;
 }
 .sheet .tab-content .skills-tab .grouping .skill-group .group-title .group-name {
+  padding-left: 21px;
   width: 80%;
 }
 .sheet .tab-content .skills-tab .grouping .skill-group .group-title .tag-lvl {
@@ -513,8 +575,42 @@
   align-items: center;
   width: 100%;
 }
+.sheet .tab-content .skills-tab .grouping .skill-group .skill .skill-favor {
+  display: flex;
+  margin: 0 2px 0 1px;
+  margin-bottom: 1px;
+  flex: 0;
+  width: 14px;
+  height: 14px;
+  cursor: pointer;
+}
+.sheet .tab-content .skills-tab .grouping .skill-group .skill input[type="checkbox"] {
+  margin-left: 3px;
+  margin-bottom: 3px;
+  background: transparent;
+  height: 14px;
+  padding: 4px 4px 4px 8px;
+  border: 1px solid #b5b7b8;
+  border: 1px inset #ccc;
+  border-radius: 50%;
+  -webkit-appearance: none;
+  -webkit-font-smoothing: antialiased;
+}
+.sheet .tab-content .skills-tab .grouping .skill-group .skill input[type="checkbox"]:checked {
+  padding: 0;
+  -webkit-filter: none;
+  color: #06003b;
+  box-shadow: 0px 1px 3px #741515e7 !important;
+}
+.sheet .tab-content .skills-tab .grouping .skill-group .skill input[type="checkbox"]:checked::before {
+  font-family: "Font Awesome 5 Free";
+  margin-left: -1.5px;
+  content: "\f603";
+  font-weight: bold;
+}
 .sheet .tab-content .skills-tab .grouping .skill-group .skill .skill-title {
-  width: calc(50% + 7px);
+  padding-left: 2px;
+  width: calc(50% + 6px - 14px);
 }
 .sheet .tab-content .skills-tab .grouping .skill-group .skill .skill-rate {
   width: 25px;
@@ -533,22 +629,33 @@
   height: 18px;
   text-align: right;
 }
-.sheet .tab-content .skills-tab .grouping .skill-group .skill .val-pericia {
+.sheet .tab-content .skills-tab .grouping .skill-group .skill .skill-value {
   width: 10%;
   font-weight: 700;
   font-size: 17px;
 }
-.sheet .tab-content .skills-tab .grouping .skill-group .skill .mod-pericia {
+.sheet .tab-content .skills-tab .grouping .skill-group .skill .skill-mod {
   width: 10%;
   padding: 0 1px 0 0;
 }
 .sheet .tab-content .lists {
-  padding: 3px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 48px;
+  padding: 3px 2px;
   border: 1px solid rgba(128, 128, 128, 0.432);
   border-radius: 5px;
+  font-size: 15px;
 }
 .sheet .tab-content .lists p {
   margin: 0;
+}
+.sheet .tab-content .notes-tab {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 3px 2px 2px;
 }
 .sheet .tab-content .info-tab {
   display: flex;
@@ -623,6 +730,18 @@
   margin: 0 0 7px 0;
 }
 .sheet .tab-content .window .bio {
-  min-height: 100px;
+  min-height: 36px;
   height: calc(100% - 16px);
+}
+.sheet .tab-content .notes-tab {
+  padding: 0;
+}
+.sheet .tab-content .notes-tab .notes-window {
+  height: 70%;
+  max-height: 312px;
+}
+.sheet .tab-content .notes-tab .gm-notes-window {
+  height: 30%;
+  max-height: 134px;
+  margin: 0;
 }

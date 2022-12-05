@@ -4,6 +4,26 @@
  */
 export class ParsCrucisActor extends Actor {
   /** @override */
+  async _preCreate(data, options, user) {
+    await super._preCreate(data, options, user);
+
+    let initData = {
+      prototypeToken: {
+        displayName: CONST.TOKEN_DISPLAY_MODES.OWNER_HOVER,
+        displayBars: CONST.TOKEN_DISPLAY_MODES.HOVER,
+        disposition: CONST.TOKEN_DISPOSITIONS.NEUTRAL,
+        actorLink: true,
+        texture: {
+          scaleX: 0.9,
+          scaleY: 0.9,
+        },
+      },
+    };
+
+    this.updateSource(initData);
+  }
+
+  /** @override */
   prepareData() {
     // Prepare data for the actor. Calling the super version of this executes
     // the following, in order: data reset (to clear active effects),
@@ -40,8 +60,6 @@ export class ParsCrucisActor extends Actor {
 
   _prepareCharacterData(actorData) {
     if (actorData.type !== "personagem") return;
-
-    // console.log(actorData);
   }
 
   /**
@@ -49,7 +67,6 @@ export class ParsCrucisActor extends Actor {
    */
   getRollData() {
     const data = super.getRollData();
-
     // console.log(data);
 
     // Prepare character roll data.
@@ -65,58 +82,12 @@ export class ParsCrucisActor extends Actor {
   _getCharacterRollData(data) {
     if (this.type !== "personagem") return;
 
-    // Copy the ability scores to the top level, so that rolls can use
-    // formulas like `@atlet.value + 2`.
-    if (data.skills) {
-      for (let [key, v] of Object.entries(data.skills)) {
-        data[key] = foundry.utils.deepClone(v);
-      }
-    }
-  }
-
-  // async rollSkill(skill, { skipDialog = false }) {
-
-  async rollSkill(skill) {
-    // console.log("rolling ->", skill);
-
-    const roll = await Roll.create(
-      `2d10+${skill.value}+${skill.modifiers}`
-    ).evaluate({ async: true });
-
-    ChatMessage.create({
-      type: CONST.CHAT_MESSAGE_TYPES.ROLL,
-
-      rolls: [roll.toJSON()],
-    });
-
-    console.log(roll);
-  }
-
-  async rollAtt(att) {
-    const roll = await Roll.create(
-      `2d10+${att.value}+${att.modifiers}`
-    ).evaluate({ async: true });
-
-    ChatMessage.create({
-      type: CONST.CHAT_MESSAGE_TYPES.ROLL,
-
-      rolls: [roll.toJSON()],
-    });
-
-    console.log(roll);
-  }
-
-  async rollMinor(minor) {
-    const roll = await Roll.create(
-      `2d10+${minor.value}+${minor.modifiers}`
-    ).evaluate({ async: true });
-
-    ChatMessage.create({
-      type: CONST.CHAT_MESSAGE_TYPES.ROLL,
-
-      rolls: [roll.toJSON()],
-    });
-
-    console.log(roll);
+    // // Copy the ability scores to the top level, so that rolls can use
+    // // formulas like `@atlet.value + 2`.
+    // if (data.skills) {
+    //   for (let [key, v] of Object.entries(data.skills)) {
+    //     data[key] = foundry.utils.deepClone(v);
+    //   }
+    // }
   }
 }

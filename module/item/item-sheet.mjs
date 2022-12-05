@@ -18,15 +18,14 @@ export default class ParsCrucisItemSheet extends ItemSheet {
   /** @override */
   get template() {
     const path = "systems/parscrucis/templates/item";
-
-    return `${path}/${this.item.type}-sheet.html`;
-    // return `systems/parscrucis/templates/item/${this.item.type}-sheet.html`;
+    return `${path}/${this.item.type}-sheet.hbs`;
   }
 
   /** @override */
   getData() {
     const data = super.getData();
     data.config = CONFIG.parscrucis;
+    console.log(data);
     return data;
   }
 
@@ -45,6 +44,8 @@ export default class ParsCrucisItemSheet extends ItemSheet {
 
     // Everything below here is only needed if the sheet is editable
     if (!this.options.editable) return;
+
+    // Add Weapon actions
 
     // Roll handlers, click handlers, etc. would go here.
   }

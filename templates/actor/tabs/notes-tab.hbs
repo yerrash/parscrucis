@@ -1,0 +1,27 @@
+<section class="notes-tab">
+  <div class="window notes-window">
+    <h3 class="subtitle"><span>{{localize "PC.notes"}}</span></h3>
+    <div class="bio">
+      {{editor
+        actor.system.details.notes
+        target="system.details.notes"
+        button=true
+        owner=owner
+        editable=editable
+      }}
+    </div>
+
+  </div>
+  <div class="window gm-notes-window">
+    <h3 class="subtitle"><span>{{localize "PC.gmNotes"}}</span></h3>
+    <div class="bio">
+      {{editor
+        actor.system.details.gmNotes
+        target="system.details.gmNotes"
+        button=true
+        owner=owner
+        editable=editable
+      }}
+    </div>
+  </div>
+</section>

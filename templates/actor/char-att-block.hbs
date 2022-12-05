@@ -4,7 +4,9 @@
       <div class="attribute">
         <label>
           <h3 class="stat-name">
-            <a data-att-key="{{@key}}">{{label}}</a>
+            <a data-att-key="{{@key}}" data-att-type="attributes">
+              {{shortLabel}}
+            </a>
           </h3>
         </label>
         <div class="stat">
@@ -14,16 +16,18 @@
             type="Number"
             value="{{att.value}}"
             data-dtype="Number"
+            placeholder="{{att.autoValue}}"
           />
           <input
             class="stat-modifier"
             name="system.attributes.{{@key}}.modifiers"
-            type="Number"
-            value="{{att.modifiers}}"
+            type="text"
+            value="{{numberFormat att.modifiers sign=true}}"
             data-dtype="Number"
           />
         </div>
       </div>
+      <div class="space"></div>
     {{/with}}
   {{/each}}
   <div class="attribute movement">
@@ -37,16 +41,28 @@
         class="mov-value"
         name="system.attributes.movement.value"
         type="Number"
-        value="{{data.system.attributes.movement.value}}"
+        value="{{systemData.attributes.movement.value}}"
+        data-dtype="Number"
+        placeholder="{{systemData.attributes.movement.autoValue}}"
+      />
+      <input
+        class="stat-modifier mov-modifier"
+        name="system.attributes.movement.modifiers"
+        type="text"
+        value="{{numberFormat
+          data.system.attributes.movement.modifiers
+          sign=true
+        }}"
         data-dtype="Number"
       />
-      <span>>></span>
+      <span class="mov-arrow">></span>
       <input
         class="stat-modifier sprint"
         name="system.attributes.movement.sprint"
-        type="Number"
-        value="{{data.system.attributes.movement.sprint}}"
+        type="text"
+        value="{{systemData.attributes.movement.sprint}}"
         data-dtype="Number"
+        placeholder="{{systemData.attributes.movement.autoSprint}}"
       />
     </div>
   </div>
@@ -58,13 +74,20 @@
     </label>
     <div class="resource-info">
       <input
-        class="stat-value"
+        class="stat-value stat-current"
         name="system.resources.pv.value"
         type="Number"
-        value="{{actor.system.resources.pv.value}}"
+        value="{{systemData.resources.pv.value}}"
         data-dtype="Number"
       />
-      <span class="stat-value">15</span>
+      /
+      <input
+        class="stat-value stat-max"
+        name="system.resources.pv.max"
+        type="Number"
+        value="{{systemData.resources.pv.max}}"
+        data-dtype="Number"
+      />
     </div>
   </div>
   <div class="resource pain">
@@ -76,11 +99,12 @@
         class="stat-value"
         name="system.resources.pv.pain"
         type="Number"
-        value="{{actor.system.resources.pv.pain}}"
+        value="{{systemData.resources.pv.pain}}"
         data-dtype="Number"
       />
     </div>
   </div>
+  <div class="space"></div>
   <div class="resource limiar">
     <label>
       <h3 class="resource-name"><div>{{localize "PC.LIM"}}</div></h3>
@@ -90,24 +114,32 @@
         class="stat-value limiar-value"
         name="system.resources.limiar.value"
         type="Number"
-        value="{{actor.system.resources.limiar.value}}"
+        value="{{systemData.resources.limiar.value}}"
         data-dtype="Number"
       />
     </div>
   </div>
+  <div class="space"></div>
   <div class="resource">
     <label>
       <h3 class="resource-name"><div>{{localize "PC.PE"}}</div></h3>
     </label>
     <div class="resource-info">
       <input
-        class="stat-value"
+        class="stat-value stat-current"
         name="system.resources.pe.value"
         type="Number"
-        value="{{actor.system.resources.pe.value}}"
+        value="{{systemData.resources.pe.value}}"
         data-dtype="Number"
       />
-      <span class="stat-value">15</span>
+      /
+      <input
+        class="stat-value stat-max"
+        name="system.resources.pe.max"
+        type="Number"
+        value="{{systemData.resources.pe.max}}"
+        data-dtype="Number"
+      />
     </div>
   </div>
   <div class="resource pain">
@@ -119,7 +151,7 @@
         class="stat-value"
         name="system.resources.pv.temp"
         type="Number"
-        value="{{actor.system.resources.pv.temp}}"
+        value="{{systemData.resources.pv.temp}}"
         data-dtype="Number"
       />
     </div>

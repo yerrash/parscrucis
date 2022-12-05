@@ -3,38 +3,42 @@
     <div class="grouping">
       <ul class="skill-group {{objs}}">
         <h3 class="group-title subtitle">
-          <span class="group-name">{{cat}}</span>
+          <span class="group-name">{{localize cat}}</span>
           <span class="tag-lvl">N</span>
           <span class="tag-mod">M</span>
         </h3>
         {{#each (lookup @root.config objs) as |p obj|}}
-          {{#with (lookup @root.actor.system.skills obj) as |per|}}
+          {{#with (lookup @root.actor.system.skills obj) as |sk|}}
             <li class="skill">
+              <input
+                class="skill-favor"
+                {{checked sk.favor}}
+                data-dtype="Boolean"
+                type="checkbox"
+                name="system.skills.{{@key}}.favor"
+              />
               <h4 class="skill-title">
                 <a
-                  class="rollable-skill"
-                  data-label="{{p}}"
+                  data-label="{{localize p}}"
                   data-skill-key="{{@key}}"
-                >{{p}}</a>
+                >{{localize p}}</a>
               </h4>
-              <span class="skill-rate">{{per.aprendizado}}</span>
+              <span class="skill-rate">{{localize sk.aprendizado}}</span>
               <span class="skill-att">
-                {{per.attribute}}{{#if
-                  (gte per.growth 2)
-                }}/{{per.growth}}{{/if}}
+                {{attLabel}}{{#if (gte sk.growth 2)}}/{{sk.growth}}{{/if}}
               </span>
               <input
-                class="val-pericia"
+                class="skill-value"
                 name="system.skills.{{@key}}.value"
                 type="Number"
-                value="{{per.value}}"
+                value="{{sk.value}}"
                 data-dtype="Number"
               />
               <input
-                class="mod-pericia"
+                class="skill-mod"
                 name="system.skills.{{@key}}.modifiers"
                 type="Number"
-                value="{{per.modifiers}}"
+                value="{{sk.modifiers}}"
                 data-dtype="Number"
               />
             </li>

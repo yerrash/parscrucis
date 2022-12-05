@@ -4,7 +4,7 @@
       {{#with (lookup @root.actor.system.mitigation obj) as |mit|}}
         <div class="armor">
           <h3>
-            <div>{{armor}}</div>
+            <div>{{localize armor}}</div>
           </h3>
           <input
             class="mit-value"
@@ -29,7 +29,7 @@
       {{#with (lookup @root.actor.system.mitigation obj) as |mit|}}
         <div class="protection">
           <h3>
-            <div>{{protec}}</div>
+            <div>{{localize protec}}</div>
           </h3>
           <input
             class="mit-modifiers"
@@ -47,7 +47,7 @@
   <div class="luck">
     <label>
       <h3 class="luck-name">
-        <div>Sorte</div>
+        <div>{{localize "PC.Sorte"}}</div>
       </h3>
     </label>
     <div class="luck-num">
@@ -65,12 +65,20 @@
       <div class="minor">
         <label>
           <h3 class="minor-name">
-            <a data-minor-key="{{@key}}">{{minor}}</a>
+            <a
+              data-att-key="{{@key}}"
+              data-att-type="minors"
+              data-label="{{localize minor}}"
+            >{{localize minor}}</a>
           </h3>
         </label>
         <div class="minor-num">
           <select name="system.minors.{{@key}}.base">
-            {{selectOptions (lookup @root.config obj) selected=minatt.base}}
+            {{selectOptions
+              (lookup @root.config obj)
+              selected=minatt.base
+              localize=true
+            }}
           </select>
           <input
             class="minor-value"
@@ -78,6 +86,7 @@
             type="Number"
             value="{{minatt.value}}"
             data-dtype="Number"
+            placeholder="{{minatt.autoValue}}"
           />
           <input
             class="minor-modifier"

@@ -13,7 +13,7 @@
           />
         </h2>
         <div class="exp-bar">
-          <span class="exp-ava">11</span>
+          <span class="exp-ava">{{systemData.details.expAvailable}}</span>
           <input
             class="exp-ttl"
             name="system.details.exp"
@@ -35,13 +35,13 @@
         <div class="left-window">
           <div class="racial">
             <select name="system.details.race">
-              {{selectOptions config.race selected=actor.system.details.race}}
+              {{selectOptions config.race selected=actor.system.details.race localize=true}}
             </select>
             <select name="system.details.culture">
-              {{selectOptions config.culture selected=actor.system.details.culture}}
+              {{selectOptions config.culture selected=actor.system.details.culture localize=true}}
             </select>
             <select name="system.details.persona">
-              {{selectOptions config.persona selected=actor.system.details.persona}}
+              {{selectOptions config.persona selected=actor.system.details.persona localize=true}}
             </select>
           </div>
           <div class="att-partial">
@@ -61,33 +61,38 @@
 
   <!-- Navigation tab -->
   <nav class="navigation" data-group="primary">
-    <a class="item" data-tab="pericias">Perícias</a>
-    <a class="item" data-tab="inventario">Inventário</a>
-    <a class="item" data-tab="habilidades">Habilidades</a>
-    <a class="item" data-tab="efeitos">Efeitos</a>
-    <a class="item" data-tab="info">Biografia</a>
-    <a class="item" data-tab="registros">Registros</a>
+    <a class="item" data-tab="pericias">{{localize "PC.skills"}}</a>
+    <div class="space"></div>
+    <a class="item" data-tab="inventario">{{localize "PC.inventory"}}</a>
+    <div class="space"></div>
+    <a class="item" data-tab="habilidades">{{localize "PC.abilities"}}</a>
+    <div class="space"></div>
+    <a class="item" data-tab="efeitos">{{localize "PC.effects"}}</a>
+    <div class="space"></div>
+    <a class="item" data-tab="info">{{localize "PC.biography"}}</a>
+    <div class="space"></div>
+    <a class="item" data-tab="registros">{{localize "PC.information"}}</a>
   </nav>
 
   <!-- Body -->
   <div class="tab-content">
     <div class="tab" data-tab="pericias">
-      {{> systems/parscrucis/templates/actor/skills-tab.hbs}}
+      {{> systems/parscrucis/templates/actor/tabs/skills-tab.hbs}}
     </div>
     <div class="tab" data-tab="inventario">
-      {{> systems/parscrucis/templates/actor/inventory-tab.hbs}}
+      {{> systems/parscrucis/templates/actor/tabs/inventory-tab.hbs}}
     </div>
     <div class="tab" data-tab="habilidades">
-      {{> systems/parscrucis/templates/actor/abilities-tab.hbs}}
+      {{> systems/parscrucis/templates/actor/tabs/abilities-tab.hbs}}
     </div>
     <div class="tab" data-tab="efeitos">
-      {{> systems/parscrucis/templates/actor/effects-tab.hbs}}
+      {{> systems/parscrucis/templates/actor/tabs/effects-tab.hbs}}
     </div>
     <div class="tab" data-tab="info">
-      {{> systems/parscrucis/templates/actor/info-tab.hbs}}
+      {{> systems/parscrucis/templates/actor/tabs/info-tab.hbs}}
     </div>
     <div class="tab" data-tab="registros">
-      {{> systems/parscrucis/templates/actor/notes-tab.hbs}}
+      {{> systems/parscrucis/templates/actor/tabs/notes-tab.hbs}}
     </div>
   </div>
 </form>

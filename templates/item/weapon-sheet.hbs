@@ -1,0 +1,50 @@
+<form class="{{cssClass}}" autocomplete="off">
+  <header class="sheet-header">
+    <img
+      src="{{item.img}}"
+      data-edit="img"
+      title="{{item.name}}"
+      height="64"
+      width="64"
+    />
+    <h1>
+      <input name="name" type="text" value="{{item.name}}" placeholder="Nome" />
+    </h1>
+  </header>
+  <div class="sheet-content">
+    <ol class="action-list">
+      <li class="action flexrow action-header">
+        <div>{{localize "PC.Skill"}}</div>
+        <div>{{localize "PC.ActionDiff"}}</div>
+        <div>{{localize "PC.Mod"}}</div>
+        <div>{{localize "PC.Damage"}}</div>
+        <div>{{localize "PC.Range"}}</div>
+        <div class="action-controls">
+          <a
+            class="action-controle action-create"
+            title="Criar ação"
+            data-type="action"
+          ><i class="fas fa-plus"></i></a>
+        </div>
+      </li>
+    </ol>
+    <table>
+      <tr>
+        <th>{{localize "PC.CombatSkill"}}</th>
+        <th>{{localize "PC.WeaponType"}}</th>
+      </tr>
+      <tr>
+        <td>
+          <select name="system.weaponSkill">
+            {{selectOptions
+              config.weaponSkill
+              selected=item.system.weaponSkill
+              localize=true
+            }}
+          </select>
+        </td>
+        <td>Armamento</td>
+      </tr>
+    </table>
+  </div>
+</form>
