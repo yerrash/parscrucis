@@ -1,23 +1,3 @@
-.editor {
-  height: 100%;
-}
-.editor .tox:not(.tox-tinymce-inline) .tox-editor-header {
-  height: 36px;
-  padding: 5px 0 3px 0;
-  top: -20px;
-}
-.editor button.tox-tbtn,
-.editor .tox-tbtn--select {
-  margin: 1px 1px 4px 0;
-  height: 24px;
-  width: auto;
-}
-.editor .tox-toolbar__primary .tox-toolbar__group {
-  padding: 0 5px 0 6px;
-}
-.editor p {
-  margin: 1px 0 2px;
-}
 @font-face {
   font-family: "Acme";
   src: url("fonts/Acme-Regular.ttf");
@@ -50,6 +30,26 @@
   font-family: "SR";
   src: url("fonts/Sundayromanticdemo.otf");
 }
+.editor {
+  height: 100%;
+}
+.editor .tox:not(.tox-tinymce-inline) .tox-editor-header {
+  height: 36px;
+  padding: 5px 0 3px 0;
+  top: -20px;
+}
+.editor button.tox-tbtn,
+.editor .tox-tbtn--select {
+  margin: 1px 1px 4px 0;
+  height: 24px;
+  width: auto;
+}
+.editor .tox-toolbar__primary .tox-toolbar__group {
+  padding: 0 5px 0 6px;
+}
+.editor p {
+  margin: 1px 0 2px;
+}
 .sheet form {
   display: flex;
   flex-direction: column;
@@ -69,6 +69,7 @@
 }
 .sheet .subtitle {
   display: flex;
+  flex-wrap: nowrap;
   flex-direction: row;
   align-items: center;
   width: 100%;
@@ -301,8 +302,8 @@
 .sheet .superior .stats-window .left-window .att-partial .resources .resource label h3 {
   font-family: "IMFellEnglishSC";
   font-weight: 700;
-  height: 17px;
-  font-size: 16px;
+  height: 18px;
+  font-size: 17px;
 }
 .sheet .superior .stats-window .left-window .att-partial .resources .resource label h3 div {
   height: 16px;
@@ -312,15 +313,44 @@
   flex-direction: row;
   align-items: center;
   font-size: 24px;
+  height: 28px;
 }
-.sheet .superior .stats-window .left-window .att-partial .resources .resource .resource-info .stat-current {
+.sheet .superior .stats-window .left-window .att-partial .resources .resource .resource-info .resource_special {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 140px;
+  position: absolute;
+  height: 26px;
+  background: rgba(0, 0, 0, 0.05);
+  border: solid var(--color-text-light-5);
+  border-width: 0 1px 0px 0;
+  border-radius: 0 0 5px 0;
+}
+.sheet .superior .stats-window .left-window .att-partial .resources .resource .resource-info .resource_special .stat-value {
+  width: 50%;
+}
+.sheet .superior .stats-window .left-window .att-partial .resources .resource .resource-info .resource_special .stat-current {
+  background-color: transparent;
   text-align: right;
 }
-.sheet .superior .stats-window .left-window .att-partial .resources .resource .resource-info .stat-max {
+.sheet .superior .stats-window .left-window .att-partial .resources .resource .resource-info .resource_special .stat-max {
+  background-color: transparent;
   text-align: left;
 }
-.sheet .superior .stats-window .left-window .att-partial .resources .resource .resource-info span {
+.sheet .superior .stats-window .left-window .att-partial .resources .resource .resource-info .resource_special span {
   height: 28px;
+}
+.sheet .superior .stats-window .left-window .att-partial .resources .resource .resource-info .resource_special .divisor {
+  font-size: 20px;
+}
+.sheet .superior .stats-window .left-window .att-partial .resources .resource .resource-info .resource-bar {
+  height: 24px;
+  background-color: #00d41270;
+  border-radius: 5px 0 5px 0;
+}
+.sheet .superior .stats-window .left-window .att-partial .resources .resource .resource-info .pe-bar {
+  background-color: #0043d470;
 }
 .sheet .superior .stats-window .left-window .att-partial .resources .limiar {
   width: 60px;
@@ -519,6 +549,12 @@
 .sheet .tab-content .tab {
   height: 100%;
 }
+.sheet .tab-content .window {
+  padding: 4px 2px 0;
+  border: 1px solid rgba(128, 128, 128, 0.432);
+  border-radius: 5px;
+  margin: 0 0 7px 0;
+}
 .sheet .tab-content input {
   border: 0;
   border-radius: 3px;
@@ -552,7 +588,6 @@
   align-items: center;
 }
 .sheet .tab-content .skills-tab .grouping .skill-group .group-title .group-name {
-  padding-left: 21px;
   width: 80%;
 }
 .sheet .tab-content .skills-tab .grouping .skill-group .group-title .tag-lvl {
@@ -574,6 +609,11 @@
   flex-direction: row;
   align-items: center;
   width: 100%;
+}
+.sheet .tab-content .skills-tab .grouping .skill-group .skill .skill-exp {
+  color: #999;
+  font-family: "Modesto Condensed";
+  font-size: 12.5px;
 }
 .sheet .tab-content .skills-tab .grouping .skill-group .skill .skill-favor {
   display: flex;
@@ -651,11 +691,116 @@
 .sheet .tab-content .lists p {
   margin: 0;
 }
-.sheet .tab-content .notes-tab {
+.sheet .tab-content .lists .list-line {
+  width: 100%;
   display: flex;
-  flex-direction: column;
-  height: 100%;
-  padding: 3px 2px 2px;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.sheet .tab-content .lists .list-line .list-title {
+  width: 20%;
+  display: flex;
+  align-items: center;
+  height: 21px;
+  font-size: 15px;
+}
+.sheet .tab-content .lists .list-line .list-input {
+  width: 100%;
+  font-size: 15px;
+  height: 17px;
+  margin: 2px 1px;
+  padding-left: 2px;
+  margin-left: 4px;
+}
+.sheet .tab-content .items-list {
+  margin: 0;
+  padding: 0;
+  min-height: 41px;
+}
+.sheet .tab-content .items-list .subtitle {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+.sheet .tab-content .items-list .item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+.sheet .tab-content .items-list .item .item-margin {
+  margin-right: 2px;
+}
+.sheet .tab-content .items-list .item .item-name {
+  width: calc(22% - 8px);
+}
+.sheet .tab-content .items-list .item .item-name .item-type {
+  color: #999;
+  font-family: "Modesto Condensed";
+  font-size: 12.5px;
+}
+.sheet .tab-content .items-list .item .item-skill {
+  width: calc(8% - 4px);
+}
+.sheet .tab-content .items-list .item .item-action {
+  width: calc(7% - 4px);
+}
+.sheet .tab-content .items-list .item .item-modifier {
+  width: calc(3% - 4px);
+  text-align: right;
+}
+.sheet .tab-content .items-list .item .item-damage {
+  width: calc(15% - 6px);
+  width: 12%;
+  text-align: center;
+}
+.sheet .tab-content .items-list .item .item-range {
+  text-align: center;
+  width: 6%;
+}
+.sheet .tab-content .items-list .item .item-info {
+  width: calc(32% - 11px);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.sheet .tab-content .items-list .item .item-defense {
+  width: 7%;
+}
+.sheet .tab-content .items-list .item .item-controls {
+  width: 29px;
+  margin-left: 3px;
+  text-align: center;
+}
+.sheet .tab-content .items-list .item-header .item-image {
+  padding-left: 21px;
+  height: 6px;
+  margin-right: 3px;
+}
+.sheet .tab-content .items-list .item-header .item-skill,
+.sheet .tab-content .items-list .item-header .item-action {
+  font-size: 14px;
+}
+.sheet .tab-content .items-list .item-line {
+  height: 23px;
+}
+.sheet .tab-content .items-list .item-line .item-image {
+  width: 21px;
+  height: 21px;
+  display: flex;
+  align-items: center;
+  margin-right: 3px;
+}
+.sheet .tab-content .items-list .item-line .item-image img {
+  width: 21px;
+  height: 21px;
+}
+.sheet .tab-content .items-list .item-line .item-name {
+  font-size: 15px;
+}
+.sheet .tab-content .items-list .item-line .item-modifier {
+  font-size: 17px;
 }
 .sheet .tab-content .info-tab {
   display: flex;
@@ -670,27 +815,27 @@
   justify-content: space-between;
   padding: 3px 2px 2px;
 }
-.sheet .tab-content .info-tab .basic-info .minor-info {
+.sheet .tab-content .info-tab .minor-info {
   width: calc(50% - 1px);
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
 }
-.sheet .tab-content .info-tab .basic-info .minor-info .minor-title {
+.sheet .tab-content .info-tab .minor-info .minor-title {
   display: flex;
   flex-direction: row;
   align-items: center;
   height: 21px;
   font-size: 15px;
 }
-.sheet .tab-content .info-tab .basic-info .minor-info .age-input {
+.sheet .tab-content .info-tab .minor-info .age-input {
   width: auto;
   font-size: 15px;
-  margin-left: 2px;
   height: 17px;
   margin: 2px 1px;
   padding-left: 2px;
+  margin-left: 3px;
 }
 .sheet .tab-content .info-tab .info-windows {
   display: flex;
@@ -723,13 +868,13 @@
 .sheet .tab-content .info-tab .info-windows .last-window {
   margin-bottom: 0;
 }
-.sheet .tab-content .window {
-  padding: 4px 2px 0;
-  border: 1px solid rgba(128, 128, 128, 0.432);
-  border-radius: 5px;
-  margin: 0 0 7px 0;
+.sheet .tab-content .notes-tab {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 3px 2px 2px;
 }
-.sheet .tab-content .window .bio {
+.sheet .tab-content .bio {
   min-height: 36px;
   height: calc(100% - 16px);
 }

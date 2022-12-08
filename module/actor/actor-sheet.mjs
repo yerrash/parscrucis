@@ -89,82 +89,9 @@ export default class ParsCrucisActorSheet extends ActorSheet {
    */
   _prepareCharacterData(context) {
     const systemData = context.systemData;
-    const attributesData = systemData.attributes;
-    const skillsData = systemData.skills;
-    const minorsData = systemData.minors;
-    const detailsData = systemData.details;
-    const race = detailsData.race;
-    const skillsExpSpent = [];
-
-    // Handle skills.
-    for (let [_, skill] of Object.entries(skillsData)) {
-      skill.attLabel =
-        game.i18n.localize(PC.attributes[skill.attribute]) ??
-        PC.attributes[skill.attribute];
-
-      // Skill value cannot be null or lower than 0;
-      skill.value
-        ? skill.value >= 0
-          ? skill.value
-          : (skill.value = 0)
-        : (skill.value = 0);
-
-      // Update skill attribute base value.
-      skill.attBaseValue = Math.ceil(skill.value / skill.growth);
-
-      // Update skill experience spent.
-      skill.expSpent = 0;
-      const startingCost = skill.aprendizado === "PC.Hard" ? 2 : 1;
-      for (let e = startingCost; e < skill.value + startingCost; e++) {
-        if (skill.favor) {
-          skill.expSpent += e - 1;
-        } else {
-          skill.expSpent += e;
-        }
-      }
-      skillsExpSpent.push(skill.expSpent);
-    }
-
-    // Handle attributes.
-    for (let [key, att] of Object.entries(attributesData)) {
-      if (key !== "movement") {
-        att.shortLabel = game.i18n.localize(PC.attributes[key]) ?? key;
-        att.label = game.i18n.localize(PC.attributeNames[key]) ?? key;
-
-        // Update attribute values based on parameters.
-        const attArray = [];
-        for (let [_, skill] of Object.entries(skillsData)) {
-          if (skill.attribute == key) {
-            attArray.push(skill.attBaseValue);
-          }
-        }
-        const attRaceValue = RACIALS[race].attributes[key];
-        const attBaseValue = Math.max(...attArray);
-        att.autoValue = attRaceValue + attBaseValue;
-      }
-      if (key === "movement") {
-        att.autoValue = RACIALS[race].attributes[key].move;
-        att.autoSprint = RACIALS[race].attributes[key].sprint;
-      }
-    }
-
-    // Handle minors.
-    for (let [key, minor] of Object.entries(minorsData)) {
-      minor.label = game.i18n.localize(PC.minors[key]) ?? key;
-
-      const baseAtt = minor.base;
-      const minorBaseValue =
-        attributesData[baseAtt].value || attributesData[baseAtt].autoValue;
-      minor.autoValue = minorBaseValue;
-    }
-
-    // Calculate available experience.
-    const skillsExpSum = skillsExpSpent.reduce((a, b) => a + b, 0);
-    detailsData.expAvailable =
-      detailsData.exp - detailsData.expReserve - skillsExpSum;
 
     // Prints target actor DATA.
-    console.log("atualiza ->", systemData);
+    console.log("atualiza ->", context);
   }
 
   activateListeners(html) {

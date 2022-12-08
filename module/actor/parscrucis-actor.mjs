@@ -1,3 +1,6 @@
+import { PC } from "../config.mjs";
+import { RACIALS } from "../base-data.mjs";
+
 /**
  * Extend the base Actor document with custom roll data.
  * @extends {Actor}
@@ -52,6 +55,107 @@ export class ParsCrucisActor extends Actor {
     const data = actorData.system;
     const flags = actorData.flags.parscrucis || {};
 
+    const systemData = actorData.system;
+
+    const attributesData = systemData.attributes;
+    const skillsData = systemData.skills;
+    const minorsData = systemData.minors;
+    const detailsData = systemData.details;
+    const resourcesData = systemData.resources;
+    const race = detailsData.race;
+    const skillsExpSpent = [];
+
+    // Handle skills.
+    for (let [_, skill] of Object.entries(skillsData)) {
+      skill.attLabel =
+        game.i18n.localize(PC.attributes[skill.attribute]) ??
+        PC.attributes[skill.attribute];
+
+      // Skill value cannot be null or lower than 0;
+      skill.value
+        ? skill.value >= 0
+          ? skill.value
+          : (skill.value = 0)
+        : (skill.value = 0);
+
+      // Update skill attribute base value.
+      skill.attBaseValue = Math.ceil(skill.value / skill.growth);
+
+      // Update skill experience spent.
+      skill.expSpent = 0;
+      const startingCost = skill.aprendizado === "PC.Hard" ? 2 : 1;
+      for (let e = startingCost; e < skill.value + startingCost; e++) {
+        if (skill.favor) {
+          skill.expSpent += e - 1;
+        } else {
+          skill.expSpent += e;
+        }
+      }
+      skillsExpSpent.push(skill.expSpent);
+    }
+
+    // Handle attributes.
+    for (let [key, att] of Object.entries(attributesData)) {
+      if (key !== "movement") {
+        att.shortLabel = game.i18n.localize(PC.attributes[key]) ?? key;
+        att.label = game.i18n.localize(PC.attributeNames[key]) ?? key;
+
+        // Update attribute values based on parameters.
+        const attArray = [];
+        for (let [_, skill] of Object.entries(skillsData)) {
+          if (skill.attribute == key) {
+            attArray.push(skill.attBaseValue);
+          }
+        }
+        const attRaceValue = RACIALS[race].attributes[key];
+        const attBaseValue = Math.max(...attArray);
+        att.autoValue = attRaceValue + attBaseValue;
+      }
+      if (key === "movement") {
+        att.autoValue = RACIALS[race].attributes[key].move;
+        att.autoSprint =
+          RACIALS[race].attributes[key].sprint + skillsData.atlet.value / 2;
+      }
+    }
+
+    // Handle minors.
+    for (let [key, minor] of Object.entries(minorsData)) {
+      minor.label = game.i18n.localize(PC.minors[key]) ?? key;
+
+      const baseAtt = minor.base;
+      const minorBaseValue =
+        attributesData[baseAtt].value || attributesData[baseAtt].autoValue;
+      minor.autoValue = minorBaseValue;
+    }
+
+    // Construct resources
+    resourcesData.pv.autoValue =
+      15 +
+        (attributesData.fis.value || attributesData.fis.autoValue) +
+        skillsData.resis.value || skillsData.resis.autoValue;
+    resourcesData.pv.max =
+      resourcesData.pv.inputValue || resourcesData.pv.autoValue;
+    resourcesData.pv.currentPercent =
+      (100 * resourcesData.pv.value) / resourcesData.pv.max;
+
+    resourcesData.pe.autoValue =
+      15 +
+        (attributesData.esp.value || attributesData.esp.autoValue) +
+        skillsData.amago.value || skillsData.amago.autoValue;
+    resourcesData.pe.max =
+      resourcesData.pe.inputValue || resourcesData.pe.autoValue;
+    resourcesData.pe.currentPercent =
+      (100 * resourcesData.pe.value) / resourcesData.pe.max;
+
+    console.log(resourcesData);
+
+    // Calculate available experience.
+    const skillsExpSum = skillsExpSpent.reduce((a, b) => a + b, 0);
+    detailsData.expAvailable =
+      detailsData.exp - detailsData.expReserve - skillsExpSum;
+
+    console.log(actorData);
+
     // Make separate methods for each Actor type (character, npc, etc.) to keep
     // things organized.
     this._prepareCharacterData(actorData);
@@ -60,6 +164,8 @@ export class ParsCrucisActor extends Actor {
 
   _prepareCharacterData(actorData) {
     if (actorData.type !== "personagem") return;
+
+    console.log("PORRA");
   }
 
   /**
@@ -67,7 +173,6 @@ export class ParsCrucisActor extends Actor {
    */
   getRollData() {
     const data = super.getRollData();
-    // console.log(data);
 
     // Prepare character roll data.
     this._getCharacterRollData(data);

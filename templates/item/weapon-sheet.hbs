@@ -7,9 +7,22 @@
       height="64"
       width="64"
     />
-    <h1>
-      <input name="name" type="text" value="{{item.name}}" placeholder="Nome" />
-    </h1>
+    <div>
+      <h1>
+        <input
+          name="name"
+          type="text"
+          value="{{item.name}}"
+          placeholder="Nome"
+        />
+      </h1>
+      <input
+        name="system.weaponType"
+        type="text"
+        value="{{item.system.weaponType}}"
+        placeholder="[Tipo]"
+      />
+    </div>
   </header>
   <div class="sheet-content">
     <ol class="action-list">

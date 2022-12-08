@@ -9,6 +9,7 @@
   }
   .subtitle {
     display: flex;
+    flex-wrap: nowrap;
     flex-direction: row;
     align-items: center;
     width: 100%;
@@ -241,8 +242,8 @@
                 h3 {
                   font-family: "IMFellEnglishSC";
                   font-weight: 700;
-                  height: 17px;
-                  font-size: 16px;
+                  height: 18px;
+                  font-size: 17px;
                   div {
                     height: 16px;
                   }
@@ -253,16 +254,43 @@
                 flex-direction: row;
                 align-items: center;
                 font-size: 24px;
-                .stat-value {
+                height: 28px;
+                .resource_special {
+                  display: flex;
+                  flex-direction: row;
+                  align-items: center;
+                  width: 140px;
+                  position: absolute;
+                  height: 26px;
+                  background: rgba(0, 0, 0, 0.05);
+                  border: solid var(--color-text-light-5);
+                  border-width: 0 1px 0px 0;
+                  border-radius: 0 0 5px 0;
+                  .stat-value {
+                    width: 50%;
+                  }
+                  .stat-current {
+                    background-color: transparent;
+                    text-align: right;
+                  }
+                  .stat-max {
+                    background-color: transparent;
+                    text-align: left;
+                  }
+                  span {
+                    height: 28px;
+                  }
+                  .divisor {
+                    font-size: 20px;
+                  }
                 }
-                .stat-current {
-                  text-align: right;
+                .resource-bar {
+                  height: 24px;
+                  background-color: #00d41270;
+                  border-radius: 5px 0 5px 0;
                 }
-                .stat-max {
-                  text-align: left;
-                }
-                span {
-                  height: 28px;
+                .pe-bar {
+                  background-color: #0043d470;
                 }
               }
             }
@@ -460,6 +488,12 @@
     .tab {
       height: 100%;
     }
+    .window {
+      padding: 4px 2px 0;
+      border: 1px solid rgba(128, 128, 128, 0.432);
+      border-radius: 5px;
+      margin: 0 0 7px 0;
+    }
     input {
       border: 0;
       border-radius: 3px;
@@ -470,6 +504,8 @@
       border-radius: 3px;
       padding: 0;
     }
+
+    // Skills tab
     .skills-tab {
       display: flex;
       flex-direction: row;
@@ -489,7 +525,7 @@
             flex-direction: row;
             align-items: center;
             .group-name {
-              padding-left: 21px;
+              // padding-left: 21px;
               width: 80%;
             }
             .tag-lvl {
@@ -512,6 +548,13 @@
             flex-direction: row;
             align-items: center;
             width: 100%;
+            .skill-exp {
+              // color: #7a7971; a bit darker
+              color: #999;
+              font-family: "Modesto Condensed";
+              font-size: 12.5px;
+            }
+
             .skill-favor {
               display: flex;
               margin: 0 2px 0 1px;
@@ -545,7 +588,6 @@
               content: "\f603";
               font-weight: bold;
             }
-
             .skill-title {
               padding-left: 2px;
               width: calc(50% + 6px - 14px);
@@ -592,14 +634,131 @@
       p {
         margin: 0;
       }
+      .list-line {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        // align-items: center;
+        justify-content: space-between;
+        .list-title {
+          width: 20%;
+          display: flex;
+          align-items: center;
+          height: 21px;
+          font-size: 15px;
+        }
+        .list-input {
+          width: 100%;
+          font-size: 15px;
+          height: 17px;
+          margin: 2px 1px;
+          padding-left: 2px;
+          margin-left: 4px;
+        }
+      }
     }
 
-    .notes-tab {
-      display: flex;
-      flex-direction: column;
-      height: 100%;
-      padding: 3px 2px 2px;
+    // Inventory tab
+    .items-list {
+      margin: 0;
+      padding: 0;
+      min-height: 41px;
+      .subtitle {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .item {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        .item-margin {
+          margin-right: 2px;
+        }
+        .item-name {
+          width: calc(22% - 8px);
+          .item-type {
+            color: #999;
+            font-family: "Modesto Condensed";
+            font-size: 12.5px;
+          }
+        }
+        .item-skill {
+          width: calc(8% - 4px);
+        }
+        .item-action {
+          width: calc(7% - 4px);
+        }
+        .item-modifier {
+          width: calc(3% - 4px);
+          text-align: right;
+        }
+        // 24 - 6 8 10 12 14 23
+        // 32
+        .item-damage {
+          width: calc(15% - 6px);
+          width: 12%;
+          text-align: center;
+        }
+        .item-range {
+          text-align: center;
+          width: 6%;
+        }
+        .item-info {
+          width: calc(32% - 11px);
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          overflow: hidden;
+        }
+        .item-defense {
+          width: 7%;
+        }
+        .item-controls {
+          width: 29px;
+          margin-left: 3px;
+          text-align: center;
+        }
+      }
+      .item-header {
+        .item-image {
+          padding-left: 21px;
+          height: 6px;
+          margin-right: 3px;
+        }
+        .item-skill,
+        .item-action {
+          font-size: 14px;
+        }
+        .item-modifier {
+        }
+        .item-name {
+        }
+      }
+      .item-line {
+        height: 23px;
+        .item-image {
+          width: 21px;
+          height: 21px;
+          display: flex;
+          align-items: center;
+          margin-right: 3px;
+          img {
+            width: 21px;
+            height: 21px;
+          }
+        }
+        .item-name {
+          font-size: 15px;
+        }
+        .item-modifier {
+          font-size: 17px;
+        }
+      }
     }
+
+    // Biography tab
     .info-tab {
       display: flex;
       flex-direction: column;
@@ -611,27 +770,27 @@
         flex-wrap: wrap;
         justify-content: space-between;
         padding: 3px 2px 2px;
-        .minor-info {
-          width: calc(50% - 1px);
+      }
+      .minor-info {
+        width: calc(50% - 1px);
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        .minor-title {
           display: flex;
           flex-direction: row;
           align-items: center;
-          justify-content: space-between;
-          .minor-title {
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            height: 21px;
-            font-size: 15px;
-          }
-          .age-input {
-            width: auto;
-            font-size: 15px;
-            margin-left: 2px;
-            height: 17px;
-            margin: 2px 1px;
-            padding-left: 2px;
-          }
+          height: 21px;
+          font-size: 15px;
+        }
+        .age-input {
+          width: auto;
+          font-size: 15px;
+          height: 17px;
+          margin: 2px 1px;
+          padding-left: 2px;
+          margin-left: 3px;
         }
       }
       .info-windows {
@@ -671,15 +830,17 @@
         }
       }
     }
-    .window {
-      padding: 4px 2px 0;
-      border: 1px solid rgba(128, 128, 128, 0.432);
-      border-radius: 5px;
-      margin: 0 0 7px 0;
-      .bio {
-        min-height: 36px;
-        height: calc(100% - 16px);
-      }
+
+    // Information - Notes tab
+    .notes-tab {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      padding: 3px 2px 2px;
+    }
+    .bio {
+      min-height: 36px;
+      height: calc(100% - 16px);
     }
     .notes-tab {
       padding: 0;

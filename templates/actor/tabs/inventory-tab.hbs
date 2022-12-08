@@ -1,20 +1,38 @@
-<section class="inventario">Aqui segue o INVENTÁRIO
-  {{! Owned Items Tab }}
-  <div class="items">
+<section class="inventario">
+  {{! Owned Weapons Tab }}
+  <div class="weaponry window">
     <ol class="items-list">
-      <li class="item flexrow item-header">
-        <div class="item-image"></div>
-        <div class="item-name">Name</div>
-        <div class="item-controls">
-          <a
-            class="item-control item-create"
-            title="Create item"
-            data-type="weapon"
-          ><i class="fas fa-plus"></i> Add item</a>
-        </div>
+      <li class="item item-header">
+        <h3 class="subtitle">
+          <div class="item-image"></div>
+          <div class="item-name item-margin">{{localize "PC.Weaponry"}}</div>
+          <div class="item-skill item-margin">{{localize "PC.Skill"}}</div>
+          <div class="item-action item-margin">{{localize
+              "PC.ActionDiff"
+            }}</div>
+          <div class="item-modifier item-margin">{{localize "PC.M"}}</div>
+          <div class="item-damage item-margin">
+            {{localize "PC.Damage"}}
+            {{! <span class="item-damage-formula">[+5]</span> }}
+          </div>
+          <div class="item-range item-margin">{{localize "PC.Rng"}}</div>
+          <div class="item-info item-margin">{{localize "PC.Notes"}}</div>
+          <div class="item-defense">
+            {{localize "PC.DEF"}}
+            {{! <span class="item-special-defense">[]</span> }}
+          </div>
+          <div class="item-controls">
+            <a
+              class="item-control item-create"
+              title="Create item"
+              data-type="weapon"
+            ><i class="fas fa-plus"></i></a>
+          </div>
+        </h3>
+
       </li>
       {{#each items as |item id|}}
-        <li class="item flexrow" data-item-id="{{item._id}}">
+        <li class="item item-line" data-item-id="{{item._id}}">
           <div class="item-image">
             <img
               src="{{item.img}}"
@@ -23,7 +41,28 @@
               height="24"
             />
           </div>
-          <h4 class="item-name">{{item.name}}</h4>
+          <h4 class="item-name item-margin">
+            {{item.name}}
+            <span
+              class="item-type item-margin"
+            >{{item.system.weaponType}}</span>
+          </h4>
+          <h4 class="item-skill item-margin">{{item.system.weaponSkill}}</h4>
+          {{! action information interval }}
+          <div class="item-action item-margin">Algum</div>
+          <div class="item-modifier item-margin">+2</div>
+          <div class="item-damage item-margin">
+            <span class="item-damage-formula">[+5]</span>
+            18 físico
+          </div>
+          <div class="item-range item-margin">12/40</div>
+          <div class="item-info item-margin">Arma antiga, props únicas,
+            Congelamento (5)</div>
+          <div class="item-defense">
+            16
+            <span class="item-special-defense">12</span>
+          </div>
+          {{! interval }}
           <div class="item-controls">
             <a class="item-control item-edit" title="Edit Item">
               <i class="fas fa-edit"></i>
@@ -35,5 +74,13 @@
         </li>
       {{/each}}
     </ol>
+  </div>
+  {{! Wear Tab }}
+  <div class="wear window">
+    <ol class="items-list"></ol>
+  </div>
+  {{! General Tab }}
+  <div class="general window">
+    <ol class="items-list"></ol>
   </div>
 </section>

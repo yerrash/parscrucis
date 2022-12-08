@@ -4,8 +4,8 @@
       <ul class="skill-group {{objs}}">
         <h3 class="group-title subtitle">
           <span class="group-name">{{localize cat}}</span>
-          <span class="tag-lvl">N</span>
-          <span class="tag-mod">M</span>
+          <span class="tag-lvl">{{localize "PC.L"}}</span>
+          <span class="tag-mod">{{localize "PC.M"}}</span>
         </h3>
         {{#each (lookup @root.config objs) as |p obj|}}
           {{#with (lookup @root.actor.system.skills obj) as |sk|}}
@@ -22,6 +22,7 @@
                   data-label="{{localize p}}"
                   data-skill-key="{{@key}}"
                 >{{localize p}}</a>
+                <span class="skill-exp">{{sk.expSpent}}</span>
               </h4>
               <span class="skill-rate">{{localize sk.aprendizado}}</span>
               <span class="skill-att">
@@ -49,6 +50,24 @@
   {{/each}}
 </section>
 <section class="lists">
-  <p>Lista de profissões</p>
-  <p>Lista de idiomas</p>
+  <div class="list-line">
+    <h4 class="list-title">{{localize "PC.ProfessionsList"}}: </h4>
+    <input
+      class="list-input"
+      name="system.details.professions"
+      type="text"
+      value="{{systemData.details.professions}}"
+      data-dtype="String"
+    />
+  </div>
+  <div class="list-line">
+    <h4 class="list-title">{{localize "PC.IdiomsList"}}: </h4>
+    <input
+      class="list-input"
+      name="system.details.idioms"
+      type="text"
+      value="{{systemData.details.idioms}}"
+      data-dtype="String"
+    />
+  </div>
 </section>

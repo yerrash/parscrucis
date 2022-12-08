@@ -72,23 +72,33 @@
     <label>
       <h3 class="resource-name"><div>{{localize "PC.PV"}}</div></h3>
     </label>
+
     <div class="resource-info">
-      <input
-        class="stat-value stat-current"
-        name="system.resources.pv.value"
-        type="Number"
-        value="{{systemData.resources.pv.value}}"
-        data-dtype="Number"
-      />
-      /
-      <input
-        class="stat-value stat-max"
-        name="system.resources.pv.max"
-        type="Number"
-        value="{{systemData.resources.pv.max}}"
-        data-dtype="Number"
-      />
+      <span
+        class="resource-bar"
+        style="width:{{systemData.resources.pv.currentPercent}}%"
+      ></span>
+      <div class="resource_special">
+        <input
+          class="stat-value stat-current"
+          name="system.resources.pv.value"
+          type="Number"
+          value="{{systemData.resources.pv.value}}"
+          data-dtype="Number"
+        />
+        <div class="divisor">/</div>
+        <input
+          class="stat-value stat-max"
+          name="system.resources.pv.inputValue"
+          type="Number"
+          value="{{systemData.resources.pv.inputValue}}"
+          data-dtype="Number"
+          placeholder="{{systemData.resources.pv.max}}"
+        />
+      </div>
+
     </div>
+
   </div>
   <div class="resource pain">
     <label>
@@ -125,21 +135,28 @@
       <h3 class="resource-name"><div>{{localize "PC.PE"}}</div></h3>
     </label>
     <div class="resource-info">
-      <input
-        class="stat-value stat-current"
-        name="system.resources.pe.value"
-        type="Number"
-        value="{{systemData.resources.pe.value}}"
-        data-dtype="Number"
-      />
-      /
-      <input
-        class="stat-value stat-max"
-        name="system.resources.pe.max"
-        type="Number"
-        value="{{systemData.resources.pe.max}}"
-        data-dtype="Number"
-      />
+      <span
+        class="resource-bar pe-bar"
+        style="width:{{systemData.resources.pe.currentPercent}}%"
+      ></span>
+      <div class="resource_special">
+        <input
+          class="stat-value stat-current"
+          name="system.resources.pe.value"
+          type="Number"
+          value="{{systemData.resources.pe.value}}"
+          data-dtype="Number"
+        />
+        <div class="divisor">/</div>
+        <input
+          class="stat-value stat-max"
+          name="system.resources.pe.inputValue"
+          type="Number"
+          value="{{systemData.resources.pe.inputValue}}"
+          data-dtype="Number"
+          placeholder="{{systemData.resources.pe.max}}"
+        />
+      </div>
     </div>
   </div>
   <div class="resource pain">
