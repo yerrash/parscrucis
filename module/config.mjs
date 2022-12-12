@@ -238,6 +238,107 @@ PC.weaponSkill = {
   malha: "PC.malha",
 };
 
+PC.weaponCategory = {
+  melee: "PC.melee",
+  shield: "PC.shield",
+  ranged: "PC.ranged",
+  ammunition: "PC.ammunition",
+};
+
+PC.melee = {
+  unarmed: "PC.Unarmed",
+  fists: "PC.Fists",
+  gloves: "PC.Gloves",
+  knife: "PC.Knife",
+  dagger: "PC.Dagger",
+  katar: "PC.Katar",
+  whip: "PC.Whip",
+  throwing: "PC.Throwing",
+
+  shortSword: "PC.ShortSword",
+  sword: "PC.Sword",
+  greatSword: "PC.GreatSword",
+  saber: "PC.Saber",
+  sickle: "PC.Sickle",
+  macuahuitl: "PC.Macuahuitl",
+
+  javelin: "PC.Javelin",
+  shortSpear: "PC.ShortSpear",
+  spear: "PC.Spear",
+  heavySpear: "PC.HeavySpear",
+  polearm: "PC.Polearm",
+  scythe: "PC.Scythe",
+  staff: "PC.Staff",
+  rod: "PC.Rod",
+  scepter: "PC.Scepter",
+
+  club: "PC.Club",
+  hammer: "PC.Hammer",
+  warHammer: "PC.WarHammer",
+  mace: "PC.Mace",
+  tomahawk: "PC.Tomahawk",
+  ax: "PC.Ax",
+  battleAx: "PC.BattleAx",
+  flail: "PC.Flail",
+  ram: "PC.Ram",
+
+  exotic: "PC.Exotic",
+};
+
+PC.shield = {
+  buckler: "PC.Buckler",
+  shield: "PC.Shield",
+  heavyShield: "PC.HeavyShield",
+
+  exotic: "PC.Exotic",
+};
+
+PC.ranged = {
+  blowing: "PC.Blowing",
+  sling: "PC.Sling",
+  shortBow: "PC.ShortBow",
+  bow: "PC.Bow",
+  crossbow: "PC.Crossbow",
+  ballista: "PC.Ballista",
+  siege: "PC.Siege",
+
+  pistol: "PC.Pistol",
+  revolver: "PC.Revolver",
+  rifle: "PC.Rifle",
+  shotgun: "PC.Shotgun",
+  machinegun: "PC.Machinegun",
+  launcher: "PC.Launcher",
+  cannon: "PC.Cannon",
+
+  exotic: "PC.Exotic",
+};
+
+PC.ammunition = {
+  Pebble: "PC.Pebble",
+  Arrow: "PC.Arrow",
+  HeavyArrow: "PC.HeavyArrow",
+  Bolt: "PC.Bolt",
+  Dart: "PC.Dart",
+  Harpoon: "PC.Harpoon",
+  LeadBullet: "PC.LeadBullet",
+  mm10: "PC.mm10",
+  mm76: "PC.mm76",
+  Shell: "PC.Shell",
+  CannonBall: "PC.CannonBall",
+  Gasoil: "PC.Gasoil",
+  Missile: "PC.Missile",
+  Dynamo: "PC.Dynamo",
+
+  exotic: "PC.Exotic",
+};
+
+PC.rarity = {
+  common: "PC.common",
+  rare: "PC.rare",
+  legendary: "PC.legendary",
+  unique: "PC.unique",
+};
+
 PC.actionType = {
   none: "",
   melee: "PC.Melee",
@@ -249,4 +350,46 @@ PC.actionType = {
   cognitive: "PC.Cognitive",
   debilitating: "PC.Debilitating",
   area: "PC.Area",
+  dif7: "PC.dif7",
+  dif8: "PC.dif8",
+  dif8: "PC.dif8",
+  dif10: "PC.dif10",
+  dif11: "PC.dif11",
+  dif12: "PC.dif12",
+  dif13: "PC.dif13",
+  dif14: "PC.dif14",
+  dif15: "PC.dif15",
+  dif16: "PC.dif16",
+  dif17: "PC.dif17",
+  dif18: "PC.dif18",
+  dif19: "PC.dif19",
+  dif20: "PC.dif20",
+  dif21: "PC.dif21",
+  dif22: "PC.dif22",
+  dif23: "PC.dif23",
+  dif24: "PC.dif24",
+  dif25: "PC.dif25",
+  dif26: "PC.dif26",
+  dif27: "PC.dif27",
+  dif28: "PC.dif28",
+  dif29: "PC.dif29",
+  dif30: "PC.dif30",
+};
+
+PC.damageType = {
+  physical: "PC.physicalDamage",
+  elemental: "PC.elementalDamage",
+  biological: "PC.biologicalDamage",
+  destructive: "PC.destructiveDamage",
+  essential: "PC.essentialDamage",
+  pure: "PC.pureDamage",
+};
+
+PC.damageTypeShort = {
+  physical: "PC.phyDam",
+  elemental: "PC.eleDam",
+  biological: "PC.bioDam",
+  destructive: "PC.desDam",
+  essential: "PC.essDam",
+  pure: "PC.pureDamage",
 };

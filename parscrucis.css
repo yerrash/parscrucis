@@ -36,7 +36,6 @@
 .editor .tox:not(.tox-tinymce-inline) .tox-editor-header {
   height: 36px;
   padding: 5px 0 3px 0;
-  top: -20px;
 }
 .editor button.tox-tbtn,
 .editor .tox-tbtn--select {
@@ -50,14 +49,8 @@
 .editor p {
   margin: 1px 0 2px;
 }
-.sheet form {
-  display: flex;
-  flex-direction: column;
-}
-.sheet .sheet-content {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
+.editor .editor-content {
+  height: calc(100% - 2px);
 }
 .sheet h2,
 .sheet h3,
@@ -76,6 +69,12 @@
   height: 16px;
   margin-bottom: 2px;
   font-size: 17px;
+}
+.sheet .window {
+  padding: 4px 2px 0;
+  border: 1px solid rgba(128, 128, 128, 0.432);
+  border-radius: 5px;
+  margin: 0 0 7px 0;
 }
 .sheet .space {
   margin: auto;
@@ -102,7 +101,7 @@
   border-radius: 3px;
   padding: 0;
 }
-.sheet .superior img {
+.sheet .superior .profile-img {
   height: 155px;
   width: 155px;
   margin-right: -5px;
@@ -112,16 +111,12 @@
 .sheet .superior .superior-right {
   height: 152px;
 }
-.sheet .superior .name-exp {
-  display: flex;
-  flex-direction: row;
-}
-.sheet .superior .name-exp .charName {
+.sheet .superior .char-name {
   width: calc(100% - 160px);
   margin-right: 3px;
   height: 23px;
 }
-.sheet .superior .name-exp .charName input {
+.sheet .superior .char-name .name-input {
   width: 100%;
   padding: 0;
   border: none;
@@ -129,6 +124,10 @@
   font-family: "IMFellDWPica";
   font-size: 26px;
   padding-left: 3px;
+}
+.sheet .superior .name-exp {
+  display: flex;
+  flex-direction: row;
 }
 .sheet .superior .name-exp .exp-bar {
   width: 160px;
@@ -549,12 +548,6 @@
 .sheet .tab-content .tab {
   height: 100%;
 }
-.sheet .tab-content .window {
-  padding: 4px 2px 0;
-  border: 1px solid rgba(128, 128, 128, 0.432);
-  border-radius: 5px;
-  margin: 0 0 7px 0;
-}
 .sheet .tab-content input {
   border: 0;
   border-radius: 3px;
@@ -734,6 +727,9 @@
 }
 .sheet .tab-content .items-list .item .item-name {
   width: calc(22% - 8px);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 .sheet .tab-content .items-list .item .item-name .item-type {
   color: #999;
@@ -742,6 +738,9 @@
 }
 .sheet .tab-content .items-list .item .item-skill {
   width: calc(8% - 4px);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 .sheet .tab-content .items-list .item .item-action {
   width: calc(7% - 4px);
@@ -757,16 +756,17 @@
 }
 .sheet .tab-content .items-list .item .item-range {
   text-align: center;
-  width: 6%;
+  width: calc(6% - 4px);
 }
 .sheet .tab-content .items-list .item .item-info {
-  width: calc(32% - 11px);
+  width: calc(32% - 18px);
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
 }
 .sheet .tab-content .items-list .item .item-defense {
-  width: 7%;
+  width: calc(7% - 6px);
+  text-align: center;
 }
 .sheet .tab-content .items-list .item .item-controls {
   width: 29px;
@@ -798,6 +798,9 @@
 }
 .sheet .tab-content .items-list .item-line .item-name {
   font-size: 15px;
+}
+.sheet .tab-content .items-list .item-line .item-skill {
+  font-size: 12px;
 }
 .sheet .tab-content .items-list .item-line .item-modifier {
   font-size: 17px;
@@ -889,4 +892,88 @@
   height: 30%;
   max-height: 134px;
   margin: 0;
+}
+.sheet form {
+  display: flex;
+  flex-direction: column;
+}
+.sheet .sheet-content {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.sheet .weapon-content {
+  justify-content: space-between;
+}
+.sheet input,
+.sheet select {
+  border: 0;
+  border-radius: 3px;
+  padding: 0;
+}
+.sheet .superior .item-img {
+  height: 80px;
+  width: 80px;
+  margin: 0;
+}
+.sheet .superior .item-header-right {
+  height: 100%;
+  width: calc(100% - 80px);
+}
+.sheet .superior .item-header-right .item-header-info {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.sheet .superior .item-header-right .item-header-info select,
+.sheet .superior .item-header-right .item-header-info input {
+  height: 17px;
+  font-size: 14px;
+  flex-grow: 1;
+  margin: 1px 2px;
+}
+.sheet .superior .item-header-right .item-header-info .item-price {
+  width: 20%;
+  text-align: right;
+  padding-right: 5px;
+  font-size: 20px;
+  height: 17px;
+}
+.sheet .superior .item-header-right .item-header-info span {
+  font-size: 20px;
+  height: 17px;
+  margin-top: -5px;
+}
+.sheet .superior .item-name {
+  width: 100%;
+  margin-right: 0;
+}
+.sheet .action {
+  list-style-type: none;
+  font-family: "Acme";
+}
+.sheet .action-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.sheet .action-damages {
+  display: flex;
+  flex-direction: column;
+}
+.sheet .action-damages .action-damage {
+  display: flex;
+  flex-direction: row;
+}
+.sheet .bio {
+  height: 110px;
+  height: calc(100% - 16px);
+}
+.sheet .bio .editor {
+  height: 100%;
+}
+.sheet .item-description-window {
+  height: 110px;
+  margin-bottom: 0;
 }

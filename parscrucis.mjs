@@ -4,6 +4,7 @@ import ParsCrucisItemSheet from "./module/item/item-sheet.mjs";
 import ParsCrucisActorSheet from "./module/actor/actor-sheet.mjs";
 import { ParsCrucisActor } from "./module/actor/parscrucis-actor.mjs";
 import { ParsCrucisItem } from "./module/item/parscrucis-item.mjs";
+import { ActionSchema, WeaponSchema } from "./module/item/item-schema.mjs";
 
 async function preloadHandlebarsTemplates() {
   const templatePaths = [
@@ -33,6 +34,9 @@ Hooks.once("init", function () {
     ParsCrucisActor,
   };
 
+  // Add custom constants for configuration.
+  CONFIG.parscrucis = PC;
+
   /**
    * Set an initiative formula for the system
    * @type {String}
@@ -43,23 +47,22 @@ Hooks.once("init", function () {
     decimals: 2,
   };
 
+  // Define custom Document classes
+  CONFIG.Actor.documentClass = ParsCrucisActor;
+  CONFIG.Item.documentClass = ParsCrucisItem;
+
+  // Assign custom DataModels
+  CONFIG.Item.systemDataModels.weapon = WeaponSchema;
+
   // Register sheet application classes
   Items.unregisterSheet("core", ItemSheet);
   Items.registerSheet("parscrucis", ParsCrucisItemSheet, {
     makeDefault: true,
   });
-
   Actors.unregisterSheet("core", ActorSheet);
   Actors.registerSheet("parscrucis", ParsCrucisActorSheet, {
     makeDefault: true,
   });
-
-  // Define custom Document classes
-  CONFIG.Actor.documentClass = ParsCrucisActor;
-  CONFIG.Item.documentClass = ParsCrucisItem;
-
-  // Add custom constants for configuration.
-  CONFIG.parscrucis = PC;
 
   // Preload Handlebars templates.
   preloadHandlebarsTemplates();

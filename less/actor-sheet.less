@@ -17,6 +17,12 @@
     margin-bottom: 2px;
     font-size: 17px;
   }
+  .window {
+    padding: 4px 2px 0;
+    border: 1px solid rgba(128, 128, 128, 0.432);
+    border-radius: 5px;
+    margin: 0 0 7px 0;
+  }
   .space {
     margin: auto;
     height: 20px;
@@ -41,7 +47,7 @@
       border-radius: 3px;
       padding: 0;
     }
-    img {
+    .profile-img {
       height: 155px;
       width: 155px;
       margin-right: -5px;
@@ -52,24 +58,23 @@
     .superior-right {
       height: 152px;
     }
-
+    .char-name {
+      width: calc(100% - 160px);
+      margin-right: 3px;
+      height: 23px;
+      .name-input {
+        width: 100%;
+        padding: 0;
+        border: none;
+        background: none;
+        font-family: "IMFellDWPica";
+        font-size: 26px;
+        padding-left: 3px;
+      }
+    }
     .name-exp {
       display: flex;
       flex-direction: row;
-      .charName {
-        width: calc(100% - 160px);
-        margin-right: 3px;
-        height: 23px;
-        input {
-          width: 100%;
-          padding: 0;
-          border: none;
-          background: none;
-          font-family: "IMFellDWPica";
-          font-size: 26px;
-          padding-left: 3px;
-        }
-      }
       .exp-bar {
         width: 160px;
         display: flex;
@@ -488,12 +493,6 @@
     .tab {
       height: 100%;
     }
-    .window {
-      padding: 4px 2px 0;
-      border: 1px solid rgba(128, 128, 128, 0.432);
-      border-radius: 5px;
-      margin: 0 0 7px 0;
-    }
     input {
       border: 0;
       border-radius: 3px;
@@ -679,6 +678,9 @@
         }
         .item-name {
           width: calc(22% - 8px);
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          overflow: hidden;
           .item-type {
             color: #999;
             font-family: "Modesto Condensed";
@@ -687,6 +689,9 @@
         }
         .item-skill {
           width: calc(8% - 4px);
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          overflow: hidden;
         }
         .item-action {
           width: calc(7% - 4px);
@@ -704,16 +709,17 @@
         }
         .item-range {
           text-align: center;
-          width: 6%;
+          width: calc(6% - 4px);
         }
         .item-info {
-          width: calc(32% - 11px);
+          width: calc(32% - 18px);
           text-overflow: ellipsis;
           white-space: nowrap;
           overflow: hidden;
         }
         .item-defense {
-          width: 7%;
+          width: calc(7% - 6px);
+          text-align: center;
         }
         .item-controls {
           width: 29px;
@@ -751,6 +757,9 @@
         }
         .item-name {
           font-size: 15px;
+        }
+        .item-skill {
+          font-size: 12px;
         }
         .item-modifier {
           font-size: 17px;

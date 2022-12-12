@@ -594,17 +594,7 @@
         "quantity": 1,
         "price": 0,
         "equipped": false,
-        "rarity": "",
-        "identified": true
-      },
-      "action": {
-        "actionSkill": "none",
-        "actionType": null,
-        "actionDiff": null,
-        "actionModifier": 0,
-        "actionFlavor": "",
-        "actionDamage": [],
-        "actionFormula": ""
+        "rarity": "common"
       },
       "ability": {
         "effort": 0,
@@ -622,16 +612,17 @@
       "points": 0
     },
     "technique": {
-      "templates": ["itemDescription", "action", "ability"]
+      "templates": ["itemDescription", "ability"]
     },
     "power": {
-      "templates": ["itemDescription", "action", "ability"],
+      "templates": ["itemDescription", "ability"],
       "powerSchool": ""
     },
     "weapon": {
-      "templates": ["itemDescription", "evaluation", "action"],
+      "templates": ["itemDescription", "evaluation"],
+      "actions": [],
+      "weaponCategory": "melee",
       "weaponType": "",
-      "properties": {},
       "requirements": ""
     }
   }

@@ -1,17 +1,12 @@
+import { ActionSchema } from "./item-schema.mjs";
+
 export default class ParsCrucisItemSheet extends ItemSheet {
   /** @override */
   static get defaultOptions() {
     return mergeObject(super.defaultOptions, {
       classes: ["parscrucis", "sheet", "item"],
-      // width: 520,
-      // height: 480,
-      // tabs: [
-      //   {
-      //     navSelector: ".sheet-tabs",
-      //     contentSelector: ".sheet-body",
-      //     initial: "description",
-      //   },
-      // ],
+      width: 520,
+      height: 480,
     });
   }
 
@@ -23,10 +18,14 @@ export default class ParsCrucisItemSheet extends ItemSheet {
 
   /** @override */
   getData() {
-    const data = super.getData();
-    data.config = CONFIG.parscrucis;
-    console.log(data);
-    return data;
+    const context = super.getData();
+    context.config = CONFIG.parscrucis;
+
+    const itemData = context.item;
+
+    // console.log(context);
+    // console.log(itemData);
+    return context;
   }
 
   /** @override */
@@ -45,8 +44,54 @@ export default class ParsCrucisItemSheet extends ItemSheet {
     // Everything below here is only needed if the sheet is editable
     if (!this.options.editable) return;
 
-    // Add Weapon actions
+    // Delete Self
+    html.find(".self-destruct").click((ev) => {
+      const id = $(ev.currentTarget).attr("self");
+      if (this.actor != null) {
+        this.actor.items.get(id).delete();
+      }
+    });
+    html.find(".action-create").click(this._createAction.bind(this));
+    html.find(".action-delete").click(this._deleteAction.bind(this));
+  }
 
-    // Roll handlers, click handlers, etc. would go here.
+  _createAction(event) {
+    event.preventDefault();
+
+    const element = event.currentTarget;
+    const dataset = element.dataset;
+    const type = dataset.type;
+
+    const objectData = this.object;
+
+    const actions = objectData.system[type];
+    const updateData = {};
+
+    actions.push(new ActionSchema());
+    updateData["system.actions"] = actions;
+
+    this.object.update(updateData);
+
+    console.log("->", actions);
+  }
+
+  _deleteAction(event) {
+    event.preventDefault();
+
+    const element = event.currentTarget;
+    const dataset = element.dataset;
+    const type = dataset.type;
+    const index = parseInt(dataset.index);
+
+    const objectData = this.object;
+
+    const actions = objectData.system[type];
+    const updateData = {};
+
+    actions.splice(index, 1);
+
+    updateData["system.actions"] = actions;
+
+    this.object.update(updateData);
   }
 }

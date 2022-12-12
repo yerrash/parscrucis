@@ -147,14 +147,12 @@ export class ParsCrucisActor extends Actor {
     resourcesData.pe.currentPercent =
       (100 * resourcesData.pe.value) / resourcesData.pe.max;
 
-    console.log(resourcesData);
-
     // Calculate available experience.
     const skillsExpSum = skillsExpSpent.reduce((a, b) => a + b, 0);
     detailsData.expAvailable =
       detailsData.exp - detailsData.expReserve - skillsExpSum;
 
-    console.log(actorData);
+    // console.log(actorData);
 
     // Make separate methods for each Actor type (character, npc, etc.) to keep
     // things organized.
@@ -165,7 +163,7 @@ export class ParsCrucisActor extends Actor {
   _prepareCharacterData(actorData) {
     if (actorData.type !== "personagem") return;
 
-    console.log("PORRA");
+    // console.log("PORRA");
   }
 
   /**

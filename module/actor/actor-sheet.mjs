@@ -12,7 +12,7 @@ export default class ParsCrucisActorSheet extends ActorSheet {
         {
           navSelector: ".navigation",
           contentSelector: ".tab-content",
-          initial: "pericias",
+          initial: "skills",
         },
       ],
     });
@@ -25,7 +25,7 @@ export default class ParsCrucisActorSheet extends ActorSheet {
     context.systemData = actorData.system;
     context.flags = actorData.flags;
 
-    // console.log(context);
+    console.log(context);
 
     // Prepare character data and items.
     if (actorData.type == "personagem") {
@@ -53,6 +53,7 @@ export default class ParsCrucisActorSheet extends ActorSheet {
    */
   _prepareItems(context) {
     // Initialize containers.
+    const weapons = [];
     const gear = [];
     const passives = [];
     const abilities = [];
@@ -63,6 +64,9 @@ export default class ParsCrucisActorSheet extends ActorSheet {
       if (i.type === "gear") {
         //  Ajustar os tipos de itens de acordo
         gear.push(i);
+        // Append weapons
+      } else if (i.type === "weapon") {
+        weapons.push(i);
       }
       // Append passive features - Benefits and Detriments
       else if (i.type === "passive") {
@@ -75,6 +79,7 @@ export default class ParsCrucisActorSheet extends ActorSheet {
     }
 
     // Assign items and return
+    context.weapons = weapons;
     context.gear = gear;
     context.passives = passives;
     context.abilities = abilities;
@@ -91,7 +96,7 @@ export default class ParsCrucisActorSheet extends ActorSheet {
     const systemData = context.systemData;
 
     // Prints target actor DATA.
-    console.log("atualiza ->", context);
+    // console.log("atualiza ->", context);
   }
 
   activateListeners(html) {

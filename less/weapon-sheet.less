@@ -8,4 +8,81 @@
     display: flex;
     flex-direction: column;
   }
+  .weapon-content {
+    justify-content: space-between;
+  }
+  input,
+  select {
+    border: 0;
+    border-radius: 3px;
+    padding: 0;
+  }
+  .superior {
+    .item-img {
+      height: 80px;
+      width: 80px;
+      margin: 0;
+    }
+    .item-header-right {
+      height: 100%;
+      width: calc(100% - 80px);
+      .item-header-info {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        select,
+        input {
+          height: 17px;
+          font-size: 14px;
+          flex-grow: 1;
+          margin: 1px 2px;
+        }
+        .item-price {
+          width: 20%;
+          text-align: right;
+          padding-right: 5px;
+          font-size: 20px;
+          height: 17px;
+        }
+        span {
+          font-size: 20px;
+          height: 17px;
+          margin-top: -5px;
+        }
+      }
+    }
+    .item-name {
+      width: 100%;
+      margin-right: 0;
+    }
+  }
+  .action {
+    list-style-type: none;
+    font-family: "Acme";
+  }
+  .action-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .action-damages {
+    display: flex;
+    flex-direction: column;
+    .action-damage {
+      display: flex;
+      flex-direction: row;
+    }
+  }
+  .bio {
+    height: 110px;
+    height: calc(100% - 16px);
+    .editor {
+      height: 100%;
+    }
+  }
+  .item-description-window {
+    height: 110px;
+    margin-bottom: 0;
+  }
 }
