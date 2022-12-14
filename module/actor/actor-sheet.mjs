@@ -1,10 +1,7 @@
-import { PC } from "../config.mjs";
-import { RACIALS } from "../base-data.mjs";
-
 export default class ParsCrucisActorSheet extends ActorSheet {
   static get defaultOptions() {
     return mergeObject(super.defaultOptions, {
-      classes: ["parscrucis", "sheet", "actor"],
+      classes: ["parscrucis", "sheet", "parscrucis-actor-sheet"],
       template: "systems/parscrucis/templates/actor/actor-sheet.hbs",
       width: 800,
       height: 680,

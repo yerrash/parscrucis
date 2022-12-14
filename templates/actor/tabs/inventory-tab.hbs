@@ -6,17 +6,21 @@
         <h3 class="subtitle">
           <div class="item-image"></div>
           <div class="item-name item-margin">{{localize "PC.Weaponry"}}</div>
-          <div class="item-skill item-margin">{{localize "PC.Skill"}}</div>
-          <div class="item-action item-margin">{{localize
-              "PC.ActionDiff"
-            }}</div>
-          <div class="item-modifier item-margin">{{localize "PC.M"}}</div>
-          <div class="item-damage item-margin">
-            {{localize "PC.Damage"}}
-            {{! <span class="item-damage-formula">[+5]</span> }}
+          <div class="item-actions">
+            <div class="item-action-line">
+              <div class="item-skill item-margin">{{localize "PC.Skill"}}</div>
+              <div class="item-action item-margin">{{localize
+                  "PC.ActionDiff"
+                }}</div>
+              <div class="item-modifier item-margin">{{localize "PC.M"}}</div>
+              <div class="item-damage item-margin">
+                {{localize "PC.Damage"}}
+                {{! <span class="item-damage-formula">[+5]</span> }}
+              </div>
+              <div class="item-range item-margin">{{localize "PC.Rng"}}</div>
+              <div class="item-info item-margin">{{localize "PC.Notes"}}</div>
+            </div>
           </div>
-          <div class="item-range item-margin">{{localize "PC.Rng"}}</div>
-          <div class="item-info item-margin">{{localize "PC.Notes"}}</div>
           <div class="item-defense">
             {{localize "PC.DEF"}}
             {{! <span class="item-special-defense">[]</span> }}
@@ -47,17 +51,25 @@
               class="item-type item-margin"
             >{{item.system.weaponType}}</span>
           </h4>
-          <h4 class="item-skill item-margin">{{item.system.weaponSkill}}</h4>
-          {{! action information interval }}
-          <div class="item-action item-margin">Algum</div>
-          <div class="item-modifier item-margin">+2</div>
-          <div class="item-damage item-margin">
-            <span class="item-damage-formula">[+5]</span>
-            18 físico
+          <div class="item-actions">
+            {{#each item.system.actions as |ac obj|}}
+              {{log ac}}
+              <div class="item-action-line">
+                <h4 class="item-skill item-margin">{{ac.actionSkill}}</h4>
+                {{! action information interval }}
+                <div class="item-action item-margin">{{ac.actionType}}</div>
+                <div
+                  class="item-modifier item-margin"
+                >{{ac.actionModifier}}</div>
+                <div class="item-damage item-margin">
+                  00
+                  <span>{{ac.damageType}}</span>
+                </div>
+                <div class="item-range item-margin">{{ac.actionRange}}</div>
+                <div class="item-info item-margin">{{ac.actionNotes}}</div>
+              </div>
+            {{/each}}
           </div>
-          <div class="item-range item-margin">12/40</div>
-          <div class="item-info item-margin">Arma antiga, props únicas,
-            Congelamento (5)</div>
           <div class="item-defense">
             16
             <span class="item-special-defense">12</span>

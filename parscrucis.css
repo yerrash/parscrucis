@@ -3,6 +3,14 @@
   src: url("fonts/Acme-Regular.ttf");
 }
 @font-face {
+  font-family: "AcmeGCR";
+  src: url("fonts/Acme Gothic Condensed Regular.otf");
+}
+@font-face {
+  font-family: "AcmeGCSB";
+  src: url("fonts/Acme Gothic Condensed Semi Bold.otf");
+}
+@font-face {
   font-family: "IMFellEnglishSC";
   src: url("fonts/IMFellEnglishSC-Regular.ttf");
 }
@@ -48,75 +56,57 @@
 }
 .editor p {
   margin: 1px 0 2px;
+  font-family: "Acme";
 }
 .editor .editor-content {
   height: calc(100% - 2px);
 }
-.sheet h2,
-.sheet h3,
-.sheet h4 {
+li.folder .folder-header {
+  padding: 3px 4px 1px;
+}
+.directory .directory-item img {
+  height: 48px;
+}
+.directory .directory-item.document {
+  height: 32px;
+}
+.directory .directory-item .document-name {
+  height: 100%;
+  line-height: 32px;
+}
+.directory .directory-item img {
+  object-fit: cover;
+  object-position: 0;
+  height: 32px;
+}
+h2,
+h3,
+h4 {
   margin: 0;
 }
-.sheet h3 {
-  font-size: 18px;
-}
-.sheet .subtitle {
+.subtitle {
   display: flex;
   flex-wrap: nowrap;
   flex-direction: row;
   align-items: center;
+  font-family: "Acme";
   width: 100%;
   height: 16px;
   margin-bottom: 2px;
   font-size: 17px;
 }
-.sheet .window {
-  padding: 4px 2px 0;
-  border: 1px solid rgba(128, 128, 128, 0.432);
-  border-radius: 5px;
-  margin: 0 0 7px 0;
-}
-.sheet .space {
-  margin: auto;
-  height: 20px;
-  margin-right: 2px;
-  border-width: 0px;
-  border-right: 1px;
-  border-style: solid;
-  border-color: #37373a7e;
-}
-.sheet .superior {
+.superior {
   font-family: "Acme";
   display: flex;
   flex-direction: row;
   margin-bottom: 7px;
 }
-.sheet .superior input {
-  border: 0;
-  border-radius: 3px;
-  padding: 0;
-}
-.sheet .superior select {
-  border: 0;
-  border-radius: 3px;
-  padding: 0;
-}
-.sheet .superior .profile-img {
-  height: 155px;
-  width: 155px;
-  margin-right: -5px;
-  margin-bottom: -5px;
-  border: none;
-}
-.sheet .superior .superior-right {
-  height: 152px;
-}
-.sheet .superior .char-name {
+.superior .char-name {
   width: calc(100% - 160px);
   margin-right: 3px;
   height: 23px;
 }
-.sheet .superior .char-name .name-input {
+.superior .char-name .name-input {
   width: 100%;
   padding: 0;
   border: none;
@@ -125,11 +115,55 @@
   font-size: 26px;
   padding-left: 3px;
 }
-.sheet .superior .name-exp {
+.window {
+  padding: 4px 2px 0;
+  border: 1px solid rgba(128, 128, 128, 0.432);
+  border-radius: 5px;
+  margin: 0 0 7px 0;
+}
+.parscrucis-actor-sheet h3 {
+  font-size: 18px;
+}
+.parscrucis-actor-sheet .space {
+  margin: auto;
+  height: 20px;
+  margin-right: 2px;
+  border-width: 0px;
+  border-right: 1px;
+  border-style: solid;
+  border-color: #37373a7e;
+}
+.parscrucis-actor-sheet .superior {
+  font-family: "Acme";
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 7px;
+}
+.parscrucis-actor-sheet .superior input {
+  border: 0;
+  border-radius: 3px;
+  padding: 0;
+}
+.parscrucis-actor-sheet .superior select {
+  border: 0;
+  border-radius: 3px;
+  padding: 0;
+}
+.parscrucis-actor-sheet .superior .profile-img {
+  height: 155px;
+  width: 155px;
+  margin-right: -5px;
+  margin-bottom: -5px;
+  border: none;
+}
+.parscrucis-actor-sheet .superior .superior-right {
+  height: 152px;
+}
+.parscrucis-actor-sheet .superior .name-exp {
   display: flex;
   flex-direction: row;
 }
-.sheet .superior .name-exp .exp-bar {
+.parscrucis-actor-sheet .superior .name-exp .exp-bar {
   width: 160px;
   display: flex;
   flex-direction: row;
@@ -140,12 +174,12 @@
   padding-left: 3px;
   height: 20px;
 }
-.sheet .superior .name-exp .exp-bar :last-child {
+.parscrucis-actor-sheet .superior .name-exp .exp-bar :last-child {
   border-width: 0;
 }
-.sheet .superior .name-exp .exp-bar span,
-.sheet .superior .name-exp .exp-bar .exp-ttl,
-.sheet .superior .name-exp .exp-bar .exp-res {
+.parscrucis-actor-sheet .superior .name-exp .exp-bar span,
+.parscrucis-actor-sheet .superior .name-exp .exp-bar .exp-ttl,
+.parscrucis-actor-sheet .superior .name-exp .exp-bar .exp-res {
   height: 24px;
   line-height: 24px;
   font-size: 22px;
@@ -157,28 +191,28 @@
   background-color: transparent;
   margin: 0;
 }
-.sheet .superior .name-exp .exp-bar .exp-ava {
+.parscrucis-actor-sheet .superior .name-exp .exp-bar .exp-ava {
   width: 25%;
 }
-.sheet .superior .name-exp .exp-bar .exp-ttl {
+.parscrucis-actor-sheet .superior .name-exp .exp-bar .exp-ttl {
   width: 35%;
 }
-.sheet .superior .name-exp .exp-bar .exp-res {
+.parscrucis-actor-sheet .superior .name-exp .exp-bar .exp-res {
   width: 20%;
 }
-.sheet .superior .name-exp .exp-bar .exp {
+.parscrucis-actor-sheet .superior .name-exp .exp-bar .exp {
   width: 20%;
   font-size: 20px;
   line-height: 22px;
   height: 20px;
   font-weight: 700;
 }
-.sheet .superior .stats-window {
+.parscrucis-actor-sheet .superior .stats-window {
   display: flex;
   flex-direction: row;
   height: 129px;
 }
-.sheet .superior .stats-window .left-window {
+.parscrucis-actor-sheet .superior .stats-window .left-window {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -189,23 +223,23 @@
   width: calc(100% - 160px);
   padding: 1px 0;
 }
-.sheet .superior .stats-window .left-window .racial {
+.parscrucis-actor-sheet .superior .stats-window .left-window .racial {
   display: flex;
   flex-direction: row;
   width: 100%;
 }
-.sheet .superior .stats-window .left-window .racial select {
+.parscrucis-actor-sheet .superior .stats-window .left-window .racial select {
   height: 17px;
   font-size: 14px;
   flex-grow: 1;
   margin: 1px 2px;
 }
-.sheet .superior .stats-window .left-window .att-partial input {
+.parscrucis-actor-sheet .superior .stats-window .left-window .att-partial input {
   padding: 0;
   margin: 1px 2px;
   text-align: center;
 }
-.sheet .superior .stats-window .left-window .att-partial .attributes {
+.parscrucis-actor-sheet .superior .stats-window .left-window .att-partial .attributes {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -213,108 +247,110 @@
   padding-left: 4px;
   width: 100%;
 }
-.sheet .superior .stats-window .left-window .att-partial .attributes .attribute {
+.parscrucis-actor-sheet .superior .stats-window .left-window .att-partial .attributes .attribute {
   margin-right: 2px;
   width: 15%;
   border-width: 0px;
 }
-.sheet .superior .stats-window .left-window .att-partial .attributes .space {
+.parscrucis-actor-sheet .superior .stats-window .left-window .att-partial .attributes .space {
   height: 40px;
 }
-.sheet .superior .stats-window .left-window .att-partial .attributes .stat-name {
+.parscrucis-actor-sheet .superior .stats-window .left-window .att-partial .attributes .stat-name {
   text-align: center;
   font-family: "IMFellEnglishSC";
   font-weight: 700;
   height: 19px;
 }
-.sheet .superior .stats-window .left-window .att-partial .attributes .stat-name a,
-.sheet .superior .stats-window .left-window .att-partial .attributes .stat-name div {
+.parscrucis-actor-sheet .superior .stats-window .left-window .att-partial .attributes .stat-name a,
+.parscrucis-actor-sheet .superior .stats-window .left-window .att-partial .attributes .stat-name div {
   height: 18px;
 }
-.sheet .superior .stats-window .left-window .att-partial .attributes .stat {
+.parscrucis-actor-sheet .superior .stats-window .left-window .att-partial .attributes .stat {
   font-size: 28px;
   display: flex;
   flex-direction: row;
   align-items: center;
+  justify-content: space-between;
 }
-.sheet .superior .stats-window .left-window .att-partial .attributes .stat input {
+.parscrucis-actor-sheet .superior .stats-window .left-window .att-partial .attributes .stat input {
   height: 36px;
 }
-.sheet .superior .stats-window .left-window .att-partial .attributes .stat .stat-value {
+.parscrucis-actor-sheet .superior .stats-window .left-window .att-partial .attributes .stat .stat-value {
   width: 58%;
   font-family: "SR";
   font-size: 36px;
   padding-top: 3px;
 }
-.sheet .superior .stats-window .left-window .att-partial .attributes .stat .stat-modifier {
+.parscrucis-actor-sheet .superior .stats-window .left-window .att-partial .attributes .stat .stat-modifier {
   width: 42%;
   font-family: "SR";
   font-size: 24px;
   border-radius: 0 0 10px 0;
   padding-bottom: 2px;
 }
-.sheet .superior .stats-window .left-window .att-partial .attributes .stat span {
+.parscrucis-actor-sheet .superior .stats-window .left-window .att-partial .attributes .stat span {
   font-size: 12px;
 }
-.sheet .superior .stats-window .left-window .att-partial .attributes .movement {
+.parscrucis-actor-sheet .superior .stats-window .left-window .att-partial .attributes .movement {
   width: 25%;
-  margin-right: 3px;
+  margin-right: 0;
 }
-.sheet .superior .stats-window .left-window .att-partial .attributes .movement .mov-value,
-.sheet .superior .stats-window .left-window .att-partial .attributes .movement .sprint {
+.parscrucis-actor-sheet .superior .stats-window .left-window .att-partial .attributes .movement .mov-value,
+.parscrucis-actor-sheet .superior .stats-window .left-window .att-partial .attributes .movement .sprint {
   font-family: "SR";
   font-size: 36px;
   padding-top: 3px;
 }
-.sheet .superior .stats-window .left-window .att-partial .attributes .movement .mov-value {
+.parscrucis-actor-sheet .superior .stats-window .left-window .att-partial .attributes .movement .mov-value {
   width: calc(37% - 7px);
 }
-.sheet .superior .stats-window .left-window .att-partial .attributes .movement .mov-modifier {
+.parscrucis-actor-sheet .superior .stats-window .left-window .att-partial .attributes .movement .mov-modifier {
   width: calc(26% - 7px);
 }
-.sheet .superior .stats-window .left-window .att-partial .attributes .movement .mov-arrow {
+.parscrucis-actor-sheet .superior .stats-window .left-window .att-partial .attributes .movement .mov-arrow {
   font-family: "SR";
   font-size: 26px;
   font-weight: bold;
   width: 7px;
 }
-.sheet .superior .stats-window .left-window .att-partial .attributes .movement .sprint {
+.parscrucis-actor-sheet .superior .stats-window .left-window .att-partial .attributes .movement .sprint {
   width: calc(37% - 7px);
 }
-.sheet .superior .stats-window .left-window .att-partial .resources {
+.parscrucis-actor-sheet .superior .stats-window .left-window .att-partial .resources {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   width: 100%;
 }
-.sheet .superior .stats-window .left-window .att-partial .resources .space {
+.parscrucis-actor-sheet .superior .stats-window .left-window .att-partial .resources .space {
   height: 30px;
+  margin: auto;
 }
-.sheet .superior .stats-window .left-window .att-partial .resources .resource {
+.parscrucis-actor-sheet .superior .stats-window .left-window .att-partial .resources .resource {
   margin-right: 3px;
   width: 140px;
 }
-.sheet .superior .stats-window .left-window .att-partial .resources .resource label {
+.parscrucis-actor-sheet .superior .stats-window .left-window .att-partial .resources .resource label {
   height: 16px;
   text-align: center;
 }
-.sheet .superior .stats-window .left-window .att-partial .resources .resource label h3 {
+.parscrucis-actor-sheet .superior .stats-window .left-window .att-partial .resources .resource label h3 {
   font-family: "IMFellEnglishSC";
   font-weight: 700;
   height: 18px;
   font-size: 17px;
 }
-.sheet .superior .stats-window .left-window .att-partial .resources .resource label h3 div {
+.parscrucis-actor-sheet .superior .stats-window .left-window .att-partial .resources .resource label h3 div {
   height: 16px;
 }
-.sheet .superior .stats-window .left-window .att-partial .resources .resource .resource-info {
+.parscrucis-actor-sheet .superior .stats-window .left-window .att-partial .resources .resource .resource-info {
   display: flex;
   flex-direction: row;
   align-items: center;
   font-size: 24px;
   height: 28px;
 }
-.sheet .superior .stats-window .left-window .att-partial .resources .resource .resource-info .resource_special {
+.parscrucis-actor-sheet .superior .stats-window .left-window .att-partial .resources .resource .resource-info .resource_special {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -326,43 +362,43 @@
   border-width: 0 1px 0px 0;
   border-radius: 0 0 5px 0;
 }
-.sheet .superior .stats-window .left-window .att-partial .resources .resource .resource-info .resource_special .stat-value {
+.parscrucis-actor-sheet .superior .stats-window .left-window .att-partial .resources .resource .resource-info .resource_special .stat-value {
   width: 50%;
 }
-.sheet .superior .stats-window .left-window .att-partial .resources .resource .resource-info .resource_special .stat-current {
+.parscrucis-actor-sheet .superior .stats-window .left-window .att-partial .resources .resource .resource-info .resource_special .stat-current {
   background-color: transparent;
   text-align: right;
 }
-.sheet .superior .stats-window .left-window .att-partial .resources .resource .resource-info .resource_special .stat-max {
+.parscrucis-actor-sheet .superior .stats-window .left-window .att-partial .resources .resource .resource-info .resource_special .stat-max {
   background-color: transparent;
   text-align: left;
 }
-.sheet .superior .stats-window .left-window .att-partial .resources .resource .resource-info .resource_special span {
+.parscrucis-actor-sheet .superior .stats-window .left-window .att-partial .resources .resource .resource-info .resource_special span {
   height: 28px;
 }
-.sheet .superior .stats-window .left-window .att-partial .resources .resource .resource-info .resource_special .divisor {
+.parscrucis-actor-sheet .superior .stats-window .left-window .att-partial .resources .resource .resource-info .resource_special .divisor {
   font-size: 20px;
 }
-.sheet .superior .stats-window .left-window .att-partial .resources .resource .resource-info .resource-bar {
+.parscrucis-actor-sheet .superior .stats-window .left-window .att-partial .resources .resource .resource-info .resource-bar {
   height: 24px;
   background-color: #00d41270;
   border-radius: 5px 0 5px 0;
 }
-.sheet .superior .stats-window .left-window .att-partial .resources .resource .resource-info .pe-bar {
+.parscrucis-actor-sheet .superior .stats-window .left-window .att-partial .resources .resource .resource-info .pe-bar {
   background-color: #0043d470;
 }
-.sheet .superior .stats-window .left-window .att-partial .resources .limiar {
+.parscrucis-actor-sheet .superior .stats-window .left-window .att-partial .resources .limiar {
   width: 60px;
-  margin-right: 2px;
+  margin-right: 0;
 }
-.sheet .superior .stats-window .left-window .att-partial .resources .pain {
+.parscrucis-actor-sheet .superior .stats-window .left-window .att-partial .resources .pain {
   width: 55px;
-  margin-right: 2px;
+  margin-right: 0;
 }
-.sheet .superior .stats-window .left-window .att-partial .resources .pain label {
+.parscrucis-actor-sheet .superior .stats-window .left-window .att-partial .resources .pain label {
   height: 18px;
 }
-.sheet .superior .stats-window .right-window {
+.parscrucis-actor-sheet .superior .stats-window .right-window {
   width: 160px;
   display: flex;
   flex-direction: column;
@@ -371,12 +407,12 @@
   border: 1px solid #8080806e;
   border-radius: 5px;
 }
-.sheet .superior .stats-window .right-window p {
+.parscrucis-actor-sheet .superior .stats-window .right-window p {
   margin: 0;
   text-align: center;
   font-weight: 700;
 }
-.sheet .superior .stats-window .right-window .mitigation {
+.parscrucis-actor-sheet .superior .stats-window .right-window .mitigation {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -387,66 +423,66 @@
   border-color: #341ac9;
   margin-top: 2px;
 }
-.sheet .superior .stats-window .right-window .mitigation .armor-group {
+.parscrucis-actor-sheet .superior .stats-window .right-window .mitigation .armor-group {
   margin-right: 2px;
 }
-.sheet .superior .stats-window .right-window .mitigation .armor-group,
-.sheet .superior .stats-window .right-window .mitigation .protections {
+.parscrucis-actor-sheet .superior .stats-window .right-window .mitigation .armor-group,
+.parscrucis-actor-sheet .superior .stats-window .right-window .mitigation .protections {
   width: 75px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
-.sheet .superior .stats-window .right-window .mitigation .armor-group .armor,
-.sheet .superior .stats-window .right-window .mitigation .protections .armor {
+.parscrucis-actor-sheet .superior .stats-window .right-window .mitigation .armor-group .armor,
+.parscrucis-actor-sheet .superior .stats-window .right-window .mitigation .protections .armor {
   height: 21px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
 }
-.sheet .superior .stats-window .right-window .mitigation .armor-group .armor h3,
-.sheet .superior .stats-window .right-window .mitigation .protections .armor h3 {
+.parscrucis-actor-sheet .superior .stats-window .right-window .mitigation .armor-group .armor h3,
+.parscrucis-actor-sheet .superior .stats-window .right-window .mitigation .protections .armor h3 {
   border: 0;
   line-height: 20px;
   font-family: "IMFellEnglighSC";
 }
-.sheet .superior .stats-window .right-window .mitigation .armor-group .armor h3 div,
-.sheet .superior .stats-window .right-window .mitigation .protections .armor h3 div {
+.parscrucis-actor-sheet .superior .stats-window .right-window .mitigation .armor-group .armor h3 div,
+.parscrucis-actor-sheet .superior .stats-window .right-window .mitigation .protections .armor h3 div {
   font-size: 24px;
   padding-top: 2px;
   font-family: "SR";
 }
-.sheet .superior .stats-window .right-window .mitigation .armor-group .armor input,
-.sheet .superior .stats-window .right-window .mitigation .protections .armor input {
+.parscrucis-actor-sheet .superior .stats-window .right-window .mitigation .armor-group .armor input,
+.parscrucis-actor-sheet .superior .stats-window .right-window .mitigation .protections .armor input {
   text-align: center;
   font-size: 24px;
   height: 21px;
   width: 26px;
 }
-.sheet .superior .stats-window .right-window .mitigation .armor-group .armor .mit-modifiers,
-.sheet .superior .stats-window .right-window .mitigation .protections .armor .mit-modifiers {
+.parscrucis-actor-sheet .superior .stats-window .right-window .mitigation .armor-group .armor .mit-modifiers,
+.parscrucis-actor-sheet .superior .stats-window .right-window .mitigation .protections .armor .mit-modifiers {
   width: 18px;
   font-size: 17px;
 }
-.sheet .superior .stats-window .right-window .mitigation .armor-group .armor:last-child,
-.sheet .superior .stats-window .right-window .mitigation .protections .armor:last-child {
+.parscrucis-actor-sheet .superior .stats-window .right-window .mitigation .armor-group .armor:last-child,
+.parscrucis-actor-sheet .superior .stats-window .right-window .mitigation .protections .armor:last-child {
   margin-top: 2px;
 }
-.sheet .superior .stats-window .right-window .mitigation .armor-group .protection,
-.sheet .superior .stats-window .right-window .mitigation .protections .protection {
+.parscrucis-actor-sheet .superior .stats-window .right-window .mitigation .armor-group .protection,
+.parscrucis-actor-sheet .superior .stats-window .right-window .mitigation .protections .protection {
   display: flex;
   flex-direction: row-reverse;
   justify-content: space-between;
   align-items: center;
 }
-.sheet .superior .stats-window .right-window .mitigation .armor-group .protection h3,
-.sheet .superior .stats-window .right-window .mitigation .protections .protection h3 {
+.parscrucis-actor-sheet .superior .stats-window .right-window .mitigation .armor-group .protection h3,
+.parscrucis-actor-sheet .superior .stats-window .right-window .mitigation .protections .protection h3 {
   font-size: 10.5px;
   border: 0;
 }
-.sheet .superior .stats-window .right-window .mitigation .armor-group .protection input,
-.sheet .superior .stats-window .right-window .mitigation .protections .protection input {
+.parscrucis-actor-sheet .superior .stats-window .right-window .mitigation .armor-group .protection input,
+.parscrucis-actor-sheet .superior .stats-window .right-window .mitigation .protections .protection input {
   padding-right: 2px;
   text-align: right;
   height: 14px;
@@ -454,57 +490,57 @@
   width: 14px;
   font-size: 14px;
 }
-.sheet .superior .stats-window .right-window .minors {
+.parscrucis-actor-sheet .superior .stats-window .right-window .minors {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   flex-wrap: wrap;
   width: 100%;
 }
-.sheet .superior .stats-window .right-window .minors .minor,
-.sheet .superior .stats-window .right-window .minors .luck {
+.parscrucis-actor-sheet .superior .stats-window .right-window .minors .minor,
+.parscrucis-actor-sheet .superior .stats-window .right-window .minors .luck {
   width: 75px;
 }
-.sheet .superior .stats-window .right-window .minors .minor-name,
-.sheet .superior .stats-window .right-window .minors .luck-name {
+.parscrucis-actor-sheet .superior .stats-window .right-window .minors .minor-name,
+.parscrucis-actor-sheet .superior .stats-window .right-window .minors .luck-name {
   font-size: 15px;
   text-align: center;
   height: 16px;
 }
-.sheet .superior .stats-window .right-window .minors .minor-name a,
-.sheet .superior .stats-window .right-window .minors .luck-name a,
-.sheet .superior .stats-window .right-window .minors .minor-name div,
-.sheet .superior .stats-window .right-window .minors .luck-name div {
+.parscrucis-actor-sheet .superior .stats-window .right-window .minors .minor-name a,
+.parscrucis-actor-sheet .superior .stats-window .right-window .minors .luck-name a,
+.parscrucis-actor-sheet .superior .stats-window .right-window .minors .minor-name div,
+.parscrucis-actor-sheet .superior .stats-window .right-window .minors .luck-name div {
   margin-bottom: -1px;
   font-family: "IMFellEnglishSC";
   font-weight: 700;
 }
-.sheet .superior .stats-window .right-window .minors .minor-num {
+.parscrucis-actor-sheet .superior .stats-window .right-window .minors .minor-num {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
 }
-.sheet .superior .stats-window .right-window .minors .minor-num select {
+.parscrucis-actor-sheet .superior .stats-window .right-window .minors .minor-num select {
   text-align: center;
   padding: 0 0 0 1px;
   height: 21px;
   width: 27px;
   appearance: none;
 }
-.sheet .superior .stats-window .right-window .minors .minor-num input {
+.parscrucis-actor-sheet .superior .stats-window .right-window .minors .minor-num input {
   text-align: center;
   height: 21px;
 }
-.sheet .superior .stats-window .right-window .minors .minor-num .minor-value {
+.parscrucis-actor-sheet .superior .stats-window .right-window .minors .minor-num .minor-value {
   width: 26px;
   font-size: 23px;
 }
-.sheet .superior .stats-window .right-window .minors .minor-num .minor-modifier {
+.parscrucis-actor-sheet .superior .stats-window .right-window .minors .minor-num .minor-modifier {
   width: 20px;
   font-size: 17px;
 }
-.sheet .superior .stats-window .right-window .minors .luck-num {
+.parscrucis-actor-sheet .superior .stats-window .right-window .minors .luck-num {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -512,11 +548,11 @@
   width: 100%;
   height: 21px;
 }
-.sheet .superior .stats-window .right-window .minors .luck-num input {
+.parscrucis-actor-sheet .superior .stats-window .right-window .minors .luck-num input {
   text-align: center;
   height: 21px;
 }
-.sheet .navigation {
+.parscrucis-actor-sheet .navigation {
   font-family: "Acme";
   display: flex;
   flex-direction: row;
@@ -527,47 +563,47 @@
   height: 22px;
   margin-bottom: 7px;
 }
-.sheet .navigation .item {
+.parscrucis-actor-sheet .navigation .item {
   width: 16%;
   text-align: center;
 }
-.sheet .navigation .active {
+.parscrucis-actor-sheet .navigation .active {
   font-weight: 700;
 }
-.sheet .navigation a {
+.parscrucis-actor-sheet .navigation a {
   font-size: 17px;
 }
-.sheet .navigation .space {
+.parscrucis-actor-sheet .navigation .space {
   margin: auto 0;
   height: 14px;
 }
-.sheet .tab-content {
+.parscrucis-actor-sheet .tab-content {
   font-family: "Acme";
+  height: calc(100% - 159px - 29px);
+}
+.parscrucis-actor-sheet .tab-content .tab {
   height: 100%;
 }
-.sheet .tab-content .tab {
-  height: 100%;
-}
-.sheet .tab-content input {
+.parscrucis-actor-sheet .tab-content input {
   border: 0;
   border-radius: 3px;
   padding: 0;
 }
-.sheet .tab-content select {
+.parscrucis-actor-sheet .tab-content select {
   border: 0;
   border-radius: 3px;
   padding: 0;
 }
-.sheet .tab-content .skills-tab {
+.parscrucis-actor-sheet .tab-content .skills-tab {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   flex-wrap: wrap;
 }
-.sheet .tab-content .skills-tab .grouping {
+.parscrucis-actor-sheet .tab-content .skills-tab .grouping {
   width: 32.5%;
 }
-.sheet .tab-content .skills-tab .grouping .skill-group {
+.parscrucis-actor-sheet .tab-content .skills-tab .grouping .skill-group {
   padding: 0;
   list-style-type: none;
   padding: 4px 2px 0;
@@ -575,27 +611,27 @@
   border-radius: 5px;
   margin: 0 0 7px 0;
 }
-.sheet .tab-content .skills-tab .grouping .skill-group .group-title {
+.parscrucis-actor-sheet .tab-content .skills-tab .grouping .skill-group .group-title {
   display: flex;
   flex-direction: row;
   align-items: center;
 }
-.sheet .tab-content .skills-tab .grouping .skill-group .group-title .group-name {
+.parscrucis-actor-sheet .tab-content .skills-tab .grouping .skill-group .group-title .group-name {
   width: 80%;
 }
-.sheet .tab-content .skills-tab .grouping .skill-group .group-title .tag-lvl {
+.parscrucis-actor-sheet .tab-content .skills-tab .grouping .skill-group .group-title .tag-lvl {
   width: 10%;
   padding-right: 3px;
   font-size: 16px;
   text-align: right;
 }
-.sheet .tab-content .skills-tab .grouping .skill-group .group-title .tag-mod {
+.parscrucis-actor-sheet .tab-content .skills-tab .grouping .skill-group .group-title .tag-mod {
   width: 10%;
   padding-right: 1px;
   font-size: 16px;
   text-align: right;
 }
-.sheet .tab-content .skills-tab .grouping .skill-group .skill {
+.parscrucis-actor-sheet .tab-content .skills-tab .grouping .skill-group .skill {
   height: 21px;
   font-size: 15px;
   display: flex;
@@ -603,12 +639,12 @@
   align-items: center;
   width: 100%;
 }
-.sheet .tab-content .skills-tab .grouping .skill-group .skill .skill-exp {
+.parscrucis-actor-sheet .tab-content .skills-tab .grouping .skill-group .skill .skill-exp {
   color: #999;
   font-family: "Modesto Condensed";
   font-size: 12.5px;
 }
-.sheet .tab-content .skills-tab .grouping .skill-group .skill .skill-favor {
+.parscrucis-actor-sheet .tab-content .skills-tab .grouping .skill-group .skill .skill-favor {
   display: flex;
   margin: 0 2px 0 1px;
   margin-bottom: 1px;
@@ -617,7 +653,7 @@
   height: 14px;
   cursor: pointer;
 }
-.sheet .tab-content .skills-tab .grouping .skill-group .skill input[type="checkbox"] {
+.parscrucis-actor-sheet .tab-content .skills-tab .grouping .skill-group .skill input[type="checkbox"] {
   margin-left: 3px;
   margin-bottom: 3px;
   background: transparent;
@@ -629,49 +665,49 @@
   -webkit-appearance: none;
   -webkit-font-smoothing: antialiased;
 }
-.sheet .tab-content .skills-tab .grouping .skill-group .skill input[type="checkbox"]:checked {
+.parscrucis-actor-sheet .tab-content .skills-tab .grouping .skill-group .skill input[type="checkbox"]:checked {
   padding: 0;
   -webkit-filter: none;
   color: #06003b;
   box-shadow: 0px 1px 3px #741515e7 !important;
 }
-.sheet .tab-content .skills-tab .grouping .skill-group .skill input[type="checkbox"]:checked::before {
+.parscrucis-actor-sheet .tab-content .skills-tab .grouping .skill-group .skill input[type="checkbox"]:checked::before {
   font-family: "Font Awesome 5 Free";
   margin-left: -1.5px;
   content: "\f603";
   font-weight: bold;
 }
-.sheet .tab-content .skills-tab .grouping .skill-group .skill .skill-title {
+.parscrucis-actor-sheet .tab-content .skills-tab .grouping .skill-group .skill .skill-title {
   padding-left: 2px;
   width: calc(50% + 6px - 14px);
 }
-.sheet .tab-content .skills-tab .grouping .skill-group .skill .skill-rate {
+.parscrucis-actor-sheet .tab-content .skills-tab .grouping .skill-group .skill .skill-rate {
   width: 25px;
   font-size: 10.5px;
   text-align: center;
 }
-.sheet .tab-content .skills-tab .grouping .skill-group .skill .skill-att {
+.parscrucis-actor-sheet .tab-content .skills-tab .grouping .skill-group .skill .skill-att {
   width: 15%;
   font-size: 12.5px;
   text-align: center;
 }
-.sheet .tab-content .skills-tab .grouping .skill-group .skill input {
+.parscrucis-actor-sheet .tab-content .skills-tab .grouping .skill-group .skill input {
   border-radius: 3px;
   padding: 0 3px 0 0;
   margin: 0 0 0 3px;
   height: 18px;
   text-align: right;
 }
-.sheet .tab-content .skills-tab .grouping .skill-group .skill .skill-value {
+.parscrucis-actor-sheet .tab-content .skills-tab .grouping .skill-group .skill .skill-value {
   width: 10%;
   font-weight: 700;
   font-size: 17px;
 }
-.sheet .tab-content .skills-tab .grouping .skill-group .skill .skill-mod {
+.parscrucis-actor-sheet .tab-content .skills-tab .grouping .skill-group .skill .skill-mod {
   width: 10%;
   padding: 0 1px 0 0;
 }
-.sheet .tab-content .lists {
+.parscrucis-actor-sheet .tab-content .lists {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -681,23 +717,23 @@
   border-radius: 5px;
   font-size: 15px;
 }
-.sheet .tab-content .lists p {
+.parscrucis-actor-sheet .tab-content .lists p {
   margin: 0;
 }
-.sheet .tab-content .lists .list-line {
+.parscrucis-actor-sheet .tab-content .lists .list-line {
   width: 100%;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 }
-.sheet .tab-content .lists .list-line .list-title {
+.parscrucis-actor-sheet .tab-content .lists .list-line .list-title {
   width: 20%;
   display: flex;
   align-items: center;
   height: 21px;
   font-size: 15px;
 }
-.sheet .tab-content .lists .list-line .list-input {
+.parscrucis-actor-sheet .tab-content .lists .list-line .list-input {
   width: 100%;
   font-size: 15px;
   height: 17px;
@@ -705,112 +741,122 @@
   padding-left: 2px;
   margin-left: 4px;
 }
-.sheet .tab-content .items-list {
+.parscrucis-actor-sheet .tab-content .items-list {
   margin: 0;
   padding: 0;
   min-height: 41px;
 }
-.sheet .tab-content .items-list .subtitle {
+.parscrucis-actor-sheet .tab-content .items-list .subtitle {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
 }
-.sheet .tab-content .items-list .item {
+.parscrucis-actor-sheet .tab-content .items-list .item {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
 }
-.sheet .tab-content .items-list .item .item-margin {
+.parscrucis-actor-sheet .tab-content .items-list .item .item-margin {
   margin-right: 2px;
 }
-.sheet .tab-content .items-list .item .item-name {
-  width: calc(22% - 8px);
+.parscrucis-actor-sheet .tab-content .items-list .item .item-name {
+  width: calc(23% - 8px);
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
 }
-.sheet .tab-content .items-list .item .item-name .item-type {
+.parscrucis-actor-sheet .tab-content .items-list .item .item-name .item-type {
   color: #999;
   font-family: "Modesto Condensed";
   font-size: 12.5px;
 }
-.sheet .tab-content .items-list .item .item-skill {
-  width: calc(8% - 4px);
+.parscrucis-actor-sheet .tab-content .items-list .item .item-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: space-between;
+  width: calc(70% - 44px);
+}
+.parscrucis-actor-sheet .tab-content .items-list .item .item-actions .item-action-line {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  height: 19px;
+}
+.parscrucis-actor-sheet .tab-content .items-list .item .item-skill {
+  width: calc(11%);
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
 }
-.sheet .tab-content .items-list .item .item-action {
-  width: calc(7% - 4px);
+.parscrucis-actor-sheet .tab-content .items-list .item .item-action {
+  width: calc(10%);
 }
-.sheet .tab-content .items-list .item .item-modifier {
-  width: calc(3% - 4px);
+.parscrucis-actor-sheet .tab-content .items-list .item .item-modifier {
+  width: calc(4%);
   text-align: right;
 }
-.sheet .tab-content .items-list .item .item-damage {
-  width: calc(15% - 6px);
-  width: 12%;
+.parscrucis-actor-sheet .tab-content .items-list .item .item-damage {
+  width: calc(21%);
   text-align: center;
 }
-.sheet .tab-content .items-list .item .item-range {
+.parscrucis-actor-sheet .tab-content .items-list .item .item-range {
   text-align: center;
-  width: calc(6% - 4px);
+  width: calc(10%);
 }
-.sheet .tab-content .items-list .item .item-info {
-  width: calc(32% - 18px);
+.parscrucis-actor-sheet .tab-content .items-list .item .item-info {
+  width: calc(44%);
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
 }
-.sheet .tab-content .items-list .item .item-defense {
+.parscrucis-actor-sheet .tab-content .items-list .item .item-defense {
   width: calc(7% - 6px);
   text-align: center;
 }
-.sheet .tab-content .items-list .item .item-controls {
+.parscrucis-actor-sheet .tab-content .items-list .item .item-controls {
   width: 29px;
   margin-left: 3px;
   text-align: center;
 }
-.sheet .tab-content .items-list .item-header .item-image {
+.parscrucis-actor-sheet .tab-content .items-list .item-header .item-image {
   padding-left: 21px;
   height: 6px;
   margin-right: 3px;
 }
-.sheet .tab-content .items-list .item-header .item-skill,
-.sheet .tab-content .items-list .item-header .item-action {
+.parscrucis-actor-sheet .tab-content .items-list .item-header .item-skill,
+.parscrucis-actor-sheet .tab-content .items-list .item-header .item-action {
   font-size: 14px;
 }
-.sheet .tab-content .items-list .item-line {
-  height: 23px;
-}
-.sheet .tab-content .items-list .item-line .item-image {
+.parscrucis-actor-sheet .tab-content .items-list .item-line .item-image {
   width: 21px;
   height: 21px;
   display: flex;
   align-items: center;
   margin-right: 3px;
 }
-.sheet .tab-content .items-list .item-line .item-image img {
+.parscrucis-actor-sheet .tab-content .items-list .item-line .item-image img {
   width: 21px;
   height: 21px;
 }
-.sheet .tab-content .items-list .item-line .item-name {
+.parscrucis-actor-sheet .tab-content .items-list .item-line .item-name {
   font-size: 15px;
 }
-.sheet .tab-content .items-list .item-line .item-skill {
+.parscrucis-actor-sheet .tab-content .items-list .item-line .item-skill {
   font-size: 12px;
 }
-.sheet .tab-content .items-list .item-line .item-modifier {
+.parscrucis-actor-sheet .tab-content .items-list .item-line .item-modifier {
   font-size: 17px;
 }
-.sheet .tab-content .info-tab {
+.parscrucis-actor-sheet .tab-content .info-tab {
   display: flex;
   flex-direction: column;
   height: 100%;
 }
-.sheet .tab-content .info-tab .basic-info {
+.parscrucis-actor-sheet .tab-content .info-tab .basic-info {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -818,21 +864,21 @@
   justify-content: space-between;
   padding: 3px 2px 2px;
 }
-.sheet .tab-content .info-tab .minor-info {
+.parscrucis-actor-sheet .tab-content .info-tab .minor-info {
   width: calc(50% - 1px);
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
 }
-.sheet .tab-content .info-tab .minor-info .minor-title {
+.parscrucis-actor-sheet .tab-content .info-tab .minor-info .minor-title {
   display: flex;
   flex-direction: row;
   align-items: center;
   height: 21px;
   font-size: 15px;
 }
-.sheet .tab-content .info-tab .minor-info .age-input {
+.parscrucis-actor-sheet .tab-content .info-tab .minor-info .age-input {
   width: auto;
   font-size: 15px;
   height: 17px;
@@ -840,140 +886,407 @@
   padding-left: 2px;
   margin-left: 3px;
 }
-.sheet .tab-content .info-tab .info-windows {
+.parscrucis-actor-sheet .tab-content .info-tab .info-windows {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   height: 100%;
 }
-.sheet .tab-content .info-tab .info-windows .info-window {
+.parscrucis-actor-sheet .tab-content .info-tab .info-windows .info-window {
   display: flex;
   flex-direction: column;
   width: calc(50% - 4px);
   height: 100%;
 }
-.sheet .tab-content .info-tab .info-windows .info-left .looks-window {
+.parscrucis-actor-sheet .tab-content .info-tab .info-windows .info-left .looks-window {
   height: calc(50%);
   max-height: 192px;
 }
-.sheet .tab-content .info-tab .info-windows .info-left .quirks-window {
+.parscrucis-actor-sheet .tab-content .info-tab .info-windows .info-left .quirks-window {
   height: calc(50%);
   max-height: 191px;
 }
-.sheet .tab-content .info-tab .info-windows .info-right .goal-window {
+.parscrucis-actor-sheet .tab-content .info-tab .info-windows .info-right .goal-window {
   height: calc(35% - 7px);
   max-height: 149px;
 }
-.sheet .tab-content .info-tab .info-windows .info-right .bio-window {
+.parscrucis-actor-sheet .tab-content .info-tab .info-windows .info-right .bio-window {
   height: 65%;
   max-height: 290px;
 }
-.sheet .tab-content .info-tab .info-windows .last-window {
+.parscrucis-actor-sheet .tab-content .info-tab .info-windows .last-window {
   margin-bottom: 0;
 }
-.sheet .tab-content .notes-tab {
+.parscrucis-actor-sheet .tab-content .notes-tab {
   display: flex;
   flex-direction: column;
   height: 100%;
   padding: 3px 2px 2px;
 }
-.sheet .tab-content .bio {
+.parscrucis-actor-sheet .tab-content .bio {
   min-height: 36px;
   height: calc(100% - 16px);
 }
-.sheet .tab-content .notes-tab {
+.parscrucis-actor-sheet .tab-content .notes-tab {
   padding: 0;
 }
-.sheet .tab-content .notes-tab .notes-window {
+.parscrucis-actor-sheet .tab-content .notes-tab .notes-window {
   height: 70%;
   max-height: 312px;
 }
-.sheet .tab-content .notes-tab .gm-notes-window {
+.parscrucis-actor-sheet .tab-content .notes-tab .gm-notes-window {
   height: 30%;
   max-height: 134px;
   margin: 0;
 }
-.sheet form {
+.parscrucis-item-sheet .window-content {
+  overflow: hidden;
+}
+.parscrucis-item-sheet .weapon-sheet {
   display: flex;
   flex-direction: column;
 }
-.sheet .sheet-content {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-}
-.sheet .weapon-content {
-  justify-content: space-between;
-}
-.sheet input,
-.sheet select {
+.parscrucis-item-sheet .weapon-sheet input,
+.parscrucis-item-sheet .weapon-sheet select,
+.parscrucis-item-sheet .weapon-sheet textarea {
   border: 0;
   border-radius: 3px;
   padding: 0;
 }
-.sheet .superior .item-img {
+.parscrucis-item-sheet .sheet-content {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.parscrucis-item-sheet .weapon-content {
+  justify-content: space-between;
+}
+.parscrucis-item-sheet .superior .item-img {
   height: 80px;
   width: 80px;
   margin: 0;
 }
-.sheet .superior .item-header-right {
+.parscrucis-item-sheet .superior .item-header-right {
   height: 100%;
   width: calc(100% - 80px);
 }
-.sheet .superior .item-header-right .item-header-info {
+.parscrucis-item-sheet .superior .item-header-right .item-header-right-lower {
+  border: 1px solid rgba(128, 128, 128, 0.432);
+  border-width: 0 1px 1px 0;
+  border-radius: 0 0 5px 0;
+}
+.parscrucis-item-sheet .superior .item-header-right .item-header-upper {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 }
-.sheet .superior .item-header-right .item-header-info select,
-.sheet .superior .item-header-right .item-header-info input {
+.parscrucis-item-sheet .superior .item-header-right .item-header-upper select,
+.parscrucis-item-sheet .superior .item-header-right .item-header-upper input {
   height: 17px;
   font-size: 14px;
   flex-grow: 1;
   margin: 1px 2px;
+  width: 33%;
 }
-.sheet .superior .item-header-right .item-header-info .item-price {
+.parscrucis-item-sheet .superior .item-header-right .item-header-upper .item-price {
   width: 20%;
   text-align: right;
   padding-right: 5px;
   font-size: 20px;
   height: 17px;
 }
-.sheet .superior .item-header-right .item-header-info span {
+.parscrucis-item-sheet .superior .item-header-right .item-header-upper span {
   font-size: 20px;
   height: 17px;
   margin-top: -5px;
 }
-.sheet .superior .item-name {
+.parscrucis-item-sheet .superior .item-header-right .item-header-lower {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  width: 100%;
+  height: 37px;
+}
+.parscrucis-item-sheet .superior .item-header-right .item-header-lower .minor {
+  width: 75px;
+}
+.parscrucis-item-sheet .superior .item-header-right .item-header-lower .item-att-name {
+  font-size: 15px;
+  text-align: center;
+  height: 16px;
+}
+.parscrucis-item-sheet .superior .item-header-right .item-header-lower .item-att-name a,
+.parscrucis-item-sheet .superior .item-header-right .item-header-lower .item-att-name > div {
+  margin-bottom: -1px;
+  font-family: "IMFellEnglishSC";
+  font-weight: 700;
+}
+.parscrucis-item-sheet .superior .item-header-right .item-header-lower .item-attribute {
+  flex: 4 0;
+  margin: 0 1px;
+}
+.parscrucis-item-sheet .superior .item-header-right .item-header-lower .item-cost {
+  flex: 3 0;
+}
+.parscrucis-item-sheet .superior .item-header-right .item-header-lower .item-defense {
+  flex: 2 0;
+}
+.parscrucis-item-sheet .superior .item-header-right .item-header-lower .item-att-info {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin: 0 1px;
+  width: calc(100% - 2px);
+}
+.parscrucis-item-sheet .superior .item-header-right .item-header-lower .item-att-info input {
+  text-align: center;
+  height: 20px;
+}
+.parscrucis-item-sheet .superior .item-header-right .item-header-lower .item-att-info .att-value {
+  width: 100%;
+  font-size: 23px;
+}
+.parscrucis-item-sheet .superior .item-header-right .item-header-lower .item-att-info .att-extra {
+  width: 100%;
+  font-size: 18px;
+}
+.parscrucis-item-sheet .superior .item-header-right .item-header-lower .item-att-info .att-medium {
+  font-size: 16px;
+}
+.parscrucis-item-sheet .superior .item-header-right .item-header-lower .item-att-info .item-material,
+.parscrucis-item-sheet .superior .item-header-right .item-header-lower .item-att-info .item-craft {
+  width: 100%;
+  padding-left: 2px;
+  font-size: 14px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.parscrucis-item-sheet .superior .item-name {
   width: 100%;
   margin-right: 0;
 }
-.sheet .action {
-  list-style-type: none;
+.parscrucis-item-sheet .action {
   font-family: "Acme";
 }
-.sheet .action-header {
+.parscrucis-item-sheet .action-header {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  padding-right: 6px;
 }
-.sheet .action-damages {
-  display: flex;
-  flex-direction: column;
+.parscrucis-item-sheet .action-header .action-damages {
+  justify-content: center;
 }
-.sheet .action-damages .action-damage {
+.parscrucis-item-sheet .actions-inferior-window {
+  height: 79px;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+.parscrucis-item-sheet .action-line {
+  height: 36px;
+  width: 100%;
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 2px;
 }
-.sheet .bio {
+.parscrucis-item-sheet .action-line .action-skill {
+  height: 100%;
+  font-size: 15px;
+}
+.parscrucis-item-sheet .action-line .action-action {
+  height: 100%;
+}
+.parscrucis-item-sheet .action-line .action-mod {
+  font-size: 18px;
+  height: 100%;
+}
+.parscrucis-item-sheet .action-line .action-range {
+  font-size: 18px;
+  height: 100%;
+}
+.parscrucis-item-sheet .action-line .action-dmg {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+.parscrucis-item-sheet .action-line .action-dmg .dmg-line {
+  font-size: 15px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 36px;
+}
+.parscrucis-item-sheet .action-line .action-dmg .dmg-line .dmg-base {
+  font-family: "SR";
+  text-align: right;
+  font-size: 24px;
+  width: 22px;
+  height: 100%;
+  padding: 0 1px;
+}
+.parscrucis-item-sheet .action-line .action-dmg .dmg-line .dmg-plus {
+  line-height: 100%;
+  font-family: "SR";
+  font-size: 24px;
+  width: 8px;
+  height: 100%;
+}
+.parscrucis-item-sheet .action-line .action-dmg .dmg-line .dmg-att {
+  appearance: none;
+  text-align: center;
+  font-family: "SR";
+  font-size: 20px;
+  width: 26px;
+  height: 100%;
+}
+.parscrucis-item-sheet .action-line .action-dmg .dmg-line .dmg-att-div {
+  width: 24px;
+  height: 100%;
+  font-family: "SR";
+  text-align: left;
+  font-size: 24px;
+}
+.parscrucis-item-sheet .action-line .action-dmg .alternative {
+  height: 18px;
+}
+.parscrucis-item-sheet .action-line .action-dmg .alternative .dmg-base {
+  height: 100%;
+  font-size: 20px;
+  line-height: 18px;
+  padding-top: 2px;
+}
+.parscrucis-item-sheet .action-line .action-dmg .alternative .dmg-plus {
+  line-height: 18px;
+}
+.parscrucis-item-sheet .action-line .action-dmg .alternative .dmg-att {
+  font-size: 18px;
+  height: 100%;
+}
+.parscrucis-item-sheet .action-line .action-dmg .alternative .dmg-att-div {
+  height: 100%;
+  font-size: 20px;
+  padding-top: 2px;
+}
+.parscrucis-item-sheet .action-line .action-dmg .single .dmg-plus {
+  padding-top: 6px;
+}
+.parscrucis-item-sheet .action-line .damage-type {
+  height: 100%;
+}
+.parscrucis-item-sheet .action-line textarea.action-note {
+  height: 36px;
+  min-height: 18px;
+  line-height: 17px;
+  padding: 0 2px 1px;
+  font-family: "Acme";
+  resize: none;
+  text-align: justify;
+}
+.parscrucis-item-sheet .action-skill {
+  width: calc(17% - 6px);
+  margin-right: 3px;
+}
+.parscrucis-item-sheet .action-action {
+  width: calc(12% - 4px);
+  margin-right: 3px;
+}
+.parscrucis-item-sheet .action-mod {
+  width: calc(6% - 8px);
+  text-align: right;
+  margin-right: 3px;
+}
+.parscrucis-item-sheet div.action-mod,
+.parscrucis-item-sheet input.action-mod {
+  padding-right: 2px;
+}
+.parscrucis-item-sheet .action-damages {
+  display: flex;
+  flex-direction: row;
+  min-width: 112px;
+  width: 112px;
+  margin-right: 3px;
+}
+.parscrucis-item-sheet .action-damages .damage-type {
+  width: 32px;
+}
+.parscrucis-item-sheet .action-range {
+  width: calc(12% - 5px);
+  text-align: center;
+  margin-right: 3px;
+}
+.parscrucis-item-sheet .action-note {
+  width: calc(33% - 6px);
+}
+.parscrucis-item-sheet .action-controls {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  width: 18px;
+  text-align: center;
+}
+.parscrucis-item-sheet .alternative-damage {
+  display: flex;
+  margin: 2px 2px 0 1px;
+  flex: 0;
+  width: 14px;
+  height: 14px;
+  cursor: pointer;
+}
+.parscrucis-item-sheet .alternative-damage[type="checkbox"] {
+  background: transparent;
+  padding: 0;
+  border: 1px solid #b5b7b8;
+  border: 1px inset #ccc;
+  border-radius: 50%;
+  -webkit-appearance: none;
+  -webkit-font-smoothing: antialiased;
+  -webkit-filter: none;
+  color: #06003b;
+  box-shadow: 0px 1px 3px #741515e7 !important;
+}
+.parscrucis-item-sheet .alternative-damage[type="checkbox"]::before {
+  font-family: "Font Awesome 5 Free";
+  content: "\f71c";
+  font-weight: bold;
+}
+.parscrucis-item-sheet .alternative-damage[type="checkbox"]:checked {
+  padding: 0;
+  -webkit-filter: none;
+  color: #06003b;
+  box-shadow: 0px 1px 3px #741515e7 !important;
+}
+.parscrucis-item-sheet .alternative-damage[type="checkbox"]:checked::before {
+  font-family: "Font Awesome 5 Free";
+  content: "\f71d";
+  font-weight: bold;
+}
+.parscrucis-item-sheet textarea.action-notes {
+  width: 100%;
+  height: 54px;
+  min-height: 18px;
+  line-height: 17px;
+  padding: 0 2px 1px;
+  font-family: "Acme";
+  resize: none;
+  text-align: justify;
+}
+.parscrucis-item-sheet .bio {
   height: 110px;
   height: calc(100% - 16px);
 }
-.sheet .bio .editor {
+.parscrucis-item-sheet .bio .editor {
   height: 100%;
 }
-.sheet .item-description-window {
-  height: 110px;
+.parscrucis-item-sheet .item-description-window {
+  height: 108px;
   margin-bottom: 0;
 }

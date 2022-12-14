@@ -186,6 +186,11 @@
   "PC.Note": "Nota",
   "PC.DEF": "DEF",
   "PC.Defense": "Defesa",
+  "PC.DR": "DR",
+  "PC.Requisites": "Requisitos",
+  "PC.Craft": "Ofício",
+  "PC.Cost": "Custo",
+  "PC.Observations": "Observações",
   "PC.Description": "Descrição",
 
   "PC.Unarmed": "Desarmado",

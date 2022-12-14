@@ -10,10 +10,10 @@ export class ActionSchema extends foundry.abstract.DataModel {
 
       dmgBase: new field.NumberField({ initial: 0 }),
       dmgAtt: new field.StringField({ initial: "fis" }),
-      dmgAttDiv: new field.NumberField({ initial: 2 }),
+      dmgAttDiv: new field.StringField({ initial: "/2" }),
       dmgBase2: new field.NumberField({ initial: 0 }),
       dmgAtt2: new field.StringField({ initial: "fis" }),
-      dmgAttDiv2: new field.NumberField({ initial: 2 }),
+      dmgAttDiv2: new field.StringField({ initial: "/2" }),
       damageType: new field.StringField({ initial: "" }),
 
       actionRange: new field.StringField({ initial: "" }),
@@ -36,10 +36,10 @@ export class WeaponSchema extends foundry.abstract.DataModel {
 
           dmgBase: new field.NumberField({ initial: 0 }),
           dmgAtt: new field.StringField({ initial: "fis" }),
-          dmgAttDiv: new field.NumberField({ initial: 2 }),
+          dmgAttDiv: new field.StringField({ initial: "/2" }),
           dmgBase2: new field.NumberField({ initial: 0 }),
           dmgAtt2: new field.StringField({ initial: "fis" }),
-          dmgAttDiv2: new field.NumberField({ initial: 2 }),
+          dmgAttDiv2: new field.StringField({ initial: "/2" }),
           damageType: new field.StringField({ initial: "" }),
 
           actionRange: new field.StringField({ initial: "" }),
@@ -47,9 +47,12 @@ export class WeaponSchema extends foundry.abstract.DataModel {
         })
       ),
       requirements: new field.StringField({ initial: "" }),
-      price: new field.NumberField({ initial: 1 }),
       defense: new field.NumberField({ initial: 10 }),
-      projectileDefense: new field.NumberField({ initial: 10 }),
+      projectileDefense: new field.NumberField({ initial: 6 }),
+      requisites: new field.StringField({ initial: "none" }),
+      durability: new field.NumberField({ initial: 13 }),
+      craft: new field.StringField({ initial: "" }),
+      price: new field.NumberField({ initial: 1 }),
       equipped: new field.BooleanField({ initial: false }),
       rarity: new field.StringField({ initial: "common" }),
       notes: new field.StringField({ initial: "" }),

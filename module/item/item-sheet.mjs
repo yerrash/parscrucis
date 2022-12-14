@@ -4,9 +4,9 @@ export default class ParsCrucisItemSheet extends ItemSheet {
   /** @override */
   static get defaultOptions() {
     return mergeObject(super.defaultOptions, {
-      classes: ["parscrucis", "sheet", "item"],
-      width: 520,
-      height: 480,
+      classes: ["parscrucis", "sheet", "parscrucis-item-sheet"],
+      width: 600,
+      height: 440,
     });
   }
 
@@ -25,6 +25,9 @@ export default class ParsCrucisItemSheet extends ItemSheet {
 
     // console.log(context);
     // console.log(itemData);
+
+    console.log(context);
+
     return context;
   }
 
@@ -71,8 +74,6 @@ export default class ParsCrucisItemSheet extends ItemSheet {
     updateData["system.actions"] = actions;
 
     this.object.update(updateData);
-
-    console.log("->", actions);
   }
 
   _deleteAction(event) {

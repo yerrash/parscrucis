@@ -1,27 +1,48 @@
-.sheet {
-  h2,
-  h3,
-  h4 {
-    margin: 0;
+h2,
+h3,
+h4 {
+  margin: 0;
+}
+.subtitle {
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  align-items: center;
+  font-family: "Acme";
+  width: 100%;
+  height: 16px;
+  margin-bottom: 2px;
+  font-size: 17px;
+}
+.superior {
+  font-family: "Acme";
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 7px;
+  .char-name {
+    width: calc(100% - 160px);
+    margin-right: 3px;
+    height: 23px;
+    .name-input {
+      width: 100%;
+      padding: 0;
+      border: none;
+      background: none;
+      font-family: "IMFellDWPica";
+      font-size: 26px;
+      padding-left: 3px;
+    }
   }
+}
+.window {
+  padding: 4px 2px 0;
+  border: 1px solid rgba(128, 128, 128, 0.432);
+  border-radius: 5px;
+  margin: 0 0 7px 0;
+}
+.parscrucis-actor-sheet {
   h3 {
     font-size: 18px;
-  }
-  .subtitle {
-    display: flex;
-    flex-wrap: nowrap;
-    flex-direction: row;
-    align-items: center;
-    width: 100%;
-    height: 16px;
-    margin-bottom: 2px;
-    font-size: 17px;
-  }
-  .window {
-    padding: 4px 2px 0;
-    border: 1px solid rgba(128, 128, 128, 0.432);
-    border-radius: 5px;
-    margin: 0 0 7px 0;
   }
   .space {
     margin: auto;
@@ -58,20 +79,7 @@
     .superior-right {
       height: 152px;
     }
-    .char-name {
-      width: calc(100% - 160px);
-      margin-right: 3px;
-      height: 23px;
-      .name-input {
-        width: 100%;
-        padding: 0;
-        border: none;
-        background: none;
-        font-family: "IMFellDWPica";
-        font-size: 26px;
-        padding-left: 3px;
-      }
-    }
+
     .name-exp {
       display: flex;
       flex-direction: row;
@@ -182,6 +190,7 @@
               display: flex;
               flex-direction: row;
               align-items: center;
+              justify-content: space-between;
               input {
                 height: 36px;
               }
@@ -205,7 +214,7 @@
 
             .movement {
               width: 25%;
-              margin-right: 3px;
+              margin-right: 0;
               .mov-value,
               .sprint {
                 font-family: "SR";
@@ -237,6 +246,7 @@
             width: 100%;
             .space {
               height: 30px;
+              margin: auto;
             }
             .resource {
               margin-right: 3px;
@@ -301,11 +311,11 @@
             }
             .limiar {
               width: 60px;
-              margin-right: 2px;
+              margin-right: 0;
             }
             .pain {
               width: 55px;
-              margin-right: 2px;
+              margin-right: 0;
               label {
                 height: 18px;
               }
@@ -489,7 +499,7 @@
 
   .tab-content {
     font-family: "Acme";
-    height: 100%;
+    height: calc(100% - 159px - 29px);
     .tab {
       height: 100%;
     }
@@ -677,7 +687,7 @@
           margin-right: 2px;
         }
         .item-name {
-          width: calc(22% - 8px);
+          width: calc(23% - 8px);
           text-overflow: ellipsis;
           white-space: nowrap;
           overflow: hidden;
@@ -687,32 +697,44 @@
             font-size: 12.5px;
           }
         }
+        .item-actions {
+          display: flex;
+          flex-direction: column;
+          align-items: stretch;
+          justify-content: space-between;
+          width: calc(70% - 44px);
+          .item-action-line {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+            height: 19px;
+          }
+        }
+
         .item-skill {
-          width: calc(8% - 4px);
+          width: calc(11%);
           text-overflow: ellipsis;
           white-space: nowrap;
           overflow: hidden;
         }
         .item-action {
-          width: calc(7% - 4px);
+          width: calc(10%);
         }
         .item-modifier {
-          width: calc(3% - 4px);
+          width: calc(4%);
           text-align: right;
         }
-        // 24 - 6 8 10 12 14 23
-        // 32
         .item-damage {
-          width: calc(15% - 6px);
-          width: 12%;
+          width: calc(21%);
           text-align: center;
         }
         .item-range {
           text-align: center;
-          width: calc(6% - 4px);
+          width: calc(10%);
         }
         .item-info {
-          width: calc(32% - 18px);
+          width: calc(44%);
           text-overflow: ellipsis;
           white-space: nowrap;
           overflow: hidden;
@@ -743,7 +765,7 @@
         }
       }
       .item-line {
-        height: 23px;
+        // height: 23px;
         .item-image {
           width: 21px;
           height: 21px;

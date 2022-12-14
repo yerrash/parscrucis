@@ -1,7 +1,17 @@
-.sheet {
-  form {
+.parscrucis-item-sheet {
+  .window-content {
+    overflow: hidden;
+  }
+  .weapon-sheet {
     display: flex;
     flex-direction: column;
+    input,
+    select,
+    textarea {
+      border: 0;
+      border-radius: 3px;
+      padding: 0;
+    }
   }
   .sheet-content {
     height: 100%;
@@ -11,12 +21,7 @@
   .weapon-content {
     justify-content: space-between;
   }
-  input,
-  select {
-    border: 0;
-    border-radius: 3px;
-    padding: 0;
-  }
+
   .superior {
     .item-img {
       height: 80px;
@@ -26,7 +31,12 @@
     .item-header-right {
       height: 100%;
       width: calc(100% - 80px);
-      .item-header-info {
+      .item-header-right-lower {
+        border: 1px solid rgba(128, 128, 128, 0.432);
+        border-width: 0 1px 1px 0;
+        border-radius: 0 0 5px 0;
+      }
+      .item-header-upper {
         display: flex;
         flex-direction: row;
         justify-content: space-between;
@@ -36,6 +46,7 @@
           font-size: 14px;
           flex-grow: 1;
           margin: 1px 2px;
+          width: 33%;
         }
         .item-price {
           width: 20%;
@@ -50,6 +61,74 @@
           margin-top: -5px;
         }
       }
+      .item-header-lower {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: space-between;
+        width: 100%;
+        height: 37px;
+
+        // ITENS DA PARTE INFERIOR
+        .minor {
+          width: 75px;
+        }
+        .item-att-name {
+          font-size: 15px;
+          text-align: center;
+          height: 16px;
+          a,
+          > div {
+            margin-bottom: -1px;
+            font-family: "IMFellEnglishSC";
+            font-weight: 700;
+          }
+        }
+        .item-attribute {
+          flex: 4 0;
+          margin: 0 1px;
+        }
+        .item-cost {
+          flex: 3 0;
+        }
+        .item-defense {
+          flex: 2 0;
+        }
+        .item-att-info {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          justify-content: center;
+          margin: 0 1px;
+          width: calc(100% - 2px);
+          input {
+            text-align: center;
+            height: 20px;
+          }
+          .att-value {
+            width: 100%;
+            font-size: 23px;
+          }
+          .att-extra {
+            width: 100%;
+            font-size: 18px;
+          }
+          .att-medium {
+            font-size: 16px;
+          }
+          .item-material,
+          .item-craft {
+            width: 100%;
+            padding-left: 2px;
+            font-size: 14px;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow: hidden;
+          }
+        }
+      }
+
+      // FECHA ITENS DA PARTE INFERIOR
     }
     .item-name {
       width: 100%;
@@ -57,7 +136,6 @@
     }
   }
   .action {
-    list-style-type: none;
     font-family: "Acme";
   }
   .action-header {
@@ -65,15 +143,215 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    padding-right: 6px;
+    .action-damages {
+      justify-content: center;
+    }
+  }
+  .actions-inferior-window {
+    height: 79px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+  .action-line {
+    height: 36px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 2px;
+    .action-skill {
+      height: 100%;
+      font-size: 15px;
+    }
+    .action-action {
+      height: 100%;
+    }
+    .action-mod {
+      font-size: 18px;
+      height: 100%;
+    }
+    .action-range {
+      font-size: 18px;
+      height: 100%;
+    }
+    .action-dmg {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      .dmg-line {
+        font-size: 15px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        height: 36px;
+        .dmg-base {
+          font-family: "SR";
+          text-align: right;
+          font-size: 24px;
+          width: 22px;
+          height: 100%;
+          padding: 0 1px;
+        }
+        .dmg-plus {
+          line-height: 100%;
+          font-family: "SR";
+          font-size: 24px;
+          width: 8px;
+          height: 100%;
+        }
+        .dmg-att {
+          appearance: none;
+          text-align: center;
+          font-family: "SR";
+          font-size: 20px;
+          width: 26px;
+          height: 100%;
+        }
+        .dmg-att-div {
+          width: 24px;
+          height: 100%;
+          font-family: "SR";
+          text-align: left;
+          font-size: 24px;
+        }
+      }
+      .alternative {
+        height: 18px;
+        .dmg-base {
+          height: 100%;
+          font-size: 20px;
+          line-height: 18px;
+          padding-top: 2px;
+        }
+        .dmg-plus {
+          line-height: 18px;
+        }
+        .dmg-att {
+          font-size: 18px;
+          height: 100%;
+        }
+        .dmg-att-div {
+          height: 100%;
+          font-size: 20px;
+          padding-top: 2px;
+        }
+      }
+      .single {
+        .dmg-plus {
+          padding-top: 6px;
+        }
+      }
+    }
+    .damage-type {
+      height: 100%;
+    }
+    textarea.action-note {
+      height: 36px;
+      min-height: 18px;
+      line-height: 17px;
+      padding: 0 2px 1px;
+      font-family: "Acme";
+      resize: none;
+      text-align: justify;
+    }
+  }
+  .action-skill {
+    width: calc(17% - 6px);
+    margin-right: 3px;
+  }
+  .action-action {
+    width: calc(12% - 4px);
+    margin-right: 3px;
+  }
+  .action-mod {
+    width: calc(6% - 8px);
+    text-align: right;
+    margin-right: 3px;
+  }
+  div.action-mod,
+  input.action-mod {
+    padding-right: 2px;
   }
   .action-damages {
     display: flex;
-    flex-direction: column;
-    .action-damage {
-      display: flex;
-      flex-direction: row;
+    flex-direction: row;
+    min-width: 112px;
+    width: 112px;
+    margin-right: 3px;
+    .damage-type {
+      width: 32px;
     }
   }
+  .action-range {
+    width: calc(12% - 5px);
+    text-align: center;
+    margin-right: 3px;
+  }
+  .action-note {
+    width: calc(33% - 6px);
+  }
+  .action-controls {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    width: 18px;
+    text-align: center;
+  }
+  .alternative-damage {
+    display: flex;
+    margin: 2px 2px 0 1px;
+    flex: 0;
+    width: 14px;
+    height: 14px;
+    cursor: pointer;
+  }
+  .alternative-damage[type="checkbox"] {
+    background: transparent;
+    padding: 0;
+    border: 1px solid #b5b7b8;
+    border: 1px inset #ccc;
+    border-radius: 50%;
+    -webkit-appearance: none;
+    -webkit-font-smoothing: antialiased;
+    -webkit-filter: none;
+    color: #06003b;
+    box-shadow: 0px 1px 3px #741515e7 !important;
+  }
+  .alternative-damage[type="checkbox"]::before {
+    font-family: "Font Awesome 5 Free";
+    // content: "\f178";
+    content: "\f71c";
+    font-weight: bold;
+  }
+  .alternative-damage[type="checkbox"]:checked {
+    padding: 0;
+    -webkit-filter: none;
+    color: #06003b;
+    box-shadow: 0px 1px 3px #741515e7 !important;
+  }
+  .alternative-damage[type="checkbox"]:checked::before {
+    font-family: "Font Awesome 5 Free";
+    // content: "\e0a2";
+    content: "\f71d";
+    font-weight: bold;
+  }
+
+  textarea.action-notes {
+    width: 100%;
+    height: 54px;
+    min-height: 18px;
+    line-height: 17px;
+    padding: 0 2px 1px;
+    font-family: "Acme";
+    resize: none;
+    text-align: justify;
+  }
+
   .bio {
     height: 110px;
     height: calc(100% - 16px);
@@ -82,7 +360,7 @@
     }
   }
   .item-description-window {
-    height: 110px;
+    height: 108px;
     margin-bottom: 0;
   }
 }

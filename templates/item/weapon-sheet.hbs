@@ -1,4 +1,4 @@
-<form class="{{cssClass}}" autocomplete="off">
+<form class="{{cssClass}} weapon-sheet" autocomplete="off">
   <header class="superior">
     <img class="item-img" src="{{item.img}}" data-edit="img" title="{{item.name}}"/>
     <div class="superior-right item-header-right">
@@ -11,47 +11,119 @@
           placeholder="Nome"
         />
       </h2>
-      <div class="item-header-info">
-        <select name="system.weaponCategory">
-          {{selectOptions
-            config.weaponCategory
-            selected=item.system.weaponCategory
-            localize=true}}
-        </select>
-        <select name="system.weaponType">
-          {{selectOptions
-            (lookup config item.system.weaponCategory)
-            selected=item.system.weaponType
-            localize=true}}
-        </select>
-        <select name="system.rarity">
-          {{selectOptions
-            config.rarity
-            selected=item.system.rarity
-            localize=true}}
-        </select>
-        <input
-          class="item-price"
-          name="system.price"
-          type="Number"
-          value="{{item.system.price}}"
-        />
-        <span>$</span>
+      <div class="item-header-right-lower">
+        <div class="item-header-upper">
+          <select name="system.weaponCategory">
+            {{selectOptions
+              config.weaponCategory
+              selected=item.system.weaponCategory
+              localize=true}}
+          </select>
+          <select name="system.weaponType">
+            {{selectOptions
+              (lookup config item.system.weaponCategory)
+              selected=item.system.weaponType
+              localize=true}}
+          </select>
+          <select name="system.rarity">
+            {{selectOptions
+              config.rarity
+              selected=item.system.rarity
+              localize=true}}
+          </select>
+        </div>
+        <div class="item-header-lower">
+          <div class="item-attribute item-defense">
+            <h3 class="item-att-name">
+              <div>{{localize "PC.DEF"}}</div>
+            </h3>
+            <div class="item-att-info">
+              <input
+                class="att-value"
+                name="system.defense"
+                type="Number"
+                value="{{item.system.defense}}"
+                data-dtype="Number"
+              />
+              <input
+                class="att-extra"
+                name="system.projectileDefense"
+                type="Number"
+                value="{{item.system.projectileDefense}}"
+                data-dtype="Number"
+              />
+            </div>
+          </div>
+          <div class="item-attribute item-defense">
+            <h3 class="item-att-name">
+              <div>{{localize "PC.DR"}}</div>
+            </h3>
+            <div class="item-att-info">
+              <input
+                class="att-value"
+                name="system.durability"
+                type="Number"
+                value="{{item.system.durability}}"
+                data-dtype="Number"
+              />
+            </div>
+          </div>
+          <div class="item-attribute">
+            <h3 class="item-att-name">
+              <div>{{localize "PC.Requisites"}}</div>
+            </h3>
+            <div class="item-att-info">
+              <input
+                class="att-extra att-medium"
+                name="system.requisites"
+                type="text"
+                value="{{item.system.requisites}}"
+                data-dtype="String"
+              />
+            </div>
+          </div>
+          <div class="item-attribute">
+            <h3 class="item-att-name">
+              <div>{{localize "PC.Craft"}}</div>
+            </h3>
+            <div class="item-att-info">
+              <input
+                class="att-extra item-craft"
+                name="system.craft"
+                type="text"
+                value="{{item.system.craft}}"
+                data-dtype="String"
+              />
+            </div>
+          </div>
+          <div class="item-attribute item-cost">
+            <h3 class="item-att-name">
+              <div>{{localize "PC.Cost"}}</div>
+            </h3>
+            <div class="item-att-info">
+              <input
+                class="att-extra item-price"
+                name="system.price"
+                type="Number"
+                value="{{item.system.price}}"
+              />
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </header>
-
   {{! Actions rendered here }}
   <div class="sheet-content weapon-content">
-    <ol class="action-list window ">
-      <li class="action">
+    <div class="action-list window ">
+      <div class="action">
         <h3 class="subtitle action-header">
-          <div>{{localize "PC.Skill"}}</div>
-          <div>{{localize "PC.ActionDiff"}}</div>
-          <div>{{localize "PC.Mod"}}</div>
-          <div>{{localize "PC.Damage"}}</div>
-          <div>{{localize "PC.Range"}}</div>
-          <div>{{localize "PC.Note"}}</div>
+          <div class="action-skill">{{localize "PC.Skill"}}</div>
+          <div class="action-action">{{localize "PC.ActionDiff"}}</div>
+          <div class="action-mod">{{localize "PC.M"}}</div>
+          <div class="action-damages">{{localize "PC.Damage"}}</div>
+          <div class="action-range">{{localize "PC.Range"}}</div>
+          <div class="action-note">{{localize "PC.Note"}}</div>
           <div class="action-controls">
             <a
               class="action-control action-create"
@@ -60,134 +132,160 @@
             ><i class="fas fa-plus"></i></a>
           </div>
         </h3>
-        
-      </li>
-      {{log item.system.actions}} {{! Verificar informações }}
-      {{#each item.system.actions as |action obj|}}
-        <li class="action flexrow action-line">
-          <select name="system.actions.{{obj}}.actionSkill">
-            {{selectOptions 
-              ../config.skillList 
-              selected=action.actionSkill 
-              localize=true}}
-          </select>
-          <select name="system.actions.{{obj}}.actionType">
-            {{selectOptions 
-              ../config.actionType
-              selected=action.actionType 
-              localize=true}}
-          </select>
-          <input
-            name="system.actions.{{obj}}.actionModifier"
-            type="text"
-            value="{{action.actionModifier}}"
-            data-dtype="Number"
-          />
-          <input
-            class="skill-favor"
-            {{checked action.altDamage}}
-            data-dtype="Boolean"
-            type="checkbox"
-            name="system.actions.{{obj}}.altDamage"
-          />
-          {{#if action.altDamage}}
+      </div>
+      <ol class="actions-inferior-window">
+        {{#each item.system.actions as |action obj|}}
+        <li class="action action-line">
+            <select
+              class="action-skill" 
+              name="system.actions.{{obj}}.actionSkill">
+              {{selectOptions 
+                ../config.skillList 
+                selected=action.actionSkill 
+                localize=true}}
+            </select>
+            <select 
+              class="action-action"
+              name="system.actions.{{obj}}.actionType">
+              {{selectOptions 
+                ../config.actionType
+                selected=action.actionType 
+                localize=true}}
+            </select>
+            <input
+              class="action-mod"
+              name="system.actions.{{obj}}.actionModifier"
+              type="text"
+              value="{{action.actionModifier}}"
+              data-dtype="Number"
+            />
             <div class="action-damages">
-              <div class="action-damage">
-                <input
-                  name="system.actions.{{obj}}.dmgBase"
-                  type="Number"
-                  value="{{action.dmgBase}}"
-                  data-dtype="Number"
-                />
-                <select name="system.actions.{{obj}}.dmgAtt">
-                  {{selectOptions 
-                    ../config.attributes
-                    selected=action.dmgAtt 
-                    localize=true}}
-                </select>
-                <input
-                  name="system.actions.{{obj}}.dmgAttDiv"
-                  type="Number"
-                  value="{{action.dmgAttDiv}}"
-                  data-dtype="Number"
-                />
+              <div class="action-dmg">
+                {{#if action.altDamage}}
+                  <div class="dmg-line alternative">
+                    <input
+                      class="dmg-base"
+                      name="system.actions.{{obj}}.dmgBase"
+                      type="Number"
+                      value="{{action.dmgBase}}"
+                      data-dtype="Number"
+                    />
+                    <span class="dmg-plus">+</span>
+                    <select
+                      class="dmg-att"
+                      name="system.actions.{{obj}}.dmgAtt">
+                      {{selectOptions 
+                        ../config.attributes
+                        selected=action.dmgAtt 
+                        localize=true}}
+                    </select>
+                    <input
+                      class="dmg-att-div"
+                      name="system.actions.{{obj}}.dmgAttDiv"
+                      type="text"
+                      value="{{action.dmgAttDiv}}"
+                      data-dtype="String"
+                    />
+                  </div>
+                  <div class="dmg-line alternative">
+                    <input
+                      class="dmg-base"
+                      name="system.actions.{{obj}}.dmgBase2"
+                      type="Number"
+                      value="{{action.dmgBase2}}"
+                      data-dtype="Number"
+                    />
+                    <span class="dmg-plus">+</span>
+                    <select 
+                      class="dmg-att"
+                      name="system.actions.{{obj}}.dmgAtt2">
+                      {{selectOptions 
+                        ../config.attributes
+                        selected=action.dmgAtt2 
+                        localize=true}}
+                    </select>
+                    <input
+                      class="dmg-att-div"
+                      name="system.actions.{{obj}}.dmgAttDiv2"
+                      type="text"
+                      value="{{action.dmgAttDiv2}}"
+                      data-dtype="String"
+                    />
+                  </div>
+                {{else}}
+                  <div class="dmg-line single">
+                    <input
+                      class="dmg-base"
+                      name="system.actions.{{obj}}.dmgBase"
+                      type="Number"
+                      value="{{action.dmgBase}}"
+                      data-dtype="Number"
+                    />
+                    <span class="dmg-plus">+</span>
+                    <select 
+                      class="dmg-att"
+                      name="system.actions.{{obj}}.dmgAtt">
+                      {{selectOptions 
+                        ../config.attributes
+                        selected=action.dmgAtt 
+                        localize=true}}
+                    </select>
+                    <input
+                      class="dmg-att-div"
+                      name="system.actions.{{obj}}.dmgAttDiv"
+                      type="text"
+                      value="{{action.dmgAttDiv}}"
+                      data-dtype="String"
+                    />
+                  </div>
+                {{/if}}
               </div>
-              <div class="action-damage">
-                <input
-                  name="system.actions.{{obj}}.dmgBase2"
-                  type="Number"
-                  value="{{action.dmgBase2}}"
-                  data-dtype="Number"
-                />
-                <select name="system.actions.{{obj}}.dmgAtt2">
-                  {{selectOptions 
-                    ../config.attributes
-                    selected=action.dmgAtt2 
-                    localize=true}}
-                </select>
-                <input
-                  name="system.actions.{{obj}}.dmgAttDiv2"
-                  type="Number"
-                  value="{{action.dmgAttDiv2}}"
-                  data-dtype="Number"
-                />
-              </div>
+              <input
+              class="damage-type"
+              name="system.actions.{{obj}}.damageType"
+              type="text"
+              value="{{action.damageType}}"
+              data-dtype="String"
+            />
             </div>
-          {{else}}
-            <div class="action-damages">
-              <div class="action-damage">
-                <input
-                  name="system.actions.{{obj}}.dmgBase"
-                  type="Number"
-                  value="{{action.dmgBase}}"
-                  data-dtype="Number"
-                />
-                <select name="system.actions.{{obj}}.dmgAtt">
-                  {{selectOptions 
-                    ../config.attributes
-                    selected=action.dmgAtt 
-                    localize=true}}
-                </select>
-                <input
-                  name="system.actions.{{obj}}.dmgAttDiv"
-                  type="Number"
-                  value="{{action.dmgAttDiv}}"
-                  data-dtype="Number"
-                />
-              </div>
+            <input
+              class="action-range"
+              name="system.actions.{{obj}}.actionRange"
+              type="text"
+              value="{{action.actionRange}}"
+              data-dtype="String"
+            />
+            <textarea
+              class="action-note"
+              name="system.actions.{{obj}}.actionNotes">{{action.actionNotes}}</textarea>
+            <div class="action-controls">
+              <input
+                class="alternative-damage"
+                {{checked action.altDamage}}
+                data-dtype="Boolean"
+                type="checkbox"
+                name="system.actions.{{obj}}.altDamage"
+              />
+              <a
+                class="action-control action-delete"
+                title="Delete Action"
+                data-type="actions"
+                data-index="{{@key}}"
+              ><i class="fas fa-trash"></i></a>
             </div>
-          {{/if}}
-          <input
-            name="system.actions.{{obj}}.damageType"
-            type="text"
-            value="{{action.damageType}}"
-            data-dtype="String"
-          />
-          <input
-            name="system.actions.{{obj}}.actionRange"
-            type="text"
-            value="{{action.actionRange}}"
-            data-dtype="String"
-          />
-          <input
-            name="system.actions.{{obj}}.actionNotes"
-            type="text"
-            value="{{action.actionNotes}}"
-            data-dtype="String"
-          />
-          <div class="action-controls">
-            <a
-              class="action-control action-delete"
-              title="Delete Action"
-              data-type="actions"
-              data-index="{{@key}}"
-            ><i class="fas fa-trash"></i></a>
-          </div>
-        </li>
-      {{/each}}
-    </ol>
-
-    {{! Description here }}
+          </li>
+        {{/each}}
+      </ol>
+    </div>
+    {{! Obs and Description here }}
+    <div class="window">
+      <h3 class="subtitle">
+        <div class="action-note">{{localize "PC.Observations"}}</div>
+      </h3>
+      <textarea
+        class="action-notes"
+        name="system.notes">{{item.system.notes}}</textarea>
+    </div>
     <div class="window item-description-window">
       <h3 class="subtitle"><span>{{localize "PC.Description"}}</span></h3>
       <div class="bio">
