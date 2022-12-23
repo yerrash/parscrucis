@@ -1,7 +1,12 @@
 <form class="{{cssClass}}" autocomplete="off">
   <!-- Sheet header -->
   <header class="superior">
-    <img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" />
+    <img 
+      class="profile-img"
+      src="{{actor.img}}"
+      data-edit="img" 
+      title="{{actor.name}}"
+    />
     <div class="superior-right">
       <div class="name-exp">
         <h2 class="char-name">
@@ -80,7 +85,7 @@
     <div class="tab" data-tab="skills">
       {{> systems/parscrucis/templates/actor/tabs/skills-tab.hbs}}
     </div>
-    <div class="tab" data-tab="inventory">
+    <div class="tab inventory-tab" data-tab="inventory">
       {{> systems/parscrucis/templates/actor/tabs/inventory-tab.hbs}}
     </div>
     <div class="tab" data-tab="abilities">

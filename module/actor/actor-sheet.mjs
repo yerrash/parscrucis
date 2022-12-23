@@ -1,8 +1,8 @@
 export default class ParsCrucisActorSheet extends ActorSheet {
+  /** @override */
   static get defaultOptions() {
     return mergeObject(super.defaultOptions, {
       classes: ["parscrucis", "sheet", "parscrucis-actor-sheet"],
-      template: "systems/parscrucis/templates/actor/actor-sheet.hbs",
       width: 800,
       height: 680,
       tabs: [
@@ -15,6 +15,12 @@ export default class ParsCrucisActorSheet extends ActorSheet {
     });
   }
 
+  /** @override */
+  get template() {
+    const path = "systems/parscrucis/templates/actor";
+    return `${path}/${this.actor.type}-sheet.hbs`;
+  }
+
   getData() {
     const context = super.getData();
     const actorData = context.actor;
@@ -22,10 +28,8 @@ export default class ParsCrucisActorSheet extends ActorSheet {
     context.systemData = actorData.system;
     context.flags = actorData.flags;
 
-    console.log(context);
-
     // Prepare character data and items.
-    if (actorData.type == "personagem") {
+    if (actorData.type == "persona") {
       this._prepareItems(context);
       this._prepareCharacterData(context);
     }
@@ -37,6 +41,8 @@ export default class ParsCrucisActorSheet extends ActorSheet {
 
     // Prepare active effects
     // context.effects = prepareActiveEffectCategories(this.actor.effects);
+
+    // console.log("getData:ISSO", context);
 
     return context;
   }
@@ -99,7 +105,6 @@ export default class ParsCrucisActorSheet extends ActorSheet {
   activateListeners(html) {
     super.activateListeners(html);
 
-    // -------------------------------------------------------------
     // Everything below here is only needed if the sheet is editable
     if (!this.isEditable) return;
 
@@ -123,6 +128,7 @@ export default class ParsCrucisActorSheet extends ActorSheet {
 
     html.find("[data-att-key]").click(this._onAttClick.bind(this));
     html.find("[data-skill-key]").click(this._onSkillClick.bind(this));
+    html.find("[data-action]").click(this._onActionClick.bind(this));
   }
 
   /**
@@ -163,7 +169,7 @@ export default class ParsCrucisActorSheet extends ActorSheet {
     const attKey = dataset.attKey;
     const attType = dataset.attType;
     const attData = this.actor.system[attType][attKey];
-    const attValue = attData.value || attData.autoValue;
+    const attValue = attData.value;
     const label = attData.label;
     const flavor = `Teste de ${label}`;
 
@@ -190,6 +196,32 @@ export default class ParsCrucisActorSheet extends ActorSheet {
     const label = `Teste de ${dataset.label}`;
     const roll = await Roll.create(
       `2d10+${skillData.value}+${skillData.modifiers}`
+    ).evaluate({ async: true });
+
+    roll.toMessage({
+      speaker: ChatMessage.getSpeaker({ actor: this.actor }),
+      flavor: label,
+      rollMode: game.settings.get("core", "rollMode"),
+    });
+
+    return roll;
+  }
+
+  async _onActionClick(event) {
+    event.preventDefault();
+
+    const element = event.currentTarget;
+    const dataset = element.dataset;
+    const skillKey = dataset.action;
+    const actionKey = dataset.actionKey;
+    const skillData = this.actor.system.skills[skillKey];
+    const skillResult = skillData.value + skillData.modifiers;
+    const itemId = dataset.itemId;
+    const itemData = this.actor.items.get(itemId);
+    const actionData = itemData.system.actions[actionKey];
+    const label = `${itemData.name}, ${actionData.actionSkillLabel} - ${actionData.actionTypeLabel}`;
+    const roll = await Roll.create(
+      `2d10+${skillResult}+${actionData.actionModifier}`
     ).evaluate({ async: true });
 
     roll.toMessage({

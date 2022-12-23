@@ -1,6 +1,6 @@
 {
   "Actor": {
-    "types": ["personagem", "pdm"],
+    "types": ["persona", "pdm"],
     "templates": {
       "common": {
         "attributes": {
@@ -101,8 +101,9 @@
             "held": 0,
             "temp": 0
           },
-          "limiar": {
-            "value": 5
+          "lim": {
+            "value": 5,
+            "max": 5
           },
           "sorte": {
             "value": 2,
@@ -552,7 +553,7 @@
       }
     },
     "htmlFields": ["details.bio", "details.appearance"],
-    "personagem": {
+    "persona": {
       "templates": ["common", "creature"],
       "details": {
         "race": "humano",

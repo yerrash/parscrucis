@@ -8,6 +8,7 @@ PC.race = {
   orcino: "PC.Orcino",
   quezal: "PC.Quezal",
   vulpino: "PC.Vulpino",
+  stranger: "PC.Stranger",
 };
 
 PC.culture = {
@@ -61,6 +62,15 @@ PC.attributes = {
   ego: "PC.EGO",
   int: "PC.INT",
   esp: "PC.ESP",
+};
+
+PC.itemAtt = {
+  fis: "PC.FIS",
+  agi: "PC.AGI",
+  ego: "PC.EGO",
+  int: "PC.INT",
+  esp: "PC.ESP",
+  sem: "PC.Sem",
 };
 
 PC.attributeNames = {
@@ -332,6 +342,73 @@ PC.ammunition = {
   exotic: "PC.Exotic",
 };
 
+PC.weaponType = {
+  unarmed: "PC.Unarmed",
+  fists: "PC.Fists",
+  gloves: "PC.Gloves",
+  knife: "PC.Knife",
+  dagger: "PC.Dagger",
+  katar: "PC.Katar",
+  whip: "PC.Whip",
+  throwing: "PC.Throwing",
+  shortSword: "PC.ShortSword",
+  sword: "PC.Sword",
+  greatSword: "PC.GreatSword",
+  saber: "PC.Saber",
+  sickle: "PC.Sickle",
+  macuahuitl: "PC.Macuahuitl",
+  javelin: "PC.Javelin",
+  shortSpear: "PC.ShortSpear",
+  spear: "PC.Spear",
+  heavySpear: "PC.HeavySpear",
+  polearm: "PC.Polearm",
+  scythe: "PC.Scythe",
+  staff: "PC.Staff",
+  rod: "PC.Rod",
+  scepter: "PC.Scepter",
+  club: "PC.Club",
+  hammer: "PC.Hammer",
+  warHammer: "PC.WarHammer",
+  mace: "PC.Mace",
+  tomahawk: "PC.Tomahawk",
+  ax: "PC.Ax",
+  battleAx: "PC.BattleAx",
+  flail: "PC.Flail",
+  ram: "PC.Ram",
+  buckler: "PC.Buckler",
+  shield: "PC.Shield",
+  heavyShield: "PC.HeavyShield",
+  blowing: "PC.Blowing",
+  sling: "PC.Sling",
+  shortBow: "PC.ShortBow",
+  bow: "PC.Bow",
+  crossbow: "PC.Crossbow",
+  ballista: "PC.Ballista",
+  siege: "PC.Siege",
+  pistol: "PC.Pistol",
+  revolver: "PC.Revolver",
+  rifle: "PC.Rifle",
+  shotgun: "PC.Shotgun",
+  machinegun: "PC.Machinegun",
+  launcher: "PC.Launcher",
+  cannon: "PC.Cannon",
+  Pebble: "PC.Pebble",
+  Arrow: "PC.Arrow",
+  HeavyArrow: "PC.HeavyArrow",
+  Bolt: "PC.Bolt",
+  Dart: "PC.Dart",
+  Harpoon: "PC.Harpoon",
+  LeadBullet: "PC.LeadBullet",
+  mm10: "PC.mm10",
+  mm76: "PC.mm76",
+  Shell: "PC.Shell",
+  CannonBall: "PC.CannonBall",
+  Gasoil: "PC.Gasoil",
+  Missile: "PC.Missile",
+  Dynamo: "PC.Dynamo",
+  exotic: "PC.Exotic",
+};
+
 PC.rarity = {
   common: "PC.common",
   rare: "PC.rare",
@@ -376,6 +453,14 @@ PC.actionType = {
   dif30: "PC.dif30",
 };
 
+PC.damageScale = {
+  att33: "PC.att33",
+  att50: "PC.att50",
+  att100: "PC.att100",
+  att150: "PC.att150",
+  att200: "PC.att200",
+};
+
 PC.damageType = {
   physical: "PC.physicalDamage",
   elemental: "PC.elementalDamage",
@@ -386,10 +471,10 @@ PC.damageType = {
 };
 
 PC.damageTypeShort = {
-  physical: "PC.phyDam",
-  elemental: "PC.eleDam",
-  biological: "PC.bioDam",
-  destructive: "PC.desDam",
-  essential: "PC.essDam",
+  physical: "PC.phyDmg",
+  elemental: "PC.eleDmg",
+  biological: "PC.bioDmg",
+  destructive: "PC.dttDmg",
+  essential: "PC.essDmg",
   pure: "PC.pureDamage",
 };

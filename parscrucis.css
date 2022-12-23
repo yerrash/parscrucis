@@ -61,27 +61,43 @@
 .editor .editor-content {
   height: calc(100% - 2px);
 }
-li.folder .folder-header {
+.actors-sidebar li.folder .folder-header,
+.items-sidebar li.folder .folder-header {
   padding: 3px 4px 1px;
 }
-.directory .directory-item img {
+.actors-sidebar .directory-item img,
+.items-sidebar .directory-item img {
   height: 48px;
 }
-.directory .directory-item.document {
-  height: 32px;
+.actors-sidebar .directory-item,
+.items-sidebar .directory-item {
+  min-height: 32px;
 }
-.directory .directory-item .document-name {
+.actors-sidebar .directory-item .document-name,
+.items-sidebar .directory-item .document-name {
   height: 100%;
   line-height: 32px;
 }
-.directory .directory-item img {
+.actors-sidebar .directory-item img,
+.items-sidebar .directory-item img {
   object-fit: cover;
   object-position: 0;
   height: 32px;
 }
+.parscrucis-actor-sheet {
+  min-width: 800px;
+  min-height: 680px;
+  max-height: 680px;
+}
+.parscrucis-actor-sheet .window-resizable-handle {
+  display: none;
+}
 h2,
 h3,
 h4 {
+  margin: 0;
+}
+p {
   margin: 0;
 }
 .subtitle {
@@ -94,6 +110,11 @@ h4 {
   height: 16px;
   margin-bottom: 2px;
   font-size: 17px;
+}
+.divisor {
+  font-size: 20px;
+  width: 4px;
+  margin-left: -2px;
 }
 .superior {
   font-family: "Acme";
@@ -120,6 +141,9 @@ h4 {
   border: 1px solid rgba(128, 128, 128, 0.432);
   border-radius: 5px;
   margin: 0 0 7px 0;
+}
+.parscrucis-actor-sheet .window-content {
+  overflow: hidden;
 }
 .parscrucis-actor-sheet h3 {
   font-size: 18px;
@@ -365,19 +389,8 @@ h4 {
 .parscrucis-actor-sheet .superior .stats-window .left-window .att-partial .resources .resource .resource-info .resource_special .stat-value {
   width: 50%;
 }
-.parscrucis-actor-sheet .superior .stats-window .left-window .att-partial .resources .resource .resource-info .resource_special .stat-current {
-  background-color: transparent;
-  text-align: right;
-}
-.parscrucis-actor-sheet .superior .stats-window .left-window .att-partial .resources .resource .resource-info .resource_special .stat-max {
-  background-color: transparent;
-  text-align: left;
-}
 .parscrucis-actor-sheet .superior .stats-window .left-window .att-partial .resources .resource .resource-info .resource_special span {
   height: 28px;
-}
-.parscrucis-actor-sheet .superior .stats-window .left-window .att-partial .resources .resource .resource-info .resource_special .divisor {
-  font-size: 20px;
 }
 .parscrucis-actor-sheet .superior .stats-window .left-window .att-partial .resources .resource .resource-info .resource-bar {
   height: 24px;
@@ -387,9 +400,17 @@ h4 {
 .parscrucis-actor-sheet .superior .stats-window .left-window .att-partial .resources .resource .resource-info .pe-bar {
   background-color: #0043d470;
 }
-.parscrucis-actor-sheet .superior .stats-window .left-window .att-partial .resources .limiar {
+.parscrucis-actor-sheet .superior .stats-window .left-window .att-partial .resources .lim {
   width: 60px;
   margin-right: 0;
+}
+.parscrucis-actor-sheet .superior .stats-window .left-window .att-partial .resources .stat-current {
+  background-color: transparent;
+  text-align: right;
+}
+.parscrucis-actor-sheet .superior .stats-window .left-window .att-partial .resources .stat-max {
+  background-color: transparent;
+  text-align: left;
 }
 .parscrucis-actor-sheet .superior .stats-window .left-window .att-partial .resources .pain {
   width: 55px;
@@ -578,6 +599,7 @@ h4 {
   height: 14px;
 }
 .parscrucis-actor-sheet .tab-content {
+  overflow-y: auto;
   font-family: "Acme";
   height: calc(100% - 159px - 29px);
 }
@@ -713,7 +735,7 @@ h4 {
   justify-content: space-between;
   height: 48px;
   padding: 3px 2px;
-  border: 1px solid rgba(128, 128, 128, 0.432);
+  border: 1px solid #8080806e;
   border-radius: 5px;
   font-size: 15px;
 }
@@ -740,6 +762,20 @@ h4 {
   margin: 2px 1px;
   padding-left: 2px;
   margin-left: 4px;
+}
+.parscrucis-actor-sheet .tab-content .splinter {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.parscrucis-actor-sheet .tab-content .inventory {
+  max-height: calc(446px - 7px - 26px);
+  overflow-y: scroll;
+  margin-bottom: 7px;
+}
+.parscrucis-actor-sheet .tab-content .inventory .window {
+  padding-bottom: 2px;
 }
 .parscrucis-actor-sheet .tab-content .items-list {
   margin: 0;
@@ -785,6 +821,12 @@ h4 {
   align-items: center;
   justify-content: space-between;
   height: 19px;
+  border-color: #a3a3a3b4;
+  border-style: dashed;
+  border-width: 0 0 1px 0;
+}
+.parscrucis-actor-sheet .tab-content .items-list .item .item-actions .item-action-line:last-child {
+  border: none;
 }
 .parscrucis-actor-sheet .tab-content .items-list .item .item-skill {
   width: calc(11%);
@@ -794,6 +836,7 @@ h4 {
 }
 .parscrucis-actor-sheet .tab-content .items-list .item .item-action {
   width: calc(10%);
+  text-align: center;
 }
 .parscrucis-actor-sheet .tab-content .items-list .item .item-modifier {
   width: calc(4%);
@@ -831,6 +874,12 @@ h4 {
 .parscrucis-actor-sheet .tab-content .items-list .item-header .item-action {
   font-size: 14px;
 }
+.parscrucis-actor-sheet .tab-content .items-list .item-line {
+  padding: 1px 0;
+  border-color: #000000c2;
+  border-style: dashed;
+  border-width: 0 0 1px 0;
+}
 .parscrucis-actor-sheet .tab-content .items-list .item-line .item-image {
   width: 21px;
   height: 21px;
@@ -851,10 +900,55 @@ h4 {
 .parscrucis-actor-sheet .tab-content .items-list .item-line .item-modifier {
   font-size: 17px;
 }
+.parscrucis-actor-sheet .tab-content .items-list .item-line .item-damage {
+  font-family: "SR";
+  font-size: 21px;
+}
+.parscrucis-actor-sheet .tab-content .items-list .item-line .item-damage span {
+  font-size: 16px;
+}
+.parscrucis-actor-sheet .tab-content .items-list .item-line .item-defense {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  font-size: 22px;
+  height: 21px;
+  line-height: 21px;
+}
+.parscrucis-actor-sheet .tab-content .items-list .item-line .item-defense .item-proj-defense {
+  font-size: 19px;
+  height: 21px;
+  line-height: 21px;
+}
+.parscrucis-actor-sheet .tab-content .item-line:nth-child(2) {
+  padding-top: 0;
+}
+.parscrucis-actor-sheet .tab-content .item-line:last-child {
+  padding-bottom: 0;
+  border-width: 0 0 0 0;
+}
+.parscrucis-actor-sheet .tab-content .currency,
+.parscrucis-actor-sheet .tab-content .general {
+  margin-bottom: 0;
+}
+.parscrucis-actor-sheet .tab-content .currency {
+  height: 26px;
+}
+.parscrucis-actor-sheet .tab-content .currency ol {
+  margin: 0;
+  padding: 0;
+}
+.parscrucis-actor-sheet .tab-content .abilities {
+  max-height: 446px;
+  overflow-y: scroll;
+}
+.parscrucis-actor-sheet .tab-content .abilities .window {
+  padding-bottom: 2px;
+}
 .parscrucis-actor-sheet .tab-content .info-tab {
   display: flex;
   flex-direction: column;
-  height: 100%;
+  height: calc(100% - 1px);
 }
 .parscrucis-actor-sheet .tab-content .info-tab .basic-info {
   display: flex;
@@ -920,7 +1014,7 @@ h4 {
 .parscrucis-actor-sheet .tab-content .notes-tab {
   display: flex;
   flex-direction: column;
-  height: 100%;
+  height: calc(100% - 1px);
   padding: 3px 2px 2px;
 }
 .parscrucis-actor-sheet .tab-content .bio {
@@ -938,6 +1032,14 @@ h4 {
   height: 30%;
   max-height: 134px;
   margin: 0;
+}
+.parscrucis-item-sheet {
+  min-width: 600px;
+  min-height: 440px;
+  max-height: 440px;
+}
+.parscrucis-item-sheet .window-resizable-handle {
+  display: none;
 }
 .parscrucis-item-sheet .window-content {
   overflow: hidden;

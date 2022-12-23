@@ -4,19 +4,24 @@ export class ActionSchema extends foundry.abstract.DataModel {
   static defineSchema() {
     return {
       actionSkill: new field.StringField({ initial: "briga" }),
+      actionSkillLabel: new field.StringField({ initial: "" }),
       actionType: new field.StringField({ initial: "melee" }),
+      actionTypeLabel: new field.StringField({ initial: "" }),
       actionModifier: new field.StringField({ initial: "0" }),
+      inputModifier: new field.StringField({ initial: "" }),
       altDamage: new field.BooleanField({ initial: false }),
 
       dmgBase: new field.NumberField({ initial: 0 }),
-      dmgAtt: new field.StringField({ initial: "fis" }),
-      dmgAttDiv: new field.StringField({ initial: "/2" }),
       dmgBase2: new field.NumberField({ initial: 0 }),
+      dmgAtt: new field.StringField({ initial: "fis" }),
       dmgAtt2: new field.StringField({ initial: "fis" }),
+      dmgAttDiv: new field.StringField({ initial: "/2" }),
       dmgAttDiv2: new field.StringField({ initial: "/2" }),
-      damageType: new field.StringField({ initial: "" }),
+      damageDerived: new field.StringField({ initial: "" }),
+      damageType: new field.StringField({ initial: "fis" }),
 
-      actionRange: new field.StringField({ initial: "" }),
+      derivedDamage: new field.NumberField({ initial: 0 }),
+      actionRange: new field.StringField({ initial: "0" }),
       actionNotes: new field.StringField({ initial: "" }),
     };
   }
@@ -26,29 +31,40 @@ export class WeaponSchema extends foundry.abstract.DataModel {
   static defineSchema() {
     return {
       weaponCategory: new field.StringField({ initial: "melee" }),
-      weaponType: new field.StringField({ initial: "" }),
+      weaponCategoryLabel: new field.StringField({ initial: "" }),
+      weaponType: new field.StringField({ initial: "unarmed" }),
+      weaponTypeLabel: new field.StringField({ initial: "" }),
       actions: new field.ArrayField(
-        new field.SchemaField({
-          actionSkill: new field.StringField({ initial: "briga" }),
-          actionType: new field.StringField({ initial: "melee" }),
-          actionModifier: new field.StringField({ initial: "0" }),
-          altDamage: new field.BooleanField({ initial: false }),
+        new field.EmbeddedDataField(ActionSchema),
+        { initial: [new ActionSchema()] }
+        // new field.SchemaField({
+        // actionSkill: new field.StringField({ initial: "briga" }),
+        // actionSkillLabel: new field.StringField({ initial: "" }),
+        // actionType: new field.StringField({ initial: "melee" }),
+        // actionTypeLabel: new field.StringField({ initial: "" }),
+        // actionModifier: new field.StringField({ initial: "0" }),
+        // inputModifier: new field.StringField({ initial: "" }),
+        // altDamage: new field.BooleanField({ initial: false }),
 
-          dmgBase: new field.NumberField({ initial: 0 }),
-          dmgAtt: new field.StringField({ initial: "fis" }),
-          dmgAttDiv: new field.StringField({ initial: "/2" }),
-          dmgBase2: new field.NumberField({ initial: 0 }),
-          dmgAtt2: new field.StringField({ initial: "fis" }),
-          dmgAttDiv2: new field.StringField({ initial: "/2" }),
-          damageType: new field.StringField({ initial: "" }),
+        // dmgBase: new field.NumberField({ initial: 0 }),
+        // dmgBase2: new field.NumberField({ initial: 0 }),
+        // dmgAtt: new field.StringField({ initial: "fis" }),
+        // dmgAtt2: new field.StringField({ initial: "fis" }),
+        // dmgAttDiv: new field.StringField({ initial: "/2" }),
+        // dmgAttDiv2: new field.StringField({ initial: "/2" }),
+        // damageDerived: new field.StringField({ initial: "" }),
+        // damageType: new field.StringField({ initial: "fis" }),
 
-          actionRange: new field.StringField({ initial: "" }),
-          actionNotes: new field.StringField({ initial: "" }),
-        })
+        // derivedDamage: new field.NumberField({ initial: 0 }),
+        // actionRange: new field.StringField({ initial: "0" }),
+        // actionNotes: new field.StringField({ initial: "" }),
+        // })
       ),
       requirements: new field.StringField({ initial: "" }),
-      defense: new field.NumberField({ initial: 10 }),
-      projectileDefense: new field.NumberField({ initial: 6 }),
+      defense: new field.NumberField({ initial: null }),
+      derivedDefense: new field.NumberField({ initial: null }),
+      projDef: new field.NumberField({ initial: null }),
+      derivedProjDef: new field.NumberField({ initial: null }),
       requisites: new field.StringField({ initial: "none" }),
       durability: new field.NumberField({ initial: 13 }),
       craft: new field.StringField({ initial: "" }),

@@ -47,9 +47,9 @@
               />
               <input
                 class="att-extra"
-                name="system.projectileDefense"
+                name="system.projDef"
                 type="Number"
-                value="{{item.system.projectileDefense}}"
+                value="{{item.system.projDef}}"
                 data-dtype="Number"
               />
             </div>
@@ -226,7 +226,7 @@
                       class="dmg-att"
                       name="system.actions.{{obj}}.dmgAtt">
                       {{selectOptions 
-                        ../config.attributes
+                        ../config.itemAtt
                         selected=action.dmgAtt 
                         localize=true}}
                     </select>

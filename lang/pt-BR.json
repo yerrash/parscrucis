@@ -6,6 +6,7 @@
   "PC.Orcino": "Orcino",
   "PC.Quezal": "Quezal",
   "PC.Vulpino": "Vulpino",
+  "PC.Stranger": "Estranho",
 
   "PC.adv": "Ádvena",
   "PC.art": "Artesão",
@@ -54,6 +55,7 @@
   "PC.INT": "INT",
   "PC.ESP": "ESP",
   "PC.MV": "Movimento",
+  "PC.Sem": "",
 
   "PC.fisico": "Físico",
   "PC.agilidade": "Agilidade",
@@ -174,6 +176,8 @@
   "PC.E": "E",
   "PC.Effort": "Esforço",
   "PC.Weaponry": "Armamentos",
+  "PC.Wear": "Vestimenta",
+  "PC.Items": "Itens",
   "PC.Skill": "Perícia",
   "PC.Hard": "Difícil",
   "PC.WeaponType": "Tipo",
@@ -314,9 +318,12 @@
   "PC.essentialDamage": "essencial",
   "PC.pureDamage": "puro",
 
-  "PC.phyDam": "fis",
-  "PC.eleDam": "ele",
-  "PC.bioDam": "bio",
-  "PC.desDam": "destr",
-  "PC.essDam": "essen"
+  "PC.phyDmg": "fis",
+  "PC.eleDmg": "ele",
+  "PC.bioDmg": "bio",
+  "PC.dttDmg": "dtt",
+  "PC.essDmg": "ess",
+
+  "PC.Techniques": "Técnicas",
+  "PC.Powers": "Poderes"
 }

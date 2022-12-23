@@ -90,4 +90,17 @@ export const RACIALS = {
       },
     },
   },
+  stranger: {
+    attributes: {
+      fis: 0,
+      agi: 0,
+      ego: 0,
+      int: 0,
+      esp: 0,
+      movement: {
+        move: 3,
+        sprint: 5,
+      },
+    },
+  },
 };

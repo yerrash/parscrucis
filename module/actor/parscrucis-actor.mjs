@@ -2,7 +2,6 @@ import { PC } from "../config.mjs";
 import { RACIALS } from "../base-data.mjs";
 
 /**
- * Extend the base Actor document with custom roll data.
  * @extends {Actor}
  */
 export class ParsCrucisActor extends Actor {
@@ -16,6 +15,10 @@ export class ParsCrucisActor extends Actor {
         displayBars: CONST.TOKEN_DISPLAY_MODES.HOVER,
         disposition: CONST.TOKEN_DISPOSITIONS.NEUTRAL,
         actorLink: true,
+        sight: {
+          enabled: true,
+          range: 1,
+        },
         texture: {
           scaleX: 0.9,
           scaleY: 0.9,
@@ -24,6 +27,8 @@ export class ParsCrucisActor extends Actor {
     };
 
     this.updateSource(initData);
+
+    // console.log("PRECREATE", this);
   }
 
   /** @override */
@@ -33,6 +38,8 @@ export class ParsCrucisActor extends Actor {
     // prepareBaseData(), prepareEmbeddedDocuments() (including active effects),
     // prepareDerivedData().
     super.prepareData();
+
+    console.log("prepData:THIS", this);
   }
 
   /** @override */
@@ -52,10 +59,9 @@ export class ParsCrucisActor extends Actor {
    */
   prepareDerivedData() {
     const actorData = this;
-    const data = actorData.system;
-    const flags = actorData.flags.parscrucis || {};
-
     const systemData = actorData.system;
+    const actorType = actorData.type;
+    const flags = actorData.flags.parscrucis || {};
 
     const attributesData = systemData.attributes;
     const skillsData = systemData.skills;
@@ -65,33 +71,56 @@ export class ParsCrucisActor extends Actor {
     const race = detailsData.race;
     const skillsExpSpent = [];
 
+    // if (actorData.type == "persona") {
+    //   this._prepareCharacterData(context);
+    // }
+
+    this._prepareItems(actorData);
+
     // Handle skills.
     for (let [_, skill] of Object.entries(skillsData)) {
       skill.attLabel =
         game.i18n.localize(PC.attributes[skill.attribute]) ??
         PC.attributes[skill.attribute];
 
-      // Skill value cannot be null or lower than 0;
-      skill.value
-        ? skill.value >= 0
-          ? skill.value
-          : (skill.value = 0)
-        : (skill.value = 0);
+      // Setting perona skills.
+      if (actorType == "persona") {
+        // Skill value cannot be null or lower than 0;
+        skill.value
+          ? skill.value >= 0
+            ? skill.value
+            : (skill.value = 0)
+          : (skill.value = 0);
 
-      // Update skill attribute base value.
-      skill.attBaseValue = Math.ceil(skill.value / skill.growth);
+        // Update skill attribute base value.
+        skill.attBaseValue = Math.ceil(skill.value / skill.growth);
 
-      // Update skill experience spent.
-      skill.expSpent = 0;
-      const startingCost = skill.aprendizado === "PC.Hard" ? 2 : 1;
-      for (let e = startingCost; e < skill.value + startingCost; e++) {
-        if (skill.favor) {
-          skill.expSpent += e - 1;
-        } else {
-          skill.expSpent += e;
+        // Update skill experience spent.
+        skill.expSpent = 0;
+        const startingCost = skill.aprendizado === "PC.Hard" ? 2 : 1;
+        for (let e = startingCost; e < skill.value + startingCost; e++) {
+          if (skill.favor) {
+            skill.expSpent += e - 1;
+          } else {
+            skill.expSpent += e;
+          }
+        }
+        skillsExpSpent.push(skill.expSpent);
+      } else {
+        // Setting pdm skills
+        skill.value
+          ? skill.value >= 0
+            ? skill.value
+            : (skill.value = null)
+          : (skill.value = null);
+      }
+
+      if (typeof skill.modifiers !== "number") {
+        skill.modifiers = 0;
+        if (skill.value === null) {
+          skill.modifiers = null;
         }
       }
-      skillsExpSpent.push(skill.expSpent);
     }
 
     // Handle attributes.
@@ -100,21 +129,34 @@ export class ParsCrucisActor extends Actor {
         att.shortLabel = game.i18n.localize(PC.attributes[key]) ?? key;
         att.label = game.i18n.localize(PC.attributeNames[key]) ?? key;
 
-        // Update attribute values based on parameters.
-        const attArray = [];
-        for (let [_, skill] of Object.entries(skillsData)) {
-          if (skill.attribute == key) {
-            attArray.push(skill.attBaseValue);
+        // Setting perona attributes.
+        if (actorType == "persona") {
+          // Update attribute values based on parameters.
+          const attArray = [];
+          for (let [_, skill] of Object.entries(skillsData)) {
+            if (skill.attribute == key) {
+              attArray.push(skill.attBaseValue);
+            }
           }
+          const attRaceValue = RACIALS[race].attributes[key];
+          const attBaseValue = Math.max(...attArray);
+          att.autoValue = attRaceValue + attBaseValue;
+          att.value = att.inputValue || att.autoValue;
+        } else {
+          // Setting pdm attributes.
+          att.value = att.inputValue || null;
         }
-        const attRaceValue = RACIALS[race].attributes[key];
-        const attBaseValue = Math.max(...attArray);
-        att.autoValue = attRaceValue + attBaseValue;
+
+        if (typeof att.modifiers !== "number") {
+          att.modifiers = 0;
+        }
       }
       if (key === "movement") {
-        att.autoValue = RACIALS[race].attributes[key].move;
-        att.autoSprint =
-          RACIALS[race].attributes[key].sprint + skillsData.atlet.value / 2;
+        if (actorType == "persona") {
+          att.autoValue = RACIALS[race].attributes[key].move;
+          att.autoSprint =
+            RACIALS[race].attributes[key].sprint + skillsData.atlet.value / 2;
+        }
       }
     }
 
@@ -122,52 +164,160 @@ export class ParsCrucisActor extends Actor {
     for (let [key, minor] of Object.entries(minorsData)) {
       minor.label = game.i18n.localize(PC.minors[key]) ?? key;
 
-      const baseAtt = minor.base;
-      const minorBaseValue =
-        attributesData[baseAtt].value || attributesData[baseAtt].autoValue;
-      minor.autoValue = minorBaseValue;
+      // Setting playable characters minor attributes.
+      if (actorType == "persona") {
+        const baseAtt = minor.base;
+        minor.autoValue = attributesData[baseAtt].value;
+        minor.value = minor.inputValue || minor.autoValue;
+      } else {
+        // Setting pdm minor attributes.
+        minor.value = minor.inputValue || null;
+      }
     }
 
-    // Construct resources
-    resourcesData.pv.autoValue =
-      15 +
-        (attributesData.fis.value || attributesData.fis.autoValue) +
-        skillsData.resis.value || skillsData.resis.autoValue;
-    resourcesData.pv.max =
-      resourcesData.pv.inputValue || resourcesData.pv.autoValue;
+    if (actorType == "persona") {
+      // Construct persona resources.
+      resourcesData.pv.autoValue =
+        15 + attributesData.fis.value + skillsData.resis.value;
+      resourcesData.pv.max =
+        resourcesData.pv.inputValue || resourcesData.pv.autoValue;
+
+      resourcesData.pe.autoValue =
+        15 + attributesData.esp.value + skillsData.amago.value;
+      resourcesData.pe.max =
+        resourcesData.pe.inputValue || resourcesData.pe.autoValue;
+
+      resourcesData.lim.autoValue = 5 + Math.ceil(attributesData.ego.value / 2);
+      resourcesData.lim.max =
+        resourcesData.lim.inputValue || resourcesData.lim.autoValue;
+
+      // Calculate persona available experience.
+      const skillsExpSum = skillsExpSpent.reduce((a, b) => a + b, 0);
+      detailsData.expAvailable =
+        detailsData.exp - detailsData.expReserve - skillsExpSum;
+    }
+
+    // Set resources percentage.
     resourcesData.pv.currentPercent =
       (100 * resourcesData.pv.value) / resourcesData.pv.max;
-
-    resourcesData.pe.autoValue =
-      15 +
-        (attributesData.esp.value || attributesData.esp.autoValue) +
-        skillsData.amago.value || skillsData.amago.autoValue;
-    resourcesData.pe.max =
-      resourcesData.pe.inputValue || resourcesData.pe.autoValue;
     resourcesData.pe.currentPercent =
       (100 * resourcesData.pe.value) / resourcesData.pe.max;
 
-    // Calculate available experience.
-    const skillsExpSum = skillsExpSpent.reduce((a, b) => a + b, 0);
-    detailsData.expAvailable =
-      detailsData.exp - detailsData.expReserve - skillsExpSum;
+    // console.log("prepDerivedData:ITEMSDATA", itemsData);
+    // console.log("prepDerivedData:THIS", this);
 
-    // console.log(actorData);
-
-    // Make separate methods for each Actor type (character, npc, etc.) to keep
-    // things organized.
-    this._prepareCharacterData(actorData);
+    // Make separate methods for each Actor type (character, npc, etc.)
+    // this._prepareCharacterData(actorData);
     // this._prepareNpcData(actorData);
+    this._prepareInventoryData(actorData, attributesData, skillsData);
+  }
+
+  _prepareItems(actorData) {
+    // Initialize containers.
+    const weapons = [];
+    const gear = [];
+    const passives = [];
+    const abilities = [];
+
+    for (let i of actorData.items) {
+      i.img = i.img || DEFAULT_TOKEN;
+      // Append to gear.
+      if (i.type === "gear") {
+        //  Ajustar os tipos de itens de acordo
+        gear.push(i);
+        // Append weapons
+      } else if (i.type === "weapon") {
+        weapons.push(i);
+      }
+      // Append passive features - Benefits and Detriments
+      else if (i.type === "passive") {
+        passives.push(i);
+      }
+      // Append abilities - Techniques and Powers
+      else if (i.type === "ability") {
+        abilities.push(i);
+      }
+    }
+
+    // Assign items and return
+    actorData.weapons = weapons;
+    actorData.gear = gear;
+    actorData.passives = passives;
+    actorData.abilities = abilities;
   }
 
   _prepareCharacterData(actorData) {
-    if (actorData.type !== "personagem") return;
+    if (actorData.type !== "persona") return;
+  }
 
-    // console.log("PORRA");
+  _prepareInventoryData(actorData, attributesData, skillsData) {
+    if (actorData.type !== "persona") return;
+
+    const weaponsData = actorData.weapons;
+
+    // console.log("PREPCHARDATA:WEAPONS", weaponsData);
+
+    for (let [_, wep] of Object.entries(weaponsData)) {
+      // console.log("PREPINTDATA:KEY,WEP:", key, wep.system);
+
+      const wepSD = wep.system;
+      for (let [_, ac] of Object.entries(wepSD.actions)) {
+        if (ac.altDamage) {
+          const attValue = attributesData[ac.dmgAtt]
+            ? attributesData[ac.dmgAtt].value +
+              attributesData[ac.dmgAtt].modifiers
+            : 0;
+          const attValue2 = attributesData[ac.dmgAtt2]
+            ? attributesData[ac.dmgAtt2].value +
+              attributesData[ac.dmgAtt2].modifiers
+            : 0;
+          const attMixer = calculate(ac.dmgAttDiv);
+          const attMixer2 = calculate(ac.dmgAttDiv2);
+          const dmgResult = Math.ceil(ac.dmgBase + attValue * attMixer);
+          const dmgResult2 = Math.ceil(ac.dmgBase2 + attValue2 * attMixer2);
+          const attBaseValue = Math.max(dmgResult, dmgResult2);
+
+          ac.derivedDamage = attBaseValue;
+        } else {
+          const attValue = attributesData[ac.dmgAtt]
+            ? attributesData[ac.dmgAtt].value +
+              attributesData[ac.dmgAtt].modifiers
+            : 0;
+          const attMixer = calculate(ac.dmgAttDiv);
+          const dmgResult = Math.ceil(ac.dmgBase + attValue * attMixer);
+
+          ac.derivedDamage = dmgResult;
+        }
+      }
+
+      const skillData = skillsData[wepSD.actions[0].actionSkill];
+      let derivedDefense =
+        wepSD.defense + skillData.value + skillData.modifiers;
+      let derivedProjDef =
+        wepSD.projDef + skillData.value + skillData.modifiers;
+
+      derivedDefense >= 10 ? derivedDefense : (derivedDefense = 10);
+      derivedProjDef >= 10 ? derivedProjDef : (derivedProjDef = 10);
+
+      wepSD.defense ? (wepSD.derivedDefense = derivedDefense) : null;
+      wepSD.projDef ? (wepSD.derivedProjDef = derivedProjDef) : null;
+    }
+
+    function calculate(dmgAttDiv) {
+      if (dmgAttDiv === "/3") {
+        return 1 / 3;
+      }
+      if (dmgAttDiv === "/2") {
+        return 1 / 2;
+      }
+      return 1;
+    }
+
+    // console.log("PREPCHARDATA:WEAPONS-DERIVED", weaponsData, attributesData);
   }
 
   /**
-   * Override getRollData() that's supplied to rolls.
+   * @Override getRollData() that's supplied to rolls.
    */
   getRollData() {
     const data = super.getRollData();
@@ -183,14 +333,6 @@ export class ParsCrucisActor extends Actor {
    * Prepare character roll data.
    */
   _getCharacterRollData(data) {
-    if (this.type !== "personagem") return;
-
-    // // Copy the ability scores to the top level, so that rolls can use
-    // // formulas like `@atlet.value + 2`.
-    // if (data.skills) {
-    //   for (let [key, v] of Object.entries(data.skills)) {
-    //     data[key] = foundry.utils.deepClone(v);
-    //   }
-    // }
+    if (this.type !== "persona") return;
   }
 }
