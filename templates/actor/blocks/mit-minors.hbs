@@ -73,13 +73,16 @@
           </h3>
         </label>
         <div class="minor-num">
-          <select name="system.minors.{{@key}}.base">
-            {{selectOptions
-              (lookup @root.config obj)
-              selected=minatt.base
-              localize=true
-            }}
-          </select>
+          {{#unless minatt.baseDisabled}}
+            <select name="system.minors.{{@key}}.base">
+              {{selectOptions
+                (lookup @root.config obj)
+                selected=minatt.base
+                localize=true
+              }}
+            </select>
+          {{/unless}}
+
           <input
             class="minor-value"
             name="system.minors.{{@key}}.inputValue"

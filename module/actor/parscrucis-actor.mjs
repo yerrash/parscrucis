@@ -108,19 +108,22 @@ export class ParsCrucisActor extends Actor {
         skillsExpSpent.push(skill.expSpent);
       } else {
         // Setting pdm skills
-        skill.value
+        skill.value !== null
           ? skill.value >= 0
             ? skill.value
             : (skill.value = null)
           : (skill.value = null);
       }
 
-      if (typeof skill.modifiers !== "number") {
+      // Correcting attribute modifiers
+      if (skill.value === null) {
+        skill.modifiers = null;
+      } else if (typeof skill.modifiers !== "number") {
         skill.modifiers = 0;
-        if (skill.value === null) {
-          skill.modifiers = null;
-        }
       }
+
+      // Setting CSS class to disabled skills
+      skill.value === null ? (skill.disabled = true) : (skill.disabled = false);
     }
 
     // Handle attributes.
@@ -129,7 +132,7 @@ export class ParsCrucisActor extends Actor {
         att.shortLabel = game.i18n.localize(PC.attributes[key]) ?? key;
         att.label = game.i18n.localize(PC.attributeNames[key]) ?? key;
 
-        // Setting perona attributes.
+        // Setting persona attributes.
         if (actorType == "persona") {
           // Update attribute values based on parameters.
           const attArray = [];
@@ -147,7 +150,14 @@ export class ParsCrucisActor extends Actor {
           att.value = att.inputValue || null;
         }
 
-        if (typeof att.modifiers !== "number") {
+        if (att.value === null) {
+          att.disabled = true;
+        }
+
+        // Correcting attribute modifiers
+        if (att.value === null) {
+          att.modifiers = null;
+        } else if (typeof att.modifiers !== "number") {
           att.modifiers = 0;
         }
       }
@@ -172,6 +182,7 @@ export class ParsCrucisActor extends Actor {
       } else {
         // Setting pdm minor attributes.
         minor.value = minor.inputValue || null;
+        minor.baseDisabled = true;
       }
     }
 
@@ -195,6 +206,10 @@ export class ParsCrucisActor extends Actor {
       const skillsExpSum = skillsExpSpent.reduce((a, b) => a + b, 0);
       detailsData.expAvailable =
         detailsData.exp - detailsData.expReserve - skillsExpSum;
+    } else {
+      resourcesData.pv.max = resourcesData.pv.inputValue || 15;
+      resourcesData.pe.max = resourcesData.pe.inputValue || 15;
+      resourcesData.lim.max = resourcesData.lim.inputValue || 5;
     }
 
     // Set resources percentage.
@@ -251,7 +266,7 @@ export class ParsCrucisActor extends Actor {
   }
 
   _prepareInventoryData(actorData, attributesData, skillsData) {
-    if (actorData.type !== "persona") return;
+    // if (actorData.type !== "persona") return;
 
     const weaponsData = actorData.weapons;
 

@@ -4,9 +4,15 @@
       <div class="attribute">
         <label>
           <h3 class="stat-name">
-            <a data-att-key="{{@key}}" data-att-type="attributes">
-              {{shortLabel}}
-            </a>
+            {{#if att.disabled}}
+              <div class="disabled">
+                {{shortLabel}}
+              </div>
+            {{else}}
+              <a data-att-key="{{@key}}" data-att-type="attributes">
+                {{shortLabel}}
+              </a>
+            {{/if}}
           </h3>
         </label>
         <div class="stat">
@@ -18,13 +24,15 @@
             data-dtype="Number"
             placeholder="{{att.autoValue}}"
           />
-          <input
-            class="stat-modifier"
-            name="system.attributes.{{@key}}.modifiers"
-            type="text"
-            value="{{numberFormat att.modifiers sign=true}}"
-            data-dtype="Number"
-          />
+          {{#unless att.disabled}}
+            <input
+              class="stat-modifier"
+              name="system.attributes.{{@key}}.modifiers"
+              type="text"
+              value="{{numberFormat att.modifiers sign=true}}"
+              data-dtype="Number"
+            />
+          {{/unless}}
         </div>
       </div>
       <div class="space"></div>

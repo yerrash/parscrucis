@@ -1,3 +1,11 @@
+h2,
+h3,
+h4 {
+  margin: 0;
+}
+p {
+  margin: 0;
+}
 .parscrucis-actor-sheet {
   min-width: 800px;
   min-height: 680px;
@@ -6,13 +14,9 @@
     display: none;
   }
 }
-h2,
-h3,
-h4 {
-  margin: 0;
-}
-p {
-  margin: 0;
+.disabled {
+  text-decoration-line: line-through;
+  opacity: 50%;
 }
 .subtitle {
   display: flex;
@@ -44,9 +48,9 @@ p {
       padding: 0;
       border: none;
       background: none;
-      font-family: "IMFellDWPica";
+      font-family: "JMHArkham";
       font-size: 26px;
-      padding-left: 3px;
+      padding: 0 0 4px 3px;
     }
   }
 }
@@ -102,7 +106,8 @@ p {
     .name-exp {
       display: flex;
       flex-direction: row;
-      .exp-bar {
+      .exp-bar,
+      .ch-bar {
         width: 160px;
         display: flex;
         flex-direction: row;
@@ -117,7 +122,8 @@ p {
         }
         span,
         .exp-ttl,
-        .exp-res {
+        .exp-res,
+        .ch-value {
           height: 24px;
           line-height: 24px;
           font-size: 22px;
@@ -138,12 +144,19 @@ p {
         .exp-res {
           width: 20%;
         }
-        .exp {
+        .ch-value {
+          width: 50%;
+        }
+        .exp,
+        .ch {
           width: 20%;
           font-size: 20px;
           line-height: 22px;
           height: 20px;
           font-weight: 700;
+        }
+        .ch {
+          width: 50%;
         }
       }
     }
@@ -166,7 +179,8 @@ p {
           display: flex;
           flex-direction: row;
           width: 100%;
-          select {
+          select,
+          input {
             height: 17px;
             font-size: 14px;
             flex-grow: 1;
@@ -214,13 +228,13 @@ p {
                 height: 36px;
               }
               .stat-value {
-                width: 58%;
+                width: 100%;
                 font-family: "SR";
                 font-size: 36px;
                 padding-top: 3px;
               }
               .stat-modifier {
-                width: 42%;
+                width: 73%;
                 font-family: "SR";
                 font-size: 24px;
                 border-radius: 0 0 10px 0;
@@ -453,19 +467,21 @@ p {
               text-align: center;
               padding: 0 0 0 1px;
               height: 21px;
-              width: 27px;
+              width: 98%;
               appearance: none;
+              margin-right: 2px;
             }
             input {
               text-align: center;
               height: 21px;
             }
             .minor-value {
-              width: 26px;
+              width: 70%;
               font-size: 23px;
+              margin-right: 2px;
             }
             .minor-modifier {
-              width: 20px;
+              width: 54%;
               font-size: 17px;
             }
           }
@@ -618,6 +634,9 @@ p {
               padding-left: 2px;
               width: calc(50% + 6px - 14px);
             }
+            .pdm-skill-title {
+              width: calc(50% + 6px + 5px);
+            }
             .skill-rate {
               width: 25px;
               font-size: 10.5px;
@@ -764,7 +783,7 @@ p {
           text-align: right;
         }
         .item-damage {
-          width: calc(21%);
+          width: calc(15%);
           text-align: center;
         }
         .item-range {
@@ -772,7 +791,7 @@ p {
           width: calc(10%);
         }
         .item-info {
-          width: calc(44%);
+          width: calc(50%);
           text-overflow: ellipsis;
           white-space: nowrap;
           overflow: hidden;
@@ -857,6 +876,20 @@ p {
       padding-bottom: 0;
       border-width: 0 0 0 0;
     }
+    // .wear {
+    //   display: flex;
+    //   flex-direction: row;
+    //   justify-content: space-between;
+    //   .window {
+    //     width: 50%;
+    //   }
+    //   .vest {
+    //     margin-right: 7px;
+    //   }
+    //   .accessories {
+    //   }
+    // }
+
     .currency,
     .general {
       margin-bottom: 0;

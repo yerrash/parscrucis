@@ -4,12 +4,13 @@ import ParsCrucisItemSheet from "./module/item/item-sheet.mjs";
 import ParsCrucisActorSheet from "./module/actor/actor-sheet.mjs";
 import { ParsCrucisActor } from "./module/actor/parscrucis-actor.mjs";
 import { ParsCrucisItem } from "./module/item/parscrucis-item.mjs";
-import { ActionSchema, WeaponSchema } from "./module/item/item-schema.mjs";
+import { WeaponSchema } from "./module/item/item-schema.mjs";
 
 async function preloadHandlebarsTemplates() {
   const templatePaths = [
-    "systems/parscrucis/templates/actor/char-att-block.hbs",
-    "systems/parscrucis/templates/actor/mit-minors.hbs",
+    "systems/parscrucis/templates/actor/blocks/char-att-block.hbs",
+    "systems/parscrucis/templates/actor/blocks/mit-minors.hbs",
+    "systems/parscrucis/templates/actor/tabs/skills-tab-pdm.hbs",
     "systems/parscrucis/templates/actor/tabs/skills-tab.hbs",
     "systems/parscrucis/templates/actor/tabs/inventory-tab.hbs",
     "systems/parscrucis/templates/actor/tabs/abilities-tab.hbs",

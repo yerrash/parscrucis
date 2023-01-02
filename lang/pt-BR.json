@@ -49,6 +49,10 @@
   "PC.miri": "Miríada",
   "PC.sabi": "Sábio",
 
+  "PC.XP": "XP",
+  "PC.CH": "DS",
+  "PC.Challenge": "Desafio!",
+
   "PC.FIS": "FIS",
   "PC.AGI": "AGI",
   "PC.EGO": "EGO",
@@ -176,7 +180,8 @@
   "PC.E": "E",
   "PC.Effort": "Esforço",
   "PC.Weaponry": "Armamentos",
-  "PC.Wear": "Vestimenta",
+  "PC.Vest": "Vestimenta",
+  "PC.Accessories": "Acessórios",
   "PC.Items": "Itens",
   "PC.Skill": "Perícia",
   "PC.Hard": "Difícil",

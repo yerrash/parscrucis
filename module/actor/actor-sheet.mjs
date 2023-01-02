@@ -28,11 +28,10 @@ export default class ParsCrucisActorSheet extends ActorSheet {
     context.systemData = actorData.system;
     context.flags = actorData.flags;
 
-    // Prepare character data and items.
-    if (actorData.type == "persona") {
-      this._prepareItems(context);
-      this._prepareCharacterData(context);
-    }
+    // Prepare  data and items.
+    // if (actorData.type == "persona") {}
+    this._prepareItems(context);
+    this._prepareCharacterData(context);
 
     context.config = CONFIG.parscrucis;
 
@@ -193,9 +192,15 @@ export default class ParsCrucisActorSheet extends ActorSheet {
     const dataset = element.dataset;
     const key = dataset.skillKey;
     const skillData = this.actor.system.skills[key];
+    const skillValue = skillData.value;
+
+    if (skillValue === null) {
+      return;
+    }
+
     const label = `Teste de ${dataset.label}`;
     const roll = await Roll.create(
-      `2d10+${skillData.value}+${skillData.modifiers}`
+      `2d10+${skillValue}+${skillData.modifiers}`
     ).evaluate({ async: true });
 
     roll.toMessage({

@@ -18,7 +18,82 @@
             placeholder="Nome"
           />
         </h2>
+        <div class="ch-bar">
+          <input
+            class="ch-value"
+            name="system.details.challenge"
+            type="text"
+            value="{{systemData.details.challenge}}"
+            data-dtype="Number"
+          />
+          <span class="ch">{{localize "PC.Challenge"}}</span>
+        </div>
       </div>
+       <div class="stats-window">
+        <div class="left-window">
+          <div class="racial">
+            <input
+              name="system.details.group"
+              type="text"
+              value="{{actor.system.details.group}}"
+            />
+            <input
+              name="system.details.race"
+              type="text"
+              value="{{actor.system.details.race}}"
+            />
+            <input
+              name="system.details.size"
+              type="text"
+              value="{{actor.system.details.size}}"
+            />
+          </div>
+          <div class="att-partial">
+            {{> systems/parscrucis/templates/actor/blocks/char-att-block.hbs}}
+          </div>
+        </div>
+        <div class="right-window">
+          {{> systems/parscrucis/templates/actor/blocks/mit-minors.hbs}}
+        </div>
+      </div>
+   
     </div>
   </header>
+
+  <!-- Navigation tab -->
+  <nav class="navigation" data-group="primary">
+    <a class="item" data-tab="skills">{{localize "PC.skills"}}</a>
+    <div class="space"></div>
+    <a class="item" data-tab="inventory">{{localize "PC.inventory"}}</a>
+    <div class="space"></div>
+    <a class="item" data-tab="abilities">{{localize "PC.abilities"}}</a>
+    <div class="space"></div>
+    <a class="item" data-tab="effects">{{localize "PC.effects"}}</a>
+    <div class="space"></div>
+    <a class="item" data-tab="biography">{{localize "PC.biography"}}</a>
+    <div class="space"></div>
+    <a class="item" data-tab="information">{{localize "PC.information"}}</a>
+  </nav>
+
+  <!-- Body -->
+  <div class="tab-content">
+    <div class="tab" data-tab="skills">
+      {{> systems/parscrucis/templates/actor/tabs/skills-tab-pdm.hbs}}
+    </div>
+    <div class="tab inventory-tab" data-tab="inventory">
+      {{> systems/parscrucis/templates/actor/tabs/inventory-tab.hbs}}
+    </div>
+    <div class="tab" data-tab="abilities">
+      {{> systems/parscrucis/templates/actor/tabs/abilities-tab.hbs}}
+    </div>
+    <div class="tab" data-tab="effects">
+      {{> systems/parscrucis/templates/actor/tabs/effects-tab.hbs}}
+    </div>
+    <div class="tab" data-tab="biography">
+      {{> systems/parscrucis/templates/actor/tabs/info-tab.hbs}}
+    </div>
+    <div class="tab" data-tab="information">
+      {{> systems/parscrucis/templates/actor/tabs/notes-tab.hbs}}
+    </div>
+  </div>
 </form>

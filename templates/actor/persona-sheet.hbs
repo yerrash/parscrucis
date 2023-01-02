@@ -34,7 +34,7 @@
             value="{{systemData.details.expReserve}}"
             data-dtype="Number"
           />
-          <span class="exp">XP</span>
+          <span class="exp">{{localize "PC.XP"}}</span>
         </div>
       </div>
       <div class="stats-window">
@@ -51,19 +51,15 @@
             </select>
           </div>
           <div class="att-partial">
-            {{> systems/parscrucis/templates/actor/char-att-block.hbs}}
+            {{> systems/parscrucis/templates/actor/blocks/char-att-block.hbs}}
           </div>
         </div>
         <div class="right-window">
-          {{> systems/parscrucis/templates/actor/mit-minors.hbs}}
+          {{> systems/parscrucis/templates/actor/blocks/mit-minors.hbs}}
         </div>
       </div>
     </div>
   </header>
-
-  <section class="resources">
-
-  </section>
 
   <!-- Navigation tab -->
   <nav class="navigation" data-group="primary">

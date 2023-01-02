@@ -69,20 +69,24 @@
 .items-sidebar .directory-item img {
   height: 48px;
 }
-.actors-sidebar .directory-item,
-.items-sidebar .directory-item {
-  min-height: 32px;
-}
 .actors-sidebar .directory-item .document-name,
 .items-sidebar .directory-item .document-name {
   height: 100%;
-  line-height: 32px;
+  line-height: 24px;
 }
 .actors-sidebar .directory-item img,
 .items-sidebar .directory-item img {
   object-fit: cover;
   object-position: 0;
-  height: 32px;
+  height: 24px;
+}
+h2,
+h3,
+h4 {
+  margin: 0;
+}
+p {
+  margin: 0;
 }
 .parscrucis-actor-sheet {
   min-width: 800px;
@@ -92,13 +96,9 @@
 .parscrucis-actor-sheet .window-resizable-handle {
   display: none;
 }
-h2,
-h3,
-h4 {
-  margin: 0;
-}
-p {
-  margin: 0;
+.disabled {
+  text-decoration-line: line-through;
+  opacity: 50%;
 }
 .subtitle {
   display: flex;
@@ -132,9 +132,9 @@ p {
   padding: 0;
   border: none;
   background: none;
-  font-family: "IMFellDWPica";
+  font-family: "JMHArkham";
   font-size: 26px;
-  padding-left: 3px;
+  padding: 0 0 4px 3px;
 }
 .window {
   padding: 4px 2px 0;
@@ -187,7 +187,8 @@ p {
   display: flex;
   flex-direction: row;
 }
-.parscrucis-actor-sheet .superior .name-exp .exp-bar {
+.parscrucis-actor-sheet .superior .name-exp .exp-bar,
+.parscrucis-actor-sheet .superior .name-exp .ch-bar {
   width: 160px;
   display: flex;
   flex-direction: row;
@@ -198,12 +199,18 @@ p {
   padding-left: 3px;
   height: 20px;
 }
-.parscrucis-actor-sheet .superior .name-exp .exp-bar :last-child {
+.parscrucis-actor-sheet .superior .name-exp .exp-bar :last-child,
+.parscrucis-actor-sheet .superior .name-exp .ch-bar :last-child {
   border-width: 0;
 }
 .parscrucis-actor-sheet .superior .name-exp .exp-bar span,
+.parscrucis-actor-sheet .superior .name-exp .ch-bar span,
 .parscrucis-actor-sheet .superior .name-exp .exp-bar .exp-ttl,
-.parscrucis-actor-sheet .superior .name-exp .exp-bar .exp-res {
+.parscrucis-actor-sheet .superior .name-exp .ch-bar .exp-ttl,
+.parscrucis-actor-sheet .superior .name-exp .exp-bar .exp-res,
+.parscrucis-actor-sheet .superior .name-exp .ch-bar .exp-res,
+.parscrucis-actor-sheet .superior .name-exp .exp-bar .ch-value,
+.parscrucis-actor-sheet .superior .name-exp .ch-bar .ch-value {
   height: 24px;
   line-height: 24px;
   font-size: 22px;
@@ -215,21 +222,35 @@ p {
   background-color: transparent;
   margin: 0;
 }
-.parscrucis-actor-sheet .superior .name-exp .exp-bar .exp-ava {
+.parscrucis-actor-sheet .superior .name-exp .exp-bar .exp-ava,
+.parscrucis-actor-sheet .superior .name-exp .ch-bar .exp-ava {
   width: 25%;
 }
-.parscrucis-actor-sheet .superior .name-exp .exp-bar .exp-ttl {
+.parscrucis-actor-sheet .superior .name-exp .exp-bar .exp-ttl,
+.parscrucis-actor-sheet .superior .name-exp .ch-bar .exp-ttl {
   width: 35%;
 }
-.parscrucis-actor-sheet .superior .name-exp .exp-bar .exp-res {
+.parscrucis-actor-sheet .superior .name-exp .exp-bar .exp-res,
+.parscrucis-actor-sheet .superior .name-exp .ch-bar .exp-res {
   width: 20%;
 }
-.parscrucis-actor-sheet .superior .name-exp .exp-bar .exp {
+.parscrucis-actor-sheet .superior .name-exp .exp-bar .ch-value,
+.parscrucis-actor-sheet .superior .name-exp .ch-bar .ch-value {
+  width: 50%;
+}
+.parscrucis-actor-sheet .superior .name-exp .exp-bar .exp,
+.parscrucis-actor-sheet .superior .name-exp .ch-bar .exp,
+.parscrucis-actor-sheet .superior .name-exp .exp-bar .ch,
+.parscrucis-actor-sheet .superior .name-exp .ch-bar .ch {
   width: 20%;
   font-size: 20px;
   line-height: 22px;
   height: 20px;
   font-weight: 700;
+}
+.parscrucis-actor-sheet .superior .name-exp .exp-bar .ch,
+.parscrucis-actor-sheet .superior .name-exp .ch-bar .ch {
+  width: 50%;
 }
 .parscrucis-actor-sheet .superior .stats-window {
   display: flex;
@@ -252,7 +273,8 @@ p {
   flex-direction: row;
   width: 100%;
 }
-.parscrucis-actor-sheet .superior .stats-window .left-window .racial select {
+.parscrucis-actor-sheet .superior .stats-window .left-window .racial select,
+.parscrucis-actor-sheet .superior .stats-window .left-window .racial input {
   height: 17px;
   font-size: 14px;
   flex-grow: 1;
@@ -300,13 +322,13 @@ p {
   height: 36px;
 }
 .parscrucis-actor-sheet .superior .stats-window .left-window .att-partial .attributes .stat .stat-value {
-  width: 58%;
+  width: 100%;
   font-family: "SR";
   font-size: 36px;
   padding-top: 3px;
 }
 .parscrucis-actor-sheet .superior .stats-window .left-window .att-partial .attributes .stat .stat-modifier {
-  width: 42%;
+  width: 73%;
   font-family: "SR";
   font-size: 24px;
   border-radius: 0 0 10px 0;
@@ -546,19 +568,21 @@ p {
   text-align: center;
   padding: 0 0 0 1px;
   height: 21px;
-  width: 27px;
+  width: 98%;
   appearance: none;
+  margin-right: 2px;
 }
 .parscrucis-actor-sheet .superior .stats-window .right-window .minors .minor-num input {
   text-align: center;
   height: 21px;
 }
 .parscrucis-actor-sheet .superior .stats-window .right-window .minors .minor-num .minor-value {
-  width: 26px;
+  width: 70%;
   font-size: 23px;
+  margin-right: 2px;
 }
 .parscrucis-actor-sheet .superior .stats-window .right-window .minors .minor-num .minor-modifier {
-  width: 20px;
+  width: 54%;
   font-size: 17px;
 }
 .parscrucis-actor-sheet .superior .stats-window .right-window .minors .luck-num {
@@ -703,6 +727,9 @@ p {
   padding-left: 2px;
   width: calc(50% + 6px - 14px);
 }
+.parscrucis-actor-sheet .tab-content .skills-tab .grouping .skill-group .skill .pdm-skill-title {
+  width: calc(50% + 6px + 5px);
+}
 .parscrucis-actor-sheet .tab-content .skills-tab .grouping .skill-group .skill .skill-rate {
   width: 25px;
   font-size: 10.5px;
@@ -843,7 +870,7 @@ p {
   text-align: right;
 }
 .parscrucis-actor-sheet .tab-content .items-list .item .item-damage {
-  width: calc(21%);
+  width: calc(15%);
   text-align: center;
 }
 .parscrucis-actor-sheet .tab-content .items-list .item .item-range {
@@ -851,7 +878,7 @@ p {
   width: calc(10%);
 }
 .parscrucis-actor-sheet .tab-content .items-list .item .item-info {
-  width: calc(44%);
+  width: calc(50%);
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
