@@ -15,35 +15,44 @@ export class ParsCrucisItem extends Item {
 
     // Get item data.
     const itemData = this;
-    const SD = itemData.system;
-    const actionsData = SD.actions;
+    const systemData = itemData.system;
+    const actionsData = systemData.actions;
 
-    SD.weaponCategoryLabel =
-      game.i18n.localize(PC.weaponCategory[SD.weaponCategory]) ??
-      SD.weaponCategory;
+    if (itemData.type === "weapon") {
+      systemData.weaponCategoryLabel =
+        game.i18n.localize(PC.weaponCategory[systemData.weaponCategory]) ??
+        systemData.weaponCategory;
 
-    SD.weaponTypeLabel =
-      game.i18n.localize(PC.weaponType[SD.weaponType]) ?? SD.weaponType;
+      systemData.weaponTypeLabel =
+        game.i18n.localize(PC.weaponType[systemData.weaponType]) ??
+        systemData.weaponType;
 
-    // Handle actions.
-    for (let [key, act] of Object.entries(actionsData)) {
-      act.actionSkillLabel =
-        game.i18n.localize(PC.skillList[act.actionSkill]) ?? act.actionSkill;
-      act.actionTypeLabel =
-        game.i18n.localize(PC.actionType[act.actionType]) ?? act.actionType;
+      // Handle actions.
+      for (let [key, act] of Object.entries(actionsData)) {
+        act.actionSkillLabel =
+          game.i18n.localize(PC.skillList[act.actionSkill]) ?? act.actionSkill;
+        act.actionTypeLabel =
+          game.i18n.localize(PC.actionType[act.actionType]) ?? act.actionType;
+      }
+    }
+
+    if (itemData.type === "gear") {
+      systemData.gearCategoryLabel =
+        game.i18n.localize(PC.gearCategory[systemData.gearCategory]) ??
+        systemData.gearCategory;
     }
 
     // Get item owner data.
     const actorData = this.actor ? this.actor : {};
 
     // console.log("DADOS DO ATOR AQUI!!!!!!!!", actorData);
-    // console.log("DADOS DO ITEM AQUI!!!!!!!!", SD);
+    console.log("DADOS DO ITEM AQUI!!!!!!!!", systemData);
   }
 
   prepareDerivedData() {
     const itemData = this;
-    const SD = itemData.system;
-    if (itemData.type === "weapon") this._prepareWeaponData(SD);
+    const systemData = itemData.system;
+    if (itemData.type === "weapon") this._prepareWeaponData(systemData);
   }
 
   _prepareWeaponData(systemData) {

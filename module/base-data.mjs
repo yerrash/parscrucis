@@ -10,6 +10,7 @@ export const RACIALS = {
         move: 3,
         sprint: 5,
       },
+      def: 0,
     },
   },
   capriaco: {
@@ -23,6 +24,7 @@ export const RACIALS = {
         move: 3,
         sprint: 4,
       },
+      def: 1,
     },
   },
   carneador: {
@@ -36,6 +38,7 @@ export const RACIALS = {
         move: 3,
         sprint: 5,
       },
+      def: 0,
     },
   },
   ligno: {
@@ -49,6 +52,7 @@ export const RACIALS = {
         move: 3,
         sprint: 5,
       },
+      def: 0,
     },
   },
   orcino: {
@@ -62,6 +66,7 @@ export const RACIALS = {
         move: 3,
         sprint: 5,
       },
+      def: 0,
     },
   },
   quezal: {
@@ -75,6 +80,7 @@ export const RACIALS = {
         move: 3,
         sprint: 5,
       },
+      def: 0,
     },
   },
   vulpino: {
@@ -88,6 +94,7 @@ export const RACIALS = {
         move: 4,
         sprint: 6,
       },
+      def: 0,
     },
   },
   stranger: {
@@ -101,6 +108,7 @@ export const RACIALS = {
         move: 3,
         sprint: 5,
       },
+      def: 0,
     },
   },
 };

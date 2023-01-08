@@ -58,8 +58,10 @@
   "PC.EGO": "EGO",
   "PC.INT": "INT",
   "PC.ESP": "ESP",
-  "PC.MV": "Movimento",
+  "PC.MV": "MV",
+  "PC.DEF": "DEF",
   "PC.Sem": "",
+  "PV.Movement": "Movimentação",
 
   "PC.fisico": "Físico",
   "PC.agilidade": "Agilidade",
@@ -193,7 +195,6 @@
   "PC.Rng": "Alc",
   "PC.Notes": "Anotações",
   "PC.Note": "Nota",
-  "PC.DEF": "DEF",
   "PC.Defense": "Defesa",
   "PC.DR": "DR",
   "PC.Requisites": "Requisitos",
@@ -201,6 +202,8 @@
   "PC.Cost": "Custo",
   "PC.Observations": "Observações",
   "PC.Description": "Descrição",
+  "PC.Details": "Detalhes",
+  "PC.Currency": "Moeda",
 
   "PC.Unarmed": "Desarmado",
   "PC.Fists": "Soqueira",
@@ -275,6 +278,17 @@
   "PC.Missile": "Míssil",
   "PC.Dynamo": "Dínamo",
 
+  "PC.material": "Material",
+  "PC.alchemical": "Alquímico",
+  "PC.herbal": "Herbal",
+  "PC.belic": "Bélico",
+  "PC.poison": "Veneno",
+  "PC.misc": "Diverso",
+  "PC.vest": "Vestimenta",
+  "PC.accessory": "Acessório",
+  "PC.catalyst": "Catalizador",
+  "PC.keyItem": "Item-chave",
+
   "PC.common": "Comum",
   "PC.rare": "Raro",
   "PC.legendary": "Lendário",
@@ -315,6 +329,10 @@
   "PC.dif28": "dif28",
   "PC.dif29": "dif29",
   "PC.dif30": "dif30",
+
+  "PC.att33": "/3",
+  "PC.att50": "/2",
+  "PC.att100": "",
 
   "PC.physicalDamage": "físico",
   "PC.elementalDamage": "elemental",

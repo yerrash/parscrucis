@@ -6,6 +6,8 @@ import { ParsCrucisActor } from "./module/actor/parscrucis-actor.mjs";
 import { ParsCrucisItem } from "./module/item/parscrucis-item.mjs";
 import { WeaponSchema } from "./module/item/item-schema.mjs";
 
+import hooks from "./hooks/hotbar.mjs";
+
 async function preloadHandlebarsTemplates() {
   const templatePaths = [
     "systems/parscrucis/templates/actor/blocks/char-att-block.hbs",
@@ -17,6 +19,7 @@ async function preloadHandlebarsTemplates() {
     "systems/parscrucis/templates/actor/tabs/effects-tab.hbs",
     "systems/parscrucis/templates/actor/tabs/info-tab.hbs",
     "systems/parscrucis/templates/actor/tabs/notes-tab.hbs",
+    "systems/parscrucis/templates/item/tabs/details-tab.hbs",
   ];
 
   return loadTemplates(templatePaths);
@@ -76,3 +79,5 @@ Hooks.once("init", function () {
 Hooks.once("ready", function () {
   // Include steps that need to happen after Foundry has fully loaded here.
 });
+
+hooks();

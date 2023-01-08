@@ -54,6 +54,9 @@
           margin: 1px 2px;
           width: 33%;
         }
+        input {
+          padding-left: 3px;
+        }
         .item-price {
           width: 20%;
           text-align: right;
@@ -141,6 +144,33 @@
       margin-right: 0;
     }
   }
+
+  .navigation {
+    font-family: "Acme";
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    border-color: #341ac9;
+    border-style: solid;
+    border-width: 1px 0 1px 0;
+    height: 22px;
+    margin-bottom: 7px;
+    .item {
+      width: 45%;
+      text-align: center;
+    }
+    .active {
+      font-weight: 700;
+    }
+    a {
+      font-size: 17px;
+    }
+    .space {
+      margin: auto 0;
+      height: 14px;
+    }
+  }
+
   .action {
     font-family: "Acme";
   }
@@ -155,7 +185,7 @@
     }
   }
   .actions-inferior-window {
-    height: 79px;
+    height: 117px;
     overflow-x: hidden;
     overflow-y: scroll;
     list-style-type: none;
@@ -218,6 +248,7 @@
           height: 100%;
         }
         .dmg-att-div {
+          appearance: none;
           width: 24px;
           height: 100%;
           font-family: "SR";
@@ -243,7 +274,7 @@
         .dmg-att-div {
           height: 100%;
           font-size: 20px;
-          padding-top: 2px;
+          margin-bottom: 2px;
         }
       }
       .single {
@@ -366,7 +397,7 @@
     }
   }
   .item-description-window {
-    height: 108px;
+    height: 278px;
     margin-bottom: 0;
   }
 }

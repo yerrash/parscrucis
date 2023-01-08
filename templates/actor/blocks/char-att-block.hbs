@@ -47,31 +47,69 @@
     <div class="stat">
       <input
         class="mov-value"
-        name="system.attributes.movement.value"
+        name="system.attributes.movement.inputValue"
         type="Number"
-        value="{{systemData.attributes.movement.value}}"
+        value="{{systemData.attributes.movement.inputValue}}"
         data-dtype="Number"
         placeholder="{{systemData.attributes.movement.autoValue}}"
-      />
-      <input
-        class="stat-modifier mov-modifier"
-        name="system.attributes.movement.modifiers"
-        type="text"
-        value="{{numberFormat
-          data.system.attributes.movement.modifiers
-          sign=true
-        }}"
-        data-dtype="Number"
       />
       <span class="mov-arrow">></span>
       <input
         class="stat-modifier sprint"
-        name="system.attributes.movement.sprint"
+        name="system.attributes.movement.inputSprint"
         type="text"
-        value="{{systemData.attributes.movement.sprint}}"
+        value="{{systemData.attributes.movement.inputSprint}}"
         data-dtype="Number"
         placeholder="{{systemData.attributes.movement.autoSprint}}"
       />
+    </div>
+  </div>
+  <div class="space"></div>
+  <div class="attribute defense">
+    <label>
+      <h3 class="stat-name">
+        {{#if systemData.attributes.def.disabled}}
+          <div class="disabled">
+            {{localize "PC.DEF"}}
+          </div>
+        {{else}}
+          <div>
+            {{localize "PC.DEF"}}
+          </div>
+        {{/if}}
+      </h3>
+    </label>
+    <div class="stat">
+      <input
+        class="stat-value"
+        name="system.attributes.def.inputValue"
+        type="Number"
+        value="{{systemData.attributes.def.inputValue}}"
+        data-dtype="Number"
+        placeholder="{{systemData.attributes.def.autoValue}}"
+      />
+      {{#unless systemData.attributes.def.disabled}}
+        <div class="stat-modifier stat-defense">
+          <input
+            class="defense-ranged"
+            name="system.attributes.def.inputRanged"
+            type="text"
+            value="{{systemData.attributes.def.inputRanged}}"
+            data-dtype="Number"
+            placeholder="{{systemData.attributes.def.autoRanged}}"
+          />
+          <input
+            class="defense-modifier"
+            name="system.attributes.def.modifiers"
+            type="text"
+            value="{{numberFormat
+              systemData.attributes.def.modifiers
+              sign=true
+            }}"
+            data-dtype="Number"
+          />
+        </div>
+      {{/unless}}
     </div>
   </div>
 </section>
@@ -80,7 +118,6 @@
     <label>
       <h3 class="resource-name"><div>{{localize "PC.PV"}}</div></h3>
     </label>
-
     <div class="resource-info">
       <span
         class="resource-bar"
@@ -104,9 +141,7 @@
           placeholder="{{systemData.resources.pv.max}}"
         />
       </div>
-
     </div>
-
   </div>
   <div class="resource pain">
     <label>
@@ -176,7 +211,7 @@
       </div>
     </div>
   </div>
-  <div class="resource pain">
+  <div class="resource pain retained">
     <label>
       <h3 class="resource-name"><div>{{localize "PC.Ret"}}</div></h3>
     </label>

@@ -1,6 +1,11 @@
 <form class="{{cssClass}} weapon-sheet" autocomplete="off">
   <header class="superior">
-    <img class="item-img" src="{{item.img}}" data-edit="img" title="{{item.name}}"/>
+    <img
+      class="item-img"
+      src="{{item.img}}"
+      data-edit="img"
+      title="{{item.name}}"
+    />
     <div class="superior-right item-header-right">
       <h2 class="char-name item-name">
         <input
@@ -13,20 +18,18 @@
       </h2>
       <div class="item-header-right-lower">
         <div class="item-header-upper">
-          <select name="system.weaponCategory">
+          <select name="system.gearCategory">
             {{selectOptions
-              config.weaponCategory
-              selected=item.system.weaponCategory
+              config.gearCategory
+              selected=item.system.gearCategory
               localize=true
             }}
           </select>
-          <select name="system.weaponType">
-            {{selectOptions
-              (lookup config item.system.weaponCategory)
-              selected=item.system.weaponType
-              localize=true
-            }}
-          </select>
+          <input
+            name="system.gearType"
+            type="text"
+            value="{{item.system.gearType}}"
+          />
           <select name="system.rarity">
             {{selectOptions
               config.rarity
@@ -36,55 +39,6 @@
           </select>
         </div>
         <div class="item-header-lower">
-          <div class="item-attribute item-defense">
-            <h3 class="item-att-name">
-              <div>{{localize "PC.DEF"}}</div>
-            </h3>
-            <div class="item-att-info">
-              <input
-                class="att-value"
-                name="system.defense"
-                type="Number"
-                value="{{item.system.defense}}"
-                data-dtype="Number"
-              />
-              <input
-                class="att-extra"
-                name="system.projDef"
-                type="Number"
-                value="{{item.system.projDef}}"
-                data-dtype="Number"
-              />
-            </div>
-          </div>
-          <div class="item-attribute item-defense">
-            <h3 class="item-att-name">
-              <div>{{localize "PC.DR"}}</div>
-            </h3>
-            <div class="item-att-info">
-              <input
-                class="att-value"
-                name="system.durability"
-                type="Number"
-                value="{{item.system.durability}}"
-                data-dtype="Number"
-              />
-            </div>
-          </div>
-          <div class="item-attribute">
-            <h3 class="item-att-name">
-              <div>{{localize "PC.Requisites"}}</div>
-            </h3>
-            <div class="item-att-info">
-              <input
-                class="att-extra att-medium"
-                name="system.requisites"
-                type="text"
-                value="{{item.system.requisites}}"
-                data-dtype="String"
-              />
-            </div>
-          </div>
           <div class="item-attribute">
             <h3 class="item-att-name">
               <div>{{localize "PC.Craft"}}</div>
@@ -142,7 +96,7 @@
       </div>
     </div>
     <div class="tab" data-tab="details">
-      {{> systems/parscrucis/templates/item/tabs/details-tab.hbs}}
+      DETALHES DO ITEM AQUI - Não funcional
     </div>
   </div>
 </form>

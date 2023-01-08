@@ -1,0 +1,175 @@
+<div class="action-list window">
+  <div class="action">
+    <h3 class="subtitle action-header">
+      <div class="action-skill">{{localize "PC.Skill"}}</div>
+      <div class="action-action">{{localize "PC.ActionDiff"}}</div>
+      <div class="action-mod">{{localize "PC.M"}}</div>
+      <div class="action-damages">{{localize "PC.Damage"}}</div>
+      <div class="action-range">{{localize "PC.Range"}}</div>
+      <div class="action-note">{{localize "PC.Note"}}</div>
+      <div class="action-controls">
+        <a
+          class="action-control action-create"
+          title="Create Action"
+          data-type="actions"
+        ><i class="fas fa-plus"></i></a>
+      </div>
+    </h3>
+  </div>
+  <ol class="actions-inferior-window">
+    {{#each item.system.actions as |action obj|}}
+      <li class="action action-line">
+        <select
+          class="action-skill" 
+          name="system.actions.{{obj}}.actionSkill">
+            {{selectOptions 
+              ../config.skillList 
+              selected=action.actionSkill 
+              localize=true}}
+        </select>
+        <select 
+          class="action-action"
+          name="system.actions.{{obj}}.actionType">
+          {{selectOptions 
+            ../config.actionType
+            selected=action.actionType 
+            localize=true}}
+        </select>
+        <input
+          class="action-mod"
+          name="system.actions.{{obj}}.actionModifier"
+          type="text"
+          value="{{action.actionModifier}}"
+          data-dtype="Number"
+        />
+        <div class="action-damages">
+        <div class="action-dmg">
+          {{#if action.altDamage}}
+            <div class="dmg-line alternative">
+            <input
+              class="dmg-base"
+              name="system.actions.{{obj}}.dmgBase"
+              type="Number"
+              value="{{action.dmgBase}}"
+              data-dtype="Number"
+            />
+            <span class="dmg-plus">+</span>
+            <select
+              class="dmg-att"
+              name="system.actions.{{obj}}.dmgAtt">
+              {{selectOptions 
+                ../config.attributes
+                selected=action.dmgAtt 
+                localize=true}}
+            </select>
+            <select
+              class="dmg-att-div"
+              name="system.actions.{{obj}}.dmgAttDiv">
+                {{selectOptions
+                  ../config.damageScale
+                  selected=action.dmgAttDiv
+                  localize=true}}
+            </select>
+            </div>
+              <div class="dmg-line alternative">
+                <input
+                  class="dmg-base"
+                  name="system.actions.{{obj}}.dmgBase2"
+                  type="Number"
+                  value="{{action.dmgBase2}}"
+                  data-dtype="Number"
+                />
+                <span class="dmg-plus">+</span>
+                <select 
+                  class="dmg-att"
+                  name="system.actions.{{obj}}.dmgAtt2">
+                  {{selectOptions 
+                    ../config.attributes
+                    selected=action.dmgAtt2 
+                    localize=true}}
+                </select>
+                <select
+                  class="dmg-att-div"
+                  name="system.actions.{{obj}}.dmgAttDiv2">
+                  {{selectOptions
+                    ../config.damageScale
+                    selected=action.dmgAttDiv2
+                    localize=true}}
+                </select>
+              </div>
+            {{else}}
+              <div class="dmg-line single">
+                <input
+                  class="dmg-base"
+                  name="system.actions.{{obj}}.dmgBase"
+                  type="Number"
+                  value="{{action.dmgBase}}"
+                  data-dtype="Number"
+                />
+                <span class="dmg-plus">+</span>
+                <select 
+                  class="dmg-att"
+                  name="system.actions.{{obj}}.dmgAtt">
+                  {{selectOptions 
+                    ../config.itemAtt
+                    selected=action.dmgAtt 
+                    localize=true}}
+                </select>
+                <select
+                  class="dmg-att-div"
+                  name="system.actions.{{obj}}.dmgAttDiv">
+                  {{selectOptions
+                    ../config.damageScale
+                    selected=action.dmgAttDiv
+                    localize=true}}
+                </select>
+              </div>
+            {{/if}}
+          </div>
+          <input
+            class="damage-type"
+            name="system.actions.{{obj}}.damageType"
+            type="text"
+            value="{{action.damageType}}"
+            data-dtype="String"
+          />
+          </div>
+          <input
+            class="action-range"
+            name="system.actions.{{obj}}.actionRange"
+            type="text"
+            value="{{action.actionRange}}"
+            data-dtype="String"
+          />
+          <textarea
+            class="action-note"
+            name="system.actions.{{obj}}.actionNotes">{{action.actionNotes}}</textarea>
+          <div class="action-controls">
+          <input
+            class="alternative-damage"
+            {{checked action.altDamage}}
+            data-dtype="Boolean"
+            type="checkbox"
+            name="system.actions.{{obj}}.altDamage"
+          />
+          <a
+            class="action-control action-delete"
+            title="Delete Action"
+            data-type="actions"
+            data-index="{{@key}}"
+          ><i class="fas fa-trash"></i></a>
+        </div>
+      </li>
+    {{/each}}
+  </ol>
+</div>
+{{! Obs and Description here }}
+<div class="window">
+  <h3 class="subtitle">
+    <div class="action-note">{{localize "PC.Observations"}}</div>
+  </h3>
+  <textarea
+    class="action-notes"
+    name="system.notes"
+  >{{item.system.notes}}</textarea>
+</div>

@@ -457,8 +457,6 @@ PC.damageScale = {
   att33: "PC.att33",
   att50: "PC.att50",
   att100: "PC.att100",
-  att150: "PC.att150",
-  att200: "PC.att200",
 };
 
 PC.damageType = {
@@ -477,4 +475,17 @@ PC.damageTypeShort = {
   destructive: "PC.dttDmg",
   essential: "PC.essDmg",
   pure: "PC.pureDamage",
+};
+
+PC.gearCategory = {
+  material: "PC.material",
+  alchemical: "PC.alchemical",
+  herbal: "PC.herbal",
+  belic: "PC.belic",
+  poison: "PC.poison",
+  misc: "PC.misc",
+  vest: "PC.vest",
+  accessory: "PC.accessory",
+  catalyst: "PC.catalyst",
+  keyItem: "PC.keyItem",
 };

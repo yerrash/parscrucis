@@ -7,6 +7,13 @@ export default class ParsCrucisItemSheet extends ItemSheet {
       classes: ["parscrucis", "sheet", "parscrucis-item-sheet"],
       width: 600,
       height: 440,
+      tabs: [
+        {
+          navSelector: ".navigation",
+          contentSelector: ".tab-content",
+          initial: "details",
+        },
+      ],
     });
   }
 

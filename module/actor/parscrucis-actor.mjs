@@ -9,6 +9,8 @@ export class ParsCrucisActor extends Actor {
   async _preCreate(data, options, user) {
     await super._preCreate(data, options, user);
 
+    const actorType = this.type;
+
     let initData = {
       prototypeToken: {
         displayName: CONST.TOKEN_DISPLAY_MODES.OWNER_HOVER,
@@ -25,6 +27,11 @@ export class ParsCrucisActor extends Actor {
         },
       },
     };
+
+    if (actorType === "pdm") {
+      initData.prototypeToken.disposition = CONST.TOKEN_DISPOSITIONS.HOSTILE;
+      initData.prototypeToken.actorLink = false;
+    }
 
     this.updateSource(initData);
 
@@ -66,10 +73,13 @@ export class ParsCrucisActor extends Actor {
     const attributesData = systemData.attributes;
     const skillsData = systemData.skills;
     const minorsData = systemData.minors;
+    const mitData = systemData.mitigation;
     const detailsData = systemData.details;
     const resourcesData = systemData.resources;
     const race = detailsData.race;
     const skillsExpSpent = [];
+    const combatSkillsLevels = [];
+    const combatSkillsPlusModifiers = [];
 
     // if (actorData.type == "persona") {
     //   this._prepareCharacterData(context);
@@ -78,7 +88,7 @@ export class ParsCrucisActor extends Actor {
     this._prepareItems(actorData);
 
     // Handle skills.
-    for (let [_, skill] of Object.entries(skillsData)) {
+    for (let [key, skill] of Object.entries(skillsData)) {
       skill.attLabel =
         game.i18n.localize(PC.attributes[skill.attribute]) ??
         PC.attributes[skill.attribute];
@@ -115,6 +125,19 @@ export class ParsCrucisActor extends Actor {
           : (skill.value = null);
       }
 
+      if (
+        key === "briga" ||
+        key === "esgri" ||
+        key === "hasta" ||
+        key === "malha"
+      ) {
+        if (skill.value !== null) {
+          combatSkillsLevels.push(skill.value);
+          let levelPlusModifier = skill.value + skill.modifiers;
+          combatSkillsPlusModifiers.push(levelPlusModifier);
+        }
+      }
+
       // Correcting attribute modifiers
       if (skill.value === null) {
         skill.modifiers = null;
@@ -126,9 +149,12 @@ export class ParsCrucisActor extends Actor {
       skill.value === null ? (skill.disabled = true) : (skill.disabled = false);
     }
 
+    console.log(combatSkillsLevels);
+    console.log(combatSkillsPlusModifiers);
+
     // Handle attributes.
     for (let [key, att] of Object.entries(attributesData)) {
-      if (key !== "movement") {
+      if (key !== "movement" && key !== "def") {
         att.shortLabel = game.i18n.localize(PC.attributes[key]) ?? key;
         att.label = game.i18n.localize(PC.attributeNames[key]) ?? key;
 
@@ -146,8 +172,11 @@ export class ParsCrucisActor extends Actor {
           att.autoValue = attRaceValue + attBaseValue;
           att.value = att.inputValue || att.autoValue;
         } else {
-          // Setting pdm attributes.
-          att.value = att.inputValue || null;
+          if (att.inputValue === 0) {
+            att.value = 0;
+          } else {
+            att.value = att.inputValue || null;
+          }
         }
 
         if (att.value === null) {
@@ -161,11 +190,44 @@ export class ParsCrucisActor extends Actor {
           att.modifiers = 0;
         }
       }
-      if (key === "movement") {
+      if (key === "movement" && actorType == "persona") {
+        // if (actorType == "persona") {
+        att.autoValue = RACIALS[race].attributes[key].move;
+        att.value = att.inputValue || att.autoValue;
+        att.autoSprint = Math.ceil(
+          RACIALS[race].attributes[key].sprint + skillsData.atlet.value / 2
+        );
+        att.sprint = att.inputSprint || att.autoSprint;
+        // }
+      }
+      if (key === "def") {
         if (actorType == "persona") {
-          att.autoValue = RACIALS[race].attributes[key].move;
-          att.autoSprint =
-            RACIALS[race].attributes[key].sprint + skillsData.atlet.value / 2;
+          const combatSkillValue = Math.max(...combatSkillsPlusModifiers);
+          const attBaseValue =
+            10 + RACIALS[race].attributes.def + combatSkillValue;
+          attBaseValue >= 10
+            ? (att.autoValue = attBaseValue)
+            : (att.autoValue = 10);
+          att.value = att.inputValue || att.autoValue;
+        } else {
+          att.inputValue === 0
+            ? (att.value = 0)
+            : (att.value = att.inputValue || null);
+        }
+
+        if (att.value === null) {
+          att.disabled = true;
+          att.ranged = null;
+        } else {
+          att.autoRanged = att.value - 4;
+          att.autoRanged >= 10 ? att.autoRanged : (att.autoRanged = 10);
+          att.ranged = att.inputRanged || att.autoRanged;
+        }
+
+        if (att.value === null) {
+          att.modifiers = null;
+        } else if (typeof att.modifiers !== "number") {
+          att.modifiers = 0;
         }
       }
     }
@@ -184,6 +246,11 @@ export class ParsCrucisActor extends Actor {
         minor.value = minor.inputValue || null;
         minor.baseDisabled = true;
       }
+    }
+
+    // Handle mitigation.
+    for (let [_, armor] of Object.entries(mitData)) {
+      // console.log(armor.value);
     }
 
     if (actorType == "persona") {
@@ -231,6 +298,8 @@ export class ParsCrucisActor extends Actor {
     // Initialize containers.
     const weapons = [];
     const gear = [];
+    const vest = [];
+    const acc = [];
     const passives = [];
     const abilities = [];
 
@@ -238,10 +307,15 @@ export class ParsCrucisActor extends Actor {
       i.img = i.img || DEFAULT_TOKEN;
       // Append to gear.
       if (i.type === "gear") {
-        //  Ajustar os tipos de itens de acordo
-        gear.push(i);
-        // Append weapons
-      } else if (i.type === "weapon") {
+        //  Separates equipped vest and acessories
+        if (i.gearType === "vest" && i.equipped === true) {
+          vest.push(i);
+        } else if (i.gearType === "acc" && i.equipped === true) {
+          acc.push(i);
+        } else gear.push(i);
+      }
+      // Append weapons
+      else if (i.type === "weapon") {
         weapons.push(i);
       }
       // Append passive features - Benefits and Detriments
@@ -256,6 +330,8 @@ export class ParsCrucisActor extends Actor {
 
     // Assign items and return
     actorData.weapons = weapons;
+    actorData.equippedVest = vest;
+    actorData.equippedAcc = acc;
     actorData.gear = gear;
     actorData.passives = passives;
     actorData.abilities = abilities;
@@ -269,12 +345,23 @@ export class ParsCrucisActor extends Actor {
     // if (actorData.type !== "persona") return;
 
     const weaponsData = actorData.weapons;
+    const gearData = actorData.gear;
 
     // console.log("PREPCHARDATA:WEAPONS", weaponsData);
 
+    function calculate(dmgAttDiv) {
+      if (dmgAttDiv === "att33") {
+        return 1 / 3;
+      }
+      if (dmgAttDiv === "att50") {
+        return 1 / 2;
+      }
+      return 1;
+    }
+
+    // Prepare character weapon data
     for (let [_, wep] of Object.entries(weaponsData)) {
       // console.log("PREPINTDATA:KEY,WEP:", key, wep.system);
-
       const wepSD = wep.system;
       for (let [_, ac] of Object.entries(wepSD.actions)) {
         if (ac.altDamage) {
@@ -318,15 +405,7 @@ export class ParsCrucisActor extends Actor {
       wepSD.projDef ? (wepSD.derivedProjDef = derivedProjDef) : null;
     }
 
-    function calculate(dmgAttDiv) {
-      if (dmgAttDiv === "/3") {
-        return 1 / 3;
-      }
-      if (dmgAttDiv === "/2") {
-        return 1 / 2;
-      }
-      return 1;
-    }
+    // Prepare character gear data
 
     // console.log("PREPCHARDATA:WEAPONS-DERIVED", weaponsData, attributesData);
   }

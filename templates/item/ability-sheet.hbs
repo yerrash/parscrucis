@@ -1,0 +1,56 @@
+<form class="{{cssClass}} weapon-sheet" autocomplete="off">
+  <header class="superior">
+    <img
+      class="item-img"
+      src="{{item.img}}"
+      data-edit="img"
+      title="{{item.name}}"
+    />
+    <div class="superior-right item-header-right">
+      <h2 class="char-name item-name">
+        <input
+          class="name-input"
+          name="name"
+          type="text"
+          value="{{item.name}}"
+          placeholder="Nome"
+        />
+      </h2>
+      <div class="item-header-right-lower">
+        <div class="item-header-upper">
+        </div>
+        <div class="item-header-lower">
+        </div>
+      </div>
+    </div>
+  </header>
+  {{! Actions rendered here }}
+
+  <!-- Navigation tab -->
+  <nav class="navigation" data-group="primary">
+    <a class="item" data-tab="description">{{localize "PC.Description"}}</a>
+    <div class="space"></div>
+    <a class="item" data-tab="details">{{localize "PC.Details"}}</a>
+  </nav>
+
+  <!-- Body -->
+  <div class="tab-content sheet-content weapon-content">
+    <div class="tab" data-tab="description">
+      <div class="window item-description-window">
+        <h3 class="subtitle"><span>{{localize "PC.Description"}}</span></h3>
+        <div class="bio">
+          {{editor
+            item.system.description
+            target="system.description"
+            button=true
+            owner=owner
+            editable=editable
+          }}
+        </div>
+      </div>
+    </div>
+    <div class="tab" data-tab="details">
+      DETALHES DO ITEM AQUI - Não funcional
+    </div>
+  </div>
+</form>

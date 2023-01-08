@@ -29,6 +29,11 @@
             "modifiers": 0,
             "sprint": null,
             "units": "cs"
+          },
+          "def": {
+            "value": null,
+            "ranged": null,
+            "modifiers": 0
           }
         },
         "resources": {
@@ -58,24 +63,19 @@
         },
         "mitigation": {
           "armor": {
-            "value": 0,
-            "modifiers": 0
+            "value": 0
           },
           "toughness": {
-            "value": 0,
-            "modifiers": 0
+            "value": 0
           },
           "blindage": {
-            "value": 0,
-            "modifiers": 0
+            "value": 0
           },
           "insulation": {
-            "value": 0,
-            "modifiers": 0
+            "value": 0
           },
           "abascanth": {
-            "value": 0,
-            "modifiers": 0
+            "value": 0
           }
         },
         "details": {
@@ -83,14 +83,22 @@
           "looks": ""
         },
         "currency": {
-          "coin1": 0,
-          "coin1type": "",
-          "coin2": 0,
-          "coin2type": "",
-          "coin3": 0,
-          "coin3type": "",
-          "coin4": 0,
-          "coin4type": ""
+          "currency1": {
+            "name": "",
+            "current": null
+          },
+          "currency2": {
+            "name": "",
+            "current": null
+          },
+          "currency3": {
+            "name": "",
+            "current": null
+          },
+          "currency4": {
+            "name": "",
+            "current": null
+          }
         }
       },
       "creature": {
@@ -538,7 +546,7 @@
     }
   },
   "Item": {
-    "types": ["passive", "technique", "power", "weapon"],
+    "types": ["gear", "passive", "technique", "ability", "weapon"],
     "templates": {
       "itemDescription": {
         "description": ""
@@ -559,17 +567,18 @@
       "description.chat",
       "description.unidentified"
     ],
+    "gear": {
+      "templates": ["itemDescription", "evaluation"],
+      "gearCategory": "material",
+      "gearType": ""
+    },
     "passive": {
       "templates": ["itemDescription"],
       "passiveType": "",
       "points": 0
     },
-    "technique": {
+    "ability": {
       "templates": ["itemDescription", "ability"]
-    },
-    "power": {
-      "templates": ["itemDescription", "ability"],
-      "powerSchool": ""
     },
     "weapon": {
       "templates": ["itemDescription", "evaluation"],

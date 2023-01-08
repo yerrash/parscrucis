@@ -6,14 +6,6 @@ h4 {
 p {
   margin: 0;
 }
-.parscrucis-actor-sheet {
-  min-width: 800px;
-  min-height: 680px;
-  max-height: 680px;
-  .window-resizable-handle {
-    display: none;
-  }
-}
 .disabled {
   text-decoration-line: line-through;
   opacity: 50%;
@@ -33,6 +25,14 @@ p {
   font-size: 20px;
   width: 4px;
   margin-left: -2px;
+}
+.space {
+  margin: auto 1px;
+  height: 20px;
+  border-width: 0px;
+  border-right: 1px;
+  border-style: solid;
+  border-color: #37373a7e;
 }
 .superior {
   font-family: "Acme";
@@ -61,20 +61,17 @@ p {
   margin: 0 0 7px 0;
 }
 .parscrucis-actor-sheet {
+  min-width: 800px;
+  min-height: 680px;
+  max-height: 680px;
+  .window-resizable-handle {
+    display: none;
+  }
   .window-content {
     overflow: hidden;
   }
   h3 {
     font-size: 18px;
-  }
-  .space {
-    margin: auto;
-    height: 20px;
-    margin-right: 2px;
-    border-width: 0px;
-    border-right: 1px;
-    border-style: solid;
-    border-color: #37373a7e;
   }
   .superior {
     font-family: "Acme";
@@ -184,14 +181,21 @@ p {
             height: 17px;
             font-size: 14px;
             flex-grow: 1;
-            margin: 1px 2px;
+            margin: 1px 2px 1px 0;
+          }
+          select:last-child,
+          input:last-child {
+            margin-right: 0;
           }
         }
         .att-partial {
           input {
             padding: 0;
-            margin: 1px 2px;
+            margin: 1px 2px 1px 0;
             text-align: center;
+          }
+          input:last-child {
+            margin-right: 0;
           }
           .attributes {
             display: flex;
@@ -201,7 +205,6 @@ p {
             padding-left: 4px;
             width: 100%;
             .attribute {
-              margin-right: 2px;
               width: 15%;
               border-width: 0px;
             }
@@ -232,6 +235,7 @@ p {
                 font-family: "SR";
                 font-size: 36px;
                 padding-top: 3px;
+                margin-left: 0px;
               }
               .stat-modifier {
                 width: 73%;
@@ -239,14 +243,38 @@ p {
                 font-size: 24px;
                 border-radius: 0 0 10px 0;
                 padding-bottom: 2px;
+                margin-left: 0px;
+                margin-right: 0px;
               }
               span {
                 font-size: 12px;
               }
+              .stat-defense {
+                width: 73%;
+                display: flex;
+                flex-direction: column;
+                height: 38px;
+                .defense-ranged {
+                  width: 100%;
+                  padding-top: 3px;
+                  height: 21px;
+                  margin-right: 0;
+                }
+                .defense-modifier {
+                  width: 100%;
+                  padding-top: 3px;
+                  font-size: 15px;
+                  height: 13px;
+                }
+              }
+            }
+
+            .defense {
+              margin-right: 2px;
             }
 
             .movement {
-              width: 25%;
+              width: 20%;
               margin-right: 0;
               .mov-value,
               .sprint {
@@ -255,19 +283,20 @@ p {
                 padding-top: 3px;
               }
               .mov-value {
-                width: calc(37% - 7px);
+                width: calc(50% - 2px);
               }
-              .mov-modifier {
-                width: calc(26% - 7px);
-              }
+              // .mov-modifier {
+              //   width: calc(26% - 7px);
+              // }
               .mov-arrow {
                 font-family: "SR";
-                font-size: 26px;
+                font-size: 32px;
                 font-weight: bold;
-                width: 7px;
+                width: 0;
+                margin-left: -10px;
               }
               .sprint {
-                width: calc(37% - 7px);
+                width: calc(50% - 0px);
               }
             }
           }
@@ -342,6 +371,7 @@ p {
             .stat-max {
               background-color: transparent;
               text-align: left;
+              padding-left: 3px;
             }
             .pain {
               width: 55px;
@@ -349,6 +379,14 @@ p {
               label {
                 height: 18px;
               }
+              div {
+                .stat-value {
+                  width: 100%;
+                }
+              }
+            }
+            .retained {
+              margin-right: 2px;
             }
           }
         }
@@ -669,8 +707,9 @@ p {
     }
     .lists {
       display: flex;
-      flex-direction: column;
+      flex-direction: row;
       justify-content: space-between;
+      align-items: center;
       height: 48px;
       padding: 3px 2px;
       border: 1px solid #8080806e;
@@ -679,26 +718,24 @@ p {
       p {
         margin: 0;
       }
-      .list-line {
-        width: 100%;
+      .list-title {
+        width: 12%;
+        height: 21px;
+        font-size: 16px;
+      }
+      .list-lines {
+        width: 88%;
         display: flex;
-        flex-direction: row;
-        // align-items: center;
+        flex-direction: column;
         justify-content: space-between;
-        .list-title {
-          width: 20%;
-          display: flex;
-          align-items: center;
-          height: 21px;
-          font-size: 15px;
-        }
         .list-input {
           width: 100%;
-          font-size: 15px;
-          height: 17px;
-          margin: 2px 1px;
+          font-size: 14px;
+          height: 19px;
           padding-left: 2px;
-          margin-left: 4px;
+        }
+        .list-input:first-child {
+          margin-bottom: 2px;
         }
       }
     }
@@ -895,10 +932,46 @@ p {
       margin-bottom: 0;
     }
     .currency {
-      height: 26px;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 16px;
+      height: 36px;
+      padding: 3px 2px;
+      .currency-title {
+        width: 12%;
+      }
       ol {
+        width: 88%;
         margin: 0;
         padding: 0;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        li {
+          display: flex;
+          flex-direction: row;
+          width: 22.5%;
+          margin-right: 2px;
+          .currency-current {
+            width: 45%;
+            text-align: right;
+            font-family: "SR";
+            padding-top: 2px;
+            font-size: 20px;
+          }
+          .currency-name {
+            width: 55%;
+            padding-left: 3px;
+            font-family: "JMHArkham";
+            font-weight: 700;
+            font-size: 18px;
+          }
+        }
+        li:last-child {
+          margin-right: 0;
+        }
       }
     }
 
@@ -959,23 +1032,22 @@ p {
         }
         .info-left {
           .looks-window {
-            height: calc(50%);
+            height: calc(35%);
             max-height: 192px;
           }
           .quirks-window {
-            height: calc(50%);
-
+            height: calc(35%);
             max-height: 191px;
           }
-        }
-        .info-right {
           .goal-window {
             height: calc(35% - 7px);
             max-height: 149px;
           }
+        }
+        .info-right {
           .bio-window {
-            height: 65%;
-            max-height: 290px;
+            height: 100%;
+            max-height: 446px;
           }
         }
         .last-window {

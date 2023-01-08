@@ -9,15 +9,8 @@
           <input
             class="mit-value"
             name="system.mitigation.{{@key}}.value"
-            type="Number"
+            type="text"
             value="{{mit.value}}"
-            data-dtype="Number"
-          />
-          <input
-            class="mit-modifiers"
-            name="system.mitigation.{{@key}}.modifiers"
-            type="Number"
-            value="{{mit.modifiers}}"
             data-dtype="Number"
           />
         </div>
@@ -33,9 +26,9 @@
           </h3>
           <input
             class="mit-modifiers"
-            name="system.mitigation.{{@key}}.modifiers"
-            type="Number"
-            value="{{mit.modifiers}}"
+            name="system.mitigation.{{@key}}.value"
+            type="text"
+            value="{{numberFormat mit.value sign=true}}"
             data-dtype="Number"
           />
         </div>
