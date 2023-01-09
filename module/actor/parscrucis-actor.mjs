@@ -46,7 +46,7 @@ export class ParsCrucisActor extends Actor {
     // prepareDerivedData().
     super.prepareData();
 
-    console.log("prepData:THIS", this);
+    // console.log("prepData:THIS", this);
   }
 
   /** @override */
@@ -148,9 +148,6 @@ export class ParsCrucisActor extends Actor {
       // Setting CSS class to disabled skills
       skill.value === null ? (skill.disabled = true) : (skill.disabled = false);
     }
-
-    console.log(combatSkillsLevels);
-    console.log(combatSkillsPlusModifiers);
 
     // Handle attributes.
     for (let [key, att] of Object.entries(attributesData)) {

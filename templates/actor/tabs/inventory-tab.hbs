@@ -150,8 +150,7 @@
           <h3 class="subtitle">
             <div class="item-image"></div>
             <div class="item-name item-margin">{{localize "PC.Items"}}</div>
-            <div class="item-notes">
-            </div>
+            <div class="item-info-line">{{localize "PC.Notes"}}</div>
             <div class="item-controls">
               <a
                 class="item-control item-create"
@@ -161,7 +160,6 @@
             </div>
           </h3>
         </li>
-
         {{#each gear as |item id|}}
           <li class="item item-line" data-item-id="{{item._id}}">
             <div class="item-image">
@@ -178,7 +176,14 @@
                 class="item-type item-margin"
               >{{item.system.gearType}}</span>
             </h4>
-            <div></div>
+            <input
+              class="item-info-line player-notes"
+              data-item-update="{{item._id}}"
+              data-item-target="system.playerNotes"
+              type="text"
+              value="{{item.system.playerNotes}}"
+              placeholder="{{item.system.notes}}"
+            />
             {{! interval }}
             <div class="item-controls">
               <a class="item-control item-edit" title="Edit Item">
@@ -193,10 +198,20 @@
       </ol>
     </div>
   </section>
-  <footer>
-    {{! Currency }}
-    <div class="currency window">
-      <h4 class="currency-title">{{localize "PC.Currency"}}: </h4>
+  <footer class="lists">
+    {{! Key items & Currency}}
+    <div class="key-currency-title">
+      <h4>{{localize "PC.KeyItems"}}:</h4>
+      <h4>{{localize "PC.Currency"}}:</h4>
+    </div>
+    <div class="list-lines">
+      <input
+        class="list-input"
+        name="system.details.keyItems"
+        type="text"
+        value="{{systemData.details.keyItems}}"
+        data-dtype="String"
+      />
       <ol class="currencies">
         {{#each actor.system.currency as |coin obj|}}
           <li class="currency">

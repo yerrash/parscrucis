@@ -827,6 +827,9 @@ p {
           text-align: center;
           width: calc(10%);
         }
+        .item-info-line {
+          width: 70%;
+        }
         .item-info {
           width: calc(50%);
           text-overflow: ellipsis;
@@ -844,10 +847,16 @@ p {
         }
       }
       .item-header {
+        .subtitle {
+          font-size: 16px;
+        }
         .item-image {
           padding-left: 21px;
           height: 6px;
           margin-right: 3px;
+        }
+        .item-name {
+          font-size: 18px;
         }
         .item-skill,
         .item-action {
@@ -891,6 +900,7 @@ p {
             font-size: 16px;
           }
         }
+
         .item-defense {
           display: flex;
           flex-direction: row;
@@ -903,6 +913,10 @@ p {
             height: 21px;
             line-height: 21px;
           }
+        }
+
+        .player-notes {
+          height: 19px;
         }
       }
     }
@@ -927,51 +941,46 @@ p {
     //   }
     // }
 
-    .currency,
-    .general {
-      margin-bottom: 0;
+    // .inventory-footer {
+    //   margin: 0;
+    //   height: 48px;
+    // }
+    .key-currency-title {
+      font-size: 16px;
     }
-    .currency {
+    .currencies {
+      margin: 0;
+      padding: 0;
       display: flex;
       flex-direction: row;
       justify-content: space-between;
-      align-items: center;
-      font-size: 16px;
-      height: 36px;
-      padding: 3px 2px;
-      .currency-title {
-        width: 12%;
-      }
-      ol {
-        width: 88%;
-        margin: 0;
-        padding: 0;
+      .currency {
+        width: 23%;
         display: flex;
         flex-direction: row;
-        justify-content: space-between;
-        li {
-          display: flex;
-          flex-direction: row;
-          width: 22.5%;
-          margin-right: 2px;
-          .currency-current {
-            width: 45%;
-            text-align: right;
-            font-family: "SR";
-            padding-top: 2px;
-            font-size: 20px;
-          }
-          .currency-name {
-            width: 55%;
-            padding-left: 3px;
-            font-family: "JMHArkham";
-            font-weight: 700;
-            font-size: 18px;
-          }
+        align-items: center;
+        font-size: 16px;
+        height: 19px;
+        margin-right: 2px;
+        .currency-current {
+          height: 19px;
+          width: 45%;
+          text-align: right;
+          font-family: "SR";
+          padding-top: 2px;
+          font-size: 20px;
         }
-        li:last-child {
-          margin-right: 0;
+        .currency-name {
+          height: 19px;
+          width: 55%;
+          padding-left: 3px;
+          font-family: "JMHArkham";
+          font-weight: 700;
+          font-size: 16px;
         }
+      }
+      .currency:last-child {
+        margin-right: 0;
       }
     }
 

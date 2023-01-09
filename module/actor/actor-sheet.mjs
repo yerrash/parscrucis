@@ -117,6 +117,9 @@ export default class ParsCrucisActorSheet extends ActorSheet {
       item.sheet.render(true);
     });
 
+    // Edit Inventory Item notes
+    html.find("[data-item-update]").change(this._onNoteChange.bind(this));
+
     // Delete Inventory Item
     html.find(".item-delete").click((ev) => {
       const li = $(ev.currentTarget).parents(".item");
@@ -153,6 +156,16 @@ export default class ParsCrucisActorSheet extends ActorSheet {
 
     // Creates the item!
     return await Item.create(itemData, { parent: this.actor });
+  }
+
+  async _onNoteChange(event) {
+    event.preventDefault();
+    const element = event.currentTarget;
+    const dataset = element.dataset;
+    const id = dataset.itemUpdate;
+    const target = dataset.itemTarget;
+    const item = this.actor.items.get(id);
+    item.update({ [`${target}`]: event.currentTarget.value });
   }
 
   /**
