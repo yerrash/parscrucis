@@ -7,9 +7,9 @@
       title="{{item.name}}"
     />
     <div class="superior-right item-header-right">
-      <h2 class="char-name item-name">
+      <h2 class="title-name item-name">
         <input
-          class="name-input"
+          class="title-name_input"
           name="name"
           type="text"
           value="{{item.name}}"
@@ -18,17 +18,17 @@
       </h2>
       <div class="item-header-right-lower">
         <div class="item-header-upper">
-          <select name="system.gearCategory">
+          <select name="system.category">
             {{selectOptions
               config.gearCategory
-              selected=item.system.gearCategory
+              selected=item.system.category
               localize=true
             }}
           </select>
           <input
-            name="system.gearType"
+            name="system.subtype"
             type="text"
-            value="{{item.system.gearType}}"
+            value="{{item.system.subtype}}"
           />
           <select name="system.rarity">
             {{selectOptions

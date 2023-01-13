@@ -2,9 +2,9 @@
   <header class="superior">
     <img class="item-img" src="{{item.img}}" data-edit="img" title="{{item.name}}"/>
     <div class="superior-right item-header-right">
-      <h2 class="char-name item-name">
+      <h2 class="title-name item-name">
         <input
-          class="name-input"
+          class="title-name_input"
           name="name"
           type="text"
           value="{{item.name}}"
@@ -13,17 +13,17 @@
       </h2>
       <div class="item-header-right-lower">
         <div class="item-header-upper">
-          <select name="system.weaponCategory">
+          <select name="system.category">
             {{selectOptions
               config.weaponCategory
-              selected=item.system.weaponCategory
+              selected=item.system.category
               localize=true
             }}
           </select>
-          <select name="system.weaponType">
+          <select name="system.subtype">
             {{selectOptions
-              (lookup config item.system.weaponCategory)
-              selected=item.system.weaponType
+              (lookup config item.system.category)
+              selected=item.system.subtype
               localize=true
             }}
           </select>
@@ -48,27 +48,6 @@
                 value="{{item.system.defense}}"
                 data-dtype="Number"
               />
-              <input
-                class="att-extra"
-                name="system.projDef"
-                type="Number"
-                value="{{item.system.projDef}}"
-                data-dtype="Number"
-              />
-            </div>
-          </div>
-          <div class="item-attribute item-defense">
-            <h3 class="item-att-name">
-              <div>{{localize "PC.DR"}}</div>
-            </h3>
-            <div class="item-att-info">
-              <input
-                class="att-value"
-                name="system.durability"
-                type="Number"
-                value="{{item.system.durability}}"
-                data-dtype="Number"
-              />
             </div>
           </div>
           <div class="item-attribute">
@@ -81,20 +60,6 @@
                 name="system.requisites"
                 type="text"
                 value="{{item.system.requisites}}"
-                data-dtype="String"
-              />
-            </div>
-          </div>
-          <div class="item-attribute">
-            <h3 class="item-att-name">
-              <div>{{localize "PC.Craft"}}</div>
-            </h3>
-            <div class="item-att-info">
-              <input
-                class="att-extra item-craft"
-                name="system.craft"
-                type="text"
-                value="{{item.system.craft}}"
                 data-dtype="String"
               />
             </div>

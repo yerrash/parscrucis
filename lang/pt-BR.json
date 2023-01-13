@@ -194,6 +194,7 @@
   "PC.Range": "Alcance",
   "PC.Rng": "Alc",
   "PC.Notes": "Anotações",
+  "PC.Informations": "Informações",
   "PC.Note": "Nota",
   "PC.Defense": "Defesa",
   "PC.DR": "DR",
@@ -349,5 +350,8 @@
   "PC.essDmg": "ess",
 
   "PC.Techniques": "Técnicas",
-  "PC.Powers": "Poderes"
+  "PC.Powers": "Poderes",
+
+  "PC.technique": "Técnica",
+  "PC.power": "Poder"
 }

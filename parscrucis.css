@@ -11,6 +11,14 @@
   src: url("fonts/Acme Gothic Condensed Semi Bold.otf");
 }
 @font-face {
+  font-family: "AcmeGWR";
+  src: url("fonts/Acme Gothic Wide Regular.otf");
+}
+@font-face {
+  font-family: "AcmeGWSB";
+  src: url("fonts/Acme Gothic Wide Semi Bold.otf");
+}
+@font-face {
   font-family: "IMFellEnglishSC";
   src: url("fonts/IMFellEnglishSC-Regular.ttf");
 }
@@ -116,18 +124,12 @@ p {
   border-style: solid;
   border-color: #37373a7e;
 }
-.superior {
-  font-family: "Acme";
-  display: flex;
-  flex-direction: row;
-  margin-bottom: 7px;
-}
-.superior .char-name {
-  width: calc(100% - 160px);
+.title-name {
+  width: 100%;
   margin-right: 3px;
   height: 23px;
 }
-.superior .char-name .name-input {
+.title-name .title-name_input {
   width: 100%;
   padding: 0;
   border: none;
@@ -136,8 +138,14 @@ p {
   font-size: 26px;
   padding: 0 0 4px 3px;
 }
+.superior {
+  font-family: "Acme";
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 7px;
+}
 .window {
-  padding: 4px 2px 0;
+  padding: 2px 2px 0;
   border: 1px solid rgba(128, 128, 128, 0.432);
   border-radius: 5px;
   margin: 0 0 7px 0;
@@ -162,15 +170,10 @@ p {
   flex-direction: row;
   margin-bottom: 7px;
 }
-.parscrucis-actor-sheet .superior input {
-  border: 0;
-  border-radius: 3px;
-  padding: 0;
-}
+.parscrucis-actor-sheet .superior input,
 .parscrucis-actor-sheet .superior select {
   border: 0;
   border-radius: 3px;
-  padding: 0;
 }
 .parscrucis-actor-sheet .superior .profile-img {
   height: 155px;
@@ -185,6 +188,9 @@ p {
 .parscrucis-actor-sheet .superior .name-exp {
   display: flex;
   flex-direction: row;
+}
+.parscrucis-actor-sheet .superior .name-exp .title-name {
+  width: calc(100% - 160px);
 }
 .parscrucis-actor-sheet .superior .name-exp .exp-bar,
 .parscrucis-actor-sheet .superior .name-exp .ch-bar {
@@ -274,6 +280,7 @@ p {
 }
 .parscrucis-actor-sheet .superior .stats-window .left-window .racial select,
 .parscrucis-actor-sheet .superior .stats-window .left-window .racial input {
+  padding: 0;
   height: 17px;
   font-size: 14px;
   flex-grow: 1;
@@ -437,6 +444,7 @@ p {
 }
 .parscrucis-actor-sheet .superior .stats-window .left-window .att-partial .resources .resource .resource-info .resource_special .stat-value {
   width: 50%;
+  font-size: 26px;
 }
 .parscrucis-actor-sheet .superior .stats-window .left-window .att-partial .resources .resource .resource-info .resource_special span {
   height: 28px;
@@ -686,7 +694,7 @@ p {
 .parscrucis-actor-sheet .tab-content .skills-tab .grouping .skill-group {
   padding: 0;
   list-style-type: none;
-  padding: 4px 2px 0;
+  padding: 2px 2px 0;
   border: 1px solid rgba(128, 128, 128, 0.432);
   border-radius: 5px;
   margin: 0 0 7px 0;
@@ -795,7 +803,7 @@ p {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  height: 48px;
+  height: 52px;
   padding: 3px 2px;
   border: 1px solid #8080806e;
   border-radius: 5px;
@@ -831,12 +839,12 @@ p {
   justify-content: space-between;
 }
 .parscrucis-actor-sheet .tab-content .inventory {
-  max-height: calc(446px - 7px - 26px);
+  max-height: calc(446px - 7px - 52px);
   overflow-y: scroll;
   margin-bottom: 7px;
 }
 .parscrucis-actor-sheet .tab-content .inventory .window {
-  padding-bottom: 2px;
+  padding-bottom: 1px;
 }
 .parscrucis-actor-sheet .tab-content .items-list {
   margin: 0;
@@ -859,7 +867,7 @@ p {
   margin-right: 2px;
 }
 .parscrucis-actor-sheet .tab-content .items-list .item .item-name {
-  width: calc(23% - 8px);
+  width: calc(24% - 24px);
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
@@ -874,14 +882,14 @@ p {
   flex-direction: column;
   align-items: stretch;
   justify-content: space-between;
-  width: calc(70% - 44px);
+  width: calc(38% - 7px);
 }
 .parscrucis-actor-sheet .tab-content .items-list .item .item-actions .item-action-line {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  height: 19px;
+  height: 17px;
   border-color: #a3a3a3b4;
   border-style: dashed;
   border-width: 0 0 1px 0;
@@ -889,43 +897,44 @@ p {
 .parscrucis-actor-sheet .tab-content .items-list .item .item-actions .item-action-line:last-child {
   border: none;
 }
-.parscrucis-actor-sheet .tab-content .items-list .item .item-skill {
-  width: calc(11%);
+.parscrucis-actor-sheet .tab-content .items-list .item .item-actions .item-skill {
+  width: calc(25%);
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
 }
-.parscrucis-actor-sheet .tab-content .items-list .item .item-action {
-  width: calc(10%);
+.parscrucis-actor-sheet .tab-content .items-list .item .item-actions .item-action {
+  width: calc(19%);
   text-align: center;
 }
-.parscrucis-actor-sheet .tab-content .items-list .item .item-modifier {
-  width: calc(4%);
+.parscrucis-actor-sheet .tab-content .items-list .item .item-actions .item-modifier {
+  width: calc(7%);
   text-align: right;
 }
-.parscrucis-actor-sheet .tab-content .items-list .item .item-damage {
-  width: calc(15%);
+.parscrucis-actor-sheet .tab-content .items-list .item .item-actions .item-damage {
+  width: calc(20%);
   text-align: center;
 }
-.parscrucis-actor-sheet .tab-content .items-list .item .item-range {
+.parscrucis-actor-sheet .tab-content .items-list .item .item-actions .item-range {
   text-align: center;
-  width: calc(10%);
+  width: calc(16%);
 }
-.parscrucis-actor-sheet .tab-content .items-list .item .item-info-line {
-  width: 70%;
-}
-.parscrucis-actor-sheet .tab-content .items-list .item .item-info {
-  width: calc(50%);
+.parscrucis-actor-sheet .tab-content .items-list .item .item-info,
+.parscrucis-actor-sheet .tab-content .items-list .item .player-notes {
+  width: calc(38% - 45px);
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
 }
-.parscrucis-actor-sheet .tab-content .items-list .item .item-defense {
-  width: calc(7% - 6px);
-  text-align: center;
+.parscrucis-actor-sheet .tab-content .items-list .item .item-info-line {
+  width: calc(76% - 50px);
+}
+.parscrucis-actor-sheet .tab-content .items-list .item .player-notes {
+  height: 19px;
+  padding-left: 3px;
 }
 .parscrucis-actor-sheet .tab-content .items-list .item .item-controls {
-  width: 29px;
+  width: 45px;
   margin-left: 3px;
   text-align: center;
 }
@@ -940,9 +949,11 @@ p {
 .parscrucis-actor-sheet .tab-content .items-list .item-header .item-name {
   font-size: 18px;
 }
-.parscrucis-actor-sheet .tab-content .items-list .item-header .item-skill,
+.parscrucis-actor-sheet .tab-content .items-list .item-header .item-skill {
+  font-size: 14.5px;
+}
 .parscrucis-actor-sheet .tab-content .items-list .item-header .item-action {
-  font-size: 14px;
+  font-size: 14.5px;
 }
 .parscrucis-actor-sheet .tab-content .items-list .item-line {
   padding: 1px 0;
@@ -960,12 +971,17 @@ p {
 .parscrucis-actor-sheet .tab-content .items-list .item-line .item-image img {
   width: 21px;
   height: 21px;
+  border: none;
 }
 .parscrucis-actor-sheet .tab-content .items-list .item-line .item-name {
-  font-size: 15px;
+  font-size: 15.5px;
+  font-family: "JMHArkham";
 }
 .parscrucis-actor-sheet .tab-content .items-list .item-line .item-skill {
-  font-size: 12px;
+  font-size: 14.5px;
+}
+.parscrucis-actor-sheet .tab-content .items-list .item-line .item-action {
+  font-size: 15.5px;
 }
 .parscrucis-actor-sheet .tab-content .items-list .item-line .item-modifier {
   font-size: 17px;
@@ -973,25 +989,10 @@ p {
 .parscrucis-actor-sheet .tab-content .items-list .item-line .item-damage {
   font-family: "SR";
   font-size: 21px;
+  height: 23px;
 }
 .parscrucis-actor-sheet .tab-content .items-list .item-line .item-damage span {
-  font-size: 16px;
-}
-.parscrucis-actor-sheet .tab-content .items-list .item-line .item-defense {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  font-size: 22px;
-  height: 21px;
-  line-height: 21px;
-}
-.parscrucis-actor-sheet .tab-content .items-list .item-line .item-defense .item-proj-defense {
-  font-size: 19px;
-  height: 21px;
-  line-height: 21px;
-}
-.parscrucis-actor-sheet .tab-content .items-list .item-line .player-notes {
-  height: 19px;
+  font-size: 15.5px;
 }
 .parscrucis-actor-sheet .tab-content .item-line:nth-child(2) {
   padding-top: 0;
@@ -999,6 +1000,9 @@ p {
 .parscrucis-actor-sheet .tab-content .item-line:last-child {
   padding-bottom: 0;
   border-width: 0 0 0 0;
+}
+.parscrucis-actor-sheet .tab-content .general {
+  margin-bottom: 0;
 }
 .parscrucis-actor-sheet .tab-content .key-currency-title {
   font-size: 16px;
@@ -1163,10 +1167,14 @@ p {
 .parscrucis-item-sheet .weapon-content {
   justify-content: space-between;
 }
+.parscrucis-item-sheet .superior .title-name input {
+  padding: 0 0 4px 3px;
+}
 .parscrucis-item-sheet .superior .item-img {
   height: 80px;
   width: 80px;
   margin: 0;
+  border: none;
 }
 .parscrucis-item-sheet .superior .item-header-right {
   height: 100%;
@@ -1312,7 +1320,7 @@ p {
   justify-content: center;
 }
 .parscrucis-item-sheet .actions-inferior-window {
-  height: 117px;
+  height: 70px;
   overflow-x: hidden;
   overflow-y: scroll;
   list-style-type: none;
@@ -1320,7 +1328,7 @@ p {
   padding: 0;
 }
 .parscrucis-item-sheet .action-line {
-  height: 36px;
+  height: 32px;
   width: 100%;
   display: flex;
   flex-direction: row;
@@ -1352,7 +1360,7 @@ p {
   display: flex;
   flex-direction: row;
   align-items: center;
-  height: 36px;
+  height: 100%;
 }
 .parscrucis-item-sheet .action-line .action-dmg .dmg-line .dmg-base {
   font-family: "SR";
@@ -1364,10 +1372,13 @@ p {
 }
 .parscrucis-item-sheet .action-line .action-dmg .dmg-line .dmg-plus {
   line-height: 100%;
-  font-family: "SR";
-  font-size: 24px;
+  font-family: "Acme";
+  font-size: 20px;
   width: 8px;
   height: 100%;
+  display: flex;
+  align-items: center;
+  padding-bottom: 1px;
 }
 .parscrucis-item-sheet .action-line .action-dmg .dmg-line .dmg-att {
   appearance: none;
@@ -1377,7 +1388,7 @@ p {
   width: 26px;
   height: 100%;
 }
-.parscrucis-item-sheet .action-line .action-dmg .dmg-line .dmg-att-div {
+.parscrucis-item-sheet .action-line .action-dmg .dmg-line .dmg-div {
   appearance: none;
   width: 24px;
   height: 100%;
@@ -1386,7 +1397,7 @@ p {
   font-size: 24px;
 }
 .parscrucis-item-sheet .action-line .action-dmg .alternative {
-  height: 18px;
+  height: 50%;
 }
 .parscrucis-item-sheet .action-line .action-dmg .alternative .dmg-base {
   height: 100%;
@@ -1400,29 +1411,21 @@ p {
 .parscrucis-item-sheet .action-line .action-dmg .alternative .dmg-att {
   font-size: 18px;
   height: 100%;
+  line-height: 18px;
 }
-.parscrucis-item-sheet .action-line .action-dmg .alternative .dmg-att-div {
+.parscrucis-item-sheet .action-line .action-dmg .alternative .dmg-div {
   height: 100%;
   font-size: 20px;
-  margin-bottom: 2px;
-}
-.parscrucis-item-sheet .action-line .action-dmg .single .dmg-plus {
-  padding-top: 6px;
+  line-height: 18px;
 }
 .parscrucis-item-sheet .action-line .damage-type {
   height: 100%;
 }
-.parscrucis-item-sheet .action-line textarea.action-note {
-  height: 36px;
-  min-height: 18px;
-  line-height: 17px;
-  padding: 0 2px 1px;
-  font-family: "Acme";
-  resize: none;
-  text-align: justify;
+.parscrucis-item-sheet .action-line:last-child {
+  margin-bottom: 0;
 }
 .parscrucis-item-sheet .action-skill {
-  width: calc(17% - 6px);
+  width: calc(21% - 6px);
   margin-right: 3px;
 }
 .parscrucis-item-sheet .action-action {
@@ -1446,27 +1449,24 @@ p {
   margin-right: 3px;
 }
 .parscrucis-item-sheet .action-damages .damage-type {
-  width: 32px;
+  width: 35px;
 }
 .parscrucis-item-sheet .action-range {
   width: calc(12% - 5px);
   text-align: center;
   margin-right: 3px;
 }
-.parscrucis-item-sheet .action-note {
-  width: calc(33% - 6px);
-}
 .parscrucis-item-sheet .action-controls {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
-  justify-content: space-between;
-  width: 18px;
+  justify-content: center;
+  width: 34px;
   text-align: center;
 }
 .parscrucis-item-sheet .alternative-damage {
   display: flex;
-  margin: 2px 2px 0 1px;
+  margin: 2px 2px 5px 1px;
   flex: 0;
   width: 14px;
   height: 14px;
@@ -1500,15 +1500,22 @@ p {
   content: "\f71d";
   font-weight: bold;
 }
-.parscrucis-item-sheet textarea.action-notes {
+.parscrucis-item-sheet .action-delete {
+  margin-left: 2px;
+}
+.parscrucis-item-sheet textarea.action-notes,
+.parscrucis-item-sheet textarea.action-informations {
   width: 100%;
-  height: 54px;
+  height: 36px;
   min-height: 18px;
   line-height: 17px;
   padding: 0 2px 1px;
   font-family: "Acme";
   resize: none;
   text-align: justify;
+}
+.parscrucis-item-sheet textarea.action-informations {
+  height: 54px;
 }
 .parscrucis-item-sheet .bio {
   height: 110px;

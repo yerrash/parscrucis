@@ -35,7 +35,7 @@ export class ParsCrucisActor extends Actor {
 
     this.updateSource(initData);
 
-    // console.log("PRECREATE", this);
+    console.log("PRECREATE", this);
   }
 
   /** @override */
@@ -283,7 +283,7 @@ export class ParsCrucisActor extends Actor {
       (100 * resourcesData.pe.value) / resourcesData.pe.max;
 
     // console.log("prepDerivedData:ITEMSDATA", itemsData);
-    // console.log("prepDerivedData:THIS", this);
+    console.log("prepDerivedData:THIS", this);
 
     // Make separate methods for each Actor type (character, npc, etc.)
     // this._prepareCharacterData(actorData);
@@ -298,16 +298,20 @@ export class ParsCrucisActor extends Actor {
     const vest = [];
     const acc = [];
     const passives = [];
-    const abilities = [];
+    const powers = [];
+    const techniques = [];
 
     for (let i of actorData.items) {
       i.img = i.img || DEFAULT_TOKEN;
       // Append to gear.
       if (i.type === "gear") {
         //  Separates equipped vest and acessories
-        if (i.gearType === "vest" && i.equipped === true) {
+        if (i.system.category === "vest" && i.system.equipped === true) {
           vest.push(i);
-        } else if (i.gearType === "acc" && i.equipped === true) {
+        } else if (
+          i.system.category === "accessory" &&
+          i.system.equipped === true
+        ) {
           acc.push(i);
         } else gear.push(i);
       }
@@ -321,7 +325,10 @@ export class ParsCrucisActor extends Actor {
       }
       // Append abilities - Techniques and Powers
       else if (i.type === "ability") {
-        abilities.push(i);
+        console.log("HERE");
+        if (i.system.category === "power") {
+          powers.push(i);
+        } else techniques.push(i);
       }
     }
 
@@ -331,7 +338,8 @@ export class ParsCrucisActor extends Actor {
     actorData.equippedAcc = acc;
     actorData.gear = gear;
     actorData.passives = passives;
-    actorData.abilities = abilities;
+    actorData.powers = powers;
+    actorData.techniques = techniques;
   }
 
   _prepareCharacterData(actorData) {
@@ -339,12 +347,8 @@ export class ParsCrucisActor extends Actor {
   }
 
   _prepareInventoryData(actorData, attributesData, skillsData) {
-    // if (actorData.type !== "persona") return;
-
     const weaponsData = actorData.weapons;
     const gearData = actorData.gear;
-
-    // console.log("PREPCHARDATA:WEAPONS", weaponsData);
 
     function calculate(dmgAttDiv) {
       if (dmgAttDiv === "att33") {
@@ -358,7 +362,6 @@ export class ParsCrucisActor extends Actor {
 
     // Prepare character weapon data
     for (let [_, wep] of Object.entries(weaponsData)) {
-      // console.log("PREPINTDATA:KEY,WEP:", key, wep.system);
       const wepSD = wep.system;
       for (let [_, ac] of Object.entries(wepSD.actions)) {
         if (ac.altDamage) {
@@ -370,8 +373,8 @@ export class ParsCrucisActor extends Actor {
             ? attributesData[ac.dmgAtt2].value +
               attributesData[ac.dmgAtt2].modifiers
             : 0;
-          const attMixer = calculate(ac.dmgAttDiv);
-          const attMixer2 = calculate(ac.dmgAttDiv2);
+          const attMixer = calculate(ac.dmgDiv);
+          const attMixer2 = calculate(ac.dmgDiv2);
           const dmgResult = Math.ceil(ac.dmgBase + attValue * attMixer);
           const dmgResult2 = Math.ceil(ac.dmgBase2 + attValue2 * attMixer2);
           const attBaseValue = Math.max(dmgResult, dmgResult2);
@@ -382,10 +385,10 @@ export class ParsCrucisActor extends Actor {
             ? attributesData[ac.dmgAtt].value +
               attributesData[ac.dmgAtt].modifiers
             : 0;
-          const attMixer = calculate(ac.dmgAttDiv);
+          const attMixer = calculate(ac.dmgDiv);
           const dmgResult = Math.ceil(ac.dmgBase + attValue * attMixer);
 
-          ac.derivedDamage = dmgResult;
+          ac.derivedDamage = dmgResult >= 0 ? dmgResult : 0;
         }
       }
 
@@ -401,10 +404,6 @@ export class ParsCrucisActor extends Actor {
       wepSD.defense ? (wepSD.derivedDefense = derivedDefense) : null;
       wepSD.projDef ? (wepSD.derivedProjDef = derivedProjDef) : null;
     }
-
-    // Prepare character gear data
-
-    // console.log("PREPCHARDATA:WEAPONS-DERIVED", weaponsData, attributesData);
   }
 
   /**

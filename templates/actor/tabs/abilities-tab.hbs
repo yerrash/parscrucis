@@ -5,18 +5,50 @@
         <h3 class="subtitle">
           <div class="item-image"></div>
           <div class="item-name item-margin">{{localize "PC.Techniques"}}</div>
-          <div class="item-notes">
-          </div>
-          <div class="item-controls">
-            <a
-              {{! class="item-control item-create" }}
+          <div class="item-info-line">{{localize "PC.Notes"}}</div>
+          <div class="item-controls"><a
+              class="item-control item-create"
               title="Create item"
-              data-type="gear"
+              data-type="ability"
             ><i class="fas fa-plus"></i></a>
           </div>
         </h3>
       </li>
-      <li>Não funcional.</li>
+      {{#each techniques as |item id|}}
+        <li class="item item-line" data-item-id="{{item._id}}">
+          <div class="item-image">
+            <img
+              src="{{item.img}}"
+              title="{{item.name}}"
+              width="24"
+              height="24"
+            />
+          </div>
+          <h4 class="item-name item-margin">
+            {{item.name}}
+            <span
+              class="item-type item-margin"
+            >{{item.system.subtypeLabel}}</span>
+          </h4>
+          <input
+            class="item-info-line player-notes"
+            data-item-update="{{item._id}}"
+            data-item-target="system.notes"
+            type="text"
+            value="{{item.system.notes}}"
+            placeholder="{{item.system.informations}}"
+          />
+          {{! interval }}
+          <div class="item-controls">
+            <a class="item-control item-edit" title="Edit Item">
+              <i class="fas fa-edit"></i>
+            </a>
+            <a class="item-control item-delete" title="Delete Item">
+              <i class="fas fa-trash"></i>
+            </a>
+          </div>
+        </li>
+      {{/each}}
     </ol>
   </div>
   <div class="powers window">
@@ -25,18 +57,50 @@
         <h3 class="subtitle">
           <div class="item-image"></div>
           <div class="item-name item-margin">{{localize "PC.Powers"}}</div>
-          <div class="item-notes">
-          </div>
-          <div class="item-controls">
-            <a
-              {{! class="item-control item-create" }}
+          <div class="item-info-line">{{localize "PC.Notes"}}</div>
+          <div class="item-controls"><a
+              class="item-control item-create"
               title="Create item"
-              data-type="gear"
+              data-type="ability"
             ><i class="fas fa-plus"></i></a>
           </div>
         </h3>
       </li>
-      <li>Não funcional.</li>
+      {{#each powers as |item id|}}
+        <li class="item item-line" data-item-id="{{item._id}}">
+          <div class="item-image">
+            <img
+              src="{{item.img}}"
+              title="{{item.name}}"
+              width="24"
+              height="24"
+            />
+          </div>
+          <h4 class="item-name item-margin">
+            {{item.name}}
+            <span
+              class="item-type item-margin"
+            >{{item.system.subtypeLabel}}</span>
+          </h4>
+          <input
+            class="item-info-line player-notes"
+            data-item-update="{{item._id}}"
+            data-item-target="system.notes"
+            type="text"
+            value="{{item.system.notes}}"
+            placeholder="{{item.system.informations}}"
+          />
+          {{! interval }}
+          <div class="item-controls">
+            <a class="item-control item-edit" title="Edit Item">
+              <i class="fas fa-edit"></i>
+            </a>
+            <a class="item-control item-delete" title="Delete Item">
+              <i class="fas fa-trash"></i>
+            </a>
+          </div>
+        </li>
+      {{/each}}
     </ol>
   </div>
 </section>

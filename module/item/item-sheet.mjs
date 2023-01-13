@@ -26,14 +26,12 @@ export default class ParsCrucisItemSheet extends ItemSheet {
   /** @override */
   getData() {
     const context = super.getData();
-    context.config = CONFIG.parscrucis;
-
     const itemData = context.item;
+
+    context.config = CONFIG.parscrucis;
 
     // console.log(context);
     // console.log(itemData);
-
-    console.log(context);
 
     return context;
   }
@@ -67,13 +65,10 @@ export default class ParsCrucisItemSheet extends ItemSheet {
 
   _createAction(event) {
     event.preventDefault();
-
     const element = event.currentTarget;
     const dataset = element.dataset;
     const type = dataset.type;
-
     const objectData = this.object;
-
     const actions = objectData.system[type];
     const updateData = {};
 
@@ -85,19 +80,15 @@ export default class ParsCrucisItemSheet extends ItemSheet {
 
   _deleteAction(event) {
     event.preventDefault();
-
     const element = event.currentTarget;
     const dataset = element.dataset;
     const type = dataset.type;
     const index = parseInt(dataset.index);
-
     const objectData = this.object;
-
     const actions = objectData.system[type];
     const updateData = {};
 
     actions.splice(index, 1);
-
     updateData["system.actions"] = actions;
 
     this.object.update(updateData);

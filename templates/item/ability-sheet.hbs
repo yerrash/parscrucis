@@ -7,9 +7,9 @@
       title="{{item.name}}"
     />
     <div class="superior-right item-header-right">
-      <h2 class="char-name item-name">
+      <h2 class="title-name item-name">
         <input
-          class="name-input"
+          class="title-name_input"
           name="name"
           type="text"
           value="{{item.name}}"
@@ -18,6 +18,13 @@
       </h2>
       <div class="item-header-right-lower">
         <div class="item-header-upper">
+          <select name="system.category">
+            {{selectOptions
+              config.abilityCategory
+              selected=item.system.category
+              localize=true
+            }}
+          </select>
         </div>
         <div class="item-header-lower">
         </div>

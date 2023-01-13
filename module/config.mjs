@@ -249,11 +249,14 @@ PC.weaponSkill = {
 };
 
 PC.weaponCategory = {
+  none: "",
   melee: "PC.melee",
   shield: "PC.shield",
   ranged: "PC.ranged",
   ammunition: "PC.ammunition",
 };
+
+PC.none = {};
 
 PC.melee = {
   unarmed: "PC.Unarmed",
@@ -488,4 +491,9 @@ PC.gearCategory = {
   accessory: "PC.accessory",
   catalyst: "PC.catalyst",
   keyItem: "PC.keyItem",
+};
+
+PC.abilityCategory = {
+  technique: "PC.technique",
+  power: "PC.power",
 };

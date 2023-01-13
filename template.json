@@ -332,7 +332,7 @@
             "modifiers": 0
           },
           "carpi": {
-            "attribute": "int",
+            "attribute": "fis",
             "group": "craft",
             "growth": 1,
             "aprendizado": "",
@@ -549,17 +549,31 @@
     "types": ["gear", "passive", "technique", "ability", "weapon"],
     "templates": {
       "itemDescription": {
-        "description": ""
+        "description": "",
+        "informations": "",
+        "notes": ""
+      },
+      "typology": {
+        "category": "none",
+        "subtype": null
       },
       "evaluation": {
         "quantity": 1,
-        "price": 0,
+        "maxCap": 1,
+        "price": null,
         "equipped": false,
         "rarity": "common"
       },
       "ability": {
         "effort": 0,
         "pre-requisites": {}
+      },
+      "crafting": {
+        "craftable": false,
+        "craftingInfo": "",
+        "craftingMaterials": [],
+        "craftingSkills": [],
+        "workTime": ""
       }
     },
     "htmlFields": [
@@ -568,9 +582,7 @@
       "description.unidentified"
     ],
     "gear": {
-      "templates": ["itemDescription", "evaluation"],
-      "gearCategory": "material",
-      "gearType": ""
+      "templates": ["itemDescription", "typology", "evaluation"]
     },
     "passive": {
       "templates": ["itemDescription"],
@@ -578,14 +590,14 @@
       "points": 0
     },
     "ability": {
-      "templates": ["itemDescription", "ability"]
+      "templates": ["itemDescription", "typology", "ability"]
     },
     "weapon": {
-      "templates": ["itemDescription", "evaluation"],
+      "templates": ["evaluation", "crafting", "itemDescription", "typology"],
+      "active": true,
       "actions": [],
-      "weaponCategory": "melee",
-      "weaponType": "",
-      "requirements": ""
+      "defense": null,
+      "requisites": ""
     }
   }
 }

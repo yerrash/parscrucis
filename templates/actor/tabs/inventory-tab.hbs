@@ -20,13 +20,9 @@
                   {{localize "PC.Damage"}}
                 </div>
                 <div class="item-range item-margin">{{localize "PC.Rng"}}</div>
-                <div class="item-info item-margin">{{localize "PC.Notes"}}</div>
               </div>
             </div>
-            <div class="item-defense">
-              {{localize "PC.DEF"}}
-              {{! <span class="item-special-defense">[]</span> }}
-            </div>
+            <div class="item-info item-margin">{{localize "PC.Notes"}}</div>
             <div class="item-controls">
               <a
                 class="item-control item-create"
@@ -50,7 +46,7 @@
               {{item.name}}
               <span
                 class="item-type item-margin"
-              >{{item.system.weaponTypeLabel}}</span>
+              >{{item.system.subtypeLabel}}</span>
             </h4>
             <div class="item-actions">
               {{#each item.system.actions as |ac obj|}}
@@ -69,24 +65,31 @@
                   >{{ac.actionModifier}}</div>
                   <div class="item-damage item-margin">
                     {{ac.derivedDamage}}
-                    <span>{{ac.damageType}}</span>
+                    <span>{{ac.dmgType}}</span>
                   </div>
                   <div class="item-range item-margin">{{ac.actionRange}}</div>
-                  <div
-                    class="item-info item-margin"
-                    title="{{ac.actionNotes}}"
-                  >{{ac.actionNotes}}</div>
                 </div>
               {{/each}}
             </div>
-            <div class="item-defense">
-              <div>{{item.system.derivedDefense}}</div>
-              <div
-                class="item-proj-defense"
-              >{{item.system.derivedProjDef}}</div>
-            </div>
+            <input
+              class="player-notes item-margin"
+              data-item-update="{{item._id}}"
+              data-item-target="system.notes"
+              type="text"
+              value="{{item.system.notes}}"
+              placeholder="{{item.system.informations}}"
+            />
             {{! interval }}
             <div class="item-controls">
+              {{#unless item.system.unarmed}}
+                <a
+                  class="item-control item-unequip"
+                  data-item-id="{{item._id}}"
+                  title="Unequip Item"
+                >
+                  <i class="fa-solid fa-backpack"></i>
+                </a>
+              {{/unless}}
               <a class="item-control item-edit" title="Edit Item">
                 <i class="fas fa-edit"></i>
               </a>
@@ -106,20 +109,55 @@
             <h3 class="subtitle">
               <div class="item-image"></div>
               <div class="item-name item-margin">{{localize "PC.Vest"}}</div>
-              <div class="item-notes">
-              </div>
-              <div class="item-controls">
-                <a
-                  {{! class="item-control item-create" }}
-                  title="Create item"
-                  data-type="gear"
-                ><i class="fas fa-plus"></i></a>
-              </div>
+              <div class="item-info-line">{{localize "PC.Notes"}}</div>
+              <div class="item-controls"></div>
             </h3>
           </li>
-          <li>Não funcional.</li>
+          {{#each equippedVest as |item id|}}
+            <li class="item item-line" data-item-id="{{item._id}}">
+              <div class="item-image">
+                <img
+                  src="{{item.img}}"
+                  title="{{item.name}}"
+                  width="24"
+                  height="24"
+                />
+              </div>
+              <h4 class="item-name item-margin">
+                {{item.name}}
+                <span
+                  class="item-type item-margin"
+                >{{item.system.subtypeLabel}}</span>
+              </h4>
+              <input
+                class="item-info-line player-notes"
+                data-item-update="{{item._id}}"
+                data-item-target="system.notes"
+                type="text"
+                value="{{item.system.notes}}"
+                placeholder="{{item.system.informations}}"
+              />
+              {{! interval }}
+              <div class="item-controls">
+                <a
+                  class="item-control item-unequip"
+                  data-item-id="{{item._id}}"
+                  title="Unequip Item"
+                >
+                  <i class="fa-solid fa-backpack"></i>
+                </a>
+                <a class="item-control item-edit" title="Edit Item">
+                  <i class="fas fa-edit"></i>
+                </a>
+                <a class="item-control item-delete" title="Delete Item">
+                  <i class="fas fa-trash"></i>
+                </a>
+              </div>
+            </li>
+          {{/each}}
         </ol>
       </div>
+      {{! Acessories Tab }}
       <div class="accesories window">
         <ol class="items-list">
           <li class="item item-header">
@@ -128,18 +166,52 @@
               <div class="item-name item-margin">{{localize
                   "PC.Accessories"
                 }}</div>
-              <div class="item-notes">
-              </div>
-              <div class="item-controls">
-                <a
-                  {{! class="item-control item-create" }}
-                  title="Create item"
-                  data-type="gear"
-                ><i class="fas fa-plus"></i></a>
-              </div>
+              <div class="item-info-line">{{localize "PC.Notes"}}</div>
+              <div class="item-controls"></div>
             </h3>
           </li>
-          <li>Não funcional.</li>
+          {{#each equippedAcc as |item id|}}
+            <li class="item item-line" data-item-id="{{item._id}}">
+              <div class="item-image">
+                <img
+                  src="{{item.img}}"
+                  title="{{item.name}}"
+                  width="24"
+                  height="24"
+                />
+              </div>
+              <h4 class="item-name item-margin">
+                {{item.name}}
+                <span
+                  class="item-type item-margin"
+                >{{item.system.subtypeLabel}}</span>
+              </h4>
+              <input
+                class="item-info-line player-notes"
+                data-item-update="{{item._id}}"
+                data-item-target="system.notes"
+                type="text"
+                value="{{item.system.notes}}"
+                placeholder="{{item.system.informations}}"
+              />
+              {{! interval }}
+              <div class="item-controls">
+                <a
+                  class="item-control item-unequip"
+                  data-item-id="{{item._id}}"
+                  title="Unequip Item"
+                >
+                  <i class="fa-solid fa-backpack"></i>
+                </a>
+                <a class="item-control item-edit" title="Edit Item">
+                  <i class="fas fa-edit"></i>
+                </a>
+                <a class="item-control item-delete" title="Delete Item">
+                  <i class="fas fa-trash"></i>
+                </a>
+              </div>
+            </li>
+          {{/each}}
         </ol>
       </div>
     </div>
@@ -174,18 +246,27 @@
               {{item.name}}
               <span
                 class="item-type item-margin"
-              >{{item.system.gearType}}</span>
+              >{{item.system.subtypeLabel}}</span>
             </h4>
             <input
               class="item-info-line player-notes"
               data-item-update="{{item._id}}"
-              data-item-target="system.playerNotes"
+              data-item-target="system.notes"
               type="text"
-              value="{{item.system.playerNotes}}"
-              placeholder="{{item.system.notes}}"
+              value="{{item.system.notes}}"
+              placeholder="{{item.system.informations}}"
             />
             {{! interval }}
             <div class="item-controls">
+              {{#unless item.system.cantEquip}}
+                <a
+                  class="item-control item-equip"
+                  data-item-id="{{item._id}}"
+                  title="Equip Item"
+                >
+                  <i class="fa-solid fa-screwdriver-wrench"></i>
+                </a>
+              {{/unless}}
               <a class="item-control item-edit" title="Edit Item">
                 <i class="fas fa-edit"></i>
               </a>

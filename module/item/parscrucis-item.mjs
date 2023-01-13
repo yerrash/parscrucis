@@ -11,7 +11,7 @@ export class ParsCrucisItem extends Item {
   prepareData() {
     super.prepareData();
 
-    // console.log(this);
+    // console.log("DADOS ANTE-PREPARO!, this);
 
     // Get item data.
     const itemData = this;
@@ -19,13 +19,13 @@ export class ParsCrucisItem extends Item {
     const actionsData = systemData.actions;
 
     if (itemData.type === "weapon") {
-      systemData.weaponCategoryLabel =
-        game.i18n.localize(PC.weaponCategory[systemData.weaponCategory]) ??
-        systemData.weaponCategory;
+      systemData.categoryLabel =
+        game.i18n.localize(PC.weaponCategory[systemData.category]) ??
+        systemData.category;
 
-      systemData.weaponTypeLabel =
-        game.i18n.localize(PC.weaponType[systemData.weaponType]) ??
-        systemData.weaponType;
+      systemData.subtypeLabel =
+        game.i18n.localize(PC.weaponType[systemData.subtype]) ??
+        systemData.subtype;
 
       // Handle actions.
       for (let [key, act] of Object.entries(actionsData)) {
@@ -34,19 +34,38 @@ export class ParsCrucisItem extends Item {
         act.actionTypeLabel =
           game.i18n.localize(PC.actionType[act.actionType]) ?? act.actionType;
       }
+
+      if (systemData.subtype === "unarmed") {
+        systemData.unarmed = true;
+      } else systemData.unarmed = false;
     }
 
     if (itemData.type === "gear") {
-      systemData.gearCategoryLabel =
-        game.i18n.localize(PC.gearCategory[systemData.gearCategory]) ??
-        systemData.gearCategory;
+      systemData.categoryLabel =
+        game.i18n.localize(PC.gearCategory[systemData.category]) ??
+        systemData.category;
+
+      if (systemData.subtype === "none" || systemData.subtype === "") {
+        systemData.subtypeLabel = systemData.categoryLabel;
+      } else {
+        systemData.subtypeLabel =
+          game.i18n.localize(PC.gearCategory[systemData.subtype]) ??
+          systemData.subtype;
+      }
+
+      if (
+        systemData.category === "vest" ||
+        systemData.category === "accessory"
+      ) {
+        systemData.cantEquip = false;
+      } else systemData.cantEquip = true;
     }
 
     // Get item owner data.
     const actorData = this.actor ? this.actor : {};
 
-    // console.log("DADOS DO ATOR AQUI!!!!!!!!", actorData);
-    // console.log("DADOS DO ITEM AQUI!!!!!!!!", systemData);
+    // console.log("DADOS DO ATOR AQUI!", actorData);
+    // console.log("DADOS DO ITEM AQUI!", systemData);
   }
 
   prepareDerivedData() {

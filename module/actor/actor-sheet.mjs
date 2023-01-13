@@ -5,6 +5,8 @@ export default class ParsCrucisActorSheet extends ActorSheet {
       classes: ["parscrucis", "sheet", "parscrucis-actor-sheet"],
       width: 800,
       height: 680,
+      scrollY: ["section.inventory"],
+      title: "BULLSHIT",
       tabs: [
         {
           navSelector: ".navigation",
@@ -29,7 +31,6 @@ export default class ParsCrucisActorSheet extends ActorSheet {
     context.flags = actorData.flags;
 
     // Prepare  data and items.
-    // if (actorData.type == "persona") {}
     this._prepareItems(context);
     this._prepareCharacterData(context);
 
@@ -57,34 +58,57 @@ export default class ParsCrucisActorSheet extends ActorSheet {
     // Initialize containers.
     const weapons = [];
     const gear = [];
+    const vest = [];
+    const acc = [];
     const passives = [];
-    const abilities = [];
+    const powers = [];
+    const techniques = [];
 
     for (let i of context.items) {
       i.img = i.img || DEFAULT_TOKEN;
+
       // Append to gear.
       if (i.type === "gear") {
-        //  Ajustar os tipos de itens de acordo
-        gear.push(i);
+        // Separates equipped vest and accessories
+        if (i.system.category === "vest" && i.system.equipped === true) {
+          vest.push(i);
+        } else if (
+          i.system.category === "accessory" &&
+          i.system.equipped === true
+        ) {
+          acc.push(i);
+        } else gear.push(i);
         // Append weapons
       } else if (i.type === "weapon") {
-        weapons.push(i);
+        if (i.system.equipped === true || i.system.subtype === "unarmed") {
+          weapons.push(i);
+        } else {
+          gear.push(i);
+        }
       }
+
       // Append passive features - Benefits and Detriments
       else if (i.type === "passive") {
         passives.push(i);
       }
+
       // Append abilities - Techniques and Powers
       else if (i.type === "ability") {
-        abilities.push(i);
+        console.log("HERE");
+        if (i.system.category === "power") {
+          powers.push(i);
+        } else techniques.push(i);
       }
     }
 
     // Assign items and return
     context.weapons = weapons;
+    context.equippedVest = vest;
+    context.equippedAcc = acc;
     context.gear = gear;
     context.passives = passives;
-    context.abilities = abilities;
+    context.powers = powers;
+    context.techniques = techniques;
   }
 
   /**
@@ -109,6 +133,8 @@ export default class ParsCrucisActorSheet extends ActorSheet {
 
     // Add Inventory Item
     html.find(".item-create").click(this._onItemCreate.bind(this));
+    html.find(".item-equip").click(this._onItemEquip.bind(this));
+    html.find(".item-unequip").click(this._onItemUnequip.bind(this));
 
     // Render the item sheet for viewing/editing prior to the editable check.
     html.find(".item-edit").click((ev) => {
@@ -144,7 +170,7 @@ export default class ParsCrucisActorSheet extends ActorSheet {
     const type = element.dataset.type;
     const data = duplicate(element.dataset);
     // Initialize a default name.
-    const name = `New ${type.capitalize()}`;
+    const name = `${type.capitalize()}`;
     // Prepare the item object.
     const itemData = {
       name: name,
@@ -158,13 +184,27 @@ export default class ParsCrucisActorSheet extends ActorSheet {
     return await Item.create(itemData, { parent: this.actor });
   }
 
+  async _onItemEquip(event) {
+    event.preventDefault();
+    const itemId = event.currentTarget.dataset.itemId;
+    const item = this.actor.items.get(itemId);
+    return item.update({ ["system.equipped"]: true });
+  }
+
+  async _onItemUnequip(event) {
+    event.preventDefault();
+    const itemId = event.currentTarget.dataset.itemId;
+    const item = this.actor.items.get(itemId);
+    return item.update({ ["system.equipped"]: false });
+  }
+
   async _onNoteChange(event) {
     event.preventDefault();
     const element = event.currentTarget;
     const dataset = element.dataset;
-    const id = dataset.itemUpdate;
+    const itemId = dataset.itemUpdate;
     const target = dataset.itemTarget;
-    const item = this.actor.items.get(id);
+    const item = this.actor.items.get(itemId);
     item.update({ [`${target}`]: event.currentTarget.value });
   }
 
@@ -175,7 +215,6 @@ export default class ParsCrucisActorSheet extends ActorSheet {
    */
   async _onAttClick(event) {
     event.preventDefault();
-
     const element = event.currentTarget;
     const dataset = element.dataset;
     const attKey = dataset.attKey;
@@ -184,7 +223,6 @@ export default class ParsCrucisActorSheet extends ActorSheet {
     const attValue = attData.value;
     const label = attData.label;
     const flavor = `Teste de ${label}`;
-
     const roll = await Roll.create(
       `2d10+${attValue}+${attData.modifiers}`
     ).evaluate({ async: true });
@@ -200,7 +238,6 @@ export default class ParsCrucisActorSheet extends ActorSheet {
 
   async _onSkillClick(event) {
     event.preventDefault();
-
     const element = event.currentTarget;
     const dataset = element.dataset;
     const key = dataset.skillKey;
@@ -227,7 +264,6 @@ export default class ParsCrucisActorSheet extends ActorSheet {
 
   async _onActionClick(event) {
     event.preventDefault();
-
     const element = event.currentTarget;
     const dataset = element.dataset;
     const skillKey = dataset.action;

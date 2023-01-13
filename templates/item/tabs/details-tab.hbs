@@ -6,7 +6,6 @@
       <div class="action-mod">{{localize "PC.M"}}</div>
       <div class="action-damages">{{localize "PC.Damage"}}</div>
       <div class="action-range">{{localize "PC.Range"}}</div>
-      <div class="action-note">{{localize "PC.Note"}}</div>
       <div class="action-controls">
         <a
           class="action-control action-create"
@@ -63,11 +62,11 @@
                 localize=true}}
             </select>
             <select
-              class="dmg-att-div"
-              name="system.actions.{{obj}}.dmgAttDiv">
+              class="dmg-div"
+              name="system.actions.{{obj}}.dmgDiv">
                 {{selectOptions
                   ../config.damageScale
-                  selected=action.dmgAttDiv
+                  selected=action.dmgDiv
                   localize=true}}
             </select>
             </div>
@@ -89,11 +88,11 @@
                     localize=true}}
                 </select>
                 <select
-                  class="dmg-att-div"
-                  name="system.actions.{{obj}}.dmgAttDiv2">
+                  class="dmg-div"
+                  name="system.actions.{{obj}}.dmgDiv2">
                   {{selectOptions
                     ../config.damageScale
-                    selected=action.dmgAttDiv2
+                    selected=action.dmgDiv2
                     localize=true}}
                 </select>
               </div>
@@ -116,11 +115,11 @@
                     localize=true}}
                 </select>
                 <select
-                  class="dmg-att-div"
-                  name="system.actions.{{obj}}.dmgAttDiv">
+                  class="dmg-div"
+                  name="system.actions.{{obj}}.dmgDiv">
                   {{selectOptions
                     ../config.damageScale
-                    selected=action.dmgAttDiv
+                    selected=action.dmgDiv
                     localize=true}}
                 </select>
               </div>
@@ -128,9 +127,9 @@
           </div>
           <input
             class="damage-type"
-            name="system.actions.{{obj}}.damageType"
+            name="system.actions.{{obj}}.dmgType"
             type="text"
-            value="{{action.damageType}}"
+            value="{{action.dmgType}}"
             data-dtype="String"
           />
           </div>
@@ -141,9 +140,6 @@
             value="{{action.actionRange}}"
             data-dtype="String"
           />
-          <textarea
-            class="action-note"
-            name="system.actions.{{obj}}.actionNotes">{{action.actionNotes}}</textarea>
           <div class="action-controls">
           <input
             class="alternative-damage"
@@ -163,13 +159,22 @@
     {{/each}}
   </ol>
 </div>
-{{! Obs and Description here }}
+{{! Notes and Informations here }}
 <div class="window">
   <h3 class="subtitle">
-    <div class="action-note">{{localize "PC.Observations"}}</div>
+    <div class="action-note">{{localize "PC.Notes"}}</div>
   </h3>
   <textarea
     class="action-notes"
     name="system.notes"
   >{{item.system.notes}}</textarea>
+</div>
+<div class="window">
+  <h3 class="subtitle">
+    <div class="action-note">{{localize "PC.Informations"}}</div>
+  </h3>
+  <textarea
+    class="action-informations"
+    name="system.informations"
+  >{{item.system.informations}}</textarea>
 </div>

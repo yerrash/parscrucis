@@ -34,28 +34,28 @@ p {
   border-style: solid;
   border-color: #37373a7e;
 }
+.title-name {
+  width: 100%;
+  margin-right: 3px;
+  height: 23px;
+  .title-name_input {
+    width: 100%;
+    padding: 0;
+    border: none;
+    background: none;
+    font-family: "JMHArkham";
+    font-size: 26px;
+    padding: 0 0 4px 3px;
+  }
+}
 .superior {
   font-family: "Acme";
   display: flex;
   flex-direction: row;
   margin-bottom: 7px;
-  .char-name {
-    width: calc(100% - 160px);
-    margin-right: 3px;
-    height: 23px;
-    .name-input {
-      width: 100%;
-      padding: 0;
-      border: none;
-      background: none;
-      font-family: "JMHArkham";
-      font-size: 26px;
-      padding: 0 0 4px 3px;
-    }
-  }
 }
 .window {
-  padding: 4px 2px 0;
+  padding: 2px 2px 0;
   border: 1px solid rgba(128, 128, 128, 0.432);
   border-radius: 5px;
   margin: 0 0 7px 0;
@@ -78,15 +78,10 @@ p {
     display: flex;
     flex-direction: row;
     margin-bottom: 7px;
-    input {
-      border: 0;
-      border-radius: 3px;
-      padding: 0;
-    }
+    input,
     select {
       border: 0;
       border-radius: 3px;
-      padding: 0;
     }
     .profile-img {
       height: 155px;
@@ -103,6 +98,9 @@ p {
     .name-exp {
       display: flex;
       flex-direction: row;
+      .title-name {
+        width: calc(100% - 160px);
+      }
       .exp-bar,
       .ch-bar {
         width: 160px;
@@ -178,6 +176,7 @@ p {
           width: 100%;
           select,
           input {
+            padding: 0;
             height: 17px;
             font-size: 14px;
             flex-grow: 1;
@@ -345,6 +344,7 @@ p {
                   border-radius: 0 0 5px 0;
                   .stat-value {
                     width: 50%;
+                    font-size: 26px;
                   }
                   span {
                     height: 28px;
@@ -596,7 +596,7 @@ p {
         .skill-group {
           padding: 0;
           list-style-type: none;
-          padding: 4px 2px 0;
+          padding: 2px 2px 0;
           border: 1px solid rgba(128, 128, 128, 0.432);
           border-radius: 5px;
           margin: 0 0 7px 0;
@@ -710,7 +710,7 @@ p {
       flex-direction: row;
       justify-content: space-between;
       align-items: center;
-      height: 48px;
+      height: 52px;
       padding: 3px 2px;
       border: 1px solid #8080806e;
       border-radius: 5px;
@@ -748,11 +748,11 @@ p {
       justify-content: space-between;
     }
     .inventory {
-      max-height: calc(446px - 7px - 26px);
+      max-height: calc(446px - 7px - 52px);
       overflow-y: scroll;
       margin-bottom: 7px;
       .window {
-        padding-bottom: 2px;
+        padding-bottom: 1px;
       }
     }
     .items-list {
@@ -774,7 +774,7 @@ p {
           margin-right: 2px;
         }
         .item-name {
-          width: calc(23% - 8px);
+          width: calc(24% - 24px);
           text-overflow: ellipsis;
           white-space: nowrap;
           overflow: hidden;
@@ -789,13 +789,14 @@ p {
           flex-direction: column;
           align-items: stretch;
           justify-content: space-between;
-          width: calc(70% - 44px);
+          // width: calc(70% - 44px);
+          width: calc(38% - 7px);
           .item-action-line {
             display: flex;
             flex-direction: row;
             align-items: center;
             justify-content: space-between;
-            height: 19px;
+            height: 17px;
             border-color: #a3a3a3b4;
             border-style: dashed;
             border-width: 0 0 1px 0;
@@ -803,45 +804,50 @@ p {
           .item-action-line:last-child {
             border: none;
           }
+          .item-skill {
+            width: calc(25%);
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow: hidden;
+          }
+          .item-action {
+            width: calc(19%);
+            text-align: center;
+          }
+          .item-modifier {
+            width: calc(7%);
+            text-align: right;
+          }
+          .item-damage {
+            width: calc(20%);
+            text-align: center;
+          }
+          .item-range {
+            text-align: center;
+            width: calc(16%);
+          }
         }
 
-        .item-skill {
-          width: calc(11%);
+        .item-info,
+        .player-notes {
+          width: calc(38% - 45px);
           text-overflow: ellipsis;
           white-space: nowrap;
           overflow: hidden;
-        }
-        .item-action {
-          width: calc(10%);
-          text-align: center;
-        }
-        .item-modifier {
-          width: calc(4%);
-          text-align: right;
-        }
-        .item-damage {
-          width: calc(15%);
-          text-align: center;
-        }
-        .item-range {
-          text-align: center;
-          width: calc(10%);
         }
         .item-info-line {
-          width: 70%;
+          width: calc(76% - 50px);
         }
-        .item-info {
-          width: calc(50%);
-          text-overflow: ellipsis;
-          white-space: nowrap;
-          overflow: hidden;
+        .player-notes {
+          height: 19px;
+          padding-left: 3px;
         }
-        .item-defense {
-          width: calc(7% - 6px);
-          text-align: center;
-        }
+        // .item-defense {
+        //   width: calc(7% - 6px);
+        //   text-align: center;
+        // }
         .item-controls {
-          width: 29px;
+          width: 45px;
           margin-left: 3px;
           text-align: center;
         }
@@ -858,9 +864,11 @@ p {
         .item-name {
           font-size: 18px;
         }
-        .item-skill,
+        .item-skill {
+          font-size: 14.5px;
+        }
         .item-action {
-          font-size: 14px;
+          font-size: 14.5px;
         }
         .item-modifier {
         }
@@ -882,13 +890,18 @@ p {
           img {
             width: 21px;
             height: 21px;
+            border: none;
           }
         }
         .item-name {
-          font-size: 15px;
+          font-size: 15.5px;
+          font-family: "JMHArkham";
         }
         .item-skill {
-          font-size: 12px;
+          font-size: 14.5px;
+        }
+        .item-action {
+          font-size: 15.5px;
         }
         .item-modifier {
           font-size: 17px;
@@ -896,28 +909,25 @@ p {
         .item-damage {
           font-family: "SR";
           font-size: 21px;
+          height: 23px;
           span {
-            font-size: 16px;
+            font-size: 15.5px;
           }
         }
 
-        .item-defense {
-          display: flex;
-          flex-direction: row;
-          justify-content: space-around;
-          font-size: 22px;
-          height: 21px;
-          line-height: 21px;
-          .item-proj-defense {
-            font-size: 19px;
-            height: 21px;
-            line-height: 21px;
-          }
-        }
-
-        .player-notes {
-          height: 19px;
-        }
+        // .item-defense {
+        //   display: flex;
+        //   flex-direction: row;
+        //   justify-content: space-around;
+        //   font-size: 22px;
+        //   height: 21px;
+        //   line-height: 21px;
+        //   .item-proj-defense {
+        //     font-size: 19px;
+        //     height: 21px;
+        //     line-height: 21px;
+        //   }
+        // }
       }
     }
     .item-line:nth-child(2) {
@@ -945,6 +955,10 @@ p {
     //   margin: 0;
     //   height: 48px;
     // }
+    .general {
+      margin-bottom: 0;
+    }
+
     .key-currency-title {
       font-size: 16px;
     }
