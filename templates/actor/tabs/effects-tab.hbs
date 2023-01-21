@@ -1,5 +1,50 @@
-<section class="efeitos">
-  <p>Aqui seguem PASSIVAS</p>
-  <p>BENEFÍCIOS & MALECÍFICIOS</p>
-  <p>Outros EFEITOS</p>
+<section class="constants">
+  <div class="effects window">
+    <ol class="items-list">
+      <li class="item item-header">
+        <h3 class="subtitle">
+          <div class="item-image"></div>
+          <div class="item-name item-margim">{{localize "PC.effects"}}</div>
+          <div class="item-info-line">{{localize "PC.Notes"}}</div>
+          <div class="item-controls"><a
+              class="item-control item-create"
+              title="Create item"
+              data-type="effect"
+            ><i class="fas fa-plus"></i></a>
+          </div>
+        </h3>
+      </li>
+      {{#unless effects}}
+        <div class="empty-window">
+          {{localize "PC.no"}}
+          {{localize "PC.effects"}}.
+        </div>
+      {{/unless}}
+    </ol>
+  </div>
+  <div class="passives window">
+    <ol class="items-list">
+      <li class="item item-header">
+        <h3 class="subtitle">
+          <div class="item-image"></div>
+          <div class="item-name item-margim">{{localize "PC.passives"}}</div>
+          <div class="item-info-line">{{localize "PC.Notes"}}</div>
+          <div class="item-controls"><a
+              class="item-control item-create"
+              title="Create item"
+              data-type="passive"
+            ><i class="fas fa-plus"></i></a>
+          </div>
+        </h3>
+      </li>
+      {{#unless passives}}
+        <div class="empty-window">
+          {{localize "PC.no"}}
+          {{localize "PC.passives"}}.
+        </div>
+      {{/unless}}
+      <li>
+      </li>
+    </ol>
+  </div>
 </section>

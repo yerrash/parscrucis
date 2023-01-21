@@ -391,18 +391,6 @@ export class ParsCrucisActor extends Actor {
           ac.derivedDamage = dmgResult >= 0 ? dmgResult : 0;
         }
       }
-
-      const skillData = skillsData[wepSD.actions[0].actionSkill];
-      let derivedDefense =
-        wepSD.defense + skillData.value + skillData.modifiers;
-      let derivedProjDef =
-        wepSD.projDef + skillData.value + skillData.modifiers;
-
-      derivedDefense >= 10 ? derivedDefense : (derivedDefense = 10);
-      derivedProjDef >= 10 ? derivedProjDef : (derivedProjDef = 10);
-
-      wepSD.defense ? (wepSD.derivedDefense = derivedDefense) : null;
-      wepSD.projDef ? (wepSD.derivedProjDef = derivedProjDef) : null;
     }
   }
 

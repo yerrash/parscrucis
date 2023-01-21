@@ -89,7 +89,7 @@
   "PC.skills": "Perícias",
   "PC.inventory": "Inventário",
   "PC.abilities": "Habilidades",
-  "PC.effects": "Efeitos",
+  "PC.constants": "Constantes",
   "PC.biography": "Biografia",
   "PC.information": "Registros",
 
@@ -353,5 +353,9 @@
   "PC.Powers": "Poderes",
 
   "PC.technique": "Técnica",
-  "PC.power": "Poder"
+  "PC.power": "Poder",
+
+  "PC.effects": "Efeitos",
+  "PC.passives": "Passivas",
+  "PC.no": "Sem"
 }

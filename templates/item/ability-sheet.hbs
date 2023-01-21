@@ -57,7 +57,15 @@
       </div>
     </div>
     <div class="tab" data-tab="details">
-      DETALHES DO ITEM AQUI - Não funcional
+      <div class="window">
+        <h3 class="subtitle">
+          <div class="action-note">{{localize "PC.Observations"}}</div>
+        </h3>
+        <textarea
+          class="action-notes"
+          name="system.notes"
+        >{{item.system.notes}}</textarea>
+      </div>
     </div>
   </div>
 </form>

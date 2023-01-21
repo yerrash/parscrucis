@@ -150,6 +150,9 @@ p {
   border-radius: 5px;
   margin: 0 0 7px 0;
 }
+.window:last-child {
+  margin: 0;
+}
 .parscrucis-actor-sheet {
   min-width: 800px;
   min-height: 680px;
@@ -832,6 +835,15 @@ p {
 .parscrucis-actor-sheet .tab-content .lists .list-lines .list-input:first-child {
   margin-bottom: 2px;
 }
+.parscrucis-actor-sheet .tab-content .item-edit {
+  margin-right: -2px;
+}
+.parscrucis-actor-sheet .tab-content .item-edit:hover {
+  text-shadow: 0 0 8px #ff6600;
+}
+.parscrucis-actor-sheet .tab-content .item-equip:hover {
+  text-shadow: 0 0 8px #4c00ff;
+}
 .parscrucis-actor-sheet .tab-content .splinter {
   height: 100%;
   display: flex;
@@ -867,7 +879,7 @@ p {
   margin-right: 2px;
 }
 .parscrucis-actor-sheet .tab-content .items-list .item .item-name {
-  width: calc(24% - 24px);
+  width: calc(24% - 21px);
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
@@ -921,7 +933,7 @@ p {
 }
 .parscrucis-actor-sheet .tab-content .items-list .item .item-info,
 .parscrucis-actor-sheet .tab-content .items-list .item .player-notes {
-  width: calc(38% - 45px);
+  width: calc(38% - 43px);
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
@@ -934,9 +946,8 @@ p {
   padding-left: 3px;
 }
 .parscrucis-actor-sheet .tab-content .items-list .item .item-controls {
-  width: 45px;
-  margin-left: 3px;
-  text-align: center;
+  width: 43px;
+  text-align: right;
 }
 .parscrucis-actor-sheet .tab-content .items-list .item-header .subtitle {
   font-size: 16px;
@@ -1000,6 +1011,9 @@ p {
 .parscrucis-actor-sheet .tab-content .item-line:last-child {
   padding-bottom: 0;
   border-width: 0 0 0 0;
+}
+.parscrucis-actor-sheet .tab-content .wear {
+  margin-bottom: 7px;
 }
 .parscrucis-actor-sheet .tab-content .general {
   margin-bottom: 0;

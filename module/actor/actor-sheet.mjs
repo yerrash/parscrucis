@@ -208,6 +208,16 @@ export default class ParsCrucisActorSheet extends ActorSheet {
     item.update({ [`${target}`]: event.currentTarget.value });
   }
 
+  dice(event) {
+    let dice = "2d10";
+    if (event.shiftKey === true) {
+      dice = "3d10kh2";
+    } else if (event.ctrlKey === true) {
+      dice = "3d10kl2";
+    }
+    return dice;
+  }
+
   /**
    * Handle clickable attribute rolls.
    * @param {Event} event The originating click event
@@ -222,9 +232,11 @@ export default class ParsCrucisActorSheet extends ActorSheet {
     const attData = this.actor.system[attType][attKey];
     const attValue = attData.value;
     const label = attData.label;
+
     const flavor = `Teste de ${label}`;
+    let dice = this.dice(event);
     const roll = await Roll.create(
-      `2d10+${attValue}+${attData.modifiers}`
+      `${dice}+${attValue}+${attData.modifiers}`
     ).evaluate({ async: true });
 
     roll.toMessage({
@@ -248,14 +260,15 @@ export default class ParsCrucisActorSheet extends ActorSheet {
       return;
     }
 
-    const label = `Teste de ${dataset.label}`;
+    const flavor = `Teste de ${dataset.label}`;
+    let dice = this.dice(event);
     const roll = await Roll.create(
-      `2d10+${skillValue}+${skillData.modifiers}`
+      `${dice}+${skillValue}+${skillData.modifiers}`
     ).evaluate({ async: true });
 
     roll.toMessage({
       speaker: ChatMessage.getSpeaker({ actor: this.actor }),
-      flavor: label,
+      flavor: flavor,
       rollMode: game.settings.get("core", "rollMode"),
     });
 
@@ -273,14 +286,16 @@ export default class ParsCrucisActorSheet extends ActorSheet {
     const itemId = dataset.itemId;
     const itemData = this.actor.items.get(itemId);
     const actionData = itemData.system.actions[actionKey];
-    const label = `${itemData.name}, ${actionData.actionSkillLabel} - ${actionData.actionTypeLabel}`;
+
+    const flavor = `${itemData.name}, ${actionData.actionSkillLabel} - ${actionData.actionTypeLabel}`;
+    let dice = this.dice(event);
     const roll = await Roll.create(
-      `2d10+${skillResult}+${actionData.actionModifier}`
+      `${dice}+${skillResult}+${actionData.actionModifier}`
     ).evaluate({ async: true });
 
     roll.toMessage({
       speaker: ChatMessage.getSpeaker({ actor: this.actor }),
-      flavor: label,
+      flavor: flavor,
       rollMode: game.settings.get("core", "rollMode"),
     });
 

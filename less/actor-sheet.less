@@ -60,6 +60,9 @@ p {
   border-radius: 5px;
   margin: 0 0 7px 0;
 }
+.window:last-child {
+  margin: 0;
+}
 .parscrucis-actor-sheet {
   min-width: 800px;
   min-height: 680px;
@@ -741,6 +744,15 @@ p {
     }
 
     // Inventory tab
+    .item-edit {
+      margin-right: -2px;
+    }
+    .item-edit:hover {
+      text-shadow: 0 0 8px #ff6600;
+    }
+    .item-equip:hover {
+      text-shadow: 0 0 8px #4c00ff;
+    }
     .splinter {
       height: 100%;
       display: flex;
@@ -774,7 +786,7 @@ p {
           margin-right: 2px;
         }
         .item-name {
-          width: calc(24% - 24px);
+          width: calc(24% - 21px);
           text-overflow: ellipsis;
           white-space: nowrap;
           overflow: hidden;
@@ -830,7 +842,7 @@ p {
 
         .item-info,
         .player-notes {
-          width: calc(38% - 45px);
+          width: calc(38% - 43px);
           text-overflow: ellipsis;
           white-space: nowrap;
           overflow: hidden;
@@ -847,9 +859,8 @@ p {
         //   text-align: center;
         // }
         .item-controls {
-          width: 45px;
-          margin-left: 3px;
-          text-align: center;
+          width: 43px;
+          text-align: right;
         }
       }
       .item-header {
@@ -946,15 +957,16 @@ p {
     //   }
     //   .vest {
     //     margin-right: 7px;
-    //   }
-    //   .accessories {
-    //   }
     // }
 
     // .inventory-footer {
     //   margin: 0;
     //   height: 48px;
     // }
+
+    .wear {
+      margin-bottom: 7px;
+    }
     .general {
       margin-bottom: 0;
     }

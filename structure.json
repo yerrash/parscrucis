@@ -1,0 +1,41 @@
+{
+  "weaponAbility": {
+    "img": "icons/magic/light/hand-sparks-glow-yellow.webp",
+    "name": "name",
+    "system": {
+      "active": true,
+      "": 0,
+      "actions": {
+        "skill": "chronoscience",
+        "range": "20/80",
+        "modifier": 4,
+        "inputModifier": null,
+        "type": "afliction",
+        "damage": true,
+        "healing": true,
+        "speed": "3AC",
+        "effort": "3-5",
+        "fixedDmg": false,
+
+        "att": "esp",
+        "base": 5,
+        "div": "att50",
+        "att2": "esp",
+        "base2": 5,
+        "div2": "att50",
+        "derivedDmage": 10
+      },
+      "derived": "item/abilityID",
+      "category": "power",
+      "categoryLabel": "Poder",
+      "subtype": "combat",
+      "description": "Poder que serve como exemplo ao objeto",
+      "informations": "Efeitos bem descritos, funcionais!",
+      "notes": "Resumo do poder",
+      "exp": 2,
+      "quality": "esoteric",
+      "requisites": "Perícia desconhecida N3"
+    },
+    "type": "ability"
+  }
+}

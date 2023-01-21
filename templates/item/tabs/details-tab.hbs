@@ -42,34 +42,34 @@
           data-dtype="Number"
         />
         <div class="action-damages">
-        <div class="action-dmg">
-          {{#if action.altDamage}}
-            <div class="dmg-line alternative">
-            <input
-              class="dmg-base"
-              name="system.actions.{{obj}}.dmgBase"
-              type="Number"
-              value="{{action.dmgBase}}"
-              data-dtype="Number"
-            />
-            <span class="dmg-plus">+</span>
-            <select
-              class="dmg-att"
-              name="system.actions.{{obj}}.dmgAtt">
-              {{selectOptions 
-                ../config.attributes
-                selected=action.dmgAtt 
-                localize=true}}
-            </select>
-            <select
-              class="dmg-div"
-              name="system.actions.{{obj}}.dmgDiv">
-                {{selectOptions
-                  ../config.damageScale
-                  selected=action.dmgDiv
-                  localize=true}}
-            </select>
-            </div>
+          <div class="action-dmg">
+            {{#if action.altDamage}}
+              <div class="dmg-line alternative">
+                <input
+                  class="dmg-base"
+                  name="system.actions.{{obj}}.dmgBase"
+                  type="Number"
+                  value="{{action.dmgBase2}}"
+                  data-dtype="Number"
+                />
+                <span class="dmg-plus">+</span>
+                <select 
+                  class="dmg-att"
+                  name="system.actions.{{obj}}.dmgAtt">
+                  {{selectOptions 
+                    ../config.attributes
+                    selected=action.dmgAtt2 
+                    localize=true}}
+                </select>
+                <select
+                  class="dmg-div"
+                  name="system.actions.{{obj}}.dmgDiv">
+                  {{selectOptions
+                    ../config.damageScale
+                    selected=action.dmgDiv2
+                    localize=true}}
+                </select>
+              </div>
               <div class="dmg-line alternative">
                 <input
                   class="dmg-base"
@@ -132,15 +132,15 @@
             value="{{action.dmgType}}"
             data-dtype="String"
           />
-          </div>
-          <input
-            class="action-range"
-            name="system.actions.{{obj}}.actionRange"
-            type="text"
-            value="{{action.actionRange}}"
-            data-dtype="String"
-          />
-          <div class="action-controls">
+        </div>
+        <input
+          class="action-range"
+          name="system.actions.{{obj}}.actionRange"
+          type="text"
+          value="{{action.actionRange}}"
+          data-dtype="String"
+        />
+        <div class="action-controls">
           <input
             class="alternative-damage"
             {{checked action.altDamage}}
@@ -153,7 +153,7 @@
             title="Delete Action"
             data-type="actions"
             data-index="{{@key}}"
-          ><i class="fas fa-trash"></i></a>
+          ><i class="fa-solid fa-trash-can"></i></a>
         </div>
       </li>
     {{/each}}
