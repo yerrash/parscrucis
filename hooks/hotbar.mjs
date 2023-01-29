@@ -1,6 +1,5 @@
 export default function () {
   Hooks.on("hotbarDrop", (bar, data, slot) => {
-    // console.log(bar, data, slot);
     if (data.type === "Actor" || data.type === "Item") {
       handleMacroCreation(bar, data, slot);
       return false;

@@ -4,11 +4,11 @@
       <li class="item item-header">
         <h3 class="subtitle">
           <div class="item-image"></div>
-          <div class="item-name item-margin">{{localize "PC.Techniques"}}</div>
+          <div class="item-name item-margin">{{localize "PC.techniques"}}</div>
           <div class="item-info-line">{{localize "PC.Notes"}}</div>
           <div class="item-controls"><a
               class="item-control item-create"
-              title="Create item"
+              title="{{localize 'PC.createAbility'}}"
               data-type="ability"
             ><i class="fas fa-plus"></i></a>
           </div>
@@ -17,7 +17,7 @@
       {{#unless techniques}}
         <div class="empty-window">
           {{localize "PC.no"}}
-          {{localize "PC.Techniques"}}.
+          {{localize "PC.techniques"}}.
         </div>
       {{/unless}}
       {{#each techniques as |item id|}}
@@ -46,10 +46,13 @@
           />
           {{! interval }}
           <div class="item-controls">
-            <a class="item-control item-edit" title="Edit Item">
+            <a class="item-control item-edit" title="{{localize 'PC.edit'}}">
               <i class="fas fa-edit"></i>
             </a>
-            <a class="item-control item-delete" title="Delete Item">
+            <a
+              class="item-control item-delete"
+              title="{{localize 'PC.delete'}}"
+            >
               <i class="fa-solid fa-trash-can"></i>
             </a>
           </div>
@@ -62,11 +65,11 @@
       <li class="item item-header">
         <h3 class="subtitle">
           <div class="item-image"></div>
-          <div class="item-name item-margin">{{localize "PC.Powers"}}</div>
+          <div class="item-name item-margin">{{localize "PC.powers"}}</div>
           <div class="item-info-line">{{localize "PC.Notes"}}</div>
           <div class="item-controls"><a
               class="item-control item-create"
-              title="Create item"
+              title="{{localize 'PC.createAbility'}}"
               data-type="ability"
             ><i class="fas fa-plus"></i></a>
           </div>
@@ -75,7 +78,7 @@
       {{#unless powers}}
         <div class="empty-window">
           {{localize "PC.no"}}
-          {{localize "PC.Powers"}}.
+          {{localize "PC.powers"}}.
         </div>
       {{/unless}}
       {{#each powers as |item id|}}
@@ -104,10 +107,13 @@
           />
           {{! interval }}
           <div class="item-controls">
-            <a class="item-control item-edit" title="Edit Item">
+            <a class="item-control item-edit" title="{{localize 'PC.edit'}}">
               <i class="fas fa-edit"></i>
             </a>
-            <a class="item-control item-delete" title="Delete Item">
+            <a
+              class="item-control item-delete"
+              title="{{localize 'PC.delete'}}"
+            >
               <i class="fa-solid fa-trash-can"></i>
             </a>
           </div>

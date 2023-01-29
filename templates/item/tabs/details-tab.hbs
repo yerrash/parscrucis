@@ -49,7 +49,7 @@
                   class="dmg-base"
                   name="system.actions.{{obj}}.dmgBase"
                   type="Number"
-                  value="{{action.dmgBase2}}"
+                  value="{{action.dmgBase}}"
                   data-dtype="Number"
                 />
                 <span class="dmg-plus">+</span>
@@ -58,7 +58,7 @@
                   name="system.actions.{{obj}}.dmgAtt">
                   {{selectOptions 
                     ../config.attributes
-                    selected=action.dmgAtt2 
+                    selected=action.dmgAtt 
                     localize=true}}
                 </select>
                 <select
@@ -66,7 +66,7 @@
                   name="system.actions.{{obj}}.dmgDiv">
                   {{selectOptions
                     ../config.damageScale
-                    selected=action.dmgDiv2
+                    selected=action.dmgDiv
                     localize=true}}
                 </select>
               </div>

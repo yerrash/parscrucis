@@ -6,12 +6,7 @@
           <div class="item-image"></div>
           <div class="item-name item-margim">{{localize "PC.effects"}}</div>
           <div class="item-info-line">{{localize "PC.Notes"}}</div>
-          <div class="item-controls"><a
-              class="item-control item-create"
-              title="Create item"
-              data-type="effect"
-            ><i class="fas fa-plus"></i></a>
-          </div>
+          <div class="item-controls"></div>
         </h3>
       </li>
       {{#unless effects}}
@@ -31,7 +26,7 @@
           <div class="item-info-line">{{localize "PC.Notes"}}</div>
           <div class="item-controls"><a
               class="item-control item-create"
-              title="Create item"
+              title="{{localize 'PC.createPassive'}}"
               data-type="passive"
             ><i class="fas fa-plus"></i></a>
           </div>
@@ -43,8 +38,44 @@
           {{localize "PC.passives"}}.
         </div>
       {{/unless}}
-      <li>
-      </li>
+      {{#each passives as |item id|}}
+        <li class="item item-line" data-item-id="{{item._id}}">
+          <div class="item-image">
+            <img
+              src="{{item.img}}"
+              title="{{item.name}}"
+              width="24"
+              height="24"
+            />
+          </div>
+          <h4 class="item-name item-margin">
+            {{item.name}}
+            <span
+              class="item-type item-margin"
+            >{{item.system.subtypeLabel}}</span>
+          </h4>
+          <input
+            class="item-info-line player-notes"
+            data-item-update="{{item._id}}"
+            data-item-target="system.notes"
+            type="text"
+            value="{{item.system.notes}}"
+            placeholder="{{item.system.informations}}"
+          />
+          {{! interval }}
+          <div class="item-controls">
+            <a class="item-control item-edit" title="{{localize 'PC.edit'}}">
+              <i class="fas fa-edit"></i>
+            </a>
+            <a
+              class="item-control item-delete"
+              title="{{localize 'PC.delete'}}"
+            >
+              <i class="fa-solid fa-trash-can"></i>
+            </a>
+          </div>
+        </li>
+      {{/each}}
     </ol>
   </div>
 </section>

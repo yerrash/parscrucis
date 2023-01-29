@@ -50,6 +50,7 @@
   "PC.sabi": "Sábio",
 
   "PC.XP": "XP",
+  "PC.PTS": "PTS",
   "PC.CH": "DS",
   "PC.Challenge": "Desafio!",
 
@@ -182,8 +183,7 @@
   "PC.E": "E",
   "PC.Effort": "Esforço",
   "PC.Weaponry": "Armamentos",
-  "PC.Vest": "Vestimenta",
-  "PC.Accessories": "Acessórios",
+  "PC.accessories": "Acessórios",
   "PC.Items": "Itens",
   "PC.Skill": "Perícia",
   "PC.Hard": "Difícil",
@@ -349,13 +349,31 @@
   "PC.dttDmg": "dtt",
   "PC.essDmg": "ess",
 
-  "PC.Techniques": "Técnicas",
-  "PC.Powers": "Poderes",
+  "PC.techniques": "Técnicas",
+  "PC.powers": "Poderes",
 
   "PC.technique": "Técnica",
   "PC.power": "Poder",
 
   "PC.effects": "Efeitos",
+  "PC.weapon": "Arma",
   "PC.passives": "Passivas",
-  "PC.no": "Sem"
+  "PC.passive": "Passiva",
+  "PC.gear": "Item",
+  "PC.ability": "Habilidade",
+  "PC.no": "Sem",
+
+  "PC.createWeapon": "Criar Armamento",
+  "PC.createGear": "Criar Item",
+  "PC.createAbility": "Criar Habilidade",
+  "PC.createPassive": "CriarPassiva",
+  "PC.equip": "Equipar",
+  "PC.unequip": "Retirar",
+  "PC.edit": "Editar",
+  "PC.delete": "Deletar",
+
+  "PC.benefit": "Benefício",
+  "PC.flaw": "Malefício",
+  "PC.racial": "Racial",
+  "PC.derived": "Derivada"
 }

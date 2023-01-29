@@ -3,22 +3,6 @@
   src: url("fonts/Acme-Regular.ttf");
 }
 @font-face {
-  font-family: "AcmeGCR";
-  src: url("fonts/Acme Gothic Condensed Regular.otf");
-}
-@font-face {
-  font-family: "AcmeGCSB";
-  src: url("fonts/Acme Gothic Condensed Semi Bold.otf");
-}
-@font-face {
-  font-family: "AcmeGWR";
-  src: url("fonts/Acme Gothic Wide Regular.otf");
-}
-@font-face {
-  font-family: "AcmeGWSB";
-  src: url("fonts/Acme Gothic Wide Semi Bold.otf");
-}
-@font-face {
   font-family: "IMFellEnglishSC";
   src: url("fonts/IMFellEnglishSC-Regular.ttf");
 }
@@ -128,15 +112,16 @@ p {
   width: 100%;
   margin-right: 3px;
   height: 23px;
+  padding-left: 70px;
 }
 .title-name .title-name_input {
   width: 100%;
-  padding: 0;
-  border: none;
-  background: none;
   font-family: "JMHArkham";
   font-size: 26px;
+  height: 32px;
   padding: 0 0 4px 3px;
+  position: relative;
+  top: -3px;
 }
 .superior {
   font-family: "Acme";
@@ -149,6 +134,7 @@ p {
   border: 1px solid rgba(128, 128, 128, 0.432);
   border-radius: 5px;
   margin: 0 0 7px 0;
+  background-color: #ebe7dce0;
 }
 .window:last-child {
   margin: 0;
@@ -177,13 +163,18 @@ p {
 .parscrucis-actor-sheet .superior select {
   border: 0;
   border-radius: 3px;
+  background: transparent;
+}
+.parscrucis-actor-sheet .superior select {
+  appearance: none;
 }
 .parscrucis-actor-sheet .superior .profile-img {
   height: 155px;
   width: 155px;
-  margin-right: -5px;
+  margin-right: -75px;
   margin-bottom: -5px;
   border: none;
+  position: relative;
 }
 .parscrucis-actor-sheet .superior .superior-right {
   height: 152px;
@@ -206,6 +197,7 @@ p {
   border-radius: 5px;
   padding-left: 3px;
   height: 20px;
+  background: #ebe7dce0;
 }
 .parscrucis-actor-sheet .superior .name-exp .exp-bar :last-child,
 .parscrucis-actor-sheet .superior .name-exp .ch-bar :last-child {
@@ -275,6 +267,8 @@ p {
   border-radius: 0 0 5px 0;
   width: calc(100% - 160px);
   padding: 1px 0;
+  background: #ebe7dce0;
+  padding-left: 70px;
 }
 .parscrucis-actor-sheet .superior .stats-window .left-window .racial {
   display: flex;
@@ -284,10 +278,16 @@ p {
 .parscrucis-actor-sheet .superior .stats-window .left-window .racial select,
 .parscrucis-actor-sheet .superior .stats-window .left-window .racial input {
   padding: 0;
-  height: 17px;
+  height: 18px;
   font-size: 14px;
   flex-grow: 1;
-  margin: 1px 2px 1px 0;
+  margin: -1px 2px 1px 0;
+  padding-top: 1px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.parscrucis-actor-sheet .superior .stats-window .left-window .racial input {
+  width: 17%;
 }
 .parscrucis-actor-sheet .superior .stats-window .left-window .racial select:last-child,
 .parscrucis-actor-sheet .superior .stats-window .left-window .racial input:last-child {
@@ -321,6 +321,7 @@ p {
   font-family: "IMFellEnglishSC";
   font-weight: 700;
   height: 19px;
+  font-size: 19px;
 }
 .parscrucis-actor-sheet .superior .stats-window .left-window .att-partial .attributes .stat-name a,
 .parscrucis-actor-sheet .superior .stats-window .left-window .att-partial .attributes .stat-name div {
@@ -394,7 +395,8 @@ p {
   font-size: 32px;
   font-weight: bold;
   width: 0;
-  margin-left: -10px;
+  position: relative;
+  right: 5px;
 }
 .parscrucis-actor-sheet .superior .stats-window .left-window .att-partial .attributes .movement .sprint {
   width: calc(50% - 0px);
@@ -494,6 +496,7 @@ p {
   padding: 0 2px 2px;
   border: 1px solid #8080806e;
   border-radius: 5px;
+  background: #ebe7dce0;
 }
 .parscrucis-actor-sheet .superior .stats-window .right-window p {
   margin: 0;
@@ -624,11 +627,15 @@ p {
 .parscrucis-actor-sheet .superior .stats-window .right-window .minors .minor-num .minor-value {
   width: 70%;
   font-size: 23px;
+  padding: 0;
   margin-right: 2px;
+  font-family: "SR";
 }
 .parscrucis-actor-sheet .superior .stats-window .right-window .minors .minor-num .minor-modifier {
   width: 54%;
   font-size: 17px;
+  padding: 0;
+  font-family: "SR";
 }
 .parscrucis-actor-sheet .superior .stats-window .right-window .minors .luck-num {
   display: flex;
@@ -701,6 +708,7 @@ p {
   border: 1px solid rgba(128, 128, 128, 0.432);
   border-radius: 5px;
   margin: 0 0 7px 0;
+  background-color: #ebe7dce0;
 }
 .parscrucis-actor-sheet .tab-content .skills-tab .grouping .skill-group .group-title {
   display: flex;
@@ -712,7 +720,7 @@ p {
 }
 .parscrucis-actor-sheet .tab-content .skills-tab .grouping .skill-group .group-title .tag-lvl {
   width: 10%;
-  padding-right: 3px;
+  padding-right: 1px;
   font-size: 16px;
   text-align: right;
 }
@@ -770,7 +778,7 @@ p {
 }
 .parscrucis-actor-sheet .tab-content .skills-tab .grouping .skill-group .skill .skill-title {
   padding-left: 2px;
-  width: calc(50% + 6px - 14px);
+  width: calc(50% + 6px - 12px);
 }
 .parscrucis-actor-sheet .tab-content .skills-tab .grouping .skill-group .skill .pdm-skill-title {
   width: calc(50% + 6px + 5px);
@@ -786,20 +794,24 @@ p {
   text-align: center;
 }
 .parscrucis-actor-sheet .tab-content .skills-tab .grouping .skill-group .skill input {
-  border-radius: 3px;
-  padding: 0 3px 0 0;
-  margin: 0 0 0 3px;
   height: 18px;
+  padding: 0;
+  border-radius: 3px;
+  margin: 0 0 0 3px;
   text-align: right;
+  background: transparent;
+  font-family: "SR";
 }
 .parscrucis-actor-sheet .tab-content .skills-tab .grouping .skill-group .skill .skill-value {
   width: 10%;
+  font-size: 20px;
   font-weight: 700;
-  font-size: 17px;
 }
 .parscrucis-actor-sheet .tab-content .skills-tab .grouping .skill-group .skill .skill-mod {
   width: 10%;
+  font-size: 17px;
   padding: 0 1px 0 0;
+  margin: 0;
 }
 .parscrucis-actor-sheet .tab-content .lists {
   display: flex;
@@ -811,6 +823,7 @@ p {
   border: 1px solid #8080806e;
   border-radius: 5px;
   font-size: 15px;
+  background-color: #ebe7dce0;
 }
 .parscrucis-actor-sheet .tab-content .lists p {
   margin: 0;
@@ -831,6 +844,7 @@ p {
   font-size: 14px;
   height: 19px;
   padding-left: 2px;
+  background: transparent;
 }
 .parscrucis-actor-sheet .tab-content .lists .list-lines .list-input:first-child {
   margin-bottom: 2px;
@@ -861,7 +875,7 @@ p {
 .parscrucis-actor-sheet .tab-content .items-list {
   margin: 0;
   padding: 0;
-  min-height: 41px;
+  min-height: 39px;
 }
 .parscrucis-actor-sheet .tab-content .items-list .subtitle {
   display: flex;
@@ -937,6 +951,7 @@ p {
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
+  background: transparent;
 }
 .parscrucis-actor-sheet .tab-content .items-list .item .item-info-line {
   width: calc(76% - 50px);
@@ -1037,6 +1052,9 @@ p {
   height: 19px;
   margin-right: 2px;
 }
+.parscrucis-actor-sheet .tab-content .currencies .currency input {
+  background: transparent;
+}
 .parscrucis-actor-sheet .tab-content .currencies .currency .currency-current {
   height: 19px;
   width: 45%;
@@ -1061,7 +1079,10 @@ p {
   overflow-y: scroll;
 }
 .parscrucis-actor-sheet .tab-content .abilities .window {
-  padding-bottom: 2px;
+  padding-bottom: 1px;
+}
+.parscrucis-actor-sheet .tab-content .constants .window {
+  padding-bottom: 1px;
 }
 .parscrucis-actor-sheet .tab-content .info-tab {
   display: flex;
@@ -1097,6 +1118,7 @@ p {
   margin: 2px 1px;
   padding-left: 2px;
   margin-left: 3px;
+  background: transparent;
 }
 .parscrucis-actor-sheet .tab-content .info-tab .info-windows {
   display: flex;
@@ -1151,6 +1173,13 @@ p {
   max-height: 134px;
   margin: 0;
 }
+.parscrucis-actor-sheet .empty-window {
+  height: 21px;
+  font-family: "JMHArkham";
+  font-size: 14.5px;
+  color: gray;
+  margin-left: 24px;
+}
 .parscrucis-item-sheet {
   min-width: 600px;
   min-height: 440px;
@@ -1172,6 +1201,10 @@ p {
   border: 0;
   border-radius: 3px;
   padding: 0;
+  background: transparent;
+}
+.parscrucis-item-sheet .weapon-sheet select {
+  appearance: none;
 }
 .parscrucis-item-sheet .sheet-content {
   height: 100%;
@@ -1180,6 +1213,9 @@ p {
 }
 .parscrucis-item-sheet .weapon-content {
   justify-content: space-between;
+}
+.parscrucis-item-sheet .superior .title-name {
+  padding-left: 0;
 }
 .parscrucis-item-sheet .superior .title-name input {
   padding: 0 0 4px 3px;
@@ -1198,6 +1234,7 @@ p {
   border: 1px solid rgba(128, 128, 128, 0.432);
   border-width: 0 1px 1px 0;
   border-radius: 0 0 5px 0;
+  background: #ebe7dce0;
 }
 .parscrucis-item-sheet .superior .item-header-right .item-header-upper {
   display: flex;
@@ -1206,10 +1243,10 @@ p {
 }
 .parscrucis-item-sheet .superior .item-header-right .item-header-upper select,
 .parscrucis-item-sheet .superior .item-header-right .item-header-upper input {
-  height: 17px;
+  height: 18px;
   font-size: 14px;
   flex-grow: 1;
-  margin: 1px 2px;
+  margin: -1px 2px 1px 0;
   width: 33%;
 }
 .parscrucis-item-sheet .superior .item-header-right .item-header-upper input {
@@ -1233,7 +1270,7 @@ p {
   flex-wrap: nowrap;
   justify-content: space-between;
   width: 100%;
-  height: 37px;
+  height: 38px;
 }
 .parscrucis-item-sheet .superior .item-header-right .item-header-lower .minor {
   width: 75px;
@@ -1529,7 +1566,7 @@ p {
   text-align: justify;
 }
 .parscrucis-item-sheet textarea.action-informations {
-  height: 54px;
+  height: 84px;
 }
 .parscrucis-item-sheet .bio {
   height: 110px;

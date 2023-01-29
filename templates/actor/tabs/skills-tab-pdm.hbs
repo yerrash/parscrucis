@@ -33,13 +33,17 @@
                 value="{{sk.value}}"
                 data-dtype="Number"
               />
-              <input
-                class="skill-mod"
-                name="system.skills.{{@key}}.modifiers"
-                type="Number"
-                value="{{sk.modifiers}}"
-                data-dtype="Number"
-              />
+              {{#if sk.disabled}}
+                <div class="skill-mod"></div>
+              {{else}}
+                <input
+                  class="skill-mod"
+                  name="system.skills.{{@key}}.modifiers"
+                  type="text"
+                  value="{{numberFormat sk.modifiers sign=true}}"
+                  data-dtype="Number"
+                />
+              {{/if}}
             </li>
           {{/with}}
         {{/each}}

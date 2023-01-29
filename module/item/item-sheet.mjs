@@ -11,7 +11,7 @@ export default class ParsCrucisItemSheet extends ItemSheet {
         {
           navSelector: ".navigation",
           contentSelector: ".tab-content",
-          initial: "details",
+          initial: "description",
         },
       ],
     });

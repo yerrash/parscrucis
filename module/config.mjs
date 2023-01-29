@@ -497,3 +497,10 @@ PC.abilityCategory = {
   technique: "PC.technique",
   power: "PC.power",
 };
+
+PC.passiveType = {
+  benefit: "PC.benefit",
+  flaw: "PC.flaw",
+  racial: "PC.racial",
+  derived: "PC.derived",
+};

@@ -46,6 +46,11 @@
             <select name="system.details.culture">
               {{selectOptions config.culture selected=actor.system.details.culture localize=true}}
             </select>
+            <input 
+              name="system.details.group"
+              type="text"
+              value="{{systemData.details.group}}"
+            />
             <select name="system.details.persona">
               {{selectOptions config.persona selected=actor.system.details.persona localize=true}}
             </select>

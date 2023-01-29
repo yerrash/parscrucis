@@ -9,7 +9,7 @@
           <input
             class="mit-value"
             name="system.mitigation.{{@key}}.value"
-            type="text"
+            type="Number"
             value="{{mit.value}}"
             data-dtype="Number"
           />
@@ -75,7 +75,6 @@
               }}
             </select>
           {{/unless}}
-
           <input
             class="minor-value"
             name="system.minors.{{@key}}.inputValue"
@@ -87,8 +86,8 @@
           <input
             class="minor-modifier"
             name="system.minors.{{@key}}.modifiers"
-            type="Number"
-            value="{{minatt.modifiers}}"
+            type="text"
+            value="{{numberFormat minatt.modifiers sign=true}}"
             data-dtype="Number"
           />
         </div>

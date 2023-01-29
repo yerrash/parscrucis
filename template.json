@@ -518,6 +518,7 @@
       "details": {
         "race": "humano",
         "culture": "adv",
+        "group": "",
         "persona": "aven",
         "birth": "XΔ",
         "exp": 50,
@@ -546,7 +547,7 @@
     }
   },
   "Item": {
-    "types": ["gear", "passive", "technique", "ability", "weapon"],
+    "types": ["gear", "passive", "ability", "weapon"],
     "templates": {
       "itemDescription": {
         "description": "",
@@ -590,7 +591,8 @@
       "points": 0
     },
     "ability": {
-      "templates": ["itemDescription", "typology", "ability"]
+      "templates": ["itemDescription", "typology", "ability"],
+      "expCost": 0
     },
     "weapon": {
       "templates": ["evaluation", "crafting", "itemDescription", "typology"],

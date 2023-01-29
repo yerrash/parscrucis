@@ -35,7 +35,7 @@ export class ParsCrucisActor extends Actor {
 
     this.updateSource(initData);
 
-    console.log("PRECREATE", this);
+    // console.log("PRECREATE", this);
   }
 
   /** @override */
@@ -86,6 +86,7 @@ export class ParsCrucisActor extends Actor {
     // }
 
     this._prepareItems(actorData);
+    const abilitiesExpSum = this._abilitiesExp(actorData);
 
     // Handle skills.
     for (let [key, skill] of Object.entries(skillsData)) {
@@ -140,7 +141,7 @@ export class ParsCrucisActor extends Actor {
 
       // Correcting attribute modifiers
       if (skill.value === null) {
-        skill.modifiers = null;
+        skill.modifiers = 0;
       } else if (typeof skill.modifiers !== "number") {
         skill.modifiers = 0;
       }
@@ -268,8 +269,12 @@ export class ParsCrucisActor extends Actor {
 
       // Calculate persona available experience.
       const skillsExpSum = skillsExpSpent.reduce((a, b) => a + b, 0);
+
       detailsData.expAvailable =
-        detailsData.exp - detailsData.expReserve - skillsExpSum;
+        detailsData.exp -
+        detailsData.expReserve -
+        skillsExpSum -
+        abilitiesExpSum;
     } else {
       resourcesData.pv.max = resourcesData.pv.inputValue || 15;
       resourcesData.pe.max = resourcesData.pe.inputValue || 15;
@@ -325,7 +330,6 @@ export class ParsCrucisActor extends Actor {
       }
       // Append abilities - Techniques and Powers
       else if (i.type === "ability") {
-        console.log("HERE");
         if (i.system.category === "power") {
           powers.push(i);
         } else techniques.push(i);
@@ -340,6 +344,17 @@ export class ParsCrucisActor extends Actor {
     actorData.passives = passives;
     actorData.powers = powers;
     actorData.techniques = techniques;
+  }
+
+  _abilitiesExp(actorData) {
+    let abilitiesExp = 0;
+    for (let [_, power] of Object.entries(actorData.powers)) {
+      abilitiesExp += power.system.expCost;
+    }
+    for (let [_, technique] of Object.entries(actorData.techniques)) {
+      abilitiesExp += technique.system.expCost;
+    }
+    return abilitiesExp;
   }
 
   _prepareCharacterData(actorData) {

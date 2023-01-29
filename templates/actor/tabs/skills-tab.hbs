@@ -38,8 +38,8 @@
               <input
                 class="skill-mod"
                 name="system.skills.{{@key}}.modifiers"
-                type="Number"
-                value="{{sk.modifiers}}"
+                type="text"
+                value="{{numberFormat sk.modifiers sign=true}}"
                 data-dtype="Number"
               />
             </li>

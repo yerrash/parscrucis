@@ -38,14 +38,15 @@ p {
   width: 100%;
   margin-right: 3px;
   height: 23px;
+  padding-left: 70px;
   .title-name_input {
     width: 100%;
-    padding: 0;
-    border: none;
-    background: none;
     font-family: "JMHArkham";
     font-size: 26px;
+    height: 32px;
     padding: 0 0 4px 3px;
+    position: relative;
+    top: -3px;
   }
 }
 .superior {
@@ -59,6 +60,7 @@ p {
   border: 1px solid rgba(128, 128, 128, 0.432);
   border-radius: 5px;
   margin: 0 0 7px 0;
+  background-color: @bg-gray-2;
 }
 .window:last-child {
   margin: 0;
@@ -85,13 +87,18 @@ p {
     select {
       border: 0;
       border-radius: 3px;
+      background: transparent;
+    }
+    select {
+      appearance: none;
     }
     .profile-img {
       height: 155px;
       width: 155px;
-      margin-right: -5px;
+      margin-right: -75px;
       margin-bottom: -5px;
       border: none;
+      position: relative;
     }
 
     .superior-right {
@@ -115,6 +122,7 @@ p {
         border-radius: 5px;
         padding-left: 3px;
         height: 20px;
+        background: @bg-gray-2;
         :last-child {
           border-width: 0;
         }
@@ -173,6 +181,8 @@ p {
         border-radius: 0 0 5px 0;
         width: calc(100% - 160px);
         padding: 1px 0;
+        background: @bg-gray-2;
+        padding-left: 70px;
         .racial {
           display: flex;
           flex-direction: row;
@@ -180,10 +190,16 @@ p {
           select,
           input {
             padding: 0;
-            height: 17px;
+            height: 18px;
             font-size: 14px;
             flex-grow: 1;
-            margin: 1px 2px 1px 0;
+            margin: -1px 2px 1px 0;
+            padding-top: 1px;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+          }
+          input {
+            width: 17%;
           }
           select:last-child,
           input:last-child {
@@ -218,6 +234,7 @@ p {
               font-family: "IMFellEnglishSC";
               font-weight: 700;
               height: 19px;
+              font-size: 19px;
               a,
               div {
                 height: 18px;
@@ -295,7 +312,10 @@ p {
                 font-size: 32px;
                 font-weight: bold;
                 width: 0;
-                margin-left: -10px;
+                // margin-left: -10px;
+                // right: 30px;
+                position: relative;
+                right: 5px;
               }
               .sprint {
                 width: calc(50% - 0px);
@@ -402,6 +422,7 @@ p {
         padding: 0 2px 2px;
         border: 1px solid #8080806e;
         border-radius: 5px;
+        background: #ebe7dce0;
         p {
           margin: 0;
           text-align: center;
@@ -519,11 +540,15 @@ p {
             .minor-value {
               width: 70%;
               font-size: 23px;
+              padding: 0;
               margin-right: 2px;
+              font-family: "SR";
             }
             .minor-modifier {
               width: 54%;
               font-size: 17px;
+              padding: 0;
+              font-family: "SR";
             }
           }
           .luck-num {
@@ -603,6 +628,7 @@ p {
           border: 1px solid rgba(128, 128, 128, 0.432);
           border-radius: 5px;
           margin: 0 0 7px 0;
+          background-color: @bg-gray-2;
           .group-title {
             display: flex;
             flex-direction: row;
@@ -613,7 +639,7 @@ p {
             }
             .tag-lvl {
               width: 10%;
-              padding-right: 3px;
+              padding-right: 1px;
               font-size: 16px;
               text-align: right;
             }
@@ -673,7 +699,7 @@ p {
             }
             .skill-title {
               padding-left: 2px;
-              width: calc(50% + 6px - 14px);
+              width: calc(50% + 6px - 12px);
             }
             .pdm-skill-title {
               width: calc(50% + 6px + 5px);
@@ -689,20 +715,24 @@ p {
               text-align: center;
             }
             input {
-              border-radius: 3px;
-              padding: 0 3px 0 0;
-              margin: 0 0 0 3px;
               height: 18px;
+              padding: 0;
+              border-radius: 3px;
+              margin: 0 0 0 3px;
               text-align: right;
+              background: transparent;
+              font-family: "SR";
             }
             .skill-value {
               width: 10%;
+              font-size: 20px;
               font-weight: 700;
-              font-size: 17px;
             }
             .skill-mod {
               width: 10%;
+              font-size: 17px;
               padding: 0 1px 0 0;
+              margin: 0;
             }
           }
         }
@@ -718,6 +748,7 @@ p {
       border: 1px solid #8080806e;
       border-radius: 5px;
       font-size: 15px;
+      background-color: @bg-gray-2;
       p {
         margin: 0;
       }
@@ -736,6 +767,7 @@ p {
           font-size: 14px;
           height: 19px;
           padding-left: 2px;
+          background: transparent;
         }
         .list-input:first-child {
           margin-bottom: 2px;
@@ -770,7 +802,7 @@ p {
     .items-list {
       margin: 0;
       padding: 0;
-      min-height: 41px;
+      min-height: 39px;
       .subtitle {
         display: flex;
         flex-direction: row;
@@ -846,6 +878,7 @@ p {
           text-overflow: ellipsis;
           white-space: nowrap;
           overflow: hidden;
+          background: transparent;
         }
         .item-info-line {
           width: calc(76% - 50px);
@@ -988,6 +1021,9 @@ p {
         font-size: 16px;
         height: 19px;
         margin-right: 2px;
+        input {
+          background: transparent;
+        }
         .currency-current {
           height: 19px;
           width: 45%;
@@ -1015,7 +1051,13 @@ p {
       max-height: 446px;
       overflow-y: scroll;
       .window {
-        padding-bottom: 2px;
+        padding-bottom: 1px;
+      }
+    }
+
+    .constants {
+      .window {
+        padding-bottom: 1px;
       }
     }
 
@@ -1052,6 +1094,7 @@ p {
           margin: 2px 1px;
           padding-left: 2px;
           margin-left: 3px;
+          background: transparent;
         }
       }
       .info-windows {
@@ -1114,5 +1157,13 @@ p {
         margin: 0;
       }
     }
+  }
+
+  .empty-window {
+    height: 21px;
+    font-family: "JMHArkham";
+    font-size: 14.5px;
+    color: gray;
+    margin-left: 24px;
   }
 }

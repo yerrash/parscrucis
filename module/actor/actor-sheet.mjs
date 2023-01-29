@@ -5,7 +5,7 @@ export default class ParsCrucisActorSheet extends ActorSheet {
       classes: ["parscrucis", "sheet", "parscrucis-actor-sheet"],
       width: 800,
       height: 680,
-      scrollY: ["section.inventory"],
+      scrollY: ["section.inventory", "section.abilities"],
       title: "BULLSHIT",
       tabs: [
         {
@@ -94,7 +94,6 @@ export default class ParsCrucisActorSheet extends ActorSheet {
 
       // Append abilities - Techniques and Powers
       else if (i.type === "ability") {
-        console.log("HERE");
         if (i.system.category === "power") {
           powers.push(i);
         } else techniques.push(i);
@@ -170,7 +169,8 @@ export default class ParsCrucisActorSheet extends ActorSheet {
     const type = element.dataset.type;
     const data = duplicate(element.dataset);
     // Initialize a default name.
-    const name = `${type.capitalize()}`;
+
+    const name = `${(game.i18n.localize(`PC.${type}`) ?? type).capitalize()}`;
     // Prepare the item object.
     const itemData = {
       name: name,

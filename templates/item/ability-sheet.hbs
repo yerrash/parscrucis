@@ -27,6 +27,20 @@
           </select>
         </div>
         <div class="item-header-lower">
+          <div class="item-attribute item-cost">
+            <h3 class="item-att-name">
+              <div>{{localize "PC.XP"}}</div>
+            </h3>
+            <div class="item-att-info">
+              <input
+                class="att-extra item-price"
+                name="system.expCost"
+                type="number"
+                value="{{item.system.expCost}}"
+                data-dtype="Number"
+              />
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -65,6 +79,15 @@
           class="action-notes"
           name="system.notes"
         >{{item.system.notes}}</textarea>
+      </div>
+      <div class="window">
+        <h3 class="subtitle">
+          <div class="action-note">{{localize "PC.Informations"}}</div>
+        </h3>
+        <textarea
+          class="action-informations"
+          name="system.informations"
+        >{{item.system.informations}}</textarea>
       </div>
     </div>
   </div>
