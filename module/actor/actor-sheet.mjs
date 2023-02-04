@@ -1,3 +1,5 @@
+import { PC_Utility } from "../utility.js";
+
 export default class ParsCrucisActorSheet extends ActorSheet {
   /** @override */
   static get defaultOptions() {
@@ -5,7 +7,7 @@ export default class ParsCrucisActorSheet extends ActorSheet {
       classes: ["parscrucis", "sheet", "parscrucis-actor-sheet"],
       width: 800,
       height: 680,
-      scrollY: ["section.inventory", "section.abilities"],
+      scrollY: ["section.inventory", "section.abilities", "section.constants"],
       title: "BULLSHIT",
       tabs: [
         {
@@ -32,7 +34,7 @@ export default class ParsCrucisActorSheet extends ActorSheet {
 
     // Prepare  data and items.
     this._prepareItems(context);
-    this._prepareCharacterData(context);
+    this._prepareSheetData(context);
 
     context.config = CONFIG.parscrucis;
 
@@ -111,14 +113,16 @@ export default class ParsCrucisActorSheet extends ActorSheet {
   }
 
   /**
-   * Organize and classify Items for Character sheets.
+   * Organize and classify parts of Character sheets.
    *
    * @param {Object} actorData The actor to prepare.
    *
    * @return {undefined}
    */
-  _prepareCharacterData(context) {
-    const systemData = context.systemData;
+  _prepareSheetData(context) {
+    console.log(context.systemData.resources.sorte);
+
+    PC_Utility.addBooleans(context.systemData.resources.sorte);
 
     // Prints target actor DATA.
     // console.log("atualiza ->", context);
@@ -153,6 +157,7 @@ export default class ParsCrucisActorSheet extends ActorSheet {
       li.slideUp(200, () => this.render(false));
     });
 
+    html.find("[data-luck-index]").click(this._onLuckClick.bind(this));
     html.find("[data-att-key]").click(this._onAttClick.bind(this));
     html.find("[data-skill-key]").click(this._onSkillClick.bind(this));
     html.find("[data-action]").click(this._onActionClick.bind(this));
@@ -216,6 +221,70 @@ export default class ParsCrucisActorSheet extends ActorSheet {
       dice = "3d10kl2";
     }
     return dice;
+  }
+
+  async _onLuckClick(event) {
+    event.preventDefault();
+    let actorData = this.actor.toObject();
+    let luckIndex = Number(event.currentTarget.dataset.luckIndex);
+    let target = $(event.currentTarget)
+      .parents(".luck-num")
+      .attr("data-target");
+
+    let value = getProperty(actorData, target);
+    console.log(`${value} = ${target}`);
+
+    let newValue = luckIndex + 1;
+    console.log(newValue);
+
+    if (value === newValue) {
+      setProperty(actorData, target, 0);
+    } else setProperty(actorData, target, newValue);
+    // setProperty(actorData);
+    // setProperty(actorData, target, value);
+
+    this.actor.update(actorData);
+
+    console.log(actorData);
+  }
+
+  _onDiamondClick(event) {
+    let actorData = this.actor.toObject();
+    let index = Number($(event.currentTarget).attr("data-index"));
+    let target = $(event.currentTarget)
+      .parents(".diamond-row")
+      .attr("data-target");
+
+    // Fix for condition values being changed over their max/min value.
+    if (target.split(".")[1] === "condition") {
+      if (index + 1 <= maximum && index + 1 > minimum) {
+        if (parentValues.value == index + 1)
+          // If the last one was clicked, decrease by 1
+          setProperty(actorData, target, index);
+        // Otherwise, value = index clicked
+        else setProperty(actorData, target, index + 1); // If attribute selected
+        let attributeElement = $(event.currentTarget).parents(".attribute");
+        if (attributeElement.length) {
+          // Constrain attributes to be greater than 0
+          if (getProperty(actorData, target) <= 0)
+            setProperty(actorData, target, 1);
+        }
+      }
+    } else {
+      let value = getProperty(actorData, target);
+      if (value == index + 1)
+        // If the last one was clicked, decrease by 1
+        setProperty(actorData, target, index);
+      // Otherwise, value = index clicked
+      else setProperty(actorData, target, index + 1); // If attribute selected
+      let attributeElement = $(event.currentTarget).parents(".attribute");
+      if (attributeElement.length) {
+        // Constrain attributes to be greater than 0
+        if (getProperty(actorData, target) <= 0)
+          setProperty(actorData, target, 1);
+      }
+    }
+    this.actor.update(actorData);
   }
 
   /**

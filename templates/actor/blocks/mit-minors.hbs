@@ -43,12 +43,21 @@
         <div>{{localize "PC.Sorte"}}</div>
       </h3>
     </label>
-    <div class="luck-num">
+    <div class="luck-line">
+      <div class="luck-num flexrow" data-target="system.resources.sorte.value">
+        {{#each systemData.resources.sorte.booleans as |boolean obj|}}
+          {{#if boolean.checked}}
+            <a class="luck-mark" data-luck-index={{@key}}><div>X</div></a>
+          {{else}}
+            <a class="luck-mark" data-luck-index={{@key}}><div>O</div></a>
+          {{/if}}
+        {{/each}}
+      </div>
       <input
         class="luck-value"
-        name="system.resources.sorte.value"
+        name="system.resources.sorte.max"
         type="Number"
-        value="{{data.system.resources.sorte.value}}"
+        value="{{data.system.resources.sorte.max}}"
         data-dtype="Number"
       />
     </div>
