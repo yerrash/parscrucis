@@ -120,8 +120,6 @@ export default class ParsCrucisActorSheet extends ActorSheet {
    * @return {undefined}
    */
   _prepareSheetData(context) {
-    console.log(context.systemData.resources.sorte);
-
     PC_Utility.addBooleans(context.systemData.resources.sorte);
 
     // Prints target actor DATA.
@@ -230,60 +228,13 @@ export default class ParsCrucisActorSheet extends ActorSheet {
     let target = $(event.currentTarget)
       .parents(".luck-num")
       .attr("data-target");
-
     let value = getProperty(actorData, target);
-    console.log(`${value} = ${target}`);
-
     let newValue = luckIndex + 1;
-    console.log(newValue);
 
     if (value === newValue) {
       setProperty(actorData, target, 0);
     } else setProperty(actorData, target, newValue);
-    // setProperty(actorData);
-    // setProperty(actorData, target, value);
 
-    this.actor.update(actorData);
-
-    console.log(actorData);
-  }
-
-  _onDiamondClick(event) {
-    let actorData = this.actor.toObject();
-    let index = Number($(event.currentTarget).attr("data-index"));
-    let target = $(event.currentTarget)
-      .parents(".diamond-row")
-      .attr("data-target");
-
-    // Fix for condition values being changed over their max/min value.
-    if (target.split(".")[1] === "condition") {
-      if (index + 1 <= maximum && index + 1 > minimum) {
-        if (parentValues.value == index + 1)
-          // If the last one was clicked, decrease by 1
-          setProperty(actorData, target, index);
-        // Otherwise, value = index clicked
-        else setProperty(actorData, target, index + 1); // If attribute selected
-        let attributeElement = $(event.currentTarget).parents(".attribute");
-        if (attributeElement.length) {
-          // Constrain attributes to be greater than 0
-          if (getProperty(actorData, target) <= 0)
-            setProperty(actorData, target, 1);
-        }
-      }
-    } else {
-      let value = getProperty(actorData, target);
-      if (value == index + 1)
-        // If the last one was clicked, decrease by 1
-        setProperty(actorData, target, index);
-      // Otherwise, value = index clicked
-      else setProperty(actorData, target, index + 1); // If attribute selected
-      let attributeElement = $(event.currentTarget).parents(".attribute");
-      if (attributeElement.length) {
-        // Constrain attributes to be greater than 0
-        if (getProperty(actorData, target) <= 0)
-          setProperty(actorData, target, 1);
-      }
-    }
     this.actor.update(actorData);
   }
 

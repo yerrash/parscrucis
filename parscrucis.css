@@ -1279,7 +1279,7 @@ p {
 .parscrucis-item-sheet .superior .item-header-right .item-header-upper input {
   padding-left: 3px;
 }
-.parscrucis-item-sheet .superior .item-header-right .item-header-upper .item-price {
+.parscrucis-item-sheet .superior .item-header-right .item-header-upper .item-price-box {
   width: 20%;
   text-align: right;
   padding-right: 5px;
@@ -1317,8 +1317,21 @@ p {
   flex: 4 0;
   margin: 0 1px;
 }
-.parscrucis-item-sheet .superior .item-header-right .item-header-lower .item-cost {
+.parscrucis-item-sheet .superior .item-header-right .item-header-lower .item-price-box {
   flex: 3 0;
+}
+.parscrucis-item-sheet .superior .item-header-right .item-header-lower .item-price-box .item-price {
+  width: 45%;
+  text-align: right;
+  padding: 2px 1px 0 0;
+  font-size: 18px;
+}
+.parscrucis-item-sheet .superior .item-header-right .item-header-lower .item-price-box .item-currency {
+  width: 55%;
+  padding-left: 1px;
+  text-align: left;
+  font-size: 16px;
+  font-family: "JMHArkham";
 }
 .parscrucis-item-sheet .superior .item-header-right .item-header-lower .item-defense {
   flex: 2 0;
@@ -1338,10 +1351,6 @@ p {
 .parscrucis-item-sheet .superior .item-header-right .item-header-lower .item-att-info .att-value {
   width: 100%;
   font-size: 23px;
-}
-.parscrucis-item-sheet .superior .item-header-right .item-header-lower .item-att-info .att-extra {
-  width: 100%;
-  font-size: 18px;
 }
 .parscrucis-item-sheet .superior .item-header-right .item-header-lower .item-att-info .att-medium {
   font-size: 16px;

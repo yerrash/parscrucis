@@ -288,7 +288,7 @@ export class ParsCrucisActor extends Actor {
       (100 * resourcesData.pe.value) / resourcesData.pe.max;
 
     // console.log("prepDerivedData:ITEMSDATA", itemsData);
-    console.log("prepDerivedData:THIS", this);
+    // console.log("prepDerivedData:THIS", this);
 
     // Make separate methods for each Actor type (character, npc, etc.)
     // this._prepareCharacterData(actorData);

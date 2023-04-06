@@ -69,7 +69,7 @@
         input {
           padding-left: 3px;
         }
-        .item-price {
+        .item-price-box {
           width: 20%;
           text-align: right;
           padding-right: 5px;
@@ -109,8 +109,21 @@
           flex: 4 0;
           margin: 0 1px;
         }
-        .item-cost {
+        .item-price-box {
           flex: 3 0;
+          .item-price {
+            width: 45%;
+            text-align: right;
+            padding: 2px 1px 0 0;
+            font-size: 18px;
+          }
+          .item-currency {
+            width: 55%;
+            padding-left: 1px;
+            text-align: left;
+            font-size: 16px;
+            font-family: "JMHArkham";
+          }
         }
         .item-defense {
           flex: 2 0;
@@ -131,8 +144,7 @@
             font-size: 23px;
           }
           .att-extra {
-            width: 100%;
-            font-size: 18px;
+            // width: 100%;
           }
           .att-medium {
             font-size: 16px;

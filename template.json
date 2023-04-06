@@ -562,6 +562,7 @@
         "quantity": 1,
         "maxCap": 1,
         "price": null,
+        "currency": "",
         "equipped": false,
         "rarity": "common"
       },

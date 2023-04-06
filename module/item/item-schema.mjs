@@ -71,6 +71,7 @@ export class WeaponSchema extends foundry.abstract.DataModel {
       notes: new field.StringField({ initial: "" }),
       quantity: new field.NumberField({ initial: 1 }),
       price: new field.NumberField({ initial: null }),
+      currency: new field.StringField({ initial: "" }),
       rarity: new field.StringField({ initial: "common" }),
       requisites: new field.StringField({ initial: "" }),
       subtype: new field.StringField({ initial: "" }),

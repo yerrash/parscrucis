@@ -64,9 +64,9 @@
               />
             </div>
           </div>
-          <div class="item-attribute item-cost">
+          <div class="item-attribute item-price-box">
             <h3 class="item-att-name">
-              <div>{{localize "PC.Cost"}}</div>
+              <div>{{localize "PC.Price"}}</div>
             </h3>
             <div class="item-att-info">
               <input
@@ -74,6 +74,13 @@
                 name="system.price"
                 type="Number"
                 value="{{item.system.price}}"
+              />
+              <input
+                class="att-extra item-currency"
+                name="system.currency"
+                type="text"
+                value="{{item.system.currency}}"
+                data-dtype="String"
               />
             </div>
           </div>
