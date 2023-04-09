@@ -71,6 +71,11 @@ export class ParsCrucisItem extends Item {
   prepareDerivedData() {
     const itemData = this;
     const systemData = itemData.system;
+    if (itemData.system.loadMax > 1) {
+      itemData.system.loadMaxEnabled = false;
+    } else {
+      itemData.system.loadMaxEnabled = true;
+    }
     if (itemData.type === "weapon") this._prepareWeaponData(systemData);
   }
 

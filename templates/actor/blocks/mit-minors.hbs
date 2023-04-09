@@ -1,3 +1,71 @@
+<section class="minors">
+  <div class="luck">
+    <label>
+      <h3 class="luck-name">
+        <div>{{localize "PC.Sorte"}}</div>
+      </h3>
+    </label>
+    <div class="luck-line">
+      <div class="luck-num flexrow" data-target="system.resources.sorte.value">
+        {{#each systemData.resources.sorte.booleans as |boolean obj|}}
+          {{#if boolean.checked}}
+            <a class="luck-mark" data-luck-index={{@key}}><div>X</div></a>
+          {{else}}
+            <a class="luck-mark" data-luck-index={{@key}}><div>O</div></a>
+          {{/if}}
+        {{/each}}
+      </div>
+      <input
+        class="luck-value"
+        name="system.resources.sorte.max"
+        type="Number"
+        value="{{data.system.resources.sorte.max}}"
+        data-dtype="Number"
+      />
+    </div>
+  </div>
+  {{#each config.minors as |minor obj|}}
+    {{#with (lookup @root.actor.system.minors obj) as |minatt|}}
+      <div class="minor">
+        <label>
+          <h3 class="minor-name">
+            {{#if minatt.disabled}}
+              <div class="disabled">
+                {{localize minor}}
+              </div>
+            {{else}}
+              <a
+                data-att-key="{{@key}}"
+                data-att-type="minors"
+                data-label="{{localize minor}}"
+              >{{localize minor}}</a>
+            {{/if}}
+          </h3>
+        </label>
+        <div class="minor-num">
+          <input
+            class="minor-value"
+            name="system.minors.{{@key}}.inputValue"
+            type="Number"
+            value="{{minatt.inputValue}}"
+            data-dtype="Number"
+            placeholder="{{minatt.autoValue}}"
+          />
+          {{#unless minatt.disabled}}
+            <input
+              class="minor-modifier"
+              name="system.minors.{{@key}}.modifiers"
+              type="text"
+              value="{{numberFormat minatt.modifiers sign=true}}"
+              data-dtype="Number"
+            />
+            <span class="stat-passive">{{minatt.passive}}</span>
+          {{/unless}}
+        </div>
+      </div>
+    {{/with}}
+  {{/each}}
+</section>
 <section class="mitigation">
   <div class="armor-group">
     {{#each config.armor as |armor obj|}}
@@ -35,72 +103,4 @@
       {{/with}}
     {{/each}}
   </div>
-</section>
-<section class="minors">
-  <div class="luck">
-    <label>
-      <h3 class="luck-name">
-        <div>{{localize "PC.Sorte"}}</div>
-      </h3>
-    </label>
-    <div class="luck-line">
-      <div class="luck-num flexrow" data-target="system.resources.sorte.value">
-        {{#each systemData.resources.sorte.booleans as |boolean obj|}}
-          {{#if boolean.checked}}
-            <a class="luck-mark" data-luck-index={{@key}}><div>X</div></a>
-          {{else}}
-            <a class="luck-mark" data-luck-index={{@key}}><div>O</div></a>
-          {{/if}}
-        {{/each}}
-      </div>
-      <input
-        class="luck-value"
-        name="system.resources.sorte.max"
-        type="Number"
-        value="{{data.system.resources.sorte.max}}"
-        data-dtype="Number"
-      />
-    </div>
-  </div>
-  {{#each config.minors as |minor obj|}}
-    {{#with (lookup @root.actor.system.minors obj) as |minatt|}}
-      <div class="minor">
-        <label>
-          <h3 class="minor-name">
-            <a
-              data-att-key="{{@key}}"
-              data-att-type="minors"
-              data-label="{{localize minor}}"
-            >{{localize minor}}</a>
-          </h3>
-        </label>
-        <div class="minor-num">
-          {{#unless minatt.baseDisabled}}
-            <select name="system.minors.{{@key}}.base">
-              {{selectOptions
-                (lookup @root.config obj)
-                selected=minatt.base
-                localize=true
-              }}
-            </select>
-          {{/unless}}
-          <input
-            class="minor-value"
-            name="system.minors.{{@key}}.inputValue"
-            type="Number"
-            value="{{minatt.inputValue}}"
-            data-dtype="Number"
-            placeholder="{{minatt.autoValue}}"
-          />
-          <input
-            class="minor-modifier"
-            name="system.minors.{{@key}}.modifiers"
-            type="text"
-            value="{{numberFormat minatt.modifiers sign=true}}"
-            data-dtype="Number"
-          />
-        </div>
-      </div>
-    {{/with}}
-  {{/each}}
 </section>

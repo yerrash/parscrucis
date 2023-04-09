@@ -39,6 +39,27 @@
           </select>
         </div>
         <div class="item-header-lower">
+          <div class="item-attribute item-defense">
+            <h3 class="item-att-name">
+              <div>{{localize "PC.Load"}}</div>
+            </h3>
+            <div class="item-att-info">
+              <input
+                class="att-value"
+                name="system.load"
+                type="Number"
+                value="{{item.system.load}}"
+                data-dtype="Number"
+              />
+              <input
+                class="att-value"
+                name="system.loadMax"
+                type="Number"
+                value="{{item.system.loadMax}}"
+                data-dtype="Number"
+              />
+            </div>
+          </div>
           <div class="item-attribute">
             <h3 class="item-att-name">
               <div>{{localize "PC.Craft"}}</div>

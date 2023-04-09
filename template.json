@@ -46,17 +46,17 @@
         },
         "minors": {
           "saude": {
-            "base": "fis",
+            "attributes": ["fis", "ego"],
             "value": null,
             "modifiers": 0
           },
           "esperteza": {
-            "base": "agi",
+            "attributes": ["agi", "int"],
             "value": null,
             "modifiers": 0
           },
           "vontade": {
-            "base": "ego",
+            "attributes": ["ego", "esp"],
             "value": null,
             "modifiers": 0
           }
@@ -115,7 +115,6 @@
           },
           "sorte": {
             "value": 0,
-            "min": 0,
             "max": 2
           }
         },
@@ -523,6 +522,7 @@
         "birth": "XΔ",
         "exp": 50,
         "expReserve": 0,
+        "points": 0,
         "age": "",
         "height": "",
         "weight": "",
@@ -559,8 +559,8 @@
         "subtype": null
       },
       "evaluation": {
-        "quantity": 1,
-        "maxCap": 1,
+        "load": 1,
+        "loadMax": 1,
         "price": null,
         "currency": "",
         "equipped": false,

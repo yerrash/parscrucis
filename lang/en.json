@@ -52,6 +52,7 @@
   "PC.XP": "XP",
   "PC.PTS": "PTS",
   "PC.CH": "DS",
+  "PC.Qt": "Qt",
   "PC.Challenge": "Desafio!",
 
   "PC.FIS": "FIS",
@@ -198,6 +199,7 @@
   "PC.Note": "Nota",
   "PC.Defense": "Defesa",
   "PC.DR": "DR",
+  "PC.Load": "Carga",
   "PC.Requisites": "Requerimentos",
   "PC.Craft": "Ofício",
   "PC.Price": "Preço",
@@ -288,7 +290,7 @@
   "PC.misc": "Diverso",
   "PC.vest": "Vestimenta",
   "PC.accessory": "Acessório",
-  "PC.catalyst": "Catalizador",
+  "PC.canalyst": "Canalizador",
   "PC.keyItem": "Item-chave",
 
   "PC.common": "Comum",
@@ -357,8 +359,8 @@
 
   "PC.effects": "Efeitos",
   "PC.weapon": "Arma",
-  "PC.passives": "Passivas",
-  "PC.passive": "Passiva",
+  "PC.Passives": "Passivas",
+  "PC.Passive": "Passiva",
   "PC.gear": "Item",
   "PC.ability": "Habilidade",
   "PC.no": "Sem",

@@ -104,6 +104,7 @@ p {
       margin-bottom: -5px;
       border: none;
       position: relative;
+      border-radius: 50%;
     }
 
     .superior-right {
@@ -256,39 +257,33 @@ p {
               }
               .stat-value {
                 width: 100%;
+                padding-top: 1px;
+                margin: 1px 0;
                 font-family: "SR";
-                font-size: 36px;
-                padding-top: 3px;
-                margin-left: 0px;
+                font-size: 42px;
               }
-              .stat-modifier {
+              .stat-modifier-box {
                 width: 73%;
                 font-family: "SR";
-                font-size: 24px;
+                font-size: 21px;
                 border-radius: 0 0 10px 0;
-                padding-bottom: 2px;
                 margin-left: 0px;
                 margin-right: 0px;
-              }
-              span {
-                font-size: 12px;
-              }
-              .stat-defense {
-                width: 73%;
                 display: flex;
                 flex-direction: column;
-                height: 38px;
-                .defense-ranged {
+                .stat-modifier {
                   width: 100%;
                   padding-top: 3px;
-                  height: 21px;
-                  margin-right: 0;
+                  height: 17px;
                 }
-                .defense-modifier {
+                .stat-passive {
                   width: 100%;
-                  padding-top: 3px;
-                  font-size: 15px;
-                  height: 13px;
+                  height: 19px;
+                  padding-right: 4px;
+                  line-height: 17px;
+                  text-align: center;
+                  font-size: 21px;
+                  font-style: italic;
                 }
               }
             }
@@ -304,7 +299,7 @@ p {
               .sprint {
                 font-family: "SR";
                 font-size: 36px;
-                padding-top: 3px;
+                padding-top: 2px;
               }
               .mov-value {
                 width: calc(50% - 2px);
@@ -437,12 +432,6 @@ p {
           display: flex;
           flex-direction: row;
           justify-content: space-between;
-          padding-bottom: 2px;
-          border: 0;
-          border-bottom: 1px;
-          border-style: solid;
-          border-color: #341ac9;
-          margin-top: 2px;
           .armor-group {
             margin-right: 2px;
           }
@@ -509,6 +498,11 @@ p {
           justify-content: space-between;
           flex-wrap: wrap;
           width: 100%;
+          padding: 1px 0 3px;
+          border: 0;
+          border-bottom: 1px;
+          border-style: solid;
+          border-color: #37373a7e;
           .minor,
           .luck {
             width: 75px;
@@ -530,29 +524,39 @@ p {
             flex-direction: row;
             align-items: center;
             justify-content: space-between;
-            select {
-              text-align: center;
-              padding: 0 0 0 1px;
-              height: 21px;
-              width: 98%;
-              appearance: none;
-              margin-right: 2px;
-            }
+            // select {
+            //   text-align: center;
+            //   padding: 0 0 0 1px;
+            //   height: 21px;
+            //   width: 98%;
+            //   appearance: none;
+            //   margin-right: 2px;
+            // }
             input {
               text-align: center;
               height: 21px;
             }
             .minor-value {
-              width: 70%;
+              width: 65%;
               font-size: 23px;
               padding: 0;
-              margin-right: 2px;
+              padding-left: 3px;
               font-family: "SR";
             }
             .minor-modifier {
-              width: 54%;
+              width: 60%;
               font-size: 17px;
               padding: 0;
+              font-family: "SR";
+            }
+            .stat-passive {
+              width: 55%;
+              height: 21px;
+              line-height: 21px;
+              padding-right: 5px;
+              text-align: right;
+              font-size: 20px;
+              font-style: italic;
               font-family: "SR";
             }
           }
@@ -583,22 +587,12 @@ p {
               min-width: 0;
               font-size: 17px;
               padding: 0;
+              margin-left: -2px;
               font-family: "SR";
               text-align: center;
+              font-style: italic;
             }
           }
-          // .luck-num {
-          //   display: flex;
-          //   flex-direction: row;
-          //   align-items: center;
-          //   justify-content: space-evenly;
-          //   width: 100%;
-          //   height: 21px;
-          //   input {
-          //     text-align: center;
-          //     height: 21px;
-          //   }
-          // }
         }
       }
     }
@@ -621,6 +615,12 @@ p {
     }
     .active {
       font-weight: 700;
+      background: radial-gradient(
+        circle,
+        rgba(235, 231, 220, 0.88) 0%,
+        rgba(235, 231, 220, 0.75) 60%,
+        rgba(235, 231, 220, 0) 100%
+      );
     }
     a {
       font-size: 17px;
@@ -917,19 +917,38 @@ p {
           background: transparent;
         }
         .item-info-line {
-          width: calc(76% - 50px);
+          width: calc(76% - 86px);
         }
         .player-notes {
           height: 19px;
           padding-left: 3px;
         }
-        // .item-defense {
-        //   width: calc(7% - 6px);
-        //   text-align: center;
-        // }
+        .passive-line {
+          width: calc(76% - 68px);
+        }
+        .points-value {
+          width: 18px;
+          text-align: right;
+          padding-right: 1px;
+          padding-top: 1px;
+          font-size: 17px;
+          font-family: "SR";
+        }
         .item-controls {
           width: 43px;
           text-align: right;
+        }
+        .passive-controls {
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+          .points-title {
+            margin: auto 0;
+            font-family: "Acme";
+            font-size: 12px;
+            font-weight: 700;
+            padding-top: 1px;
+          }
         }
       }
       .item-header {
@@ -956,7 +975,6 @@ p {
         }
       }
       .item-line {
-        // height: 23px;
         padding: 1px 0;
         border-color: #000000c2;
         border-style: dashed;
@@ -994,20 +1012,42 @@ p {
             font-size: 15.5px;
           }
         }
-
-        // .item-defense {
-        //   display: flex;
-        //   flex-direction: row;
-        //   justify-content: space-around;
-        //   font-size: 22px;
-        //   height: 21px;
-        //   line-height: 21px;
-        //   .item-proj-defense {
-        //     font-size: 19px;
-        //     height: 21px;
-        //     line-height: 21px;
-        //   }
-        // }
+      }
+      .load-info {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        width: 36px;
+      }
+      .load-value,
+      .load-value_input,
+      .load-max {
+        font-family: "SR";
+        font-size: 17px;
+      }
+      .load-value,
+      .load-value_input {
+        height: 19px;
+        width: 17px;
+        min-width: 17px;
+        padding-bottom: 1px;
+        text-align: right;
+      }
+      .load-value_input {
+        background: none;
+      }
+      .load-divisor {
+        width: 5px;
+        text-align: center;
+        font-size: 16px;
+      }
+      .load-max {
+        width: 14px;
+        padding-top: 4px;
+        margin-left: -2px;
+        text-align: left;
+        font-size: 15px;
+        font-style: italic;
       }
     }
     .item-line:nth-child(2) {

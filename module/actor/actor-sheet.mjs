@@ -46,6 +46,8 @@ export default class ParsCrucisActorSheet extends ActorSheet {
 
     // console.log("getData:ISSO", context);
 
+    console.log(actorData);
+
     return context;
   }
 

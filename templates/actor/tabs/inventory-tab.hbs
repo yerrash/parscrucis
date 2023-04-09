@@ -256,7 +256,11 @@
             <div class="item-image"></div>
             <div class="item-name item-margin">{{localize "PC.Items"}}</div>
             <div class="item-info-line">{{localize "PC.Notes"}}</div>
-            <div class="item-controls">
+            <div class="load-info">
+              <div class="load-value">∞</div>
+            </div>
+            <div class="item-controls passive-controls">
+              <div class="points-title">{{localize "PC.Qt"}}</div>
               <a
                 class="item-control item-create"
                 title="{{localize 'PC.createGear'}}"
@@ -295,6 +299,22 @@
               value="{{item.system.notes}}"
               placeholder="{{item.system.informations}}"
             />
+            <div class="load-info">
+              {{! <div class="load-value">22</div> }}
+              <input
+                class="load-value_input"
+                data-item-update="{{item._id}}"
+                data-item-target="system.load"
+                type="text"
+                value="{{item.system.load}}"
+              />
+              {{#unless item.system.loadMaxEnabled}}
+                <div class="load-divisor">/</div>
+                <div class="load-max">
+                  {{item.system.loadMax}}
+                </div>
+              {{/unless}}
+            </div>
             {{! interval }}
             <div class="item-controls">
               {{#unless item.system.cantEquip}}

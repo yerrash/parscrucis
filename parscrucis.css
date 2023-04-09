@@ -180,6 +180,7 @@ p {
   margin-bottom: -5px;
   border: none;
   position: relative;
+  border-radius: 50%;
 }
 .parscrucis-actor-sheet .superior .superior-right {
   height: 152px;
@@ -344,40 +345,34 @@ p {
 }
 .parscrucis-actor-sheet .superior .stats-window .left-window .att-partial .attributes .stat .stat-value {
   width: 100%;
+  padding-top: 1px;
+  margin: 1px 0;
   font-family: "SR";
-  font-size: 36px;
-  padding-top: 3px;
-  margin-left: 0px;
+  font-size: 42px;
 }
-.parscrucis-actor-sheet .superior .stats-window .left-window .att-partial .attributes .stat .stat-modifier {
+.parscrucis-actor-sheet .superior .stats-window .left-window .att-partial .attributes .stat .stat-modifier-box {
   width: 73%;
   font-family: "SR";
-  font-size: 24px;
+  font-size: 21px;
   border-radius: 0 0 10px 0;
-  padding-bottom: 2px;
   margin-left: 0px;
   margin-right: 0px;
-}
-.parscrucis-actor-sheet .superior .stats-window .left-window .att-partial .attributes .stat span {
-  font-size: 12px;
-}
-.parscrucis-actor-sheet .superior .stats-window .left-window .att-partial .attributes .stat .stat-defense {
-  width: 73%;
   display: flex;
   flex-direction: column;
-  height: 38px;
 }
-.parscrucis-actor-sheet .superior .stats-window .left-window .att-partial .attributes .stat .stat-defense .defense-ranged {
+.parscrucis-actor-sheet .superior .stats-window .left-window .att-partial .attributes .stat .stat-modifier-box .stat-modifier {
   width: 100%;
   padding-top: 3px;
-  height: 21px;
-  margin-right: 0;
+  height: 17px;
 }
-.parscrucis-actor-sheet .superior .stats-window .left-window .att-partial .attributes .stat .stat-defense .defense-modifier {
+.parscrucis-actor-sheet .superior .stats-window .left-window .att-partial .attributes .stat .stat-modifier-box .stat-passive {
   width: 100%;
-  padding-top: 3px;
-  font-size: 15px;
-  height: 13px;
+  height: 19px;
+  padding-right: 4px;
+  line-height: 17px;
+  text-align: center;
+  font-size: 21px;
+  font-style: italic;
 }
 .parscrucis-actor-sheet .superior .stats-window .left-window .att-partial .attributes .defense {
   margin-right: 2px;
@@ -390,7 +385,7 @@ p {
 .parscrucis-actor-sheet .superior .stats-window .left-window .att-partial .attributes .movement .sprint {
   font-family: "SR";
   font-size: 36px;
-  padding-top: 3px;
+  padding-top: 2px;
 }
 .parscrucis-actor-sheet .superior .stats-window .left-window .att-partial .attributes .movement .mov-value {
   width: calc(50% - 2px);
@@ -512,12 +507,6 @@ p {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  padding-bottom: 2px;
-  border: 0;
-  border-bottom: 1px;
-  border-style: solid;
-  border-color: #341ac9;
-  margin-top: 2px;
 }
 .parscrucis-actor-sheet .superior .stats-window .right-window .mitigation .armor-group {
   margin-right: 2px;
@@ -592,6 +581,11 @@ p {
   justify-content: space-between;
   flex-wrap: wrap;
   width: 100%;
+  padding: 1px 0 3px;
+  border: 0;
+  border-bottom: 1px;
+  border-style: solid;
+  border-color: #37373a7e;
 }
 .parscrucis-actor-sheet .superior .stats-window .right-window .minors .minor,
 .parscrucis-actor-sheet .superior .stats-window .right-window .minors .luck {
@@ -617,29 +611,31 @@ p {
   align-items: center;
   justify-content: space-between;
 }
-.parscrucis-actor-sheet .superior .stats-window .right-window .minors .minor-num select {
-  text-align: center;
-  padding: 0 0 0 1px;
-  height: 21px;
-  width: 98%;
-  appearance: none;
-  margin-right: 2px;
-}
 .parscrucis-actor-sheet .superior .stats-window .right-window .minors .minor-num input {
   text-align: center;
   height: 21px;
 }
 .parscrucis-actor-sheet .superior .stats-window .right-window .minors .minor-num .minor-value {
-  width: 70%;
+  width: 65%;
   font-size: 23px;
   padding: 0;
-  margin-right: 2px;
+  padding-left: 3px;
   font-family: "SR";
 }
 .parscrucis-actor-sheet .superior .stats-window .right-window .minors .minor-num .minor-modifier {
-  width: 54%;
+  width: 60%;
   font-size: 17px;
   padding: 0;
+  font-family: "SR";
+}
+.parscrucis-actor-sheet .superior .stats-window .right-window .minors .minor-num .stat-passive {
+  width: 55%;
+  height: 21px;
+  line-height: 21px;
+  padding-right: 5px;
+  text-align: right;
+  font-size: 20px;
+  font-style: italic;
   font-family: "SR";
 }
 .parscrucis-actor-sheet .superior .stats-window .right-window .minors .luck-line {
@@ -669,8 +665,10 @@ p {
   min-width: 0;
   font-size: 17px;
   padding: 0;
+  margin-left: -2px;
   font-family: "SR";
   text-align: center;
+  font-style: italic;
 }
 .parscrucis-actor-sheet .navigation {
   font-family: "Acme";
@@ -689,6 +687,7 @@ p {
 }
 .parscrucis-actor-sheet .navigation .active {
   font-weight: 700;
+  background: radial-gradient(circle, rgba(235, 231, 220, 0.88) 0%, rgba(235, 231, 220, 0.75) 60%, rgba(235, 231, 220, 0) 100%);
 }
 .parscrucis-actor-sheet .navigation a {
   font-size: 17px;
@@ -977,15 +976,38 @@ p {
   background: transparent;
 }
 .parscrucis-actor-sheet .tab-content .items-list .item .item-info-line {
-  width: calc(76% - 50px);
+  width: calc(76% - 86px);
 }
 .parscrucis-actor-sheet .tab-content .items-list .item .player-notes {
   height: 19px;
   padding-left: 3px;
 }
+.parscrucis-actor-sheet .tab-content .items-list .item .passive-line {
+  width: calc(76% - 68px);
+}
+.parscrucis-actor-sheet .tab-content .items-list .item .points-value {
+  width: 18px;
+  text-align: right;
+  padding-right: 1px;
+  padding-top: 1px;
+  font-size: 17px;
+  font-family: "SR";
+}
 .parscrucis-actor-sheet .tab-content .items-list .item .item-controls {
   width: 43px;
   text-align: right;
+}
+.parscrucis-actor-sheet .tab-content .items-list .item .passive-controls {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.parscrucis-actor-sheet .tab-content .items-list .item .passive-controls .points-title {
+  margin: auto 0;
+  font-family: "Acme";
+  font-size: 12px;
+  font-weight: 700;
+  padding-top: 1px;
 }
 .parscrucis-actor-sheet .tab-content .items-list .item-header .subtitle {
   font-size: 16px;
@@ -1042,6 +1064,42 @@ p {
 }
 .parscrucis-actor-sheet .tab-content .items-list .item-line .item-damage span {
   font-size: 15.5px;
+}
+.parscrucis-actor-sheet .tab-content .items-list .load-info {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 36px;
+}
+.parscrucis-actor-sheet .tab-content .items-list .load-value,
+.parscrucis-actor-sheet .tab-content .items-list .load-value_input,
+.parscrucis-actor-sheet .tab-content .items-list .load-max {
+  font-family: "SR";
+  font-size: 17px;
+}
+.parscrucis-actor-sheet .tab-content .items-list .load-value,
+.parscrucis-actor-sheet .tab-content .items-list .load-value_input {
+  height: 19px;
+  width: 17px;
+  min-width: 17px;
+  padding-bottom: 1px;
+  text-align: right;
+}
+.parscrucis-actor-sheet .tab-content .items-list .load-value_input {
+  background: none;
+}
+.parscrucis-actor-sheet .tab-content .items-list .load-divisor {
+  width: 5px;
+  text-align: center;
+  font-size: 16px;
+}
+.parscrucis-actor-sheet .tab-content .items-list .load-max {
+  width: 14px;
+  padding-top: 4px;
+  margin-left: -2px;
+  text-align: left;
+  font-size: 15px;
+  font-style: italic;
 }
 .parscrucis-actor-sheet .tab-content .item-line:nth-child(2) {
   padding-top: 0;
@@ -1317,6 +1375,9 @@ p {
   flex: 4 0;
   margin: 0 1px;
 }
+.parscrucis-item-sheet .superior .item-header-right .item-header-lower .item-price {
+  font-size: 18px;
+}
 .parscrucis-item-sheet .superior .item-header-right .item-header-lower .item-price-box {
   flex: 3 0;
 }
@@ -1324,7 +1385,6 @@ p {
   width: 45%;
   text-align: right;
   padding: 2px 1px 0 0;
-  font-size: 18px;
 }
 .parscrucis-item-sheet .superior .item-header-right .item-header-lower .item-price-box .item-currency {
   width: 55%;

@@ -489,7 +489,7 @@ PC.gearCategory = {
   misc: "PC.misc",
   vest: "PC.vest",
   accessory: "PC.accessory",
-  catalyst: "PC.catalyst",
+  canalyst: "PC.canalyst",
   keyItem: "PC.keyItem",
 };
 

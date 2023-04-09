@@ -34,7 +34,6 @@ export class ParsCrucisActor extends Actor {
     }
 
     this.updateSource(initData);
-
     // console.log("PRECREATE", this);
   }
 
@@ -45,7 +44,6 @@ export class ParsCrucisActor extends Actor {
     // prepareBaseData(), prepareEmbeddedDocuments() (including active effects),
     // prepareDerivedData().
     super.prepareData();
-
     // console.log("prepData:THIS", this);
   }
 
@@ -86,7 +84,9 @@ export class ParsCrucisActor extends Actor {
     // }
 
     this._prepareItems(actorData);
+    this._setLuck(resourcesData);
     const abilitiesExpSum = this._abilitiesExp(actorData);
+    detailsData.points = this._passivesPts(actorData);
 
     // Handle skills.
     for (let [key, skill] of Object.entries(skillsData)) {
@@ -170,23 +170,14 @@ export class ParsCrucisActor extends Actor {
           att.autoValue = attRaceValue + attBaseValue;
           att.value = att.inputValue || att.autoValue;
         } else {
-          if (att.inputValue === 0) {
-            att.value = 0;
-          } else {
-            att.value = att.inputValue || null;
-          }
+          // Setting pdm attributes.
+          att.inputValue === 0
+            ? (att.value = 0)
+            : (att.value = att.inputValue || null);
         }
 
-        if (att.value === null) {
-          att.disabled = true;
-        }
-
-        // Correcting attribute modifiers
-        if (att.value === null) {
-          att.modifiers = null;
-        } else if (typeof att.modifiers !== "number") {
-          att.modifiers = 0;
-        }
+        // Verifies attribute values, setting passive values or disabling tests
+        this._setAttributes(att);
       }
       if (key === "movement" && actorType == "persona") {
         // if (actorType == "persona") {
@@ -201,49 +192,40 @@ export class ParsCrucisActor extends Actor {
       if (key === "def") {
         if (actorType == "persona") {
           const combatSkillValue = Math.max(...combatSkillsPlusModifiers);
-          const attBaseValue =
-            10 + RACIALS[race].attributes.def + combatSkillValue;
-          attBaseValue >= 10
+          const attBaseValue = RACIALS[race].attributes.def + combatSkillValue;
+          attBaseValue >= 0
             ? (att.autoValue = attBaseValue)
-            : (att.autoValue = 10);
+            : (att.autoValue = 0);
           att.value = att.inputValue || att.autoValue;
         } else {
           att.inputValue === 0
             ? (att.value = 0)
             : (att.value = att.inputValue || null);
         }
-
-        if (att.value === null) {
-          att.disabled = true;
-          att.ranged = null;
-        } else {
-          att.autoRanged = att.value - 4;
-          att.autoRanged >= 10 ? att.autoRanged : (att.autoRanged = 10);
-          att.ranged = att.inputRanged || att.autoRanged;
-        }
-
-        if (att.value === null) {
-          att.modifiers = null;
-        } else if (typeof att.modifiers !== "number") {
-          att.modifiers = 0;
-        }
+        this._setAttributes(att);
       }
     }
 
     // Handle minors.
-    for (let [key, minor] of Object.entries(minorsData)) {
-      minor.label = game.i18n.localize(PC.minors[key]) ?? key;
-
-      // Setting playable characters minor attributes.
+    for (let [_, minor] of Object.entries(minorsData)) {
+      // Checks playable characters attributes for minors.
       if (actorType == "persona") {
-        const baseAtt = minor.base;
-        minor.autoValue = attributesData[baseAtt].value;
+        const attributesValues = [];
+
+        for (let att of minor.attributes) {
+          let attValue = attributesData[att].value;
+          attributesValues.push(attValue);
+        }
+
+        minor.autoValue = Math.max(...attributesValues);
         minor.value = minor.inputValue || minor.autoValue;
       } else {
         // Setting pdm minor attributes.
-        minor.value = minor.inputValue || null;
-        minor.baseDisabled = true;
+        minor.inputValue === 0
+          ? (minor.value = 0)
+          : (minor.value = minor.inputValue || null);
       }
+      this._setAttributes(minor);
     }
 
     // Handle mitigation.
@@ -346,6 +328,11 @@ export class ParsCrucisActor extends Actor {
     actorData.techniques = techniques;
   }
 
+  _setLuck(resourcesData) {
+    if (resourcesData.sorte.max > 4) resourcesData.sorte.max = 4;
+    if (resourcesData.sorte.max < 0) resourcesData.sorte.max = 0;
+  }
+
   _abilitiesExp(actorData) {
     let abilitiesExp = 0;
     for (let [_, power] of Object.entries(actorData.powers)) {
@@ -355,6 +342,31 @@ export class ParsCrucisActor extends Actor {
       abilitiesExp += technique.system.expCost;
     }
     return abilitiesExp;
+  }
+
+  _passivesPts(actorData) {
+    let passivesPts = 0;
+    for (let [_, passive] of Object.entries(actorData.passives)) {
+      passivesPts += passive.system.points;
+    }
+    return passivesPts;
+  }
+
+  _setAttributes(att) {
+    // Disabling null attributes tests and passive values
+    if (att.value === null) {
+      att.disabled = true;
+      att.passive = null;
+    } else {
+      att.passive = 10 + att.value + att.modifiers;
+      att.passive >= 10 ? att.passive : (att.passive = 10);
+    }
+    // Correcting modifiers
+    if (att.value === null) {
+      att.modifiers = null;
+    } else if (typeof att.modifiers !== "number") {
+      att.modifiers = 0;
+    }
   }
 
   _prepareCharacterData(actorData) {
