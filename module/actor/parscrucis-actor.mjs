@@ -435,7 +435,7 @@ export class ParsCrucisActor extends Actor {
   }
 
   /**
-   * @Override getRollData() that's supplied to rolls.
+   * @Override getRollData() -> supplied to rolls.
    */
   getRollData() {
     const data = super.getRollData();

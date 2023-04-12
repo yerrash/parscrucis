@@ -600,7 +600,28 @@
     "weapon": {
       "templates": ["evaluation", "crafting", "itemDescription", "typology"],
       "active": true,
-      "actions": [],
+      "actions": [
+        {
+          "actionSkill": "briga",
+          "actionSkillLabel": "",
+          "actionType": "melee",
+          "actionTypeLabel": "",
+          "actionModifier": "0",
+          "inputModifier": "",
+          "altDamage": false,
+
+          "dmgBase": 0,
+          "dmgBase2": 0,
+          "dmgAtt": "fis",
+          "dmgAtt2": "fis",
+          "dmgDiv": "att50",
+          "dmgDiv2": "att50",
+          "derivedDamage": null,
+          "dmgType": "fis",
+
+          "actionRange": "0"
+        }
+      ],
       "defense": null,
       "requisites": ""
     }
