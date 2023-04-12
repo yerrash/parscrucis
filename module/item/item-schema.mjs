@@ -82,3 +82,9 @@ export class WeaponSchema extends foundry.abstract.DataModel {
     };
   }
 }
+
+export class AbilitySchema extends foundry.abstract.DataModel {
+  static defineSchema() {
+    return {};
+  }
+}

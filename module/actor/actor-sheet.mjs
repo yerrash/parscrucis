@@ -46,8 +46,6 @@ export default class ParsCrucisActorSheet extends ActorSheet {
 
     // console.log("getData:ISSO", context);
 
-    console.log(actorData);
-
     return context;
   }
 
@@ -173,19 +171,14 @@ export default class ParsCrucisActorSheet extends ActorSheet {
     const element = event.currentTarget;
     const type = element.dataset.type;
     const data = duplicate(element.dataset);
-    // Initialize a default name.
-
     const name = `${(game.i18n.localize(`PC.${type}`) ?? type).capitalize()}`;
-    // Prepare the item object.
     const itemData = {
       name: name,
       type: type,
       data: data,
     };
-    // Remove the type from the dataset since it's in the itemData.type prop.
     delete itemData.data["type"];
 
-    // Creates the item!
     return await Item.create(itemData, { parent: this.actor });
   }
 

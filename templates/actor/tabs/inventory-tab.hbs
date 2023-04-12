@@ -23,7 +23,11 @@
               </div>
             </div>
             <div class="item-info item-margin">{{localize "PC.Notes"}}</div>
-            <div class="item-controls">
+            <div class="load-info">
+              <div class="load-value"></div>
+            </div>
+            <div class="item-controls passive-controls">
+              <div class="points-title">{{localize "PC.Qt"}}</div>
               <a
                 class="item-control item-create"
                 title="{{localize 'PC.createWeapon'}}"
@@ -85,6 +89,21 @@
               value="{{item.system.notes}}"
               placeholder="{{item.system.informations}}"
             />
+            <div class="load-info">
+              <input
+                class="load-value_input"
+                data-item-update="{{item._id}}"
+                data-item-target="system.load"
+                type="text"
+                value="{{item.system.load}}"
+              />
+              {{#unless item.system.loadMaxEnabled}}
+                <div class="load-divisor">/</div>
+                <div class="load-max">
+                  {{item.system.loadMax}}
+                </div>
+              {{/unless}}
+            </div>
             {{! interval }}
             <div class="item-controls">
               {{#unless item.system.unarmed}}
@@ -119,7 +138,12 @@
               <div class="item-image"></div>
               <div class="item-name item-margin">{{localize "PC.vest"}}</div>
               <div class="item-info-line">{{localize "PC.Notes"}}</div>
-              <div class="item-controls"></div>
+              <div class="load-info">
+                <div class="load-value"></div>
+              </div>
+              <div class="item-controls passive-controls">
+                <div class="points-title">{{localize "PC.Qt"}}</div>
+              </div>
             </h3>
           </li>
           {{#unless equippedVest}}
@@ -152,6 +176,21 @@
                 value="{{item.system.notes}}"
                 placeholder="{{item.system.informations}}"
               />
+              <div class="load-info">
+                <input
+                  class="load-value_input"
+                  data-item-update="{{item._id}}"
+                  data-item-target="system.load"
+                  type="text"
+                  value="{{item.system.load}}"
+                />
+                {{#unless item.system.loadMaxEnabled}}
+                  <div class="load-divisor">/</div>
+                  <div class="load-max">
+                    {{item.system.loadMax}}
+                  </div>
+                {{/unless}}
+              </div>
               {{! interval }}
               <div class="item-controls">
                 <a
@@ -188,7 +227,12 @@
                   "PC.accessories"
                 }}</div>
               <div class="item-info-line">{{localize "PC.Notes"}}</div>
-              <div class="item-controls"></div>
+              <div class="load-info">
+                <div class="load-value"></div>
+              </div>
+              <div class="item-controls passive-controls">
+                <div class="points-title">{{localize "PC.Qt"}}</div>
+              </div>
             </h3>
           </li>
           {{#unless equippedAcc}}
@@ -221,6 +265,21 @@
                 value="{{item.system.notes}}"
                 placeholder="{{item.system.informations}}"
               />
+              <div class="load-info">
+                <input
+                  class="load-value_input"
+                  data-item-update="{{item._id}}"
+                  data-item-target="system.load"
+                  type="text"
+                  value="{{item.system.load}}"
+                />
+                {{#unless item.system.loadMaxEnabled}}
+                  <div class="load-divisor">/</div>
+                  <div class="load-max">
+                    {{item.system.loadMax}}
+                  </div>
+                {{/unless}}
+              </div>
               {{! interval }}
               <div class="item-controls">
                 <a
@@ -257,7 +316,13 @@
             <div class="item-name item-margin">{{localize "PC.Items"}}</div>
             <div class="item-info-line">{{localize "PC.Notes"}}</div>
             <div class="load-info">
-              <div class="load-value">∞</div>
+              <div class="load-value">
+                {{systemData.details.loadTotal}}
+              </div>
+              <div class="load-divisor">/</div>
+              <div class="load-max">
+                {{systemData.details.loadMax}}
+              </div>
             </div>
             <div class="item-controls passive-controls">
               <div class="points-title">{{localize "PC.Qt"}}</div>
@@ -300,7 +365,6 @@
               placeholder="{{item.system.informations}}"
             />
             <div class="load-info">
-              {{! <div class="load-value">22</div> }}
               <input
                 class="load-value_input"
                 data-item-update="{{item._id}}"

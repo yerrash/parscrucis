@@ -522,6 +522,8 @@
         "birth": "XΔ",
         "exp": 50,
         "expReserve": 0,
+        "loadTotal": 0,
+        "loadMax": 15,
         "points": 0,
         "age": "",
         "height": "",

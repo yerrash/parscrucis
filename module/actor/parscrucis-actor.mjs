@@ -87,6 +87,7 @@ export class ParsCrucisActor extends Actor {
     this._setLuck(resourcesData);
     const abilitiesExpSum = this._abilitiesExp(actorData);
     detailsData.points = this._passivesPts(actorData);
+    detailsData.loadTotal = this._itemsLoad(actorData);
 
     // Handle skills.
     for (let [key, skill] of Object.entries(skillsData)) {
@@ -276,6 +277,7 @@ export class ParsCrucisActor extends Actor {
     // this._prepareCharacterData(actorData);
     // this._prepareNpcData(actorData);
     this._prepareInventoryData(actorData, attributesData, skillsData);
+    detailsData.loadMax = 15 + attributesData.fis.value;
   }
 
   _prepareItems(actorData) {
@@ -342,6 +344,17 @@ export class ParsCrucisActor extends Actor {
       abilitiesExp += technique.system.expCost;
     }
     return abilitiesExp;
+  }
+
+  _itemsLoad(actorData) {
+    let totalLoad = 0;
+    for (let i of actorData.items) {
+      if (i.type === "gear" || i.type === "weapon") {
+        let itemLoad = Math.ceil(i.system.load / (i.system.loadMax || 1));
+        totalLoad += itemLoad;
+      }
+    }
+    return totalLoad;
   }
 
   _passivesPts(actorData) {
