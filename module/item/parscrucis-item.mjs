@@ -11,7 +11,7 @@ export class ParsCrucisItem extends Item {
   prepareData() {
     super.prepareData();
 
-    // console.log("DADOS ANTE-PREPARO!, this);
+    // console.log("DADOS ANTE-PREPARO!", this);
 
     // Get item data.
     const itemData = this;
@@ -19,12 +19,12 @@ export class ParsCrucisItem extends Item {
     const actionsData = systemData.actions;
 
     if (itemData.type === "weapon") {
+      // console.log(itemData);
       systemData.categoryLabel =
         game.i18n.localize(PC.weaponCategory[systemData.category]) ??
         systemData.category;
-
       systemData.subtypeLabel =
-        game.i18n.localize(PC.weaponType[systemData.subtype]) ??
+        game.i18n.localize(PC.weaponSubtype[systemData.subtype]) ??
         systemData.subtype;
 
       // Handle actions.

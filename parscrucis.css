@@ -489,10 +489,10 @@ p {
   margin-right: 2px;
 }
 .parscrucis-actor-sheet .superior .stats-window .right-window {
-  width: 160px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  width: 160px;
   padding: 0 2px 2px;
   border: 1px solid #8080806e;
   border-radius: 5px;
@@ -513,18 +513,19 @@ p {
 }
 .parscrucis-actor-sheet .superior .stats-window .right-window .mitigation .armor-group,
 .parscrucis-actor-sheet .superior .stats-window .right-window .mitigation .protections {
-  width: 75px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  width: 75px;
 }
 .parscrucis-actor-sheet .superior .stats-window .right-window .mitigation .armor-group .armor,
 .parscrucis-actor-sheet .superior .stats-window .right-window .mitigation .protections .armor {
-  height: 21px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  height: 21px;
+  margin-left: 6px;
 }
 .parscrucis-actor-sheet .superior .stats-window .right-window .mitigation .armor-group .armor h3,
 .parscrucis-actor-sheet .superior .stats-window .right-window .mitigation .protections .armor h3 {
@@ -560,6 +561,7 @@ p {
   flex-direction: row-reverse;
   justify-content: space-between;
   align-items: center;
+  margin-right: 4px;
 }
 .parscrucis-actor-sheet .superior .stats-window .right-window .mitigation .armor-group .protection h3,
 .parscrucis-actor-sheet .superior .stats-window .right-window .mitigation .protections .protection h3 {
@@ -577,19 +579,32 @@ p {
 }
 .parscrucis-actor-sheet .superior .stats-window .right-window .minors {
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  flex-direction: column;
   flex-wrap: wrap;
+  flex-grow: 1;
   width: 100%;
-  padding: 1px 0 3px;
+  padding: 1px 1px 0;
   border: 0;
   border-bottom: 1px;
   border-style: solid;
   border-color: #37373a7e;
 }
+.parscrucis-actor-sheet .superior .stats-window .right-window .minors label {
+  width: 50%;
+}
+.parscrucis-actor-sheet .superior .stats-window .right-window .minors label h3 {
+  border: none;
+}
 .parscrucis-actor-sheet .superior .stats-window .right-window .minors .minor,
 .parscrucis-actor-sheet .superior .stats-window .right-window .minors .luck {
-  width: 75px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  height: 20px;
+  border-bottom: 1px solid #37373a7e;
+}
+.parscrucis-actor-sheet .superior .stats-window .right-window .minors .minor:last-child {
+  border: none;
 }
 .parscrucis-actor-sheet .superior .stats-window .right-window .minors .minor-name,
 .parscrucis-actor-sheet .superior .stats-window .right-window .minors .luck-name {
@@ -605,52 +620,44 @@ p {
   font-family: "IMFellEnglishSC";
   font-weight: 700;
 }
+.parscrucis-actor-sheet .superior .stats-window .right-window .minors .luck-line,
 .parscrucis-actor-sheet .superior .stats-window .right-window .minors .minor-num {
   display: flex;
   flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
+  justify-content: center;
+  width: 50%;
 }
 .parscrucis-actor-sheet .superior .stats-window .right-window .minors .minor-num input {
   text-align: center;
   height: 21px;
 }
 .parscrucis-actor-sheet .superior .stats-window .right-window .minors .minor-num .minor-value {
-  width: 65%;
+  width: 40%;
   font-size: 23px;
   padding: 0;
   padding-left: 3px;
   font-family: "SR";
 }
 .parscrucis-actor-sheet .superior .stats-window .right-window .minors .minor-num .minor-modifier {
-  width: 60%;
+  width: 35%;
   font-size: 17px;
   padding: 0;
   font-family: "SR";
 }
-.parscrucis-actor-sheet .superior .stats-window .right-window .minors .minor-num .stat-passive {
-  width: 55%;
-  height: 21px;
-  line-height: 21px;
-  padding-right: 5px;
-  text-align: right;
-  font-size: 20px;
-  font-style: italic;
-  font-family: "SR";
-}
 .parscrucis-actor-sheet .superior .stats-window .right-window .minors .luck-line {
   height: 21px;
-  display: flex;
-  flex-direction: row;
 }
 .parscrucis-actor-sheet .superior .stats-window .right-window .minors .luck-line .luck-num {
-  margin-left: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  margin-left: 8px;
   height: 100%;
-  width: 55px;
+  width: 56px;
 }
 .parscrucis-actor-sheet .superior .stats-window .right-window .minors .luck-line .luck-num .luck-mark {
   height: 100%;
-  width: 100%;
+  width: 14px;
   text-align: center;
   display: flex;
   flex-direction: row;
@@ -659,9 +666,12 @@ p {
   font-size: 20px;
   line-height: 21px;
 }
+.parscrucis-actor-sheet .superior .stats-window .right-window .minors .luck-line .luck-num .luck-mark div {
+  width: 14px;
+}
 .parscrucis-actor-sheet .superior .stats-window .right-window .minors .luck-line input.luck-value {
   height: 100%;
-  width: 10px;
+  width: 12px;
   min-width: 0;
   font-size: 17px;
   padding: 0;
@@ -764,45 +774,25 @@ p {
   color: #999;
   font-family: "Modesto Condensed";
   font-size: 12.5px;
+  width: 15px;
+  height: 19px;
+  line-height: 19px;
+  margin-left: 3px;
 }
-.parscrucis-actor-sheet .tab-content .skills-tab .grouping .skill-group .skill .skill-favor {
-  display: flex;
-  margin: 0 2px 0 1px;
-  margin-bottom: 1px;
-  flex: 0;
-  width: 14px;
-  height: 14px;
+.parscrucis-actor-sheet .tab-content .skills-tab .grouping .skill-group .skill .skill-exp:hover {
+  text-shadow: 0 0 5px #1100ff;
+  transition: 0.15s all ease-in-out;
   cursor: pointer;
 }
-.parscrucis-actor-sheet .tab-content .skills-tab .grouping .skill-group .skill input[type="checkbox"] {
-  margin-left: 3px;
-  margin-bottom: 3px;
-  background: transparent;
-  height: 14px;
-  padding: 4px 4px 4px 8px;
-  border: 1px solid #b5b7b8;
-  border: 1px inset #ccc;
-  border-radius: 50%;
-  -webkit-appearance: none;
-  -webkit-font-smoothing: antialiased;
+.parscrucis-actor-sheet .tab-content .skills-tab .grouping .skill-group .skill .skill-favored {
+  color: #0000ffa1;
 }
-.parscrucis-actor-sheet .tab-content .skills-tab .grouping .skill-group .skill input[type="checkbox"]:checked {
-  padding: 0;
-  -webkit-filter: none;
-  color: #06003b;
-  box-shadow: 0px 1px 3px #741515e7 !important;
-}
-.parscrucis-actor-sheet .tab-content .skills-tab .grouping .skill-group .skill input[type="checkbox"]:checked::before {
-  font-family: "Font Awesome 5 Free";
-  margin-left: -1.5px;
-  content: "\f603";
-  font-weight: bold;
+.parscrucis-actor-sheet .tab-content .skills-tab .grouping .skill-group .skill .skill-favored:hover {
+  text-shadow: 0 0 5px #ff0000;
 }
 .parscrucis-actor-sheet .tab-content .skills-tab .grouping .skill-group .skill .skill-title {
+  display: flex;
   padding-left: 2px;
-  width: calc(50% + 6px - 12px);
-}
-.parscrucis-actor-sheet .tab-content .skills-tab .grouping .skill-group .skill .pdm-skill-title {
   width: calc(50% + 6px + 5px);
 }
 .parscrucis-actor-sheet .tab-content .skills-tab .grouping .skill-group .skill .skill-rate {
@@ -1327,7 +1317,8 @@ p {
   justify-content: space-between;
 }
 .parscrucis-item-sheet .superior .item-header-right .item-header-upper select,
-.parscrucis-item-sheet .superior .item-header-right .item-header-upper input {
+.parscrucis-item-sheet .superior .item-header-right .item-header-upper input,
+.parscrucis-item-sheet .superior .item-header-right .item-header-upper .weapon-type {
   height: 18px;
   font-size: 14px;
   flex-grow: 1;

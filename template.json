@@ -558,6 +558,7 @@
       },
       "typology": {
         "category": "none",
+        "subCategory": "",
         "subtype": null
       },
       "evaluation": {
@@ -567,10 +568,6 @@
         "currency": "",
         "equipped": false,
         "rarity": "common"
-      },
-      "ability": {
-        "effort": 0,
-        "pre-requisites": {}
       },
       "crafting": {
         "craftable": false,
@@ -594,8 +591,28 @@
       "points": 0
     },
     "ability": {
-      "templates": ["itemDescription", "typology", "ability"],
-      "expCost": 0
+      "templates": ["itemDescription", "typology"],
+      "actions": [
+        {
+          "effort": "0",
+          "prepTime": "",
+          "actionRange": "0",
+          "actionType": "active ",
+          "actionSkill": "briga",
+          "actionSkillLabel": "",
+          "interactionType": "melee",
+          "interactionTypeLabel": "",
+          "testDificulty": "",
+          "effectDescription": "",
+          "effectNotes": "",
+          "actionNature": "damage",
+          "actionNatureLabel": "",
+          "value": "",
+          "valueType": ""
+        }
+      ],
+      "expCost": 2,
+      "preRequisites": ""
     },
     "weapon": {
       "templates": ["evaluation", "crafting", "itemDescription", "typology"],
@@ -609,7 +626,6 @@
           "actionModifier": "0",
           "inputModifier": "",
           "altDamage": false,
-
           "dmgBase": 0,
           "dmgBase2": 0,
           "dmgAtt": "fis",
@@ -618,7 +634,6 @@
           "dmgDiv2": "att50",
           "derivedDamage": null,
           "dmgType": "fis",
-
           "actionRange": "0"
         }
       ],

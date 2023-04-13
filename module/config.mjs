@@ -239,21 +239,11 @@ PC.skillList = {
   sabak: "PC.sabak",
 };
 
-PC.weaponSkill = {
-  arque: "PC.arque",
-  balis: "PC.balis",
-  briga: "PC.briga",
-  esgri: "PC.esgri",
-  hasta: "PC.hasta",
-  malha: "PC.malha",
-};
-
 PC.weaponCategory = {
   none: "",
   melee: "PC.melee",
-  shield: "PC.shield",
   ranged: "PC.ranged",
-  ammunition: "PC.ammunition",
+  shield: "PC.shield",
 };
 
 PC.none = {};
@@ -345,7 +335,7 @@ PC.ammunition = {
   exotic: "PC.Exotic",
 };
 
-PC.weaponType = {
+PC.weaponSubtype = {
   unarmed: "PC.Unarmed",
   fists: "PC.Fists",
   gloves: "PC.Gloves",

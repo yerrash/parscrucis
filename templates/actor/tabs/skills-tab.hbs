@@ -10,19 +10,22 @@
         {{#each (lookup @root.config objs) as |p obj|}}
           {{#with (lookup @root.actor.system.skills obj) as |sk|}}
             <li class="skill">
-              <input
-                class="skill-favor"
-                {{checked sk.favor}}
-                data-dtype="Boolean"
-                type="checkbox"
-                name="system.skills.{{@key}}.favor"
-              />
               <h4 class="skill-title">
                 <a
                   data-label="{{localize p}}"
                   data-skill-key="{{@key}}"
                 >{{localize p}}</a>
-                <span class="skill-exp">{{sk.expSpent}}</span>
+                {{#if sk.favor}}
+                  <div
+                    class="skill-exp skill-favored"
+                    data-favor-key="{{@key}}"
+                  >{{sk.expSpent}}</div>
+                {{else}}
+                  <div
+                    class="skill-exp"
+                    data-favor-key="{{@key}}"
+                  >{{sk.expSpent}}</div>
+                {{/if}}
               </h4>
               <span class="skill-rate">{{localize sk.aprendizado}}</span>
               <span class="skill-att">

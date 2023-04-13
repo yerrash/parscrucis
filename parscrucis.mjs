@@ -4,7 +4,7 @@ import ParsCrucisItemSheet from "./module/item/item-sheet.mjs";
 import ParsCrucisActorSheet from "./module/actor/actor-sheet.mjs";
 import { ParsCrucisActor } from "./module/actor/parscrucis-actor.mjs";
 import { ParsCrucisItem } from "./module/item/parscrucis-item.mjs";
-import { WeaponSchema } from "./module/item/item-schema.mjs";
+import { AbilitySchema, WeaponSchema } from "./module/item/item-schema.mjs";
 
 import hooks from "./hooks/hotbar.mjs";
 
@@ -57,6 +57,7 @@ Hooks.once("init", function () {
 
   // Assign custom DataModels
   CONFIG.Item.systemDataModels.weapon = WeaponSchema;
+  CONFIG.Item.systemDataModels.ability = AbilitySchema;
 
   // Register sheet application classes
   Items.unregisterSheet("core", ItemSheet);

@@ -6,7 +6,7 @@
       </h3>
     </label>
     <div class="luck-line">
-      <div class="luck-num flexrow" data-target="system.resources.sorte.value">
+      <div class="luck-num" data-target="system.resources.sorte.value">
         {{#each systemData.resources.sorte.booleans as |boolean obj|}}
           {{#if boolean.checked}}
             <a class="luck-mark" data-luck-index={{@key}}><div>X</div></a>
@@ -59,7 +59,6 @@
               value="{{numberFormat minatt.modifiers sign=true}}"
               data-dtype="Number"
             />
-            <span class="stat-passive">{{minatt.passive}}</span>
           {{/unless}}
         </div>
       </div>

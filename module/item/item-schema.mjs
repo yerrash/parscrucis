@@ -50,8 +50,14 @@ export class WeaponSchema extends foundry.abstract.DataModel {
       actions: new field.ArrayField(new field.EmbeddedDataField(ActionSchema), {
         initial: [new ActionSchema()],
       }),
+      // type Weapon
+      typeLabel: new field.StringField({ initial: "" }),
+      // category between melee, ranged or shield
       category: new field.StringField({ initial: "none" }),
       categoryLabel: new field.StringField({ initial: "" }),
+      // which subtype a weapon is, for melee example: short sword, sword etc
+      subtype: new field.StringField({ initial: "none" }),
+      subtypeLabel: new field.StringField({ initial: "" }),
       craftable: new field.BooleanField({ initial: false }),
       craftingInfo: new field.StringField({ initial: "" }),
       craftingMaterials: new field.ArrayField(
@@ -75,16 +81,54 @@ export class WeaponSchema extends foundry.abstract.DataModel {
       currency: new field.StringField({ initial: "" }),
       rarity: new field.StringField({ initial: "common" }),
       requisites: new field.StringField({ initial: "" }),
-      subtype: new field.StringField({ initial: "" }),
-      subtypeLabel: new field.StringField({ initial: "" }),
       unarmed: new field.StringField({ initial: "false" }),
       workTime: new field.StringField({ initial: "" }),
     };
   }
 }
 
+export class AbilityActionSchema extends foundry.abstract.DataModel {
+  static defineSchema() {
+    return {
+      effort: new field.StringField({ initial: "0" }),
+      prepTime: new field.StringField({ initial: "" }),
+      actionRange: new field.StringField({ initial: "0" }),
+      // sets if the action is an Intection, Test or Active type
+      actionType: new field.StringField({ initial: "active " }),
+      // sets the skill if Interaction or Test type
+      actionSkill: new field.StringField({ initial: "briga" }),
+      actionSkillLabel: new field.StringField({ initial: "" }),
+      // sets type if Intection, sets difficulty if Test
+      interactionType: new field.StringField({ initial: "melee" }),
+      interactionTypeLabel: new field.StringField({ initial: "" }),
+      testDificulty: new field.StringField({ initial: "" }),
+      effectDescription: new field.StringField({ initial: "" }),
+      effectNotes: new field.StringField({ initial: "" }),
+      // sets if the action is damaging or healing in nature
+      actionNature: new field.StringField({ initial: "damage" }),
+      actionNatureLabel: new field.StringField({ initial: "" }),
+      value: new field.StringField({ initial: "" }),
+      valueType: new field.StringField({ initial: "" }),
+    };
+  }
+}
+
 export class AbilitySchema extends foundry.abstract.DataModel {
   static defineSchema() {
-    return {};
+    return {
+      actions: new field.ArrayField(
+        new field.EmbeddedDataField(AbilityActionSchema),
+        { initial: [new AbilityActionSchema()] }
+      ),
+      category: new field.StringField({ initial: "none" }),
+      subCategory: new field.StringField({ initial: "" }),
+      type: new field.StringField({ initial: "power" }),
+      typeLabel: new field.StringField({ initial: "" }),
+      expCost: new field.NumberField({ initial: 2 }),
+      preRequisites: new field.StringField({ initial: "" }),
+      description: new field.StringField({ initial: "" }),
+      informations: new field.StringField({ initial: "" }),
+      notes: new field.StringField({ initial: "" }),
+    };
   }
 }

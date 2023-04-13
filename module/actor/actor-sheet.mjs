@@ -158,6 +158,7 @@ export default class ParsCrucisActorSheet extends ActorSheet {
     html.find("[data-luck-index]").click(this._onLuckClick.bind(this));
     html.find("[data-att-key]").click(this._onAttClick.bind(this));
     html.find("[data-skill-key]").click(this._onSkillClick.bind(this));
+    html.find(".skill-exp").click(this._switchFavorClick.bind(this));
     html.find("[data-action]").click(this._onActionClick.bind(this));
   }
 
@@ -219,12 +220,14 @@ export default class ParsCrucisActorSheet extends ActorSheet {
   async _onLuckClick(event) {
     event.preventDefault();
     let actorData = this.actor.toObject();
-    let luckIndex = Number(event.currentTarget.dataset.luckIndex);
-    let target = $(event.currentTarget)
+    const luckIndex = Number(event.currentTarget.dataset.luckIndex);
+    const target = $(event.currentTarget)
       .parents(".luck-num")
       .attr("data-target");
     let value = getProperty(actorData, target);
     let newValue = luckIndex + 1;
+
+    // console.log(target);
 
     if (value === newValue) {
       setProperty(actorData, target, 0);
@@ -288,6 +291,31 @@ export default class ParsCrucisActorSheet extends ActorSheet {
     });
 
     return roll;
+  }
+
+  async _switchFavorClick(event) {
+    event.preventDefault();
+    let actorData = this.actor.toObject();
+    const element = event.currentTarget;
+    const dataset = element.dataset;
+    const skillKey = dataset.favorKey;
+    const skillData = this.actor.system.skills[skillKey];
+    console.log(skillData);
+
+    let favor = true;
+    if (skillData.favor === true) favor = false;
+
+    console.log(favor);
+
+    let target = `system.skills.${skillKey}.favor`;
+
+    console.log(target);
+
+    console.log(actorData);
+
+    setProperty(actorData, target, favor);
+
+    this.actor.update(actorData);
   }
 
   async _onActionClick(event) {

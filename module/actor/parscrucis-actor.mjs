@@ -211,14 +211,14 @@ export class ParsCrucisActor extends Actor {
     for (let [_, minor] of Object.entries(minorsData)) {
       // Checks playable characters attributes for minors.
       if (actorType == "persona") {
-        const attributesValues = [];
+        let attributesValues = 0;
 
         for (let att of minor.attributes) {
           let attValue = attributesData[att].value;
-          attributesValues.push(attValue);
+          attributesValues += attValue;
         }
 
-        minor.autoValue = Math.max(...attributesValues);
+        minor.autoValue = Math.ceil(attributesValues / 2);
         minor.value = minor.inputValue || minor.autoValue;
       } else {
         // Setting pdm minor attributes.
