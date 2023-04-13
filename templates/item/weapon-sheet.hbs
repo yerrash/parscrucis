@@ -14,16 +14,16 @@
       <div class="item-header-right-lower">
         <div class="item-header-upper">
           <div class="weapon-type">{{localize "PC.weapon"}}</div>
-          <select name="system.category">
+          <select name="system.group">
             {{selectOptions
-              config.weaponCategory
-              selected=item.system.category
+              config.weaponGroups
+              selected=item.system.group
               localize=true
             }}
           </select>
           <select name="system.subtype">
             {{selectOptions
-              (lookup config item.system.category)
+              (lookup config item.system.group)
               selected=item.system.subtype
               localize=true
             }}

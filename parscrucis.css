@@ -1035,7 +1035,7 @@ p {
   border: none;
 }
 .parscrucis-actor-sheet .tab-content .items-list .item-line .item-name {
-  font-size: 15.5px;
+  font-size: 15px;
   font-family: "JMHArkham";
 }
 .parscrucis-actor-sheet .tab-content .items-list .item-line .item-skill {
@@ -1247,6 +1247,20 @@ p {
   height: 30%;
   max-height: 134px;
   margin: 0;
+}
+.parscrucis-actor-sheet .tab-content .notes-tab textarea {
+  width: 100%;
+  min-height: 36px;
+  height: calc(100% - 20px);
+  line-height: 17px;
+  padding: 0 2px 1px;
+  font-family: "Acme";
+  resize: none;
+  text-align: justify;
+  border: 0;
+  border-radius: 3px;
+  padding: 0;
+  background: transparent;
 }
 .parscrucis-actor-sheet .empty-window {
   height: 21px;

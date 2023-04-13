@@ -53,8 +53,8 @@ export class WeaponSchema extends foundry.abstract.DataModel {
       // type Weapon
       typeLabel: new field.StringField({ initial: "" }),
       // category between melee, ranged or shield
-      category: new field.StringField({ initial: "none" }),
-      categoryLabel: new field.StringField({ initial: "" }),
+      group: new field.StringField({ initial: "none" }),
+      groupLabel: new field.StringField({ initial: "" }),
       // which subtype a weapon is, for melee example: short sword, sword etc
       subtype: new field.StringField({ initial: "none" }),
       subtypeLabel: new field.StringField({ initial: "" }),

@@ -20,9 +20,9 @@ export class ParsCrucisItem extends Item {
 
     if (itemData.type === "weapon") {
       // console.log(itemData);
-      systemData.categoryLabel =
-        game.i18n.localize(PC.weaponCategory[systemData.category]) ??
-        systemData.category;
+      systemData.groupLabel =
+        game.i18n.localize(PC.weaponGroups[systemData.group]) ??
+        systemData.group;
       systemData.subtypeLabel =
         game.i18n.localize(PC.weaponSubtype[systemData.subtype]) ??
         systemData.subtype;

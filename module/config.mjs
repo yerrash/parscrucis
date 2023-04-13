@@ -239,7 +239,7 @@ PC.skillList = {
   sabak: "PC.sabak",
 };
 
-PC.weaponCategory = {
+PC.weaponGroups = {
   none: "",
   melee: "PC.melee",
   ranged: "PC.ranged",

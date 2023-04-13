@@ -13,14 +13,9 @@
   </div>
   <div class="window gm-notes-window">
     <h3 class="subtitle"><span>{{localize "PC.gmNotes"}}</span></h3>
-    <div class="bio">
-      {{editor
-        actor.system.details.gmNotes
-        target="system.details.gmNotes"
-        button=true
-        owner=owner
-        editable=editable
-      }}
+    <textarea
+      class="bio"
+      name="system.details.gmNotes">{{systemData.details.gmNotes}}</textarea>
     </div>
   </div>
 </section>
