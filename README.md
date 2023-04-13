@@ -1,2 +1,2 @@
 # parscrucis
-Implementation of Pars Crucis game system for Foundry Virtual Tabletop (http://foundryvtt.com).
+Pars Crucis roleplaying system for Foundry Virtual Tabletop (http://foundryvtt.com).
