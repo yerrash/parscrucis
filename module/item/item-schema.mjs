@@ -52,12 +52,12 @@ export class WeaponSchema extends foundry.abstract.DataModel {
       }),
       // type Weapon
       typeLabel: new field.StringField({ initial: "" }),
-      // category between melee, ranged or shield
+      // group between melee, ranged or shield
       group: new field.StringField({ initial: "none" }),
       groupLabel: new field.StringField({ initial: "" }),
-      // which subtype a weapon is, for melee example: short sword, sword etc
-      subtype: new field.StringField({ initial: "none" }),
-      subtypeLabel: new field.StringField({ initial: "" }),
+      // which subgroup a weapon is, for melee example: short sword, sword etc
+      subgroup: new field.StringField({ initial: "none" }),
+      subgroupLabel: new field.StringField({ initial: "" }),
       craftable: new field.BooleanField({ initial: false }),
       craftingInfo: new field.StringField({ initial: "" }),
       craftingMaterials: new field.ArrayField(

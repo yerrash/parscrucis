@@ -335,7 +335,7 @@ PC.ammunition = {
   exotic: "PC.Exotic",
 };
 
-PC.weaponSubtype = {
+PC.weaponSubgroups = {
   unarmed: "PC.Unarmed",
   fists: "PC.Fists",
   gloves: "PC.Gloves",

@@ -23,9 +23,9 @@ export class ParsCrucisItem extends Item {
       systemData.groupLabel =
         game.i18n.localize(PC.weaponGroups[systemData.group]) ??
         systemData.group;
-      systemData.subtypeLabel =
-        game.i18n.localize(PC.weaponSubtype[systemData.subtype]) ??
-        systemData.subtype;
+      systemData.subgroupLabel =
+        game.i18n.localize(PC.weaponSubgroups[systemData.subgroup]) ??
+        systemData.subgroup;
 
       // Handle actions.
       for (let [key, act] of Object.entries(actionsData)) {
@@ -35,7 +35,7 @@ export class ParsCrucisItem extends Item {
           game.i18n.localize(PC.actionType[act.actionType]) ?? act.actionType;
       }
 
-      if (systemData.subtype === "unarmed") {
+      if (systemData.subgroup === "unarmed") {
         systemData.unarmed = true;
       } else systemData.unarmed = false;
     }
@@ -45,12 +45,12 @@ export class ParsCrucisItem extends Item {
         game.i18n.localize(PC.gearCategory[systemData.category]) ??
         systemData.category;
 
-      if (systemData.subtype === "none" || systemData.subtype === "") {
-        systemData.subtypeLabel = systemData.categoryLabel;
+      if (systemData.subgroup === "none" || systemData.subgroup === "") {
+        systemData.subgroupLabel = systemData.categoryLabel;
       } else {
-        systemData.subtypeLabel =
-          game.i18n.localize(PC.gearCategory[systemData.subtype]) ??
-          systemData.subtype;
+        systemData.subgroupLabel =
+          game.i18n.localize(PC.gearCategory[systemData.subgroup]) ??
+          systemData.subgroup;
       }
 
       if (

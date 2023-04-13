@@ -558,7 +558,7 @@
       },
       "typology": {
         "group": "none",
-        "subCategory": "",
+        "subgroup": null,
         "subtype": null
       },
       "evaluation": {

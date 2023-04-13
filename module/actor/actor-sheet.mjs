@@ -82,7 +82,7 @@ export default class ParsCrucisActorSheet extends ActorSheet {
         } else gear.push(i);
         // Append weapons
       } else if (i.type === "weapon") {
-        if (i.system.equipped === true || i.system.subtype === "unarmed") {
+        if (i.system.equipped === true || i.system.subgroup === "unarmed") {
           weapons.push(i);
         } else {
           gear.push(i);
