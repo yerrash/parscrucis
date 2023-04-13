@@ -26,9 +26,8 @@
         "derivedDmage": 10
       },
       "derived": "item/abilityID",
-      "category": "power",
-      "categoryLabel": "Poder",
-      "subtype": "combat",
+      "subtype": "power",
+      "subtypeLabel": "Poder",
       "description": "Poder que serve como exemplo ao objeto",
       "informations": "Efeitos bem descritos, funcionais!",
       "notes": "Resumo do poder",

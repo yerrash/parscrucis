@@ -13,13 +13,12 @@ export class ParsCrucisItem extends Item {
 
     // console.log("DADOS ANTE-PREPARO!", this);
 
-    // Get item data.
-    const itemData = this;
-    const systemData = itemData.system;
+    // Get item system data.
+    const systemData = this.system;
     const actionsData = systemData.actions;
 
-    if (itemData.type === "weapon") {
-      // console.log(itemData);
+    if (this.type === "weapon") {
+      // console.log(this);
       systemData.groupLabel =
         game.i18n.localize(PC.weaponGroups[systemData.group]) ??
         systemData.group;
@@ -40,25 +39,27 @@ export class ParsCrucisItem extends Item {
       } else systemData.unarmed = false;
     }
 
-    if (itemData.type === "gear") {
-      systemData.categoryLabel =
-        game.i18n.localize(PC.gearCategory[systemData.category]) ??
-        systemData.category;
+    if (this.type === "gear") {
+      systemData.groupLabel =
+        game.i18n.localize(PC.gearGroups[systemData.group]) ?? systemData.group;
 
       if (systemData.subgroup === "none" || systemData.subgroup === "") {
-        systemData.subgroupLabel = systemData.categoryLabel;
+        systemData.subgroupLabel = systemData.groupLabel;
       } else {
         systemData.subgroupLabel =
-          game.i18n.localize(PC.gearCategory[systemData.subgroup]) ??
+          game.i18n.localize(PC.gearGroups[systemData.subgroup]) ??
           systemData.subgroup;
       }
 
-      if (
-        systemData.category === "vest" ||
-        systemData.category === "accessory"
-      ) {
+      if (systemData.group === "vest" || systemData.group === "accessory") {
         systemData.cantEquip = false;
       } else systemData.cantEquip = true;
+    }
+
+    if (this.type === "passive") {
+      systemData.subtypeLabel =
+        game.i18n.localize(PC.passiveSubtypes[systemData.subtype]) ??
+        systemData.subtype;
     }
 
     // Get item owner data.

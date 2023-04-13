@@ -587,7 +587,7 @@
     },
     "passive": {
       "templates": ["itemDescription"],
-      "passiveType": "",
+      "passiveSubtype": "",
       "points": 0
     },
     "ability": {

@@ -72,10 +72,10 @@ export default class ParsCrucisActorSheet extends ActorSheet {
       // Append to gear.
       if (i.type === "gear") {
         // Separates equipped vest and accessories
-        if (i.system.category === "vest" && i.system.equipped === true) {
+        if (i.system.group === "vest" && i.system.equipped === true) {
           vest.push(i);
         } else if (
-          i.system.category === "accessory" &&
+          i.system.group === "accessory" &&
           i.system.equipped === true
         ) {
           acc.push(i);
@@ -96,7 +96,7 @@ export default class ParsCrucisActorSheet extends ActorSheet {
 
       // Append abilities - Techniques and Powers
       else if (i.type === "ability") {
-        if (i.system.category === "power") {
+        if (i.system.subtype === "power") {
           powers.push(i);
         } else techniques.push(i);
       }

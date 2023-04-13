@@ -420,7 +420,9 @@ PC.actionType = {
   cognitive: "PC.Cognitive",
   debilitating: "PC.Debilitating",
   area: "PC.Area",
-  dif7: "PC.dif7",
+};
+
+PC.testDifficulties = {
   dif8: "PC.dif8",
   dif8: "PC.dif8",
   dif10: "PC.dif10",
@@ -470,8 +472,10 @@ PC.damageTypeShort = {
   pure: "PC.pureDamage",
 };
 
-PC.gearCategory = {
+PC.gearGroups = {
+  none: "",
   material: "PC.material",
+  ammunition: "PC.ammunition",
   alchemical: "PC.alchemical",
   herbal: "PC.herbal",
   belic: "PC.belic",
@@ -483,12 +487,13 @@ PC.gearCategory = {
   keyItem: "PC.keyItem",
 };
 
-PC.abilityCategory = {
+PC.abilitySubtypes = {
   technique: "PC.technique",
   power: "PC.power",
 };
 
-PC.passiveType = {
+PC.passiveSubtypes = {
+  none: "",
   benefit: "PC.benefit",
   flaw: "PC.flaw",
   racial: "PC.racial",
