@@ -1,4 +1,5 @@
 import { PC_Utility } from "../utility.js";
+import ActorConfigure from "../apps/actor-configs.mjs";
 
 export default class ParsCrucisActorSheet extends ActorSheet {
   /** @override */
@@ -8,7 +9,7 @@ export default class ParsCrucisActorSheet extends ActorSheet {
       width: 800,
       height: 680,
       scrollY: ["section.inventory", "section.abilities", "section.constants"],
-      title: "BULLSHIT",
+      title: "ActorSheet",
       tabs: [
         {
           navSelector: ".navigation",
@@ -23,6 +24,19 @@ export default class ParsCrucisActorSheet extends ActorSheet {
   get template() {
     const path = "systems/parscrucis/templates/actor";
     return `${path}/${this.actor.type}-sheet.hbs`;
+  }
+
+  _getHeaderButtons() {
+    let buttons = super._getHeaderButtons();
+    if (this.actor.isOwner && this.actor.type === "persona") {
+      buttons.unshift({
+        label: "PC.Configure",
+        class: "configure",
+        icon: "fas fa-wrench",
+        onclick: (ev) => new ActorConfigure(this.actor).render(true),
+      });
+    }
+    return buttons;
   }
 
   getData() {
@@ -300,18 +314,10 @@ export default class ParsCrucisActorSheet extends ActorSheet {
     const dataset = element.dataset;
     const skillKey = dataset.favorKey;
     const skillData = this.actor.system.skills[skillKey];
-    console.log(skillData);
 
     let favor = true;
     if (skillData.favor === true) favor = false;
-
-    console.log(favor);
-
     let target = `system.skills.${skillKey}.favor`;
-
-    console.log(target);
-
-    console.log(actorData);
 
     setProperty(actorData, target, favor);
 

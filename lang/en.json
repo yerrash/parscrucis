@@ -1,4 +1,9 @@
 {
+  "PC.Adjustments": "Ajustes",
+  "PC.Configure": "Configurar",
+  "PC.ConfigureActor": "Configurar personagem",
+  "PC.ConfirmChanges": "Confirmar alterações",
+
   "PC.Humano": "Humano",
   "PC.Carneador": "Carneador",
   "PC.Capriaco": "Capríaco",
@@ -76,8 +81,14 @@
   "PC.Esperteza": "Esperteza",
   "PC.Vontade": "Vontade",
 
-  "PC.PV": "Vida",
-  "PC.PE": "Essência",
+  "PC.Sau": "Sau",
+  "PC.Esp": "Esp",
+  "PC.Von": "Von",
+
+  "PC.PV": "PV",
+  "PC.Pv": "Vida",
+  "PC.PE": "PE",
+  "PC.Pe": "Essência",
   "PC.LIM": "Lim",
   "PC.Pain": "Dor",
   "PC.Ret": "Ret",
@@ -359,8 +370,8 @@
 
   "PC.effects": "Efeitos",
   "PC.weapon": "Arma",
-  "PC.Passives": "Passivas",
-  "PC.Passive": "Passiva",
+  "PC.passives": "Passivas",
+  "PC.passive": "Passiva",
   "PC.gear": "Item",
   "PC.ability": "Habilidade",
   "PC.no": "Sem",

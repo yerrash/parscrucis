@@ -1,1 +1,86 @@
-{{! actor configure window template }}
+{{! actor configure window template | object}}
+<form class="actor-config">
+  <h2><div>{{localize "PC.Adjustments"}}</div></h2>
+  <div class="window">
+    <p>Ajuste aqui os atributos e subatributos de acordo com efeitos de
+      passivas, equipamentos e demais meios permanentes. Evite o uso em casos
+      temporários como efeitos de alquímicos, herbais, habilidades etc.</p>
+    <div class="flexrow">
+      {{#each object.system.attributes as |attribute obj|}}
+        <div class="flexcolumn attribute">
+          <label>
+            <h3>{{attribute.shortLabel}}</h3>
+          </label>
+          <input
+            type="text"
+            data-dtype="Number"
+            name="system.attributes.{{@key}}.config"
+            value="{{attribute.config}}"
+          />
+        </div>
+      {{/each}}
+    </div>
+    <div class="flexrow">
+      <div class="flexcolumn attribute">
+        <label>
+          <h3>{{localize "PC.PV"}}</h3>
+        </label>
+        <input
+          type="text"
+          data-dtype="Number"
+          name="system.resources.pv.config"
+          value="{{object.system.resources.pv.config}}"
+        />
+      </div>
+      <div class="flexcolumn attribute">
+        <label>
+          <h3>{{localize "PC.PE"}}</h3>
+        </label>
+        <input
+          type="text"
+          data-dtype="Number"
+          name="system.resources.pe.config"
+          value="{{object.system.resources.pe.config}}"
+        />
+      </div>
+      <div class="flexcolumn attribute">
+        <label>
+          <h3>{{localize "PC.LIM"}}</h3>
+        </label>
+        <input
+          type="text"
+          data-dtype="Number"
+          name="system.resources.lim.config"
+          value="{{object.system.resources.lim.config}}"
+        />
+      </div>
+      <div class="flexcolumn attribute">
+        <label>
+          <h3>{{localize "PC.Qt"}}</h3>
+        </label>
+        <input
+          type="text"
+          data-dtype="Number"
+          name="system.details.loadConfig"
+          value="{{object.system.details.loadConfig}}"
+        />
+      </div>
+      {{#each object.system.minors as |minor obj|}}
+        {{log minor}}
+        <div class="flexcolumn attribute">
+          <label>
+            <h3>{{minor.shortLabel}}</h3>
+          </label>
+          <input
+            type="text"
+            data-dtype="Number"
+            name="system.minors.{{@key}}.config"
+            value="{{minor.config}}"
+          />
+        </div>
+      {{/each}}
+    </div>
+  </div>
+  <button type="submit" name="submit"><i class="far fa-save"></i>
+    {{localize "PC.ConfirmChanges"}}</button>
+</form>

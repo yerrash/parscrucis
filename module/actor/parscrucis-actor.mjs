@@ -168,7 +168,7 @@ export class ParsCrucisActor extends Actor {
           }
           const attRaceValue = RACIALS[race].attributes[key];
           const attBaseValue = Math.max(...attArray);
-          att.autoValue = attRaceValue + attBaseValue;
+          att.autoValue = attRaceValue + attBaseValue + (att.config || 0);
           att.value = att.inputValue || att.autoValue;
         } else {
           // Setting pdm attributes.
@@ -181,19 +181,20 @@ export class ParsCrucisActor extends Actor {
         this._setAttributes(att);
       }
       if (key === "movement" && actorType == "persona") {
-        // if (actorType == "persona") {
-        att.autoValue = RACIALS[race].attributes[key].move;
+        att.shortLabel = game.i18n.localize(PC.mv) ?? key;
+        att.autoValue = RACIALS[race].attributes[key] + (att.config || 0);
         att.value = att.inputValue || att.autoValue;
         att.autoSprint = Math.ceil(
-          RACIALS[race].attributes[key].sprint + skillsData.atlet.value / 2
+          RACIALS[race].attributes.sprint + skillsData.atlet.value / 2
         );
         att.sprint = att.inputSprint || att.autoSprint;
-        // }
       }
       if (key === "def") {
+        att.shortLabel = game.i18n.localize(PC.def) ?? key;
         if (actorType == "persona") {
           const combatSkillValue = Math.max(...combatSkillsPlusModifiers);
-          const attBaseValue = RACIALS[race].attributes.def + combatSkillValue;
+          const attBaseValue =
+            RACIALS[race].attributes.def + combatSkillValue + (att.config || 0);
           attBaseValue >= 0
             ? (att.autoValue = attBaseValue)
             : (att.autoValue = 0);
@@ -208,7 +209,10 @@ export class ParsCrucisActor extends Actor {
     }
 
     // Handle minors.
-    for (let [_, minor] of Object.entries(minorsData)) {
+    for (let [key, minor] of Object.entries(minorsData)) {
+      minor.label = game.i18n.localize(PC.minors[key]) ?? key;
+      minor.shortLabel = game.i18n.localize(PC.minorsAbv[key]) ?? key;
+
       // Checks playable characters attributes for minors.
       if (actorType == "persona") {
         let attributesValues = 0;
@@ -218,7 +222,7 @@ export class ParsCrucisActor extends Actor {
           attributesValues += attValue;
         }
 
-        minor.autoValue = Math.ceil(attributesValues / 2);
+        minor.autoValue = Math.ceil(attributesValues / 2) + (minor.config || 0);
         minor.value = minor.inputValue || minor.autoValue;
       } else {
         // Setting pdm minor attributes.
@@ -237,16 +241,25 @@ export class ParsCrucisActor extends Actor {
     if (actorType == "persona") {
       // Construct persona resources.
       resourcesData.pv.autoValue =
-        15 + attributesData.fis.value + skillsData.resis.value;
+        15 +
+        attributesData.fis.value +
+        skillsData.resis.value +
+        (resourcesData.pv.config || 0);
       resourcesData.pv.max =
         resourcesData.pv.inputValue || resourcesData.pv.autoValue;
 
       resourcesData.pe.autoValue =
-        15 + attributesData.esp.value + skillsData.amago.value;
+        15 +
+        attributesData.esp.value +
+        skillsData.amago.value +
+        (resourcesData.pe.config || 0);
       resourcesData.pe.max =
         resourcesData.pe.inputValue || resourcesData.pe.autoValue;
 
-      resourcesData.lim.autoValue = 5 + Math.ceil(attributesData.ego.value / 2);
+      resourcesData.lim.autoValue =
+        5 +
+        Math.ceil(attributesData.ego.value / 2) +
+        (resourcesData.lim.config || 0);
       resourcesData.lim.max =
         resourcesData.lim.inputValue || resourcesData.lim.autoValue;
 
@@ -277,7 +290,8 @@ export class ParsCrucisActor extends Actor {
     // this._prepareCharacterData(actorData);
     // this._prepareNpcData(actorData);
     this._prepareInventoryData(actorData, attributesData, skillsData);
-    detailsData.loadMax = 15 + attributesData.fis.value;
+    detailsData.loadMax =
+      15 + attributesData.fis.value + (detailsData.loadConfig || 0);
   }
 
   _prepareItems(actorData) {

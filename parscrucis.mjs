@@ -1,7 +1,8 @@
 // Pars Crucis
 import { PC } from "./module/config.mjs";
-import ParsCrucisItemSheet from "./module/item/item-sheet.mjs";
 import ParsCrucisActorSheet from "./module/actor/actor-sheet.mjs";
+import ActorConfigure from "./module/apps/actor-configs.mjs";
+import ParsCrucisItemSheet from "./module/item/item-sheet.mjs";
 import { ParsCrucisActor } from "./module/actor/parscrucis-actor.mjs";
 import { ParsCrucisItem } from "./module/item/parscrucis-item.mjs";
 import { AbilitySchema, WeaponSchema } from "./module/item/item-schema.mjs";
@@ -35,7 +36,9 @@ Hooks.once("init", function () {
   // Add utility classes to the global game object so that they're more easily
   // accessible in global contexts.
   game.parscrucis = {
-    ParsCrucisActor,
+    ActorConfigure,
+    ParsCrucisActorSheet,
+    ParsCrucisItemSheet,
   };
 
   // Add custom constants for configuration.

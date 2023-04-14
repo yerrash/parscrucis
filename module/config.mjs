@@ -64,6 +64,9 @@ PC.attributes = {
   esp: "PC.ESP",
 };
 
+PC.mv = "PC.MV";
+PC.def = "PC.DEF";
+
 PC.itemAtt = {
   fis: "PC.FIS",
   agi: "PC.AGI",
@@ -85,6 +88,12 @@ PC.minors = {
   saude: "PC.Saude",
   esperteza: "PC.Esperteza",
   vontade: "PC.Vontade",
+};
+
+PC.minorsAbv = {
+  saude: "PC.Sau",
+  esperteza: "PC.Esp",
+  vontade: "PC.Von",
 };
 
 PC.saude = {
