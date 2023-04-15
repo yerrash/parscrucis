@@ -1,5 +1,6 @@
 import { PC_Utility } from "../utility.js";
 import ActorConfigure from "../apps/actor-configs.mjs";
+import { ParsCrucisChat } from "../chat.mjs";
 
 export default class ParsCrucisActorSheet extends ActorSheet {
   /** @override */
@@ -294,6 +295,7 @@ export default class ParsCrucisActorSheet extends ActorSheet {
 
     const flavor = `Teste de ${dataset.label}`;
     let dice = this.dice(event);
+    // Roll.create(formula, ?data, ?options))
     const roll = await Roll.create(
       `${dice}+${skillValue}+${skillData.modifiers}`
     ).evaluate({ async: true });
@@ -303,6 +305,15 @@ export default class ParsCrucisActorSheet extends ActorSheet {
       flavor: flavor,
       rollMode: game.settings.get("core", "rollMode"),
     });
+
+    // console.log(this.actor);
+
+    // let skill = $(event.currentTarget).parents(".skill").attr("data-target");
+    // let skipDialog = event.ctrlKey;
+    // let { rollResults, cardData } = await this.actor.rollSkill(skill, {
+    //   skipDialog,
+    // });
+    // ParsCrucisChat.renderRollCard(rollResults, cardData);
 
     return roll;
   }

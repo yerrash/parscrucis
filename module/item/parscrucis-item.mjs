@@ -1,8 +1,7 @@
 import { PC } from "../config.mjs";
 
 /**
- * Extend the basic Item with some very simple modifications.
- * @extends {Item}
+ * @extends { Item }
  */
 export class ParsCrucisItem extends Item {
   /**
@@ -10,10 +9,8 @@ export class ParsCrucisItem extends Item {
    */
   prepareData() {
     super.prepareData();
-
     // console.log("DADOS ANTE-PREPARO!", this);
 
-    // Get item system data.
     const systemData = this.system;
     const actionsData = systemData.actions;
 

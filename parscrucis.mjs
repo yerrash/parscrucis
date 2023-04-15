@@ -1,5 +1,6 @@
 // Pars Crucis
 import { PC } from "./module/config.mjs";
+import { ParsCrucisChatMessage } from "./module/chat-message.mjs";
 import ParsCrucisActorSheet from "./module/actor/actor-sheet.mjs";
 import ActorConfigure from "./module/apps/actor-configs.mjs";
 import ParsCrucisItemSheet from "./module/item/item-sheet.mjs";
@@ -8,6 +9,7 @@ import { ParsCrucisItem } from "./module/item/parscrucis-item.mjs";
 import { AbilitySchema, WeaponSchema } from "./module/item/item-schema.mjs";
 
 import hooks from "./hooks/hotbar.mjs";
+import { ParsCrucisChat } from "./module/chat.mjs";
 
 async function preloadHandlebarsTemplates() {
   const templatePaths = [
@@ -20,6 +22,7 @@ async function preloadHandlebarsTemplates() {
     "systems/parscrucis/templates/actor/tabs/effects-tab.hbs",
     "systems/parscrucis/templates/actor/tabs/info-tab.hbs",
     "systems/parscrucis/templates/actor/tabs/notes-tab.hbs",
+    "systems/parscrucis/templates/chat/roll-card.hbs",
     "systems/parscrucis/templates/item/tabs/details-tab.hbs",
   ];
 
@@ -38,7 +41,9 @@ Hooks.once("init", function () {
   game.parscrucis = {
     ActorConfigure,
     ParsCrucisActorSheet,
+    ParsCrucisChatMessage,
     ParsCrucisItemSheet,
+    chat: ParsCrucisChat,
   };
 
   // Add custom constants for configuration.
@@ -57,6 +62,8 @@ Hooks.once("init", function () {
   // Define custom Document classes
   CONFIG.Actor.documentClass = ParsCrucisActor;
   CONFIG.Item.documentClass = ParsCrucisItem;
+
+  CONFIG.ChatMessage.documentClass = ParsCrucisChatMessage;
 
   // Assign custom DataModels
   CONFIG.Item.systemDataModels.weapon = WeaponSchema;

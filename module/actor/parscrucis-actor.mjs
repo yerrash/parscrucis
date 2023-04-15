@@ -2,7 +2,7 @@ import { PC } from "../config.mjs";
 import { RACIALS } from "../base-data.mjs";
 
 /**
- * @extends {Actor}
+ * @extends { Actor }
  */
 export class ParsCrucisActor extends Actor {
   /** @override */
