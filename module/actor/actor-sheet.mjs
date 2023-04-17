@@ -1,5 +1,6 @@
 import { PC_Utility } from "../utility.js";
 import ActorConfigure from "../apps/actor-configs.mjs";
+import { PC } from "../config.mjs";
 import { ParsCrucisChat } from "../chat.mjs";
 
 export default class ParsCrucisActorSheet extends ActorSheet {
@@ -31,7 +32,7 @@ export default class ParsCrucisActorSheet extends ActorSheet {
     let buttons = super._getHeaderButtons();
     if (this.actor.isOwner && this.actor.type === "persona") {
       buttons.unshift({
-        label: "PC.Configure",
+        label: "PC.configure",
         class: "configure",
         icon: "fas fa-wrench",
         onclick: (ev) => new ActorConfigure(this.actor).render(true),
@@ -161,20 +162,50 @@ export default class ParsCrucisActorSheet extends ActorSheet {
 
     // Edit Inventory Item notes
     html.find("[data-item-update]").change(this._onNoteChange.bind(this));
-
-    // Delete Inventory Item
-    html.find(".item-delete").click((ev) => {
-      const li = $(ev.currentTarget).parents(".item");
-      const item = this.actor.items.get(li.data("itemId"));
-      item.delete();
-      li.slideUp(200, () => this.render(false));
-    });
+    html.find(".item-delete").click(this._onClickDeletePrompt.bind(this));
 
     html.find("[data-luck-index]").click(this._onLuckClick.bind(this));
     html.find("[data-att-key]").click(this._onAttClick.bind(this));
     html.find("[data-skill-key]").click(this._onSkillClick.bind(this));
     html.find(".skill-exp").click(this._switchFavorClick.bind(this));
     html.find("[data-action]").click(this._onActionClick.bind(this));
+  }
+
+  _onClickDeletePrompt(event) {
+    const li = $(event.currentTarget).parents(".item");
+    const item = this.actor.items.get(li.data("itemId"));
+
+    if (event.ctrlKey === true && this.actor.isOwner) {
+      item.delete();
+      return li.slideUp(200, () => this.render(false));
+    }
+
+    if (this.actor.isOwner) {
+      let d = new Dialog({
+        title: `${game.i18n.localize(PC.options.delete)} ${item.name}`,
+        content: `<p>${game.i18n.localize(PC.options.deleteMessage)} ${
+          item.name
+        }</p>`,
+        buttons: {
+          delete: {
+            icon: '<i class="fa-solid fa-trash-can"></i>',
+            label: `${game.i18n.localize(PC.options.delete)}`,
+            callback: () => item.delete(),
+          },
+          edit: {
+            icon: '<i class="fas fa-edit"></i>',
+            label: `${game.i18n.localize(PC.options.edit)}`,
+            callback: () => item.sheet.render(true),
+          },
+          cancel: {
+            icon: '<i class="fas fa-times"></i>',
+            label: `${game.i18n.localize(PC.options.cancel)}`,
+          },
+        },
+        default: "delete",
+      });
+      d.render(true);
+    }
   }
 
   /**

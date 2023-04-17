@@ -1,8 +1,8 @@
 {
-  "PC.Adjustments": "Ajustes",
-  "PC.Configure": "Configurar",
-  "PC.ConfigureActor": "Configurar personagem",
-  "PC.ConfirmChanges": "Confirmar alterações",
+  "PC.adjustments": "Ajustes",
+  "PC.configure": "Configurar",
+  "PC.configureActor": "Configurar personagem",
+  "PC.confirmChanges": "Confirmar alterações",
 
   "PC.Humano": "Humano",
   "PC.Carneador": "Carneador",
@@ -384,9 +384,14 @@
   "PC.unequip": "Retirar",
   "PC.edit": "Editar",
   "PC.delete": "Deletar",
+  "PC.cancel": "Cancelar",
+  "PC.close": "Fechar",
 
   "PC.benefit": "Benefício",
   "PC.flaw": "Malefício",
   "PC.racial": "Racial",
-  "PC.derived": "Derivada"
+  "PC.derived": "Derivada",
+
+  "PC.deleteMessage": "Tem certeza que deseja deletar ",
+  "PC.configMessage": "Ajuste aqui os atributos e subatributos de acordo com efeitos de passivas, equipamentos e demais meios permanentes. Evite o uso em casos temporários como efeitos de alquímicos, herbais, habilidades etc."
 }

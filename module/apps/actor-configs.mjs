@@ -10,7 +10,7 @@ export default class ActorConfigure extends FormApplication {
       classes: ["parscrucis", "sheet", "parscrucis-actor-config"],
       width: 300,
       height: 310,
-      title: game.i18n.localize("PC.ConfigureActor"),
+      title: game.i18n.localize("PC.configureActor"),
       template: "systems/parscrucis/templates/apps/actor-configure.hbs",
       closeOnSubmit: true,
     });

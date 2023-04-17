@@ -10,6 +10,8 @@ export class ParsCrucisChatMessage extends ChatMessage {
       rollData: this.getRollData(),
     });
 
+    console.log(this);
+
     const isWhisper = this.whisper.length;
 
     // Construct message data

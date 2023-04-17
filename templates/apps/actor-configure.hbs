@@ -1,10 +1,8 @@
 {{! actor configure window template | object}}
 <form class="actor-config">
-  <h2><div>{{localize "PC.Adjustments"}}</div></h2>
+  <h2><div>{{localize "PC.adjustments"}}</div></h2>
   <div class="window">
-    <p>Ajuste aqui os atributos e subatributos de acordo com efeitos de
-      passivas, equipamentos e demais meios permanentes. Evite o uso em casos
-      temporários como efeitos de alquímicos, herbais, habilidades etc.</p>
+    <p>{{localize "PC.configMessage"}}</p>
     <div class="flexrow">
       {{#each object.system.attributes as |attribute obj|}}
         <div class="flexcolumn attribute">
@@ -66,7 +64,6 @@
         />
       </div>
       {{#each object.system.minors as |minor obj|}}
-        {{log minor}}
         <div class="flexcolumn attribute">
           <label>
             <h3>{{minor.shortLabel}}</h3>
@@ -82,5 +79,5 @@
     </div>
   </div>
   <button type="submit" name="submit"><i class="far fa-save"></i>
-    {{localize "PC.ConfirmChanges"}}</button>
+    {{localize "PC.confirmChanges"}}</button>
 </form>

@@ -508,3 +508,11 @@ PC.passiveSubtypes = {
   racial: "PC.racial",
   derived: "PC.derived",
 };
+
+PC.options = {
+  delete: "PC.delete",
+  deleteMessage: "PC.deleteMessage",
+  edit: "PC.edit",
+  cancel: "PC.cancel",
+  close: "PC.close",
+};
