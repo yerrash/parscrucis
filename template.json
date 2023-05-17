@@ -8,7 +8,7 @@
             "value": null,
             "modifiers": 0
           },
-          "agi": {
+          "ref": {
             "value": null,
             "modifiers": 0
           },
@@ -51,7 +51,7 @@
             "modifiers": 0
           },
           "esperteza": {
-            "attributes": ["agi", "int"],
+            "attributes": ["ref", "int"],
             "value": null,
             "modifiers": 0
           },
@@ -128,7 +128,7 @@
             "modifiers": 0
           },
           "briga": {
-            "attribute": "agi",
+            "attribute": "ref",
             "group": "physical",
             "growth": 1,
             "aprendizado": "",
@@ -144,7 +144,7 @@
             "modifiers": 0
           },
           "esgri": {
-            "attribute": "agi",
+            "attribute": "ref",
             "group": "physical",
             "growth": 2,
             "aprendizado": "",
@@ -152,7 +152,7 @@
             "modifiers": 0
           },
           "hasta": {
-            "attribute": "agi",
+            "attribute": "ref",
             "group": "physical",
             "growth": 2,
             "aprendizado": "",
@@ -184,8 +184,16 @@
             "modifiers": 0
           },
 
+          "agili": {
+            "attribute": "ref",
+            "group": "subterfuge",
+            "growth": 1,
+            "aprendizado": "",
+            "favor": false,
+            "modifiers": 0
+          },
           "arque": {
-            "attribute": "agi",
+            "attribute": "ref",
             "group": "subterfuge",
             "growth": 1,
             "aprendizado": "",
@@ -193,7 +201,7 @@
             "modifiers": 0
           },
           "balis": {
-            "attribute": "agi",
+            "attribute": "ref",
             "group": "subterfuge",
             "growth": 1,
             "aprendizado": "",
@@ -201,7 +209,7 @@
             "modifiers": 0
           },
           "furti": {
-            "attribute": "agi",
+            "attribute": "ref",
             "group": "subterfuge",
             "growth": 1,
             "aprendizado": "",
@@ -225,7 +233,7 @@
             "modifiers": 0
           },
           "ladin": {
-            "attribute": "agi",
+            "attribute": "ref",
             "group": "subterfuge",
             "growth": 1,
             "aprendizado": "",
@@ -233,15 +241,7 @@
             "modifiers": 0
           },
           "nauti": {
-            "attribute": "agi",
-            "group": "subterfuge",
-            "growth": 2,
-            "aprendizado": "",
-            "favor": false,
-            "modifiers": 0
-          },
-          "sobre": {
-            "attribute": "int",
+            "attribute": "fis",
             "group": "subterfuge",
             "growth": 2,
             "aprendizado": "",
@@ -258,14 +258,6 @@
             "modifiers": 0
           },
           "erudi": {
-            "attribute": "int",
-            "group": "knowledge",
-            "growth": 1,
-            "aprendizado": "",
-            "favor": false,
-            "modifiers": 0
-          },
-          "engen": {
             "attribute": "int",
             "group": "knowledge",
             "growth": 1,
@@ -305,9 +297,17 @@
             "favor": false,
             "modifiers": 0
           },
-          "profi": {
+          "espec": {
             "attribute": "int",
             "group": "knowledge",
+            "growth": 2,
+            "aprendizado": "",
+            "favor": false,
+            "modifiers": 0
+          },
+          "sobre": {
+            "attribute": "int",
+            "group": "subterfuge",
             "growth": 2,
             "aprendizado": "",
             "favor": false,
@@ -322,7 +322,7 @@
             "favor": false,
             "modifiers": 0
           },
-          "artif": {
+          "engen": {
             "attribute": "int",
             "group": "craft",
             "growth": 1,
@@ -339,7 +339,7 @@
             "modifiers": 0
           },
           "costu": {
-            "attribute": "agi",
+            "attribute": "ref",
             "group": "craft",
             "growth": 2,
             "aprendizado": "",

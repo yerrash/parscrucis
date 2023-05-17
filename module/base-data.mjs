@@ -2,7 +2,7 @@ export const RACIALS = {
   humano: {
     attributes: {
       fis: 0,
-      agi: 0,
+      ref: 0,
       ego: 2,
       int: 0,
       esp: 0,
@@ -14,7 +14,7 @@ export const RACIALS = {
   capriaco: {
     attributes: {
       fis: 1,
-      agi: 0,
+      ref: 0,
       ego: 0,
       int: 2,
       esp: -2,
@@ -26,7 +26,7 @@ export const RACIALS = {
   carneador: {
     attributes: {
       fis: 2,
-      agi: 0,
+      ref: 0,
       ego: -2,
       int: 0,
       esp: 0,
@@ -38,7 +38,7 @@ export const RACIALS = {
   ligno: {
     attributes: {
       fis: 1,
-      agi: -1,
+      ref: -1,
       ego: -2,
       int: 0,
       esp: 1,
@@ -50,7 +50,7 @@ export const RACIALS = {
   orcino: {
     attributes: {
       fis: -1,
-      agi: 1,
+      ref: 1,
       ego: 0,
       int: 1,
       esp: 0,
@@ -62,7 +62,7 @@ export const RACIALS = {
   quezal: {
     attributes: {
       fis: 0,
-      agi: 0,
+      ref: 0,
       ego: -1,
       int: -1,
       esp: 2,
@@ -74,7 +74,7 @@ export const RACIALS = {
   vulpino: {
     attributes: {
       fis: -2,
-      agi: 2,
+      ref: 2,
       ego: 1,
       int: -1,
       esp: 0,
@@ -86,7 +86,7 @@ export const RACIALS = {
   stranger: {
     attributes: {
       fis: 0,
-      agi: 0,
+      ref: 0,
       ego: 0,
       int: 0,
       esp: 0,

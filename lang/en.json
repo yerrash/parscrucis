@@ -61,7 +61,7 @@
   "PC.Challenge": "Desafio!",
 
   "PC.FIS": "FIS",
-  "PC.AGI": "AGI",
+  "PC.REF": "REF",
   "PC.EGO": "EGO",
   "PC.INT": "INT",
   "PC.ESP": "ESP",
@@ -71,7 +71,7 @@
   "PV.Movement": "Movimentação",
 
   "PC.fisico": "Físico",
-  "PC.agilidade": "Agilidade",
+  "PC.reflexo": "Reflexo",
   "PC.ego": "Ego",
   "PC.intelecto": "Intelecto",
   "PC.espirito": "Espírito",
@@ -122,6 +122,7 @@
   "PC.natac": "Natação",
   "PC.resis": "Resistência",
 
+  "PC.agili": "Agilidade",
   "PC.arque": "Arqueria",
   "PC.balis": "Balística",
   "PC.furti": "Furtividade",
@@ -129,19 +130,18 @@
   "PC.inves": "Investigação",
   "PC.ladin": "Ladinagem",
   "PC.nauti": "Náutica",
-  "PC.sobre": "Sobrevivência",
 
   "PC.cienc": "Ciência",
   "PC.erudi": "Erudição",
-  "PC.engen": "Engenharia",
+  "PC.espec": "Especialista",
   "PC.guerr": "Guerra",
   "PC.medic": "Medicina",
   "PC.ontol": "Ontologia",
   "PC.orien": "Orientação",
-  "PC.profi": "Profissão",
+  "PC.sobre": "Sobrevivência",
 
   "PC.alqui": "Alquimia",
-  "PC.artif": "Artífice",
+  "PC.engen": "Engenharia",
   "PC.carpi": "Carpintaria",
   "PC.costu": "Costura",
   "PC.ferre": "Ferreiro",

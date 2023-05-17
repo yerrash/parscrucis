@@ -136,7 +136,7 @@
           <li class="item item-header">
             <h3 class="subtitle">
               <div class="item-image"></div>
-              <div class="item-name item-margin">{{localize "PC.vest"}}</div>
+              <div class="item-name item-margin">{{localize "PC.Vests"}}</div>
               <div class="item-info-line">{{localize "PC.Notes"}}</div>
               <div class="load-info">
                 <div class="load-value"></div>
@@ -147,10 +147,12 @@
             </h3>
           </li>
           {{#unless equippedVest}}
-            <div class="empty-window">
-              {{localize "PC.no"}}
-              {{localize "PC.vest"}}.
-            </div>
+            <li class="item item-line">
+              <div class="empty-window">
+                {{localize "PC.no"}}
+                {{localize "PC.vest"}}.
+              </div>
+            </li>
           {{/unless}}
           {{#each equippedVest as |item id|}}
             <li class="item item-line" data-item-id="{{item._id}}">
@@ -215,32 +217,7 @@
               </div>
             </li>
           {{/each}}
-        </ol>
-      </div>
-      {{! Acessories Tab }}
-      <div class="accesories window">
-        <ol class="items-list">
-          <li class="item item-header">
-            <h3 class="subtitle">
-              <div class="item-image"></div>
-              <div class="item-name item-margin">{{localize
-                  "PC.accessories"
-                }}</div>
-              <div class="item-info-line">{{localize "PC.Notes"}}</div>
-              <div class="load-info">
-                <div class="load-value"></div>
-              </div>
-              <div class="item-controls passive-controls">
-                <div class="points-title">{{localize "PC.Qt"}}</div>
-              </div>
-            </h3>
-          </li>
-          {{#unless equippedAcc}}
-            <div class="empty-window">
-              {{localize "PC.no"}}
-              {{localize "PC.accessories"}}.
-            </div>
-          {{/unless}}
+          {{! Acessories Tab }}
           {{#each equippedAcc as |item id|}}
             <li class="item item-line" data-item-id="{{item._id}}">
               <div class="item-image">

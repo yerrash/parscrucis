@@ -58,7 +58,7 @@ PC.persona = {
 
 PC.attributes = {
   fis: "PC.FIS",
-  agi: "PC.AGI",
+  ref: "PC.REF",
   ego: "PC.EGO",
   int: "PC.INT",
   esp: "PC.ESP",
@@ -69,7 +69,7 @@ PC.def = "PC.DEF";
 
 PC.itemAtt = {
   fis: "PC.FIS",
-  agi: "PC.AGI",
+  ref: "PC.REF",
   ego: "PC.EGO",
   int: "PC.INT",
   esp: "PC.ESP",
@@ -78,7 +78,7 @@ PC.itemAtt = {
 
 PC.attributeNames = {
   fis: "PC.fisico",
-  agi: "PC.agilidade",
+  ref: "PC.reflexo",
   ego: "PC.ego",
   int: "PC.intelecto",
   esp: "PC.espirito",
@@ -102,7 +102,7 @@ PC.saude = {
 };
 
 PC.esperteza = {
-  agi: "PC.AGI",
+  ref: "PC.REF",
   int: "PC.INT",
 };
 
@@ -143,6 +143,7 @@ PC.physical = {
 };
 
 PC.subterfuge = {
+  agili: "PC.agili",
   arque: "PC.arque",
   balis: "PC.balis",
   furti: "PC.furti",
@@ -150,25 +151,24 @@ PC.subterfuge = {
   inves: "PC.inves",
   ladin: "PC.ladin",
   nauti: "PC.nauti",
-  sobre: "PC.sobre",
 };
 
 PC.knowledge = {
   cienc: "PC.cienc",
   erudi: "PC.erudi",
-  engen: "PC.engen",
+  espec: "PC.espec",
   guerr: "PC.guerr",
   medic: "PC.medic",
   ontol: "PC.ontol",
   orien: "PC.orien",
-  profi: "PC.profi",
+  sobre: "PC.sobre",
 };
 
 PC.crafts = {
   alqui: "PC.alqui",
-  artif: "PC.artif",
   carpi: "PC.carpi",
   costu: "PC.costu",
+  engen: "PC.engen",
   ferre: "PC.ferre",
   garim: "PC.garim",
   herba: "PC.herba",
@@ -206,6 +206,7 @@ PC.skillList = {
   malha: "PC.malha",
   natac: "PC.natac",
   resis: "PC.resis",
+  agili: "PC.agili",
   arque: "PC.arque",
   balis: "PC.balis",
   furti: "PC.furti",
@@ -213,19 +214,18 @@ PC.skillList = {
   inves: "PC.inves",
   ladin: "PC.ladin",
   nauti: "PC.nauti",
-  sobre: "PC.sobre",
   cienc: "PC.cienc",
   erudi: "PC.erudi",
-  engen: "PC.engen",
+  espec: "PC.espec",
   guerr: "PC.guerr",
   medic: "PC.medic",
   ontol: "PC.ontol",
   orien: "PC.orien",
-  profi: "PC.profi",
+  sobre: "PC.sobre",
   alqui: "PC.alqui",
-  artif: "PC.artif",
   carpi: "PC.carpi",
   costu: "PC.costu",
+  engen: "PC.engen",
   ferre: "PC.ferre",
   garim: "PC.garim",
   herba: "PC.herba",

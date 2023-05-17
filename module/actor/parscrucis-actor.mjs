@@ -91,6 +91,12 @@ export class ParsCrucisActor extends Actor {
 
     // Handle skills.
     for (let [key, skill] of Object.entries(skillsData)) {
+      // REMOVE IN THE FUTURE, ITS HERE JUST WHILE A CAMPAIGN IN ONGOING
+      if (skill.attribute === "agi") {
+        skill.attribute = "ref";
+      }
+      // ENDS HERE
+
       skill.attLabel =
         game.i18n.localize(PC.attributes[skill.attribute]) ??
         PC.attributes[skill.attribute];
@@ -210,6 +216,12 @@ export class ParsCrucisActor extends Actor {
 
     // Handle minors.
     for (let [key, minor] of Object.entries(minorsData)) {
+      // FIX FOR REACTION
+      if (key === "esperteza") {
+        minor.attributes = ["ref", "int"];
+      }
+      //
+
       minor.label = game.i18n.localize(PC.minors[key]) ?? key;
       minor.shortLabel = game.i18n.localize(PC.minorsAbv[key]) ?? key;
 
