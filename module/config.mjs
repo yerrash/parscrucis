@@ -166,10 +166,10 @@ PC.knowledge = {
 
 PC.crafts = {
   alqui: "PC.alqui",
-  carpi: "PC.carpi",
+  armei: "PC.armei",
+  artes: "PC.artes",
   costu: "PC.costu",
   engen: "PC.engen",
-  ferre: "PC.ferre",
   garim: "PC.garim",
   herba: "PC.herba",
   venef: "PC.venef",

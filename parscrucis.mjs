@@ -66,8 +66,8 @@ Hooks.once("init", function () {
   CONFIG.ChatMessage.documentClass = ParsCrucisChatMessage;
 
   // Assign custom DataModels
-  CONFIG.Item.systemDataModels.weapon = WeaponSchema;
-  CONFIG.Item.systemDataModels.ability = AbilitySchema;
+  CONFIG.Item.dataModels.weapon = WeaponSchema;
+  CONFIG.Item.dataModels.ability = AbilitySchema;
 
   // Register sheet application classes
   Items.unregisterSheet("core", ItemSheet);

@@ -322,15 +322,15 @@
             "favor": false,
             "modifiers": 0
           },
-          "engen": {
-            "attribute": "int",
+          "armei": {
+            "attribute": "fis",
             "group": "craft",
             "growth": 1,
             "aprendizado": "PC.Hard",
             "favor": false,
             "modifiers": 0
           },
-          "carpi": {
+          "artes": {
             "attribute": "fis",
             "group": "craft",
             "growth": 1,
@@ -346,8 +346,8 @@
             "favor": false,
             "modifiers": 0
           },
-          "ferre": {
-            "attribute": "fis",
+          "engen": {
+            "attribute": "int",
             "group": "craft",
             "growth": 1,
             "aprendizado": "PC.Hard",
