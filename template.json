@@ -16,7 +16,7 @@
             "value": null,
             "modifiers": 0
           },
-          "int": {
+          "cog": {
             "value": null,
             "modifiers": 0
           },
@@ -38,8 +38,8 @@
         },
         "resources": {
           "pv": {
-            "value": 15,
-            "max": 15,
+            "value": 25,
+            "max": 25,
             "pain": 0,
             "temp": 0
           }
@@ -51,7 +51,7 @@
             "modifiers": 0
           },
           "esperteza": {
-            "attributes": ["ref", "int"],
+            "attributes": ["ref", "cog"],
             "value": null,
             "modifiers": 0
           },
@@ -104,14 +104,10 @@
       "creature": {
         "resources": {
           "pe": {
-            "value": 15,
-            "max": 15,
+            "value": 25,
+            "max": 25,
             "held": 0,
             "temp": 0
-          },
-          "lim": {
-            "value": 5,
-            "max": 5
           },
           "sorte": {
             "value": 0,
@@ -179,7 +175,7 @@
             "attribute": "fis",
             "group": "physical",
             "growth": 2,
-            "aprendizado": "PC.Hard",
+            "aprendizado": "",
             "favor": false,
             "modifiers": 0
           },
@@ -225,7 +221,7 @@
             "modifiers": 0
           },
           "inves": {
-            "attribute": "int",
+            "attribute": "cog",
             "group": "subterfuge",
             "growth": 1,
             "aprendizado": "",
@@ -250,7 +246,7 @@
           },
 
           "cienc": {
-            "attribute": "int",
+            "attribute": "cog",
             "group": "knowledge",
             "growth": 1,
             "aprendizado": "",
@@ -258,7 +254,7 @@
             "modifiers": 0
           },
           "erudi": {
-            "attribute": "int",
+            "attribute": "cog",
             "group": "knowledge",
             "growth": 1,
             "aprendizado": "",
@@ -266,7 +262,7 @@
             "modifiers": 0
           },
           "guerr": {
-            "attribute": "int",
+            "attribute": "cog",
             "group": "knowledge",
             "growth": 2,
             "aprendizado": "",
@@ -274,7 +270,7 @@
             "modifiers": 0
           },
           "medic": {
-            "attribute": "int",
+            "attribute": "cog",
             "group": "knowledge",
             "growth": 1,
             "aprendizado": "",
@@ -290,7 +286,7 @@
             "modifiers": 0
           },
           "orien": {
-            "attribute": "int",
+            "attribute": "cog",
             "group": "knowledge",
             "growth": 1,
             "aprendizado": "",
@@ -298,7 +294,7 @@
             "modifiers": 0
           },
           "espec": {
-            "attribute": "int",
+            "attribute": "cog",
             "group": "knowledge",
             "growth": 2,
             "aprendizado": "",
@@ -306,7 +302,7 @@
             "modifiers": 0
           },
           "sobre": {
-            "attribute": "int",
+            "attribute": "cog",
             "group": "subterfuge",
             "growth": 2,
             "aprendizado": "",
@@ -315,7 +311,7 @@
           },
 
           "alqui": {
-            "attribute": "int",
+            "attribute": "cog",
             "group": "craft",
             "growth": 1,
             "aprendizado": "PC.Hard",
@@ -323,7 +319,7 @@
             "modifiers": 0
           },
           "armei": {
-            "attribute": "fis",
+            "attribute": "cog",
             "group": "craft",
             "growth": 1,
             "aprendizado": "PC.Hard",
@@ -347,7 +343,7 @@
             "modifiers": 0
           },
           "engen": {
-            "attribute": "int",
+            "attribute": "cog",
             "group": "craft",
             "growth": 1,
             "aprendizado": "PC.Hard",
@@ -363,7 +359,7 @@
             "modifiers": 0
           },
           "herba": {
-            "attribute": "int",
+            "attribute": "cog",
             "group": "craft",
             "growth": 1,
             "aprendizado": "",
@@ -371,7 +367,7 @@
             "modifiers": 0
           },
           "venef": {
-            "attribute": "int",
+            "attribute": "cog",
             "group": "craft",
             "growth": 1,
             "aprendizado": "PC.Hard",
@@ -448,7 +444,7 @@
             "attribute": "esp",
             "group": "supernatural",
             "growth": 2,
-            "aprendizado": "PC.Hard",
+            "aprendizado": "",
             "favor": false,
             "modifiers": 0
           },
@@ -461,7 +457,7 @@
             "modifiers": 0
           },
           "arcan": {
-            "attribute": "int",
+            "attribute": "cog",
             "group": "supernatural",
             "growth": 1,
             "aprendizado": "PC.Hard",
@@ -477,7 +473,7 @@
             "modifiers": 0
           },
           "crono": {
-            "attribute": "int",
+            "attribute": "cog",
             "group": "supernatural",
             "growth": 1,
             "aprendizado": "PC.Hard",

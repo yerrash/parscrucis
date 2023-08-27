@@ -5,7 +5,7 @@
   "PC.Ligno": "Lignae",
   "PC.Orcino": "Orcine",
   "PC.Quezal": "Quezal",
-  "PC.Vulpino": "Vulpine",
+  "PC.Guara": "Guara",
 
   "PC.adv": "Outsider",
   "PC.art": "Artisan",
@@ -51,14 +51,14 @@
   "PC.FIS": "PHY",
   "PC.AGI": "AGI",
   "PC.EGO": "EGO",
-  "PC.INT": "INT",
+  "PC.COG": "COG",
   "PC.ESP": "SPI",
   "PC.MV": "Movement",
 
   "PC.fisico": "Physique",
   "PC.agilidade": "Agility",
   "PC.ego": "Ego",
-  "PC.intelecto": "Intellect",
+  "PC.cognicao": "Cognition",
   "PC.espirito": "Spirit",
 
   "PC.Sorte": "Luck",

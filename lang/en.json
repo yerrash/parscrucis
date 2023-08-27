@@ -10,7 +10,7 @@
   "PC.Ligno": "Ligno",
   "PC.Orcino": "Orcino",
   "PC.Quezal": "Quezal",
-  "PC.Vulpino": "Vulpino",
+  "PC.Guara": "Guará",
   "PC.Stranger": "Estranho",
 
   "PC.adv": "Ádvena",
@@ -63,7 +63,7 @@
   "PC.FIS": "FIS",
   "PC.REF": "REF",
   "PC.EGO": "EGO",
-  "PC.INT": "INT",
+  "PC.COG": "COG",
   "PC.ESP": "ESP",
   "PC.MV": "MV",
   "PC.DEF": "DEF",
@@ -73,7 +73,7 @@
   "PC.fisico": "Físico",
   "PC.reflexo": "Reflexo",
   "PC.ego": "Ego",
-  "PC.intelecto": "Intelecto",
+  "PC.cognicao": "Cognição",
   "PC.espirito": "Espírito",
 
   "PC.Sorte": "Sorte",

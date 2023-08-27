@@ -4,10 +4,10 @@ PC.race = {
   humano: "PC.Humano",
   carneador: "PC.Carneador",
   capriaco: "PC.Capriaco",
+  guara: "PC.Guara",
   ligno: "PC.Ligno",
   orcino: "PC.Orcino",
   quezal: "PC.Quezal",
-  vulpino: "PC.Vulpino",
   stranger: "PC.Stranger",
 };
 
@@ -60,7 +60,7 @@ PC.attributes = {
   fis: "PC.FIS",
   ref: "PC.REF",
   ego: "PC.EGO",
-  int: "PC.INT",
+  cog: "PC.COG",
   esp: "PC.ESP",
 };
 
@@ -71,7 +71,7 @@ PC.itemAtt = {
   fis: "PC.FIS",
   ref: "PC.REF",
   ego: "PC.EGO",
-  int: "PC.INT",
+  cog: "PC.COG",
   esp: "PC.ESP",
   sem: "PC.Sem",
 };
@@ -80,7 +80,7 @@ PC.attributeNames = {
   fis: "PC.fisico",
   ref: "PC.reflexo",
   ego: "PC.ego",
-  int: "PC.intelecto",
+  cog: "PC.cognicao",
   esp: "PC.espirito",
 };
 
@@ -103,7 +103,7 @@ PC.saude = {
 
 PC.esperteza = {
   ref: "PC.REF",
-  int: "PC.INT",
+  cog: "PC.COG",
 };
 
 PC.vontade = {

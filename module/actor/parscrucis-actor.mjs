@@ -175,7 +175,11 @@ export class ParsCrucisActor extends Actor {
           const attRaceValue = RACIALS[race].attributes[key];
           const attBaseValue = Math.max(...attArray);
           att.autoValue = attRaceValue + attBaseValue + (att.config || 0);
-          att.value = att.inputValue || att.autoValue;
+          // if (att.value === null) att.value = att.autoValue;
+          // att.value = att.inputValue || att.autoValue;
+          att.inputValue === null
+            ? (att.value = att.autoValue)
+            : (att.value = att.inputValue);
         } else {
           // Setting pdm attributes.
           att.inputValue === 0
@@ -218,7 +222,7 @@ export class ParsCrucisActor extends Actor {
     for (let [key, minor] of Object.entries(minorsData)) {
       // FIX FOR REACTION
       if (key === "esperteza") {
-        minor.attributes = ["ref", "int"];
+        minor.attributes = ["ref", "cog"];
       }
       //
 
@@ -253,27 +257,22 @@ export class ParsCrucisActor extends Actor {
     if (actorType == "persona") {
       // Construct persona resources.
       resourcesData.pv.autoValue =
-        15 +
-        attributesData.fis.value +
+        25 +
+        attributesData.fis.value * 2 +
+        attributesData.ego.value +
         skillsData.resis.value +
         (resourcesData.pv.config || 0);
       resourcesData.pv.max =
         resourcesData.pv.inputValue || resourcesData.pv.autoValue;
 
       resourcesData.pe.autoValue =
-        15 +
-        attributesData.esp.value +
+        25 +
+        attributesData.cog.value +
+        attributesData.esp.value * 2 +
         skillsData.amago.value +
         (resourcesData.pe.config || 0);
       resourcesData.pe.max =
         resourcesData.pe.inputValue || resourcesData.pe.autoValue;
-
-      resourcesData.lim.autoValue =
-        5 +
-        Math.ceil(attributesData.ego.value / 2) +
-        (resourcesData.lim.config || 0);
-      resourcesData.lim.max =
-        resourcesData.lim.inputValue || resourcesData.lim.autoValue;
 
       // Calculate persona available experience.
       const skillsExpSum = skillsExpSpent.reduce((a, b) => a + b, 0);
@@ -284,9 +283,8 @@ export class ParsCrucisActor extends Actor {
         skillsExpSum -
         abilitiesExpSum;
     } else {
-      resourcesData.pv.max = resourcesData.pv.inputValue || 15;
-      resourcesData.pe.max = resourcesData.pe.inputValue || 15;
-      resourcesData.lim.max = resourcesData.lim.inputValue || 5;
+      resourcesData.pv.max = resourcesData.pv.inputValue || 25;
+      resourcesData.pe.max = resourcesData.pe.inputValue || 25;
     }
 
     // Set resources percentage.
