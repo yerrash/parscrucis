@@ -175,7 +175,7 @@
             "attribute": "fis",
             "group": "physical",
             "growth": 2,
-            "aprendizado": "",
+            "aprendizado": "PC.Hard",
             "favor": false,
             "modifiers": 0
           },
@@ -277,6 +277,14 @@
             "favor": false,
             "modifiers": 0
           },
+          "natur": {
+            "attribute": "cog",
+            "group": "knowledge",
+            "growth": 1,
+            "aprendizado": "",
+            "favor": false,
+            "modifiers": 0
+          },
           "ontol": {
             "attribute": "esp",
             "group": "knowledge",
@@ -289,14 +297,6 @@
             "attribute": "cog",
             "group": "knowledge",
             "growth": 1,
-            "aprendizado": "",
-            "favor": false,
-            "modifiers": 0
-          },
-          "espec": {
-            "attribute": "cog",
-            "group": "knowledge",
-            "growth": 2,
             "aprendizado": "",
             "favor": false,
             "modifiers": 0
@@ -334,14 +334,6 @@
             "favor": false,
             "modifiers": 0
           },
-          "costu": {
-            "attribute": "ref",
-            "group": "craft",
-            "growth": 2,
-            "aprendizado": "",
-            "favor": false,
-            "modifiers": 0
-          },
           "engen": {
             "attribute": "cog",
             "group": "craft",
@@ -350,7 +342,15 @@
             "favor": false,
             "modifiers": 0
           },
-          "garim": {
+          "costu": {
+            "attribute": "ref",
+            "group": "craft",
+            "growth": 2,
+            "aprendizado": "",
+            "favor": false,
+            "modifiers": 0
+          },
+          "extra": {
             "attribute": "fis",
             "group": "craft",
             "growth": 1,
@@ -366,8 +366,8 @@
             "favor": false,
             "modifiers": 0
           },
-          "venef": {
-            "attribute": "cog",
+          "metal": {
+            "attribute": "fis",
             "group": "craft",
             "growth": 1,
             "aprendizado": "PC.Hard",
@@ -444,7 +444,7 @@
             "attribute": "esp",
             "group": "supernatural",
             "growth": 2,
-            "aprendizado": "",
+            "aprendizado": "PC.Hard",
             "favor": false,
             "modifiers": 0
           },

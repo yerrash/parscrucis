@@ -2,7 +2,11 @@
   <div class="luck">
     <label>
       <h3 class="luck-name">
-        <div>{{localize "PC.Sorte"}}</div>
+        {{#if systemData.resources.sorte.disabled}}
+          <div class="disabled">{{localize "PC.Sorte"}}</div>
+        {{else}}
+          <div>{{localize "PC.Sorte"}}</div>
+        {{/if}}
       </h3>
     </label>
     <div class="luck-line">

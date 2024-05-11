@@ -13,16 +13,18 @@ PC.race = {
 
 PC.culture = {
   adv: "PC.adv",
+  ana: "PC.ana",
   art: "PC.art",
+  ast: "PC.ast",
   ban: "PC.ban",
   cam: "PC.cam",
   dis: "PC.dis",
-  est: "PC.est",
   gua: "PC.gua",
-  nas: "PC.nas",
+  orc: "PC.orc",
   reb: "PC.reb",
+  est: "PC.est",
+  sab: "PC.sab",
   sal: "PC.sal",
-  tri: "PC.tri",
   vag: "PC.vag",
   vel: "PC.vel",
 };
@@ -156,9 +158,9 @@ PC.subterfuge = {
 PC.knowledge = {
   cienc: "PC.cienc",
   erudi: "PC.erudi",
-  espec: "PC.espec",
   guerr: "PC.guerr",
   medic: "PC.medic",
+  natur: "PC.natur",
   ontol: "PC.ontol",
   orien: "PC.orien",
   sobre: "PC.sobre",
@@ -170,9 +172,9 @@ PC.crafts = {
   artes: "PC.artes",
   costu: "PC.costu",
   engen: "PC.engen",
-  garim: "PC.garim",
+  extra: "PC.extra",
   herba: "PC.herba",
-  venef: "PC.venef",
+  metal: "PC.metal",
 };
 
 PC.socials = {
@@ -216,20 +218,20 @@ PC.skillList = {
   nauti: "PC.nauti",
   cienc: "PC.cienc",
   erudi: "PC.erudi",
-  espec: "PC.espec",
   guerr: "PC.guerr",
   medic: "PC.medic",
+  natur: "PC.natur",
   ontol: "PC.ontol",
   orien: "PC.orien",
   sobre: "PC.sobre",
   alqui: "PC.alqui",
-  carpi: "PC.carpi",
+  armei: "PC.armei",
+  artes: "PC.artes",
   costu: "PC.costu",
   engen: "PC.engen",
-  ferre: "PC.ferre",
-  garim: "PC.garim",
+  extra: "PC.extra",
   herba: "PC.herba",
-  venef: "PC.venef",
+  metal: "PC.metal",
   artim: "PC.artim",
   cultu: "PC.cultu",
   domar: "PC.domar",
@@ -458,9 +460,17 @@ PC.testDifficulties = {
 };
 
 PC.damageScale = {
+  att25: "PC.att25",
   att33: "PC.att33",
   att50: "PC.att50",
   att100: "PC.att100",
+  att200: "PC.att200",
+  att300: "PC.att300",
+  att400: "PC.att400",
+  att500: "PC.att500",
+  att600: "PC.att600",
+  att700: "PC.att700",
+  att800: "PC.att800",
 };
 
 PC.damageType = {

@@ -91,12 +91,6 @@ export class ParsCrucisActor extends Actor {
 
     // Handle skills.
     for (let [key, skill] of Object.entries(skillsData)) {
-      // REMOVE IN THE FUTURE, ITS HERE JUST WHILE A CAMPAIGN IN ONGOING
-      if (skill.attribute === "agi") {
-        skill.attribute = "ref";
-      }
-      // ENDS HERE
-
       skill.attLabel =
         game.i18n.localize(PC.attributes[skill.attribute]) ??
         PC.attributes[skill.attribute];
@@ -220,12 +214,6 @@ export class ParsCrucisActor extends Actor {
 
     // Handle minors.
     for (let [key, minor] of Object.entries(minorsData)) {
-      // FIX FOR REACTION
-      if (key === "esperteza") {
-        minor.attributes = ["ref", "cog"];
-      }
-      //
-
       minor.label = game.i18n.localize(PC.minors[key]) ?? key;
       minor.shortLabel = game.i18n.localize(PC.minorsAbv[key]) ?? key;
 
@@ -234,7 +222,7 @@ export class ParsCrucisActor extends Actor {
         let attributesValues = 0;
 
         for (let att of minor.attributes) {
-          let attValue = attributesData[att].value;
+          let attValue = attributesData[att].value || 0;
           attributesValues += attValue;
         }
 
@@ -260,19 +248,23 @@ export class ParsCrucisActor extends Actor {
         25 +
         attributesData.fis.value * 2 +
         attributesData.ego.value +
-        skillsData.resis.value +
+        skillsData.resis.value * 2 +
         (resourcesData.pv.config || 0);
       resourcesData.pv.max =
-        resourcesData.pv.inputValue || resourcesData.pv.autoValue;
+        resourcesData.pv.inputValue ||
+        resourcesData.pv.autoValue ||
+        resourcesData.pv.max;
 
       resourcesData.pe.autoValue =
         25 +
         attributesData.cog.value +
         attributesData.esp.value * 2 +
-        skillsData.amago.value +
+        skillsData.amago.value * 2 +
         (resourcesData.pe.config || 0);
       resourcesData.pe.max =
-        resourcesData.pe.inputValue || resourcesData.pe.autoValue;
+        resourcesData.pe.inputValue ||
+        resourcesData.pe.autoValue ||
+        resourcesData.pe.max;
 
       // Calculate persona available experience.
       const skillsExpSum = skillsExpSpent.reduce((a, b) => a + b, 0);
@@ -301,7 +293,7 @@ export class ParsCrucisActor extends Actor {
     // this._prepareNpcData(actorData);
     this._prepareInventoryData(actorData, attributesData, skillsData);
     detailsData.loadMax =
-      15 + attributesData.fis.value + (detailsData.loadConfig || 0);
+      20 + attributesData.fis.value + (detailsData.loadConfig || 0);
   }
 
   _prepareItems(actorData) {
@@ -357,6 +349,7 @@ export class ParsCrucisActor extends Actor {
   _setLuck(resourcesData) {
     if (resourcesData.sorte.max > 4) resourcesData.sorte.max = 4;
     if (resourcesData.sorte.max < 0) resourcesData.sorte.max = 0;
+    if (resourcesData.sorte.max === null) resourcesData.sorte.disabled = true;
   }
 
   _abilitiesExp(actorData) {
@@ -415,12 +408,17 @@ export class ParsCrucisActor extends Actor {
     const gearData = actorData.gear;
 
     function calculate(dmgAttDiv) {
-      if (dmgAttDiv === "att33") {
-        return 1 / 3;
-      }
-      if (dmgAttDiv === "att50") {
-        return 1 / 2;
-      }
+      if (dmgAttDiv === "att100") return 1;
+      if (dmgAttDiv === "att200") return 2;
+      if (dmgAttDiv === "att300") return 3;
+      if (dmgAttDiv === "att400") return 4;
+      if (dmgAttDiv === "att50") return 1 / 2;
+      if (dmgAttDiv === "att33") return 1 / 3;
+      if (dmgAttDiv === "att25") return 1 / 4;
+      if (dmgAttDiv === "att500") return 5;
+      if (dmgAttDiv === "att600") return 6;
+      if (dmgAttDiv === "att700") return 7;
+      if (dmgAttDiv === "att800") return 8;
       return 1;
     }
 

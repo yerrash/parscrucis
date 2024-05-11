@@ -425,11 +425,11 @@ p {
 }
 .parscrucis-actor-sheet .superior .stats-window .left-window .att-partial .resources .space {
   height: 30px;
-  margin: auto;
+  margin: auto 1px;
 }
 .parscrucis-actor-sheet .superior .stats-window .left-window .att-partial .resources .resource {
   margin-right: 3px;
-  width: 140px;
+  width: 182px;
 }
 .parscrucis-actor-sheet .superior .stats-window .left-window .att-partial .resources .resource label {
   height: 16px;
@@ -455,7 +455,7 @@ p {
   display: flex;
   flex-direction: row;
   align-items: center;
-  width: 140px;
+  width: 182px;
   position: absolute;
   height: 26px;
   background: rgba(0, 0, 0, 0.05);
@@ -492,7 +492,7 @@ p {
   padding-left: 3px;
 }
 .parscrucis-actor-sheet .superior .stats-window .left-window .att-partial .resources .pain {
-  width: 55px;
+  width: 10%;
   margin-right: 0;
 }
 .parscrucis-actor-sheet .superior .stats-window .left-window .att-partial .resources .pain label {
@@ -560,7 +560,7 @@ p {
   text-align: center;
   font-size: 24px;
   height: 21px;
-  width: 26px;
+  width: 30px;
 }
 .parscrucis-actor-sheet .superior .stats-window .right-window .mitigation .armor-group .armor .mit-modifiers,
 .parscrucis-actor-sheet .superior .stats-window .right-window .mitigation .protections .armor .mit-modifiers {
@@ -587,10 +587,10 @@ p {
 .parscrucis-actor-sheet .superior .stats-window .right-window .mitigation .armor-group .protection input,
 .parscrucis-actor-sheet .superior .stats-window .right-window .mitigation .protections .protection input {
   padding-right: 2px;
-  text-align: right;
+  text-align: left;
   height: 14px;
   line-height: 14px;
-  width: 14px;
+  width: 24px;
   font-size: 14px;
 }
 .parscrucis-actor-sheet .superior .stats-window .right-window .minors {

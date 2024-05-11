@@ -2,12 +2,13 @@
 
 <div class="roll-summary">
   THIS IS TOO MUCH BULLLLLLSHIT
+  <div>CRAPPO</div>
   <div>{{successes}}S</div>
   <div>{{triggers}}T</div>
 </div>
 {{#if result}}<h2 class="result {{#if (isSuccess enResult)}}success{{else}}failure{{/if}}">{{result}}</h2>{{/if}}
 
-<!-- Sonic weaponry: Target mentally defends against the highest roll in the combo (KAT166). cf. actor-degenesis.js: DegenesisActor.handleSecondaryRoll()-->
+<!-- sActor.handleSecondaryRoll()-->
 
 {{#if mostSuccesses}}
 <h2 class="defend">{{localize "UI.SonicDefenseDifficulty"}}: {{mostSuccesses}}</h2>

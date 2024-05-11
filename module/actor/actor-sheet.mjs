@@ -217,6 +217,7 @@ export default class ParsCrucisActorSheet extends ActorSheet {
     event.preventDefault();
     const element = event.currentTarget;
     const type = element.dataset.type;
+    // console.log(element.dataset);
     const data = duplicate(element.dataset);
     const name = `${(game.i18n.localize(`PC.${type}`) ?? type).capitalize()}`;
     const itemData = {

@@ -1,4 +1,5 @@
 // Less configuration
+// Execute with ctrl+shift+b
 var gulp = require("gulp");
 var less = require("gulp-less");
 
