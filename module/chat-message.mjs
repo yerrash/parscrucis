@@ -10,20 +10,18 @@ export class ParsCrucisChatMessage extends ChatMessage {
       rollData: this.getRollData(),
     });
 
-    console.log(this);
-
     const isWhisper = this.whisper.length;
 
     // Construct message data
     const messageData = {
       message: data,
       user: game.user,
-      author: this.user,
+      author: this.author,
       alias: this.alias,
       cardPortrait: this.cardPortrait,
       cssClass: [
-        this.type === CONST.CHAT_MESSAGE_TYPES.IC ? "ic" : null,
-        this.type === CONST.CHAT_MESSAGE_TYPES.EMOTE ? "emote" : null,
+        this.type === CONST.CHAT_MESSAGE_STYLES.IC ? "ic" : null,
+        this.type === CONST.CHAT_MESSAGE_STYLES.EMOTE ? "emote" : null,
         isWhisper ? "whisper" : null,
         this.blind ? "blind" : null,
       ].filterJoin(" "),
@@ -37,6 +35,9 @@ export class ParsCrucisChatMessage extends ChatMessage {
         .filterJoin(", "),
     };
 
+    console.log("THIS");
+    console.log(this);
+    console.log(game);
     console.log("----> ParsCrucisChatMessage getHTML IS GETTING THROUGH");
     console.log(messageData);
 
@@ -46,8 +47,8 @@ export class ParsCrucisChatMessage extends ChatMessage {
     }
 
     // Define a border color
-    if (this.type === CONST.CHAT_MESSAGE_TYPES.OOC) {
-      messageData.borderColor = this.user?.color;
+    if (this.type === CONST.CHAT_MESSAGE_STYLES.OOC) {
+      messageData.borderColor = this.author?.color;
     }
 
     // Render the chat message

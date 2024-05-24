@@ -3,7 +3,7 @@ import { ActionSchema } from "./item-schema.mjs";
 export default class ParsCrucisItemSheet extends ItemSheet {
   /** @override */
   static get defaultOptions() {
-    return mergeObject(super.defaultOptions, {
+    return foundry.utils.mergeObject(super.defaultOptions, {
       classes: ["parscrucis", "sheet", "parscrucis-item-sheet"],
       width: 600,
       height: 440,

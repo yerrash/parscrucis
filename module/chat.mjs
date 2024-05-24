@@ -18,7 +18,7 @@ export class ParsCrucisChat {
     rollResult.enResult = rollResult.result;
     // rollResult.result = DEGENESIS.rollResults[rollResult.result];
 
-    mergeObject(cardData, rollResult);
+    foundry.utils.mergeObject(cardData, rollResult);
 
     renderTemplate(cardData.template, cardData).then((html) => {
       let chatData = DEG_Utility.chatDataSetup(html, cardData.speaker); // Passing additional data here

@@ -5,7 +5,7 @@
 export default class ActorConfigure extends FormApplication {
   /** @override */
   static get defaultOptions() {
-    return mergeObject(super.defaultOptions, {
+    return foundry.utils.mergeObject(super.defaultOptions, {
       id: "actor-configure",
       classes: ["parscrucis", "sheet", "parscrucis-actor-config"],
       width: 300,

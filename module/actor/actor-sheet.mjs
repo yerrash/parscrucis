@@ -6,7 +6,7 @@ import { ParsCrucisChat } from "../chat.mjs";
 export default class ParsCrucisActorSheet extends ActorSheet {
   /** @override */
   static get defaultOptions() {
-    return mergeObject(super.defaultOptions, {
+    return foundry.utils.mergeObject(super.defaultOptions, {
       classes: ["parscrucis", "sheet", "parscrucis-actor-sheet"],
       width: 800,
       height: 680,
@@ -271,7 +271,7 @@ export default class ParsCrucisActorSheet extends ActorSheet {
     const target = $(event.currentTarget)
       .parents(".luck-num")
       .attr("data-target");
-    let value = getProperty(actorData, target);
+    let value = foundry.utils.getProperty(actorData, target);
     let newValue = luckIndex + 1;
 
     // console.log(target);
@@ -302,7 +302,7 @@ export default class ParsCrucisActorSheet extends ActorSheet {
     let dice = this.dice(event);
     const roll = await Roll.create(
       `${dice}+${attValue}+${attData.modifiers}`
-    ).evaluate({ async: true });
+    ).evaluate();
 
     roll.toMessage({
       speaker: ChatMessage.getSpeaker({ actor: this.actor }),
@@ -330,7 +330,7 @@ export default class ParsCrucisActorSheet extends ActorSheet {
     // Roll.create(formula, ?data, ?options))
     const roll = await Roll.create(
       `${dice}+${skillValue}+${skillData.modifiers}`
-    ).evaluate({ async: true });
+    ).evaluate();
 
     roll.toMessage({
       speaker: ChatMessage.getSpeaker({ actor: this.actor }),
@@ -383,7 +383,7 @@ export default class ParsCrucisActorSheet extends ActorSheet {
     let dice = this.dice(event);
     const roll = await Roll.create(
       `${dice}+${skillResult}+${actionData.actionModifier}`
-    ).evaluate({ async: true });
+    ).evaluate();
 
     roll.toMessage({
       speaker: ChatMessage.getSpeaker({ actor: this.actor }),
