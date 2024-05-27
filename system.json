@@ -1,11 +1,11 @@
 {
   "id": "parscrucis",
-  "title": "Pars Crucis",
-  "description": "Adaptação do sistema Pars Crucis para o Foundry Virtual Tabletop",
-  "version": "0.2.10.1.1",
+  "title": "ParsCrucis",
+  "description": "Adaptação do sistema ParsCrucis para o Foundry Virtual Tabletop",
+  "version": "0.2.10.2",
   "compatibility": {
-    "minimum": "10",
-    "verified": "10.291",
+    "minimum": "12",
+    "verified": "12.324",
     "maximum": "12"
   },
   "authors": [
@@ -29,8 +29,8 @@
       "path": "lang/en.json"
     }
   ],
-  "gridDistance": 1,
-  "gridUnits": "cs",
+  "grid.distance": 1,
+  "grid.units": "cs",
   "primaryTokenAttribute": "resources.pv",
   "secondaryTokenAttribute": "resources.pe",
   "url": "https://github.com/yerrash/parscrucis",

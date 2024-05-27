@@ -25,8 +25,16 @@
               localize=true
             }}
           </select>
+          <select name="system.acquisition">
+            {{selectOptions
+              config.acquisition
+              selected=item.system.acquisition
+              localize=true
+            }}
+          </select>
         </div>
         <div class="item-header-lower">
+          <!-- PTS EXP costs -->
           <div class="item-attribute item-price">
             <h3 class="item-att-name">
               <div>{{localize "PC.PTS"}}</div>
@@ -41,11 +49,24 @@
               />
             </div>
           </div>
+          <div class="item-attribute item-price">
+            <h3 class="item-att-name">
+              <div>{{localize "PC.XP"}}</div>
+            </h3>
+            <div class="item-att-info">
+              <input
+                class="att-extra item-price"
+                name="system.expCost"
+                type="number"
+                value="{{item.system.expCost}}"
+                data-dtype="Number"
+              />
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </header>
-  {{! Actions rendered here }}
 
   <!-- Navigation tab -->
   <nav class="navigation" data-group="primary">
@@ -70,24 +91,25 @@
         </div>
       </div>
     </div>
+    {{! Informations and Effects here }}
     <div class="tab" data-tab="details">
+      <div class="window">
+        <h3 class="subtitle">
+          <div class="action-note">{{localize "PC.effects"}}</div>
+        </h3>
+        <textarea
+          class="passive-informations"
+          name="system.informations"
+        >{{item.system.informations}}</textarea>
+      </div>
       <div class="window">
         <h3 class="subtitle">
           <div class="action-note">{{localize "PC.Observations"}}</div>
         </h3>
         <textarea
-          class="action-notes"
+          class="passive-notes"
           name="system.notes"
         >{{item.system.notes}}</textarea>
-      </div>
-      <div class="window">
-        <h3 class="subtitle">
-          <div class="action-note">{{localize "PC.Informations"}}</div>
-        </h3>
-        <textarea
-          class="action-informations"
-          name="system.informations"
-        >{{item.system.informations}}</textarea>
       </div>
     </div>
   </div>

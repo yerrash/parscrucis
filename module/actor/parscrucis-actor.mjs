@@ -1,5 +1,5 @@
 import { PC } from "../config.mjs";
-import { RACIALS } from "../base-data.mjs";
+import { RACIALS } from "../data/race-data.mjs";
 
 /**
  * @extends { Actor }
@@ -322,7 +322,11 @@ export class ParsCrucisActor extends Actor {
       }
       // Append weapons
       else if (i.type === "weapon") {
-        weapons.push(i);
+        if (i.system.equipped === true || i.system.subgroup === "unarmed") {
+          weapons.push(i);
+        } else {
+          gear.push(i);
+        }
       }
       // Append passive features - Benefits and Detriments
       else if (i.type === "passive") {
@@ -353,12 +357,19 @@ export class ParsCrucisActor extends Actor {
   }
 
   _abilitiesExp(actorData) {
+    console.log(actorData);
     let abilitiesExp = 0;
     for (let [_, power] of Object.entries(actorData.powers)) {
       abilitiesExp += power.system.expCost;
     }
     for (let [_, technique] of Object.entries(actorData.techniques)) {
       abilitiesExp += technique.system.expCost;
+    }
+    for (let [_, passive] of Object.entries(actorData.passives)) {
+      console.log(passive);
+      if (passive.system.learned === true) {
+        abilitiesExp += passive.system.expCost;
+      }
     }
     return abilitiesExp;
   }
@@ -377,8 +388,20 @@ export class ParsCrucisActor extends Actor {
   _passivesPts(actorData) {
     let passivesPts = 0;
     for (let [_, passive] of Object.entries(actorData.passives)) {
-      passivesPts += passive.system.points;
+      console.log("PASSIVEPTS COST");
+      console.log(passive);
+
+      passive.system.acquisition === "native"
+        ? (passivesPts += passive.system.points)
+        : passivesPts;
+
+      console.log(passivesPts);
+
+      // if (passive.acquisition === "native") {
+      //   passivesPts += passive.system.points;
+      // }
     }
+    console.log(passivesPts);
     return passivesPts;
   }
 

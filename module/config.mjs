@@ -526,3 +526,8 @@ PC.options = {
   cancel: "PC.cancel",
   close: "PC.close",
 };
+
+PC.acquisition = {
+  learned: "PC.learned",
+  native: "PC.native",
+};

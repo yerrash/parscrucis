@@ -1672,7 +1672,9 @@ p {
   margin-left: 2px;
 }
 .parscrucis-item-sheet textarea.action-notes,
-.parscrucis-item-sheet textarea.action-informations {
+.parscrucis-item-sheet textarea.action-informations,
+.parscrucis-item-sheet textarea.passive-informations,
+.parscrucis-item-sheet textarea.passive-notes {
   width: 100%;
   height: 36px;
   min-height: 18px;
@@ -1684,6 +1686,12 @@ p {
 }
 .parscrucis-item-sheet textarea.action-informations {
   height: 84px;
+}
+.parscrucis-item-sheet textarea.passive-informations {
+  height: 167px;
+}
+.parscrucis-item-sheet textarea.passive-notes {
+  height: 52px;
 }
 .parscrucis-item-sheet .bio {
   height: 110px;

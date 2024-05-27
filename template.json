@@ -519,7 +519,7 @@
         "exp": 50,
         "expReserve": 0,
         "loadTotal": 0,
-        "loadMax": 15,
+        "loadMax": 20,
         "points": 0,
         "age": "",
         "height": "",
@@ -583,8 +583,11 @@
     },
     "passive": {
       "templates": ["itemDescription"],
-      "passiveSubtype": "",
-      "points": 0
+      "subtype": "",
+      "points": 0,
+      "expCost": 0,
+      "learned": false,
+      "acquisition": "native"
     },
     "ability": {
       "templates": ["itemDescription", "typology"],

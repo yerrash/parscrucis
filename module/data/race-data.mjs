@@ -1,16 +1,4 @@
 export const RACIALS = {
-  humano: {
-    attributes: {
-      fis: 0,
-      ref: 0,
-      ego: 2,
-      cog: 0,
-      esp: 0,
-      movement: 3,
-      sprint: 5,
-      def: 0,
-    },
-  },
   capriaco: {
     attributes: {
       fis: 1,
@@ -44,6 +32,18 @@ export const RACIALS = {
       esp: 0,
       movement: 4,
       sprint: 6,
+      def: 0,
+    },
+  },
+  humano: {
+    attributes: {
+      fis: 0,
+      ref: 0,
+      ego: 1,
+      cog: 0,
+      esp: 0,
+      movement: 3,
+      sprint: 5,
       def: 0,
     },
   },

@@ -65,7 +65,11 @@
             value="{{item.system.notes}}"
             placeholder="{{item.system.informations}}"
           />
-          <div class="points-value">{{item.system.points}}</div>
+          {{#unless item.system.learned}}
+            <div class="points-value">{{item.system.points}}</div>
+          {{else}}
+            <div class="points-value"></div>
+          {{/unless}}
           {{! interval }}
           <div class="item-controls">
             <a class="item-control item-edit" title="{{localize 'PC.edit'}}">

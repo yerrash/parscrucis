@@ -403,6 +403,9 @@
   "PC.racial": "Racial",
   "PC.derived": "Derivada",
 
+  "PC.learned": "Aprendida",
+  "PC.native": "Nativa",
+
   "PC.deleteMessage": "Tem certeza que deseja deletar ",
   "PC.configMessage": "Ajuste aqui os atributos e subatributos de acordo com efeitos de passivas, equipamentos e demais meios permanentes. Evite o uso em casos temporários como efeitos de alquímicos, herbais, habilidades etc."
 }

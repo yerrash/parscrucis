@@ -30,6 +30,8 @@ export default class ParsCrucisItemSheet extends ItemSheet {
 
     context.config = CONFIG.parscrucis;
 
+    // pega informações ao abrir item
+    // console.log("ITEM AQUI COMPUTADO");
     // console.log(context);
     // console.log(itemData);
 
