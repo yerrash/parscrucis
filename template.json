@@ -131,16 +131,8 @@
             "favor": false,
             "modifiers": 0
           },
-          "condu": {
-            "attribute": "fis",
-            "group": "physical",
-            "growth": 1,
-            "aprendizado": "",
-            "favor": false,
-            "modifiers": 0
-          },
           "esgri": {
-            "attribute": "ref",
+            "attribute": "fis",
             "group": "physical",
             "growth": 2,
             "aprendizado": "",
@@ -156,14 +148,6 @@
             "modifiers": 0
           },
           "malha": {
-            "attribute": "fis",
-            "group": "physical",
-            "growth": 1,
-            "aprendizado": "",
-            "favor": false,
-            "modifiers": 0
-          },
-          "natac": {
             "attribute": "fis",
             "group": "physical",
             "growth": 1,
@@ -212,22 +196,6 @@
             "favor": false,
             "modifiers": 0
           },
-          "intui": {
-            "attribute": "ego",
-            "group": "subterfuge",
-            "growth": 1,
-            "aprendizado": "",
-            "favor": false,
-            "modifiers": 0
-          },
-          "inves": {
-            "attribute": "cog",
-            "group": "subterfuge",
-            "growth": 1,
-            "aprendizado": "",
-            "favor": false,
-            "modifiers": 0
-          },
           "ladin": {
             "attribute": "ref",
             "group": "subterfuge",
@@ -236,20 +204,36 @@
             "favor": false,
             "modifiers": 0
           },
-          "nauti": {
-            "attribute": "fis",
+          "perce": {
+            "attribute": "ref",
             "group": "subterfuge",
-            "growth": 2,
+            "growth": 1,
             "aprendizado": "",
             "favor": false,
             "modifiers": 0
           },
 
-          "cienc": {
+          "arcan": {
             "attribute": "cog",
             "group": "knowledge",
             "growth": 1,
+            "aprendizado": "PC.Hard",
+            "favor": false,
+            "modifiers": 0
+          },
+          "condu": {
+            "attribute": "fis",
+            "group": "knowledge",
+            "growth": 1,
             "aprendizado": "",
+            "favor": false,
+            "modifiers": 0
+          },
+          "crono": {
+            "attribute": "cog",
+            "group": "knowledge",
+            "growth": 1,
+            "aprendizado": "PC.Hard",
             "favor": false,
             "modifiers": 0
           },
@@ -257,38 +241,6 @@
             "attribute": "cog",
             "group": "knowledge",
             "growth": 1,
-            "aprendizado": "",
-            "favor": false,
-            "modifiers": 0
-          },
-          "guerr": {
-            "attribute": "cog",
-            "group": "knowledge",
-            "growth": 2,
-            "aprendizado": "",
-            "favor": false,
-            "modifiers": 0
-          },
-          "medic": {
-            "attribute": "cog",
-            "group": "knowledge",
-            "growth": 1,
-            "aprendizado": "",
-            "favor": false,
-            "modifiers": 0
-          },
-          "natur": {
-            "attribute": "cog",
-            "group": "knowledge",
-            "growth": 1,
-            "aprendizado": "",
-            "favor": false,
-            "modifiers": 0
-          },
-          "ontol": {
-            "attribute": "esp",
-            "group": "knowledge",
-            "growth": 2,
             "aprendizado": "",
             "favor": false,
             "modifiers": 0
@@ -342,14 +294,6 @@
             "favor": false,
             "modifiers": 0
           },
-          "costu": {
-            "attribute": "ref",
-            "group": "craft",
-            "growth": 2,
-            "aprendizado": "",
-            "favor": false,
-            "modifiers": 0
-          },
           "extra": {
             "attribute": "fis",
             "group": "craft",
@@ -358,19 +302,11 @@
             "favor": false,
             "modifiers": 0
           },
-          "herba": {
+          "medic": {
             "attribute": "cog",
             "group": "craft",
             "growth": 1,
             "aprendizado": "",
-            "favor": false,
-            "modifiers": 0
-          },
-          "metal": {
-            "attribute": "fis",
-            "group": "craft",
-            "growth": 1,
-            "aprendizado": "PC.Hard",
             "favor": false,
             "modifiers": 0
           },
@@ -383,11 +319,11 @@
             "favor": false,
             "modifiers": 0
           },
-          "cultu": {
+          "bardi": {
             "attribute": "ego",
             "group": "social",
             "growth": 1,
-            "aprendizado": "",
+            "aprendizado": "PC.Hard",
             "favor": false,
             "modifiers": 0
           },
@@ -407,23 +343,7 @@
             "favor": false,
             "modifiers": 0
           },
-          "idiom": {
-            "attribute": "ego",
-            "group": "social",
-            "growth": 2,
-            "aprendizado": "",
-            "favor": false,
-            "modifiers": 0
-          },
           "impos": {
-            "attribute": "ego",
-            "group": "social",
-            "growth": 1,
-            "aprendizado": "",
-            "favor": false,
-            "modifiers": 0
-          },
-          "negoc": {
             "attribute": "ego",
             "group": "social",
             "growth": 1,
@@ -442,7 +362,7 @@
 
           "amago": {
             "attribute": "esp",
-            "group": "supernatural",
+            "group": "spiritual",
             "growth": 2,
             "aprendizado": "PC.Hard",
             "favor": false,
@@ -450,31 +370,7 @@
           },
           "aoism": {
             "attribute": "esp",
-            "group": "supernatural",
-            "growth": 1,
-            "aprendizado": "PC.Hard",
-            "favor": false,
-            "modifiers": 0
-          },
-          "arcan": {
-            "attribute": "cog",
-            "group": "supernatural",
-            "growth": 1,
-            "aprendizado": "PC.Hard",
-            "favor": false,
-            "modifiers": 0
-          },
-          "bardi": {
-            "attribute": "ego",
-            "group": "supernatural",
-            "growth": 1,
-            "aprendizado": "PC.Hard",
-            "favor": false,
-            "modifiers": 0
-          },
-          "crono": {
-            "attribute": "cog",
-            "group": "supernatural",
+            "group": "spiritual",
             "growth": 1,
             "aprendizado": "PC.Hard",
             "favor": false,
@@ -482,7 +378,7 @@
           },
           "druid": {
             "attribute": "esp",
-            "group": "supernatural",
+            "group": "spiritual",
             "growth": 1,
             "aprendizado": "PC.Hard",
             "favor": false,
@@ -490,15 +386,23 @@
           },
           "eleme": {
             "attribute": "esp",
-            "group": "supernatural",
+            "group": "spiritual",
             "growth": 1,
             "aprendizado": "PC.Hard",
             "favor": false,
             "modifiers": 0
           },
+          "ontol": {
+            "attribute": "esp",
+            "group": "spiritual",
+            "growth": 2,
+            "aprendizado": "",
+            "favor": false,
+            "modifiers": 0
+          },
           "sabak": {
             "attribute": "esp",
-            "group": "supernatural",
+            "group": "spiritual",
             "growth": 1,
             "aprendizado": "PC.Hard",
             "favor": false,
