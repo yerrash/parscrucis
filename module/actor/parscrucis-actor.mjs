@@ -357,7 +357,7 @@ export class ParsCrucisActor extends Actor {
   }
 
   _abilitiesExp(actorData) {
-    console.log(actorData);
+    // console.log(actorData);
     let abilitiesExp = 0;
     for (let [_, power] of Object.entries(actorData.powers)) {
       abilitiesExp += power.system.expCost;
@@ -366,7 +366,6 @@ export class ParsCrucisActor extends Actor {
       abilitiesExp += technique.system.expCost;
     }
     for (let [_, passive] of Object.entries(actorData.passives)) {
-      console.log(passive);
       if (passive.system.learned === true) {
         abilitiesExp += passive.system.expCost;
       }
@@ -388,20 +387,10 @@ export class ParsCrucisActor extends Actor {
   _passivesPts(actorData) {
     let passivesPts = 0;
     for (let [_, passive] of Object.entries(actorData.passives)) {
-      console.log("PASSIVEPTS COST");
-      console.log(passive);
-
       passive.system.acquisition === "native"
         ? (passivesPts += passive.system.points)
         : passivesPts;
-
-      console.log(passivesPts);
-
-      // if (passive.acquisition === "native") {
-      //   passivesPts += passive.system.points;
-      // }
     }
-    console.log(passivesPts);
     return passivesPts;
   }
 

@@ -29,8 +29,8 @@
       "path": "lang/en.json"
     }
   ],
-  "grid.distance": 1,
-  "grid.units": "cs",
+  "gridDistance": 1,
+  "gridUnits": "cs",
   "primaryTokenAttribute": "resources.pv",
   "secondaryTokenAttribute": "resources.pe",
   "url": "https://github.com/yerrash/parscrucis",
