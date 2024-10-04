@@ -184,15 +184,20 @@ export class ParsCrucisActor extends Actor {
         // Verifies attribute values, setting passive values or disabling tests
         this._setAttributes(att);
       }
+
       if (key === "movement" && actorType == "persona") {
         att.shortLabel = game.i18n.localize(PC.mv) ?? key;
         att.autoValue = RACIALS[race].attributes[key] + (att.config || 0);
         att.value = att.inputValue || att.autoValue;
         att.autoSprint = Math.ceil(
-          RACIALS[race].attributes.sprint + skillsData.atlet.value / 2
+          RACIALS[race].attributes.sprint +
+            skillsData.atlet.value / 2 +
+            (att.config || 0) +
+            (att.inputValue ? att.inputValue - att.autoValue : 0)
         );
         att.sprint = att.inputSprint || att.autoSprint;
       }
+
       if (key === "def") {
         att.shortLabel = game.i18n.localize(PC.def) ?? key;
         if (actorType == "persona") {
@@ -239,7 +244,11 @@ export class ParsCrucisActor extends Actor {
 
     // Handle mitigation.
     for (let [_, armor] of Object.entries(mitData)) {
-      // console.log(armor.value);
+      console.log(armor.value);
+
+      if (armor.value === null) {
+        armor.value = 0;
+      }
     }
 
     if (actorType == "persona") {

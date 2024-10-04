@@ -55,6 +55,9 @@
   height: 24px;
   width: auto;
 }
+.editor .tox-tbtn--select.tox-tbtn--bespoke {
+  width: 92px;
+}
 .editor .tox-toolbar__primary .tox-toolbar__group {
   padding: 0 5px 0 6px;
 }
@@ -779,20 +782,20 @@ p {
   text-align: right;
 }
 .parscrucis-actor-sheet .tab-content .skills-tab .grouping .skill-group .skill {
-  height: 21px;
-  font-size: 15px;
+  height: 28px;
+  font-size: 18px;
   display: flex;
   flex-direction: row;
   align-items: center;
   width: 100%;
 }
 .parscrucis-actor-sheet .tab-content .skills-tab .grouping .skill-group .skill .skill-exp {
-  color: #999;
+  color: hsla(0, 0%, 60%, 0.8);
   font-family: "Modesto Condensed";
   font-size: 12.5px;
   width: 15px;
-  height: 19px;
-  line-height: 19px;
+  height: 26px;
+  line-height: 26px;
   margin-left: 3px;
 }
 .parscrucis-actor-sheet .tab-content .skills-tab .grouping .skill-group .skill .skill-exp:hover {
@@ -808,8 +811,11 @@ p {
 }
 .parscrucis-actor-sheet .tab-content .skills-tab .grouping .skill-group .skill .skill-title {
   display: flex;
+  align-items: center;
   padding-left: 2px;
   width: calc(50% + 6px + 5px);
+  font-size: 22px;
+  font-family: "Modesto Condensed";
 }
 .parscrucis-actor-sheet .tab-content .skills-tab .grouping .skill-group .skill .skill-rate {
   width: 25px;
@@ -822,7 +828,7 @@ p {
   text-align: center;
 }
 .parscrucis-actor-sheet .tab-content .skills-tab .grouping .skill-group .skill input {
-  height: 18px;
+  height: 22px;
   padding: 0;
   border-radius: 3px;
   margin: 0 0 0 3px;
@@ -832,12 +838,12 @@ p {
 }
 .parscrucis-actor-sheet .tab-content .skills-tab .grouping .skill-group .skill .skill-value {
   width: 10%;
-  font-size: 20px;
+  font-size: 24px;
   font-weight: 700;
 }
 .parscrucis-actor-sheet .tab-content .skills-tab .grouping .skill-group .skill .skill-mod {
   width: 10%;
-  font-size: 17px;
+  font-size: 19px;
   padding: 0 1px 0 0;
   margin: 0;
 }
@@ -1685,7 +1691,7 @@ p {
   text-align: justify;
 }
 .parscrucis-item-sheet textarea.action-informations {
-  height: 84px;
+  height: 183px;
 }
 .parscrucis-item-sheet textarea.passive-informations {
   height: 167px;
