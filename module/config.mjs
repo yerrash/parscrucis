@@ -130,17 +130,15 @@ PC.categories = {
   socials: "PC.socials",
   subterfuge: "PC.subterfuge",
   crafts: "PC.crafts",
-  supernatural: "PC.supernatural",
+  spiritual: "PC.spiritual",
 };
 
 PC.physical = {
   atlet: "PC.atlet",
   briga: "PC.briga",
-  condu: "PC.condu",
   esgri: "PC.esgri",
   hasta: "PC.hasta",
   malha: "PC.malha",
-  natac: "PC.natac",
   resis: "PC.resis",
 };
 
@@ -149,19 +147,15 @@ PC.subterfuge = {
   arque: "PC.arque",
   balis: "PC.balis",
   furti: "PC.furti",
-  intui: "PC.intui",
-  inves: "PC.inves",
   ladin: "PC.ladin",
-  nauti: "PC.nauti",
+  perce: "PC.perce",
 };
 
 PC.knowledge = {
-  cienc: "PC.cienc",
+  arcan: "PC.arcan",
+  condu: "PC.condu",
+  crono: "PC.crono",
   erudi: "PC.erudi",
-  guerr: "PC.guerr",
-  medic: "PC.medic",
-  natur: "PC.natur",
-  ontol: "PC.ontol",
   orien: "PC.orien",
   sobre: "PC.sobre",
 };
@@ -170,83 +164,70 @@ PC.crafts = {
   alqui: "PC.alqui",
   armei: "PC.armei",
   artes: "PC.artes",
-  costu: "PC.costu",
   engen: "PC.engen",
   extra: "PC.extra",
-  herba: "PC.herba",
-  metal: "PC.metal",
+  medic: "PC.medic",
 };
 
 PC.socials = {
   artim: "PC.artim",
-  cultu: "PC.cultu",
+  bardi: "PC.bardi",
   domar: "PC.domar",
   expre: "PC.expre",
-  idiom: "PC.idiom",
   impos: "PC.impos",
-  negoc: "PC.negoc",
   seduc: "PC.seduc",
 };
 
-PC.supernatural = {
+PC.spiritual = {
   amago: "PC.amago",
   aoism: "PC.aoism",
-  arcan: "PC.arcan",
-  bardi: "PC.bardi",
-  crono: "PC.crono",
   druid: "PC.druid",
   eleme: "PC.eleme",
+  ontol: "PC.ontol",
   sabak: "PC.sabak",
 };
 
 PC.skillList = {
   atlet: "PC.atlet",
   briga: "PC.briga",
-  condu: "PC.condu",
   esgri: "PC.esgri",
   hasta: "PC.hasta",
   malha: "PC.malha",
-  natac: "PC.natac",
   resis: "PC.resis",
+
   agili: "PC.agili",
   arque: "PC.arque",
   balis: "PC.balis",
   furti: "PC.furti",
-  intui: "PC.intui",
-  inves: "PC.inves",
   ladin: "PC.ladin",
-  nauti: "PC.nauti",
-  cienc: "PC.cienc",
+  perce: "PC.perce",
+
+  arcan: "PC.arcan",
+  crono: "PC.crono",
+  condu: "PC.condu",
   erudi: "PC.erudi",
-  guerr: "PC.guerr",
-  medic: "PC.medic",
-  natur: "PC.natur",
-  ontol: "PC.ontol",
   orien: "PC.orien",
   sobre: "PC.sobre",
+
   alqui: "PC.alqui",
   armei: "PC.armei",
   artes: "PC.artes",
-  costu: "PC.costu",
   engen: "PC.engen",
   extra: "PC.extra",
-  herba: "PC.herba",
-  metal: "PC.metal",
+  medic: "PC.medic",
+
   artim: "PC.artim",
-  cultu: "PC.cultu",
+  bardi: "PC.bardi",
   domar: "PC.domar",
   expre: "PC.expre",
-  idiom: "PC.idiom",
   impos: "PC.impos",
-  negoc: "PC.negoc",
   seduc: "PC.seduc",
+
   amago: "PC.amago",
   aoism: "PC.aoism",
-  arcan: "PC.arcan",
-  bardi: "PC.bardi",
-  crono: "PC.crono",
   druid: "PC.druid",
   eleme: "PC.eleme",
+  ontol: "PC.ontol",
   sabak: "PC.sabak",
 };
 
