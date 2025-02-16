@@ -979,6 +979,10 @@ p {
   text-align: center;
   width: calc(16%);
 }
+.parscrucis-actor-sheet .tab-content .items-list .item .item-effort {
+  width: calc(6%);
+  text-align: center;
+}
 .parscrucis-actor-sheet .tab-content .items-list .item .item-info,
 .parscrucis-actor-sheet .tab-content .items-list .item .player-notes {
   width: calc(38% - 43px - 36px);
@@ -1076,6 +1080,11 @@ p {
 }
 .parscrucis-actor-sheet .tab-content .items-list .item-line .item-damage span {
   font-size: 15.5px;
+}
+.parscrucis-actor-sheet .tab-content .items-list .item-line .item-effort {
+  font-family: "SR";
+  font-size: 18px;
+  height: 20px;
 }
 .parscrucis-actor-sheet .tab-content .items-list .load-info {
   display: flex;

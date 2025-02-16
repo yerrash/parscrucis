@@ -26,7 +26,7 @@ export class ParsCrucisChatMessage extends ChatMessage {
         this.blind ? "blind" : null,
       ].filterJoin(" "),
       isWhisper: this.whisper.length,
-      canDelete: game.user.isGM, // Only GM users are allowed to have the trash-bin icon in the chat log itself
+      canDelete: game.user.isGM, // Only GM users
       whisperTo: this.whisper
         .map((u) => {
           let user = game.users.get(u);
@@ -34,12 +34,6 @@ export class ParsCrucisChatMessage extends ChatMessage {
         })
         .filterJoin(", "),
     };
-
-    console.log("THIS");
-    console.log(this);
-    console.log(game);
-    console.log("----> ParsCrucisChatMessage getHTML IS GETTING THROUGH");
-    console.log(messageData);
 
     // Render message data specifically for ROLL type messages
     if (this.isRoll) {
@@ -55,8 +49,13 @@ export class ParsCrucisChatMessage extends ChatMessage {
     let html = await renderTemplate(CONFIG.ChatMessage.template, messageData);
     html = $(html);
 
+    // Forces dice rolls to be expanded
+    this._rollExpanded = true;
+
     // Flag expanded state of dice rolls
     if (this._rollExpanded) html.find(".dice-tooltip").addClass("expanded");
+
+    console.log("PRINT THIS ", this);
 
     /**
      * A hook event that fires for each ChatMessage which is rendered for addition to the ChatLog.
@@ -75,7 +74,5 @@ export class ParsCrucisChatMessage extends ChatMessage {
   /** @override */
   async _preCreate(data, options, user) {
     await super._preCreate(data, options, user);
-
-    console.log("----> ParsCrucisChatMessage _preCreate IS GETTING THROUGH");
   }
 }

@@ -12,9 +12,9 @@ export class ParsCrucisItem extends Item {
     const systemData = this.system;
     // console.log("DADOS ANTE-PREPARO!", this);
 
-    if (this.type === "weapon") {
-      this._prepareWeaponData(systemData);
-    }
+    // if (this.type === "ability") {
+    //   this._prepareAbilityData(systemData);
+    // }
 
     if (this.type === "gear") {
       this._prepareGearData(systemData);
@@ -22,6 +22,10 @@ export class ParsCrucisItem extends Item {
 
     if (this.type === "passive") {
       this._preparePassiveData(systemData);
+    }
+
+    if (this.type === "weapon") {
+      this._prepareWeaponData(systemData);
     }
 
     // Get item owner data.
@@ -32,6 +36,10 @@ export class ParsCrucisItem extends Item {
     // console.log("DADOS DO ATOR AQUI!", actorData);
     // console.log("DADOS DO ITEM AQUI!", systemData);
   }
+
+  // _prepareAbilityData(systemData) {
+  //   console.log(systemData);
+  // }
 
   _prepareWeaponData(systemData) {
     const actionsData = systemData.actions;

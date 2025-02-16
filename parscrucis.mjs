@@ -13,6 +13,7 @@ import { ParsCrucisChat } from "./module/chat.mjs";
 
 async function preloadHandlebarsTemplates() {
   const templatePaths = [
+    // Actor Sheet
     "systems/parscrucis/templates/actor/blocks/char-att-block.hbs",
     "systems/parscrucis/templates/actor/blocks/mit-minors.hbs",
     "systems/parscrucis/templates/actor/tabs/skills-tab-pdm.hbs",
@@ -22,7 +23,9 @@ async function preloadHandlebarsTemplates() {
     "systems/parscrucis/templates/actor/tabs/effects-tab.hbs",
     "systems/parscrucis/templates/actor/tabs/info-tab.hbs",
     "systems/parscrucis/templates/actor/tabs/notes-tab.hbs",
+    // Chat
     "systems/parscrucis/templates/chat/roll-card.hbs",
+    // Items
     "systems/parscrucis/templates/item/tabs/details-tab.hbs",
   ];
 
@@ -36,8 +39,7 @@ async function preloadHandlebarsTemplates() {
 Hooks.once("init", function () {
   console.log("PARSCRUCIS | inicializando sistema");
 
-  // Add utility classes to the global game object so that they're more easily
-  // accessible in global contexts.
+  // Add utility classes to the global game object so that they're more easily accessible in global contexts.
   game.parscrucis = {
     ActorConfigure,
     ParsCrucisActorSheet,
@@ -62,7 +64,6 @@ Hooks.once("init", function () {
   // Define custom Document classes
   CONFIG.Actor.documentClass = ParsCrucisActor;
   CONFIG.Item.documentClass = ParsCrucisItem;
-
   CONFIG.ChatMessage.documentClass = ParsCrucisChatMessage;
 
   // Assign custom DataModels
@@ -74,12 +75,13 @@ Hooks.once("init", function () {
   Items.registerSheet("parscrucis", ParsCrucisItemSheet, {
     makeDefault: true,
   });
+
   Actors.unregisterSheet("core", ActorSheet);
   Actors.registerSheet("parscrucis", ParsCrucisActorSheet, {
     makeDefault: true,
   });
 
-  // Preload Handlebars templates.
+  // Preload templates.
   preloadHandlebarsTemplates();
 });
 
