@@ -191,7 +191,7 @@ export class ParsCrucisActor extends Actor {
         att.value = att.inputValue || att.autoValue;
         att.autoSprint = Math.ceil(
           RACIALS[race].attributes.sprint +
-            skillsData.atlet.value / 2 +
+            Math.max(skillsData.atlet.value, skillsData.agili.value) / 2 +
             (att.config || 0) +
             (att.inputValue ? att.inputValue - att.autoValue : 0)
         );
@@ -244,8 +244,6 @@ export class ParsCrucisActor extends Actor {
 
     // Handle mitigation.
     for (let [_, armor] of Object.entries(mitData)) {
-      console.log(armor.value);
-
       if (armor.value === null) {
         armor.value = 0;
       }

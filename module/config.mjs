@@ -14,11 +14,12 @@ PC.race = {
 PC.culture = {
   adv: "PC.adv",
   ana: "PC.ana",
+  ank: "PC.ank",
   art: "PC.art",
   ast: "PC.ast",
+  azi: "PC.azi",
   ban: "PC.ban",
   cam: "PC.cam",
-  dis: "PC.dis",
   gua: "PC.gua",
   orc: "PC.orc",
   reb: "PC.reb",

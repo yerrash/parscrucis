@@ -5,8 +5,8 @@
         <h3 class="subtitle">
           <div class="item-image"></div>
           <div class="item-name item-margin">{{localize "PC.techniques"}}</div>
+          <div class="item-effort item-margin">{{localize "PC.Eff"}}</div>
           <div class="item-info-line">{{localize "PC.Notes"}}</div>
-
           <div class="item-controls"><a
               class="item-control item-create"
               title="{{localize 'PC.createAbility'}}"
@@ -38,6 +38,9 @@
               class="item-type item-margin"
             >{{item.system.subtypeLabel}}</span>
           </h4>
+          <div
+            class="item-effort item-margin"
+          >{{item.system.actions.0.effort}}</div>
           <input
             class="item-info-line player-notes"
             data-item-update="{{item._id}}"
@@ -68,6 +71,7 @@
         <h3 class="subtitle">
           <div class="item-image"></div>
           <div class="item-name item-margin">{{localize "PC.powers"}}</div>
+          <div class="item-effort item-margin">{{localize "PC.Eff"}}</div>
           <div class="item-info-line">{{localize "PC.Notes"}}</div>
           <div class="item-controls"><a
               class="item-control item-create"
@@ -99,6 +103,9 @@
               class="item-type item-margin"
             >{{item.system.subtypeLabel}}</span>
           </h4>
+          <div
+            class="item-effort item-margin"
+          >{{item.system.actions.0.effort}}</div>
           <input
             class="item-info-line player-notes"
             data-item-update="{{item._id}}"

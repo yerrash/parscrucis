@@ -15,11 +15,12 @@
 
   "PC.adv": "Ádvena",
   "PC.ana": "Anama",
+  "PC.ank": "Ankhairo",
   "PC.art": "Artífice",
   "PC.ast": "Astraio",
+  "PC.azi": "Azírio",
   "PC.ban": "Bandeiro",
   "PC.cam": "Campeador",
-  "PC.dis": "Discípulo",
   "PC.gua": "Guardião",
   "PC.orc": "Orcai",
   "PC.reb": "Rebelde",
@@ -184,6 +185,7 @@
   "PC.Modifier": "Modificador",
   "PC.E": "E",
   "PC.Effort": "Esforço",
+  "PC.Eff": "Esf",
   "PC.Weaponry": "Armamentos",
   "PC.Vests": "Vestimentas",
   "PC.accessories": "Acessórios",
@@ -388,7 +390,7 @@
 
   "PC.benefit": "Benefício",
   "PC.flaw": "Malefício",
-  "PC.racial": "Racial",
+  "PC.racial": "Originária",
   "PC.derived": "Derivada",
 
   "PC.learned": "Aprendida",
