@@ -55,7 +55,7 @@ export class ParsCrucisChatMessage extends ChatMessage {
     // Flag expanded state of dice rolls
     if (this._rollExpanded) html.find(".dice-tooltip").addClass("expanded");
 
-    console.log("PRINT THIS ", this);
+    // console.log("PRINT THIS ", this);
 
     /**
      * A hook event that fires for each ChatMessage which is rendered for addition to the ChatLog.

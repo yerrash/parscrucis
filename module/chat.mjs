@@ -4,19 +4,17 @@ export class ParsCrucisChat {
 
     rollResult.rolls.forEach((r) => {
       console.log("----> ParsCrucisChat rollResults.rolls IS GETTING THROUGH");
-      // r.img =
-      //   r.img = `systems/degenesis/icons/dice-faces/d${r.result}.svg`;
+      //
     });
 
     if (rollResult.secondaryRolls) {
       rollResult.secondaryRolls.forEach((r) => {
-        // r.img = `systems/degenesis/icons/dice-faces/d${r.result}.svg`;
+        //
       });
     }
 
     // Original result before translation - used for styling
     rollResult.enResult = rollResult.result;
-    // rollResult.result = DEGENESIS.rollResults[rollResult.result];
 
     foundry.utils.mergeObject(cardData, rollResult);
 

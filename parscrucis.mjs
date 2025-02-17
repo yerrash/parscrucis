@@ -24,7 +24,9 @@ async function preloadHandlebarsTemplates() {
     "systems/parscrucis/templates/actor/tabs/info-tab.hbs",
     "systems/parscrucis/templates/actor/tabs/notes-tab.hbs",
     // Chat
-    "systems/parscrucis/templates/chat/roll-card.hbs",
+    "systems/parscrucis/templates/chat/ability-card.hbs",
+    "systems/parscrucis/templates/chat/item-card.hbs",
+    "systems/parscrucis/templates/chat/weapon-card.hbs",
     // Items
     "systems/parscrucis/templates/item/tabs/details-tab.hbs",
   ];
