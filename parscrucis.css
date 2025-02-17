@@ -1,95 +1,54 @@
-@font-face {
-  font-family: "Acme";
-  src: url("fonts/Acme-Regular.ttf");
+.parscrucis-actor-config h2 {
+  width: 100%;
+  height: 28px;
 }
-@font-face {
-  font-family: "AvenirBlack";
-  src: url("fonts/AvenirLTStd-Black.otf");
-}
-@font-face {
-  font-family: "AvenirBook";
-  src: url("fonts/AvenirLTStd-Book.otf");
-}
-@font-face {
-  font-family: "AvenirRoman";
-  src: url("fonts/AvenirLTStd-Roman.otf");
-}
-@font-face {
-  font-family: "IMFellEnglishSC";
-  src: url("fonts/IMFellEnglishSC-Regular.ttf");
-}
-@font-face {
-  font-family: "IMFellDWPica";
-  src: url("fonts/IMFellDWPica-Regular.ttf");
-}
-@font-face {
-  font-family: "IMFellDWPicaSC";
-  src: url("fonts/IMFellDWPicaSC-Regular.ttf");
-}
-@font-face {
+.parscrucis-actor-config h2 div {
+  width: 100%;
   font-family: "JMHArkham";
-  src: url("fonts/JmharkhamRegular.otf");
+  font-size: 24px;
+  height: 26px;
+  padding: 0 0 4px 3px;
+  margin-top: -6px;
+  text-align: center;
 }
-@font-face {
-  font-family: "ModestoCondBold";
-  src: url("fonts/Modesto Condensed Bold.ttf");
+.parscrucis-actor-config p {
+  font-family: "Acme";
+  text-align: center;
+  height: 85px;
+  margin-bottom: 3px;
 }
-@font-face {
-  font-family: "RubikGlitch";
-  src: url("fonts/RubikGlitch-Regular.ttf");
+.parscrucis-actor-config .window {
+  border: 1px solid rgba(128, 128, 128, 0.432);
+  border-width: 0 1px 1px 1px;
+  border-radius: 0 0 5px 5px;
+  background: #ebe7dce0;
+  justify-content: space-between;
+  padding-bottom: 2px;
 }
-@font-face {
-  font-family: "SR";
-  src: url("fonts/Sundayromanticdemo.otf");
+.parscrucis-actor-config .attribute {
+  width: 15%;
+  border-width: 0px;
+  margin: 0 1px;
 }
-.editor {
-  height: 100%;
-}
-.editor .tox:not(.tox-tinymce-inline) .tox-editor-header {
+.parscrucis-actor-config input {
+  padding: 0;
+  margin: 1px 2px 1px 0;
   height: 36px;
-  padding: 5px 0 3px 0;
+  width: 100%;
+  padding-top: 1px;
+  margin: 1px 0;
+  font-family: "SR";
+  font-size: 42px;
+  text-align: center;
+  border-width: 0 1px;
+  border-color: #aaa;
 }
-.editor button.tox-tbtn,
-.editor .tox-tbtn--select {
-  margin: 1px 1px 4px 0;
-  height: 24px;
-  width: auto;
-}
-.editor .tox-tbtn--select.tox-tbtn--bespoke {
-  width: 92px;
-}
-.editor .tox-toolbar__primary .tox-toolbar__group {
-  padding: 0 5px 0 6px;
-}
-.editor p {
-  margin: 1px 0 2px;
-  font-family: "Acme";
-}
-.editor .editor-content {
-  height: calc(100% - 2px);
-}
-.actors-sidebar li.folder .folder-header,
-.items-sidebar li.folder .folder-header {
-  padding: 3px 4px 1px;
-}
-.actors-sidebar .directory-item img,
-.items-sidebar .directory-item img {
-  height: 48px;
-}
-.actors-sidebar .directory-item .document-name,
-.items-sidebar .directory-item .document-name {
-  height: 100%;
-  line-height: 24px;
-}
-.actors-sidebar .directory-item img,
-.items-sidebar .directory-item img {
-  object-fit: cover;
-  object-position: 0;
-  height: 24px;
-}
-.window-title,
-.header-button {
-  font-family: "JMHArkham";
+.parscrucis-actor-config h3 {
+  text-align: center;
+  font-family: "IMFellEnglishSC";
+  font-weight: 700;
+  height: 16px;
+  font-size: 15px;
 }
 h2,
 h3,
@@ -1300,6 +1259,72 @@ p {
   color: gray;
   margin-left: 24px;
 }
+.chat-item-header {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  height: 24px;
+}
+.chat-item-header img {
+  border-radius: 2px 2px 0 2px;
+  border-color: var(--color-underline-header);
+}
+.chat-item-header .item-card-title {
+  width: calc(100% - 24px);
+  line-height: 25px;
+  font-family: "JMHArkham";
+}
+.chat-item-header .item-card-title div {
+  margin-bottom: -1px;
+  margin-left: 2px;
+}
+.roll-summary {
+  font-size: 12.5px;
+}
+@font-face {
+  font-family: "Acme";
+  src: url("fonts/Acme-Regular.ttf");
+}
+@font-face {
+  font-family: "AvenirBlack";
+  src: url("fonts/AvenirLTStd-Black.otf");
+}
+@font-face {
+  font-family: "AvenirBook";
+  src: url("fonts/AvenirLTStd-Book.otf");
+}
+@font-face {
+  font-family: "AvenirRoman";
+  src: url("fonts/AvenirLTStd-Roman.otf");
+}
+@font-face {
+  font-family: "IMFellEnglishSC";
+  src: url("fonts/IMFellEnglishSC-Regular.ttf");
+}
+@font-face {
+  font-family: "IMFellDWPica";
+  src: url("fonts/IMFellDWPica-Regular.ttf");
+}
+@font-face {
+  font-family: "IMFellDWPicaSC";
+  src: url("fonts/IMFellDWPicaSC-Regular.ttf");
+}
+@font-face {
+  font-family: "JMHArkham";
+  src: url("fonts/JmharkhamRegular.otf");
+}
+@font-face {
+  font-family: "ModestoCondBold";
+  src: url("fonts/Modesto Condensed Bold.ttf");
+}
+@font-face {
+  font-family: "RubikGlitch";
+  src: url("fonts/RubikGlitch-Regular.ttf");
+}
+@font-face {
+  font-family: "SR";
+  src: url("fonts/Sundayromanticdemo.otf");
+}
 .parscrucis-item-sheet {
   min-width: 600px;
   min-height: 440px;
@@ -1719,55 +1744,52 @@ p {
   height: 278px;
   margin-bottom: 0;
 }
-.parscrucis-actor-config h2 {
-  width: 100%;
-  height: 28px;
+.actors-sidebar li.folder .folder-header,
+.items-sidebar li.folder .folder-header {
+  padding: 3px 4px 1px;
 }
-.parscrucis-actor-config h2 div {
-  width: 100%;
+.actors-sidebar .directory-item img,
+.items-sidebar .directory-item img {
+  height: 48px;
+}
+.actors-sidebar .directory-item .document-name,
+.items-sidebar .directory-item .document-name {
+  height: 100%;
+  line-height: 24px;
+}
+.actors-sidebar .directory-item img,
+.items-sidebar .directory-item img {
+  object-fit: cover;
+  object-position: 0;
+  height: 24px;
+}
+.window-title,
+.header-button {
   font-family: "JMHArkham";
-  font-size: 24px;
-  height: 26px;
-  padding: 0 0 4px 3px;
-  margin-top: -6px;
-  text-align: center;
 }
-.parscrucis-actor-config p {
-  font-family: "Acme";
-  text-align: center;
-  height: 85px;
-  margin-bottom: 3px;
+.editor {
+  height: 100%;
 }
-.parscrucis-actor-config .window {
-  border: 1px solid rgba(128, 128, 128, 0.432);
-  border-width: 0 1px 1px 1px;
-  border-radius: 0 0 5px 5px;
-  background: #ebe7dce0;
-  justify-content: space-between;
-  padding-bottom: 2px;
-}
-.parscrucis-actor-config .attribute {
-  width: 15%;
-  border-width: 0px;
-  margin: 0 1px;
-}
-.parscrucis-actor-config input {
-  padding: 0;
-  margin: 1px 2px 1px 0;
+.editor .tox:not(.tox-tinymce-inline) .tox-editor-header {
   height: 36px;
-  width: 100%;
-  padding-top: 1px;
-  margin: 1px 0;
-  font-family: "SR";
-  font-size: 42px;
-  text-align: center;
-  border-width: 0 1px;
-  border-color: #aaa;
+  padding: 5px 0 3px 0;
 }
-.parscrucis-actor-config h3 {
-  text-align: center;
-  font-family: "IMFellEnglishSC";
-  font-weight: 700;
-  height: 16px;
-  font-size: 15px;
+.editor button.tox-tbtn,
+.editor .tox-tbtn--select {
+  margin: 1px 1px 4px 0;
+  height: 24px;
+  width: auto;
+}
+.editor .tox-tbtn--select.tox-tbtn--bespoke {
+  width: 92px;
+}
+.editor .tox-toolbar__primary .tox-toolbar__group {
+  padding: 0 5px 0 6px;
+}
+.editor p {
+  margin: 1px 0 2px;
+  font-family: "Acme";
+}
+.editor .editor-content {
+  height: calc(100% - 2px);
 }

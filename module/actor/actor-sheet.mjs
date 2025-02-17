@@ -60,8 +60,6 @@ export default class ParsCrucisActorSheet extends ActorSheet {
     // Prepare active effects
     // context.effects = prepareActiveEffectCategories(this.actor.effects);
 
-    // console.log("getData:ISSO", context);
-
     return context;
   }
 
@@ -168,6 +166,7 @@ export default class ParsCrucisActorSheet extends ActorSheet {
     html.find("[data-att-key]").click(this._onAttClick.bind(this));
     html.find("[data-skill-key]").click(this._onSkillClick.bind(this));
     html.find(".skill-exp").click(this._switchFavorClick.bind(this));
+    html.find("[data-item]").click(this._onItemClick.bind(this));
     html.find("[data-action]").click(this._onActionClick.bind(this));
   }
 
@@ -338,15 +337,6 @@ export default class ParsCrucisActorSheet extends ActorSheet {
       rollMode: game.settings.get("core", "rollMode"),
     });
 
-    // console.log(this.actor);
-
-    // let skill = $(event.currentTarget).parents(".skill").attr("data-target");
-    // let skipDialog = event.ctrlKey;
-    // let { rollResults, cardData } = await this.actor.rollSkill(skill, {
-    //   skipDialog,
-    // });
-    // ParsCrucisChat.renderRollCard(rollResults, cardData);
-
     return roll;
   }
 
@@ -392,5 +382,13 @@ export default class ParsCrucisActorSheet extends ActorSheet {
     });
 
     return roll;
+  }
+
+  _onItemClick(event) {
+    event.preventDefault();
+    const element = event.currentTarget;
+    const itemId = element.dataset.itemId;
+    const item = this.actor.items.get(itemId);
+    item.roll();
   }
 }

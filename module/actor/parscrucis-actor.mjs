@@ -44,6 +44,7 @@ export class ParsCrucisActor extends Actor {
     // prepareBaseData(), prepareEmbeddedDocuments() (including active effects),
     // prepareDerivedData().
     super.prepareData();
+
     // console.log("prepData:THIS", this);
   }
 
@@ -473,6 +474,18 @@ export class ParsCrucisActor extends Actor {
         }
       }
     }
+  }
+
+  constructRollCard(template, title, subtitle) {
+    return {
+      title: title,
+      subtitle: subtitle,
+      template,
+      speaker: {
+        alias: this.name,
+        portrait: this.img,
+      },
+    };
   }
 
   /**

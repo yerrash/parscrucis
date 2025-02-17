@@ -41,6 +41,39 @@ export class ParsCrucisItem extends Item {
   //   console.log(systemData);
   // }
 
+  chatTemplate = {
+    ability: "systems/parscrucis/templates/chat/ability-card.hbs",
+    gear: "systems/parscrucis/templates/chat/item-card.hbs",
+    weapon: "systems/parscrucis/templates/chat/weapon-card.hbs",
+  };
+
+  async roll() {
+    console.log("it's getting in here just fine");
+    console.log(this);
+    console.log("split");
+
+    let chatData = {
+      user: game.user._id,
+      speaker: ChatMessage.getSpeaker(),
+    };
+
+    let cardData = {
+      ...this,
+      owner: this.actor.id,
+    };
+
+    chatData.content = await renderTemplate(
+      this.chatTemplate[this.type],
+      cardData
+    );
+
+    console.log("THISSYSTEN", this.system);
+
+    chatData.roll = true;
+
+    return ChatMessage.create(chatData);
+  }
+
   _prepareWeaponData(systemData) {
     const actionsData = systemData.actions;
 
