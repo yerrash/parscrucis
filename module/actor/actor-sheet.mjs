@@ -1,7 +1,6 @@
 import { PC_Utility } from "../utility.js";
 import ActorConfigure from "../apps/actor-configs.mjs";
 import { PC } from "../config.mjs";
-import { ParsCrucisChat } from "../chat.mjs";
 
 export default class ParsCrucisActorSheet extends ActorSheet {
   /** @override */
