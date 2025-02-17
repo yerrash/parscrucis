@@ -9,7 +9,6 @@ import { ParsCrucisItem } from "./module/item/parscrucis-item.mjs";
 import { AbilitySchema, WeaponSchema } from "./module/item/item-schema.mjs";
 
 import hooks from "./hooks/hotbar.mjs";
-import { ParsCrucisChat } from "./module/chat.mjs";
 
 async function preloadHandlebarsTemplates() {
   const templatePaths = [
@@ -47,7 +46,6 @@ Hooks.once("init", function () {
     ParsCrucisActorSheet,
     ParsCrucisChatMessage,
     ParsCrucisItemSheet,
-    chat: ParsCrucisChat,
   };
 
   // Add custom constants for configuration.
@@ -58,8 +56,7 @@ Hooks.once("init", function () {
    * @type {String}
    */
   CONFIG.Combat.initiative = {
-    formula: "1d10 + @minors.esperteza.value + @minors.esperteza.modifiers",
-    // formula: "1d10 + @minors.esperteza.value + @minors.esperteza.modifiers + (@attributes.agi.value + @attributes.agi.modifiers) / 100",
+    formula: "1d10 + @minors.esperteza.value + @minors.esperteza.modifiers", // + (@attributes.ref.value + @attributes.ref.modifiers) / 100",
     decimals: 2,
   };
 
