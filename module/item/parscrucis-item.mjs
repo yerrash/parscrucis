@@ -35,6 +35,7 @@ export class ParsCrucisItem extends Item {
 
     // console.log("DADOS DO ATOR AQUI!", actorData);
     // console.log("DADOS DO ITEM AQUI!", systemData);
+    console.log(this);
   }
 
   // _prepareAbilityData(systemData) {
@@ -48,13 +49,13 @@ export class ParsCrucisItem extends Item {
   };
 
   async roll() {
-    console.log("it's getting in here just fine");
-    console.log(this);
-    console.log("split");
+    let speaker = ChatMessage.getSpeaker();
+    let imgPath = this.actor.img ? this.actor.img : null;
 
     let chatData = {
       user: game.user._id,
-      speaker: ChatMessage.getSpeaker(),
+      speaker: speaker,
+      flags: { imgPath: imgPath },
     };
 
     let cardData = {
@@ -67,8 +68,6 @@ export class ParsCrucisItem extends Item {
       cardData
     );
 
-    console.log("THISSYSTEN", this.system);
-
     chatData.roll = true;
 
     return ChatMessage.create(chatData);
@@ -76,8 +75,6 @@ export class ParsCrucisItem extends Item {
 
   _prepareWeaponData(systemData) {
     const actionsData = systemData.actions;
-
-    // console.log(this);
     systemData.groupLabel =
       game.i18n.localize(PC.weaponGroups[systemData.group]) ?? systemData.group;
     systemData.subgroupLabel =

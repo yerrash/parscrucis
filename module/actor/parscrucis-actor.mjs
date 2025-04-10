@@ -476,18 +476,6 @@ export class ParsCrucisActor extends Actor {
     }
   }
 
-  constructRollCard(template, title, subtitle) {
-    return {
-      title: title,
-      subtitle: subtitle,
-      template,
-      speaker: {
-        alias: this.name,
-        portrait: this.img,
-      },
-    };
-  }
-
   /**
    * @Override getRollData() -> supplied to rolls.
    */

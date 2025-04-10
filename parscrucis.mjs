@@ -8,7 +8,7 @@ import { ParsCrucisActor } from "./module/actor/parscrucis-actor.mjs";
 import { ParsCrucisItem } from "./module/item/parscrucis-item.mjs";
 import { AbilitySchema, WeaponSchema } from "./module/item/item-schema.mjs";
 
-import hooks from "./hooks/hotbar.mjs";
+import hooks from "./hooks/hooks.js";
 
 async function preloadHandlebarsTemplates() {
   const templatePaths = [

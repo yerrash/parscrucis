@@ -18,7 +18,7 @@ export class ParsCrucisChatMessage extends ChatMessage {
       user: game.user,
       author: this.author,
       alias: this.alias,
-      cardPortrait: this.cardPortrait,
+      cardPortrait: this.flags.imgPath,
       cssClass: [
         this.type === CONST.CHAT_MESSAGE_STYLES.IC ? "ic" : null,
         this.type === CONST.CHAT_MESSAGE_STYLES.EMOTE ? "emote" : null,
@@ -55,8 +55,6 @@ export class ParsCrucisChatMessage extends ChatMessage {
     // Flag expanded state of dice rolls
     if (this._rollExpanded) html.find(".dice-tooltip").addClass("expanded");
 
-    // console.log("PRINT THIS ", this);
-
     /**
      * A hook event that fires for each ChatMessage which is rendered for addition to the ChatLog.
      * This hook allows for final customization of the message HTML before it is added to the log.
@@ -67,6 +65,10 @@ export class ParsCrucisChatMessage extends ChatMessage {
      * @param {object} data           The input data provided for template rendering
      */
     Hooks.call("renderChatMessage", this, html, messageData);
+
+    // console.log(messageData);
+    // console.log(this);
+    // console.log(data);
 
     return html;
   }
