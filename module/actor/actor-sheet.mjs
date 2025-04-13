@@ -272,8 +272,6 @@ export default class ParsCrucisActorSheet extends ActorSheet {
     let value = foundry.utils.getProperty(actorData, target);
     let newValue = luckIndex + 1;
 
-    // console.log(target);
-
     if (value === newValue) {
       setProperty(actorData, target, 0);
     } else setProperty(actorData, target, newValue);

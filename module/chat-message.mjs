@@ -12,13 +12,15 @@ export class ParsCrucisChatMessage extends ChatMessage {
 
     const isWhisper = this.whisper.length;
 
+    console.log("PRINT NO ROLLDATA");
+
     // Construct message data
     const messageData = {
       message: data,
       user: game.user,
       author: this.author,
       alias: this.alias,
-      cardPortrait: this.cardPortrait,
+      cardPortrait: this.flags.imgPath,
       cssClass: [
         this.type === CONST.CHAT_MESSAGE_STYLES.IC ? "ic" : null,
         this.type === CONST.CHAT_MESSAGE_STYLES.EMOTE ? "emote" : null,
@@ -45,6 +47,8 @@ export class ParsCrucisChatMessage extends ChatMessage {
       messageData.borderColor = this.author?.color;
     }
 
+    console.log("CONFIG", CONFIG);
+
     // Render the chat message
     let html = await renderTemplate(CONFIG.ChatMessage.template, messageData);
     html = $(html);
@@ -54,8 +58,6 @@ export class ParsCrucisChatMessage extends ChatMessage {
 
     // Flag expanded state of dice rolls
     if (this._rollExpanded) html.find(".dice-tooltip").addClass("expanded");
-
-    // console.log("PRINT THIS ", this);
 
     /**
      * A hook event that fires for each ChatMessage which is rendered for addition to the ChatLog.
@@ -67,6 +69,10 @@ export class ParsCrucisChatMessage extends ChatMessage {
      * @param {object} data           The input data provided for template rendering
      */
     Hooks.call("renderChatMessage", this, html, messageData);
+
+    // console.log(messageData);
+    // console.log(this);
+    // console.log(data);
 
     return html;
   }

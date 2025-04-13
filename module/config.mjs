@@ -154,9 +154,9 @@ PC.subterfuge = {
 
 PC.knowledge = {
   arcan: "PC.arcan",
-  condu: "PC.condu",
   crono: "PC.crono",
   erudi: "PC.erudi",
+  medic: "PC.medic",
   orien: "PC.orien",
   sobre: "PC.sobre",
 };
@@ -165,9 +165,9 @@ PC.crafts = {
   alqui: "PC.alqui",
   armei: "PC.armei",
   artes: "PC.artes",
+  condu: "PC.condu",
   engen: "PC.engen",
   extra: "PC.extra",
-  medic: "PC.medic",
 };
 
 PC.socials = {

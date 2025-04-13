@@ -132,9 +132,9 @@
             "modifiers": 0
           },
           "esgri": {
-            "attribute": "fis",
+            "attribute": "ref",
             "group": "physical",
-            "growth": 2,
+            "growth": 1,
             "aprendizado": "",
             "favor": false,
             "modifiers": 0
@@ -142,7 +142,7 @@
           "hasta": {
             "attribute": "ref",
             "group": "physical",
-            "growth": 2,
+            "growth": 1,
             "aprendizado": "",
             "favor": false,
             "modifiers": 0
@@ -175,7 +175,7 @@
           "arque": {
             "attribute": "ref",
             "group": "subterfuge",
-            "growth": 1,
+            "growth": 2,
             "aprendizado": "",
             "favor": false,
             "modifiers": 0
@@ -183,7 +183,7 @@
           "balis": {
             "attribute": "ref",
             "group": "subterfuge",
-            "growth": 1,
+            "growth": 2,
             "aprendizado": "",
             "favor": false,
             "modifiers": 0
@@ -221,14 +221,6 @@
             "favor": false,
             "modifiers": 0
           },
-          "condu": {
-            "attribute": "fis",
-            "group": "knowledge",
-            "growth": 1,
-            "aprendizado": "",
-            "favor": false,
-            "modifiers": 0
-          },
           "crono": {
             "attribute": "cog",
             "group": "knowledge",
@@ -238,6 +230,14 @@
             "modifiers": 0
           },
           "erudi": {
+            "attribute": "cog",
+            "group": "knowledge",
+            "growth": 1,
+            "aprendizado": "",
+            "favor": false,
+            "modifiers": 0
+          },
+          "medic": {
             "attribute": "cog",
             "group": "knowledge",
             "growth": 1,
@@ -286,6 +286,14 @@
             "favor": false,
             "modifiers": 0
           },
+          "condu": {
+            "attribute": "fis",
+            "group": "craft",
+            "growth": 1,
+            "aprendizado": "",
+            "favor": false,
+            "modifiers": 0
+          },
           "engen": {
             "attribute": "cog",
             "group": "craft",
@@ -296,14 +304,6 @@
           },
           "extra": {
             "attribute": "fis",
-            "group": "craft",
-            "growth": 1,
-            "aprendizado": "",
-            "favor": false,
-            "modifiers": 0
-          },
-          "medic": {
-            "attribute": "cog",
             "group": "craft",
             "growth": 1,
             "aprendizado": "",

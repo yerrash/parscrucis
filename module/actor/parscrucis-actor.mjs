@@ -203,8 +203,14 @@ export class ParsCrucisActor extends Actor {
         att.shortLabel = game.i18n.localize(PC.def) ?? key;
         if (actorType == "persona") {
           const combatSkillValue = Math.max(...combatSkillsPlusModifiers);
-          const attBaseValue =
-            RACIALS[race].attributes.def + combatSkillValue + (att.config || 0);
+
+          const reflex = attributesData.ref;
+          console.log(reflex);
+          const defBase = RACIALS[race].attributes.def + (att.config || 0);
+          const attCombatDefValue = defBase + combatSkillValue;
+          const attRefDefValue =
+            defBase + reflex.value + reflex.modifiers + (reflex.config || 0);
+          const attBaseValue = Math.max(attCombatDefValue, attRefDefValue);
           attBaseValue >= 0
             ? (att.autoValue = attBaseValue)
             : (att.autoValue = 0);
@@ -474,18 +480,6 @@ export class ParsCrucisActor extends Actor {
         }
       }
     }
-  }
-
-  constructRollCard(template, title, subtitle) {
-    return {
-      title: title,
-      subtitle: subtitle,
-      template,
-      speaker: {
-        alias: this.name,
-        portrait: this.img,
-      },
-    };
   }
 
   /**

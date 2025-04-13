@@ -39,7 +39,7 @@ export const RACIALS = {
     attributes: {
       fis: 0,
       ref: 0,
-      ego: 1,
+      ego: 2,
       cog: 0,
       esp: 0,
       movement: 3,
