@@ -35,7 +35,7 @@ export class ParsCrucisItem extends Item {
 
     // console.log("DADOS DO ATOR AQUI!", actorData);
     // console.log("DADOS DO ITEM AQUI!", systemData);
-    console.log(this);
+    // console.log(this);
   }
 
   // _prepareAbilityData(systemData) {

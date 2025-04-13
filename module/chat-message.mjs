@@ -12,6 +12,8 @@ export class ParsCrucisChatMessage extends ChatMessage {
 
     const isWhisper = this.whisper.length;
 
+    console.log("PRINT NO ROLLDATA");
+
     // Construct message data
     const messageData = {
       message: data,
@@ -44,6 +46,8 @@ export class ParsCrucisChatMessage extends ChatMessage {
     if (this.type === CONST.CHAT_MESSAGE_STYLES.OOC) {
       messageData.borderColor = this.author?.color;
     }
+
+    console.log("CONFIG", CONFIG);
 
     // Render the chat message
     let html = await renderTemplate(CONFIG.ChatMessage.template, messageData);
