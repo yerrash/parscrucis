@@ -263,6 +263,7 @@ p {
 .parscrucis-actor-sheet .superior .stats-window .left-window .racial input {
   padding: 0;
   height: 18px;
+  line-height: 18px;
   font-size: 14px;
   flex-grow: 1;
   margin: -1px 2px 1px 0;
@@ -1272,6 +1273,7 @@ p {
 .chat-item-header .item-card-title {
   width: calc(100% - 24px);
   line-height: 25px;
+  font-size: 24px;
   font-family: "JMHArkham";
 }
 .chat-item-header .item-card-title div {
@@ -1402,6 +1404,7 @@ p {
 .parscrucis-item-sheet .superior .item-header-right .item-header-upper input,
 .parscrucis-item-sheet .superior .item-header-right .item-header-upper .weapon-type {
   height: 18px;
+  line-height: 18px;
   font-size: 14px;
   flex-grow: 1;
   margin: -1px 2px 1px 0;
@@ -1762,7 +1765,17 @@ p {
 }
 .actors-sidebar .directory-item img,
 .items-sidebar .directory-item img {
-  height: 48px;
+  height: 24px;
+  width: 48px;
+}
+.actors-sidebar .directory-item .entry,
+.items-sidebar .directory-item .entry {
+  height: 24px;
+}
+.actors-sidebar .directory-item .entry .entry-name,
+.items-sidebar .directory-item .entry .entry-name {
+  height: 24px;
+  line-height: 24px;
 }
 .actors-sidebar .directory-item .document-name,
 .items-sidebar .directory-item .document-name {

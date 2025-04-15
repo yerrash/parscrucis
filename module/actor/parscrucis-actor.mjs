@@ -203,7 +203,6 @@ export class ParsCrucisActor extends Actor {
         att.shortLabel = game.i18n.localize(PC.def) ?? key;
         if (actorType == "persona") {
           const combatSkillValue = Math.max(...combatSkillsPlusModifiers);
-
           const reflex = attributesData.ref;
           console.log(reflex);
           const defBase = RACIALS[race].attributes.def + (att.config || 0);
