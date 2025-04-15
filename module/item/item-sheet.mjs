@@ -1,6 +1,7 @@
 import { ActionSchema } from "./item-schema.mjs";
 
-export default class ParsCrucisItemSheet extends ItemSheet {
+export default class ParsCrucisItemSheet extends foundry.appv1.sheets
+  .ItemSheet {
   /** @override */
   static get defaultOptions() {
     return foundry.utils.mergeObject(super.defaultOptions, {

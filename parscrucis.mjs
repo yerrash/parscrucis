@@ -1,6 +1,5 @@
 // Pars Crucis
 import { PC } from "./module/config.mjs";
-import { ParsCrucisChatMessage } from "./module/chat-message.mjs";
 import ParsCrucisActorSheet from "./module/actor/actor-sheet.mjs";
 import ActorConfigure from "./module/apps/actor-configs.mjs";
 import ParsCrucisItemSheet from "./module/item/item-sheet.mjs";
@@ -44,7 +43,6 @@ Hooks.once("init", function () {
   game.parscrucis = {
     ActorConfigure,
     ParsCrucisActorSheet,
-    ParsCrucisChatMessage,
     ParsCrucisItemSheet,
   };
 
@@ -63,7 +61,6 @@ Hooks.once("init", function () {
   // Define custom Document classes
   CONFIG.Actor.documentClass = ParsCrucisActor;
   CONFIG.Item.documentClass = ParsCrucisItem;
-  CONFIG.ChatMessage.documentClass = ParsCrucisChatMessage;
 
   // Assign custom DataModels
   CONFIG.Item.dataModels.weapon = WeaponSchema;
@@ -75,7 +72,6 @@ Hooks.once("init", function () {
     makeDefault: true,
   });
 
-  Actors.unregisterSheet("core", ActorSheet);
   Actors.registerSheet("parscrucis", ParsCrucisActorSheet, {
     makeDefault: true,
   });
